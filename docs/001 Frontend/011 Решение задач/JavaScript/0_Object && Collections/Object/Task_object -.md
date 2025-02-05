@@ -39,7 +39,8 @@ const data = {
 };
 ```
 
-**Ответ
+<details>
+  <summary>Нажмите, чтобы увидеть код</summary>
 
 ```js
 const data = {
@@ -110,6 +111,8 @@ const transformCities = (data) => {
 }
 
 ```
+
+</details>
 
 ___
 
