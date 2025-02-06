@@ -1,5 +1,5 @@
 ---
-title: Task_others - TDZ
+title: TDZ
 draft: false
 tags:
   - "#JavaScript"

@@ -1,5 +1,5 @@
 ---
-title: Task_others - arr.push()
+title: arr.push()
 draft: false
 tags:
   - "#JavaScript"
@@ -13,14 +13,9 @@ arr.push(1);
 arr.push(5); 
 arr.push(2); 
 
-alert( Math.max.apply(null, arr) );
+alert(Math.max.apply(null, arr)); //
 ```
 
-**Ответ
-
-```js
-
-```
 
 ___
 

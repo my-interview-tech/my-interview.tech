@@ -16,12 +16,6 @@ var a = 10 function fn() {
 console.log(fn())
 ```
 
-**Ответ
-
-```js
-
-```
-
 ___
 
 [[011 Решение задач JS, TS и React|Назад]]

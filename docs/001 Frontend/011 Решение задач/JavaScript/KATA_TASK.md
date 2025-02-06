@@ -12,32 +12,32 @@ tags:
   - "#currying"
   - "#recursion"
 ---
-* [[Task_array - sortBy()_1|Array - foo()]] // **~50мин.**
+* [[Task_array - _4 sortByFrequencyWithOrder()|Array - foo()]] // **~50мин.**
   
-* [[Task_object - flatten()_1|Object - Flatten()]] // <5мин.
+* [[Task_object - _4 flattenNestedArray()|Object - Flatten()]] // <5мин.
   
-* [[Task_string - removeDupes()_1|Object - removeDupes()]] // ~10мин.
+* [[Task_string - _3 removeDupes()|Object - removeDupes()]] // ~10мин.
   
-* [[Task_anagram - allAnagrams()_1|Anagram - allAnagrams()]] // **~50мин.**
+* [[Task_anagram - _4 allAnagrams()|Anagram - allAnagrams()]] // **~50мин.**
   
-* [[Task_string - isBalanced()_1|String - isBalanced() ]] // **>60мин.**
+* [[Task_string - _7 isBalanced()|String - isBalanced() ]] // **>60мин.**
   
-* [[Task_memo - memo()-2_1|Memo - memo()]] // ~20мин.
+* [[Task_memo - _8 memoFn()|memoFn()]]// ~20мин.
   
-* [[Task_object - optionalChaining_1|Object - optionalChaining()]] // **~2ч.**
+* [[Task_object - _4 optionalChaining()|Object - optionalChaining()]] // **~2ч.**
   
-* [[Task_currying - add()_1|Currying - add()]] // **~2ч.**
+* [[Task_currying - _4 add()|Currying - add()]] // **~2ч.**
   
-* [[Task_object - sumAge()_1|Object - sumAge()]] // ~30мин.
+* [[Task_object - _6 calculateTotalNestedAge()|Object - sumAge()]] // ~30мин.
   
-* [[Task_array - bancomat()_1|Array - bancomat()]] // ~15мин.
+* [[Task_array - _3 calculateBanknotes()|Array - bancomat()]] // ~15мин.
 
-* [[Task_object - sumTree()__1|Object - sumTree()]] // **~50мин.**
+* [[Task_object - _6 sumTreeValuesIteratively()|Object - sumTree()]] // **~50мин.**
 
-* [[Task_object - groupByGender()_1|Object - groupByGender()]] // ~30мин.
+* [[Task_object - _3 groupUsersByGender()|Object - groupByGender()]] // ~30мин.
 
-* [[Task_array - calculate()_1|Array - calculate()]] // ~10мин.
+* [[Task_array - _2 sumPositiveEvenNumbers()|Array - calculate()]] // ~10мин.
   
-* [[Task_recursion - sumOfDigits()_1|Recursion - sumOfDigits()]] // ~10мин.
+* [[Task_recursion - _3 sumOfDigits()|Recursion - sumOfDigits()]] // ~10мин.
   
-* [[Task_object - flattenObj()_1|Object - flattenObj()]] // **~1ч.**
+* [[Task_object - _5 flattenObj()|Object - flattenObj()]] // **~1ч.**
