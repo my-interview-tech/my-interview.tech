@@ -4,7 +4,6 @@ draft: false
 tags:
   - TypeScript
 ---
-
 ### 1 Что требуется для ввода числа countWheels в коде приведенном ниже?
 
 ~~~ts

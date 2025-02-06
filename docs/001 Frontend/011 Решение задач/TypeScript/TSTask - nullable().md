@@ -19,14 +19,6 @@ const nullableObj = {
 }
 ```
 
-**Ответ
-
-```ts
-type Nullable<T> = {  
-    [P in keyof T]: T[P] | null;
-};
-```
-
 ____
 
 [[011 Решение задач JS, TS и React|Назад]]
