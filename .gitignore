@@ -1,4 +1,7 @@
+
 /node_modules/
 /public/
 /quartz/.quartz-cache/
 /docs/.obsidian/
+
+**/.DS_Store
