@@ -1,28 +1,61 @@
 ---
 title: Как ограничить максимальное количество обработчиков для события в EventEmitter
-draft: true
-tags: NodeJS
+draft: false
+tags:
+  - "#NodeJS"
+  - "#EventEmitter"
+  - "#события"
+  - "#обработчики"
+  - "#ограничения"
+  - "#производительность"
 info:
+  - "[Документация Node.js по EventEmitter](https://nodejs.org/api/events.html)"
+  - "[Руководство по setMaxListeners](https://nodejs.org/api/events.html#emittersetmaxlistenersn)"
+  - "[Обработка событий в Node.js](https://nodejs.dev/learn/the-nodejs-event-emitter)"
 ---
+
 В Node.js объект `EventEmitter` позволяет ограничить максимальное количество обработчиков для каждого события с помощью метода **`setMaxListeners()`**. По умолчанию `EventEmitter` позволяет добавлять до 10 слушателей для одного события, после чего выводится предупреждение. Метод `setMaxListeners()` позволяет изменить это значение.
 
 ### Синтаксис:
 
-javascript
-
-КопироватьРедактировать
-
-`emitter.setMaxListeners(n);`
+```javascript
+emitter.setMaxListeners(n)
+```
 
 - **`n`** — максимальное количество обработчиков, которое можно добавить для каждого события. Если количество обработчиков превышает это значение, будет выведено предупреждение в консоль.
 
 ### Пример:
 
-javascript
+```javascript
+const EventEmitter = require("events")
+const emitter = new EventEmitter()
 
-КопироватьРедактировать
+// Устанавливаем максимальное количество обработчиков для событий равным 5
+emitter.setMaxListeners(5)
 
-`const EventEmitter = require('events'); const emitter = new EventEmitter();  // Устанавливаем максимальное количество обработчиков для событий равным 5 emitter.setMaxListeners(5);  // Добавляем 6 обработчиков для события 'event' emitter.on('event', () => {   console.log('Обработчик 1'); }); emitter.on('event', () => {   console.log('Обработчик 2'); }); emitter.on('event', () => {   console.log('Обработчик 3'); }); emitter.on('event', () => {   console.log('Обработчик 4'); }); emitter.on('event', () => {   console.log('Обработчик 5'); }); emitter.on('event', () => {   console.log('Обработчик 6'); });  // В консоли будет предупреждение о том, что количество обработчиков превышает предел // (если значение превышает 10, предупреждение не выводится, но обработчики будут добавлены)`
+// Добавляем 6 обработчиков для события 'event'
+emitter.on("event", () => {
+  console.log("Обработчик 1")
+})
+emitter.on("event", () => {
+  console.log("Обработчик 2")
+})
+emitter.on("event", () => {
+  console.log("Обработчик 3")
+})
+emitter.on("event", () => {
+  console.log("Обработчик 4")
+})
+emitter.on("event", () => {
+  console.log("Обработчик 5")
+})
+emitter.on("event", () => {
+  console.log("Обработчик 6")
+})
+
+// В консоли будет предупреждение о том, что количество обработчиков превышает предел
+// (если значение превышает 10, предупреждение не выводится, но обработчики будут добавлены)
+```
 
 ### Изменение количества для одного события:
 
@@ -30,22 +63,42 @@ javascript
 
 #### Пример для конкретного события:
 
-javascript
+```javascript
+const EventEmitter = require("events")
+const emitter = new EventEmitter()
 
-КопироватьРедактировать
+// Устанавливаем максимальное количество обработчиков для события 'event' равным 3
+emitter.setMaxListeners(3)
 
-`const EventEmitter = require('events'); const emitter = new EventEmitter();  // Устанавливаем максимальное количество обработчиков для события 'event' равным 3 emitter.setMaxListeners(3);  // Добавляем 4 обработчика для события 'event' emitter.on('event', () => {   console.log('Обработчик 1'); }); emitter.on('event', () => {   console.log('Обработчик 2'); }); emitter.on('event', () => {   console.log('Обработчик 3'); }); emitter.on('event', () => {   console.log('Обработчик 4'); });  // В консоли будет предупреждение о том, что количество обработчиков превышает предел`
+// Добавляем 4 обработчика для события 'event'
+emitter.on("event", () => {
+  console.log("Обработчик 1")
+})
+emitter.on("event", () => {
+  console.log("Обработчик 2")
+})
+emitter.on("event", () => {
+  console.log("Обработчик 3")
+})
+emitter.on("event", () => {
+  console.log("Обработчик 4")
+})
+
+// В консоли будет предупреждение о том, что количество обработчиков превышает предел
+```
 
 ### Установка глобального предела:
 
 Если вы хотите, чтобы **все экземпляры** `EventEmitter` имели один общий предел, можно установить его с помощью глобальной настройки:
 
-javascript
+```javascript
+require("events").EventEmitter.defaultMaxListeners = 5
+```
 
-КопироватьРедактировать
-
-`require('events').EventEmitter.defaultMaxListeners = 5;`
-
-### Почему стоит использовать `setMaxListeners()`?
+### Почему стоит использовать `setMaxListeners()`:
 
 Установка лимита на количество слушателей помогает избежать утечек памяти, когда обработчики событий не удаляются должным образом и накапливаются, вызывая ненужные нагрузки на приложение. Это также помогает предупредить ошибочную регистрацию большого количества обработчиков для одного события.
+
+---
+
+[[002 Node.js|Назад]]

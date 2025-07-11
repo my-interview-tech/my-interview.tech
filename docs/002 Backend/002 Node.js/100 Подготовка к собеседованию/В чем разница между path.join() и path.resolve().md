@@ -1,80 +1,116 @@
 ---
 title: В чем разница между path.join() и path.resolve()
-draft: true
-tags: NodeJS
+draft: false
+tags:
+  - "#NodeJS"
+  - "#path"
+  - "#файловая-система"
+  - "#пути"
+  - "#JavaScript"
 info:
+  - "[Документация Node.js по path.join()](https://nodejs.org/api/path.html#pathjoinpaths)"
+  - "[Документация Node.js по path.resolve()](https://nodejs.org/api/path.html#pathresolvepaths)"
 ---
-`path.join()` и `path.resolve()` — это два метода из модуля `path` в Node.js, которые служат для работы с путями. Однако, между ними есть несколько ключевых отличий:
 
-### 1. **`path.join([...paths])`**
+# Разница между path.join() и path.resolve()
 
-- **Основное назначение**: Объединяет несколько частей пути в один.
-- **Особенности**:
-    - Сохраняет относительность путей. Если в пути указаны относительные части, результат будет относительным путем.
-    - Параметры могут быть как абсолютными, так и относительными.
-    - Путь нормализуется, то есть лишние слэши (`//`) или двойные точки (`../`) устраняются.
+`path.join()` и `path.resolve()` — это два метода из модуля `path` в Node.js, которые служат для работы с путями к файлам и директориям. Несмотря на схожее назначение, они имеют принципиальные отличия в поведении.
 
-**Пример**:
+## path.join([...paths])
 
-js
+**path.join()** объединяет несколько частей пути в один, используя разделитель, специфичный для операционной системы.
 
-КопироватьРедактировать
+### Особенности:
 
-`const path = require('path'); const joinedPath = path.join('folder', 'subfolder', 'file.txt'); console.log(joinedPath); // 'folder/subfolder/file.txt'`
+- Сохраняет относительность путей (результат может быть относительным путем)
+- Просто соединяет части пути, нормализуя результат
+- Устраняет лишние слэши и обрабатывает `..` и `.`
+- Не преобразует относительные пути в абсолютные
 
-Если один из путей абсолютный:
+### Примеры:
 
-js
+```javascript
+const path = require("path")
 
-КопироватьРедактировать
+// Базовый пример
+const joinedPath = path.join("folder", "subfolder", "file.txt")
+console.log(joinedPath)
+// Вывод: 'folder/subfolder/file.txt'
 
-`const path = require('path'); const joinedPath = path.join('/folder', 'subfolder', 'file.txt'); console.log(joinedPath); // '/folder/subfolder/file.txt'`
+// С абсолютным путем
+const absoluteJoinedPath = path.join("/folder", "subfolder", "file.txt")
+console.log(absoluteJoinedPath)
+// Вывод: '/folder/subfolder/file.txt'
 
-### 2. **`path.resolve([...paths])`**
+// С навигационными элементами
+console.log(path.join("folder", "..", "another", "file.txt"))
+// Вывод: 'another/file.txt'
+```
 
-- **Основное назначение**: Создает абсолютный путь, разрешая относительные пути относительно текущей рабочей директории или указанного базового пути.
-- **Особенности**:
-    - Если хотя бы один путь является абсолютным, то все предыдущие пути игнорируются, и результат будет относиться к этому абсолютному пути.
-    - Если все переданные пути относительные, то результат будет относительным путем, разрешенным от текущей рабочей директории.
-    - Результат всегда является абсолютным путем, если в нем используются хотя бы один абсолютный путь или если путь начинается с корня.
+## path.resolve([...paths])
 
-**Пример**:
+**path.resolve()** создает абсолютный путь, разрешая относительные пути относительно текущей рабочей директории.
 
-js
+### Особенности:
 
-КопироватьРедактировать
+- Всегда возвращает абсолютный путь (если не произошло ошибки)
+- Работает похоже на последовательность команд `cd` в терминале
+- Обрабатывает пути справа налево до нахождения абсолютного пути
+- Если абсолютный путь не найден, использует текущую рабочую директорию
 
-`const path = require('path'); const resolvedPath = path.resolve('folder', 'subfolder', 'file.txt'); console.log(resolvedPath); // Пример на Unix: '/Users/username/folder/subfolder/file.txt' (в зависимости от текущей директории)`
+### Примеры:
 
-Если один из путей абсолютный:
+```javascript
+const path = require("path")
 
-js
+// С относительными путями
+const resolvedPath = path.resolve("folder", "subfolder", "file.txt")
+console.log(resolvedPath)
+// Вывод: '/Users/username/current/working/dir/folder/subfolder/file.txt'
 
-КопироватьРедактировать
+// С абсолютным путем (игнорирует предыдущие)
+const absoluteResolvedPath = path.resolve("/base", "folder", "/absolute", "file.txt")
+console.log(absoluteResolvedPath)
+// Вывод: '/absolute/file.txt'
 
-`const path = require('path'); const resolvedPath = path.resolve('/folder', 'subfolder', 'file.txt'); console.log(resolvedPath); // '/folder/subfolder/file.txt'`
+// С навигационными элементами
+console.log(path.resolve("folder", "..", "file.txt"))
+// Вывод: '/Users/username/current/working/dir/file.txt'
+```
 
-### Ключевые различия:
+## Ключевые различия
 
-1. **Абсолютный и относительный путь**:
-    
-    - `path.join()` всегда создает путь относительно текущей директории.
-    - `path.resolve()` всегда создает абсолютный путь, начиная от текущей рабочей директории, если не указан абсолютный путь в аргументах.
-2. **Обработка абсолютных путей**:
-    
-    - В `path.join()`, если один из переданных путей является абсолютным, он будет просто объединен, а не использоваться как базовый.
-    - В `path.resolve()`, если хотя бы один путь абсолютный, все предыдущие части будут игнорироваться, и путь будет построен от этого абсолютного пути.
-3. **Применение в разных ситуациях**:
-    
-    - Используйте `path.join()` для построения путей относительно текущей структуры каталогов.
-    - Используйте `path.resolve()` для получения абсолютного пути, когда нужно гарантировать, что путь является абсолютным, независимо от относительных путей.
+| **Характеристика**     | **path.join()**                         | **path.resolve()**                                |
+| ---------------------- | --------------------------------------- | ------------------------------------------------- |
+| **Результат**          | Может быть относительным или абсолютным | Всегда абсолютный путь                            |
+| **Порядок обработки**  | Просто соединяет пути                   | Обрабатывает справа налево, как `cd` в терминале  |
+| **Абсолютные пути**    | Сохраняет и объединяет с остальными     | Последний абсолютный путь "отменяет" предыдущие   |
+| **Рабочая директория** | Не использует                           | Использует как базовую, если нет абсолютного пути |
 
-### Пример различий:
+## Когда использовать
 
-js
+- **path.join()** — когда нужно просто объединить части путей и сохранить относительность
+- **path.resolve()** — когда нужно получить абсолютный путь к файлу/директории
 
-КопироватьРедактировать
+## Пример различий
 
-`const path = require('path');  console.log(path.join('/folder', 'subfolder', 'file.txt'));  // '/folder/subfolder/file.txt'  console.log(path.resolve('/folder', 'subfolder', 'file.txt'));  // '/folder/subfolder/file.txt'  console.log(path.resolve('folder', 'subfolder', 'file.txt'));  // '/Users/username/folder/subfolder/file.txt' (если текущая директория: /Users/username)`
+```javascript
+const path = require("path")
 
-В этом примере видно, как `path.join()` комбинирует части пути, а `path.resolve()` всегда возвращает абсолютный путь, начиная с корня или текущей рабочей директории.
+// Предположим, текущая директория: /Users/username
+console.log(path.join("/folder", "subfolder", "../file.txt"))
+// Вывод: '/folder/file.txt'
+
+console.log(path.resolve("/folder", "subfolder", "../file.txt"))
+// Вывод: '/folder/file.txt'
+
+console.log(path.join("folder", "subfolder", "../file.txt"))
+// Вывод: 'folder/file.txt'
+
+console.log(path.resolve("folder", "subfolder", "../file.txt"))
+// Вывод: '/Users/username/folder/file.txt'
+```
+
+---
+
+[[002 Node.js|Назад]]

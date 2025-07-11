@@ -1,9 +1,19 @@
 ---
 title: Как получить аргументы командной строки в Node.js-скрипте
-draft: true
-tags: NodeJS
+draft: false
+tags:
+  - "#NodeJS"
+  - "#командная-строка"
+  - "#process"
+  - "#аргументы"
+  - "#yargs"
+  - "#commander"
 info:
+  - "[Документация Node.js по объекту process](https://nodejs.org/api/process.html#process_process_argv)"
+  - "[Работа с аргументами командной строки в Node.js](https://nodejs.org/en/knowledge/command-line/how-to-parse-command-line-arguments/)"
+  - "[Библиотека yargs для работы с аргументами командной строки](https://github.com/yargs/yargs)"
 ---
+
 В **Node.js** вы можете получить аргументы командной строки с помощью объекта **`process.argv`**. Этот объект представляет собой массив, который содержит все аргументы, переданные скрипту при его запуске.
 
 ### Как работает **`process.argv`**?
@@ -18,53 +28,50 @@ info:
 
 Запустим следующий скрипт `example.js`:
 
-javascript
-
-КопироватьРедактировать
-
-`// example.js console.log(process.argv);`
+```javascript
+// example.js
+console.log(process.argv)
+```
 
 Запустив его с аргументами в командной строке:
 
-bash
-
-КопироватьРедактировать
-
-`node example.js arg1 arg2 arg3`
+```bash
+node example.js arg1 arg2 arg3
+```
 
 Вывод будет таким:
 
-bash
-
-КопироватьРедактировать
-
-`[   '/usr/local/bin/node',   '/path/to/your/example.js',   'arg1',   'arg2',   'arg3' ]`
+```bash
+[
+  '/usr/local/bin/node',
+  '/path/to/your/example.js',
+  'arg1',
+  'arg2',
+  'arg3'
+]
+```
 
 ### Пример обработки аргументов:
 
 Вы можете обрабатывать переданные аргументы, например, так:
 
-javascript
-
-КопироватьРедактировать
-
-`// example.js const args = process.argv.slice(2); // Пропускаем первые два элемента (путь к node и скрипту) console.log('Аргументы:', args);`
+```javascript
+// example.js
+const args = process.argv.slice(2) // Пропускаем первые два элемента (путь к node и скрипту)
+console.log("Аргументы:", args)
+```
 
 Запустив скрипт:
 
-bash
-
-КопироватьРедактировать
-
-`node example.js arg1 arg2`
+```bash
+node example.js arg1 arg2
+```
 
 Вывод:
 
-bash
-
-КопироватьРедактировать
-
-`Аргументы: [ 'arg1', 'arg2' ]`
+```bash
+Аргументы: [ 'arg1', 'arg2' ]
+```
 
 ### Работа с флагами и параметрами:
 
@@ -72,27 +79,24 @@ bash
 
 Пример с флагами:
 
-javascript
-
-КопироватьРедактировать
-
-`// example.js const args = process.argv.slice(2); const flag = args.includes('--flag'); console.log('Флаг передан:', flag);`
+```javascript
+// example.js
+const args = process.argv.slice(2)
+const flag = args.includes("--flag")
+console.log("Флаг передан:", flag)
+```
 
 Запустив:
 
-bash
-
-КопироватьРедактировать
-
-`node example.js --flag`
+```bash
+node example.js --flag
+```
 
 Вывод:
 
-bash
-
-КопироватьРедактировать
-
-`Флаг передан: true`
+```bash
+Флаг передан: true
+```
 
 ### Использование библиотеки **`yargs`**:
 
@@ -100,36 +104,41 @@ bash
 
 Установить **`yargs`**:
 
-bash
-
-КопироватьРедактировать
-
-`npm install yargs`
+```bash
+npm install yargs
+```
 
 Пример с **`yargs`**:
 
-javascript
+```javascript
+// example.js
+const yargs = require("yargs")
 
-КопироватьРедактировать
+const argv = yargs.option("name", {
+  alias: "n",
+  description: "Your name",
+  type: "string",
+}).argv
 
-``// example.js const yargs = require('yargs');  const argv = yargs   .option('name', {     alias: 'n',     description: 'Your name',     type: 'string',   })   .argv;  console.log(`Hello, ${argv.name || 'Guest'}!`);``
+console.log(`Hello, ${argv.name || "Guest"}!`)
+```
 
 Запуск:
 
-bash
-
-КопироватьРедактировать
-
-`node example.js --name=John`
+```bash
+node example.js --name=John
+```
 
 Вывод:
 
-bash
-
-КопироватьРедактировать
-
-`Hello, John!`
+```bash
+Hello, John!
+```
 
 ### Заключение:
 
 **`process.argv`** — это стандартный способ для получения аргументов командной строки в Node.js. Если вам нужно больше возможностей для обработки флагов и параметров, рассмотрите использование библиотек, таких как **`yargs`** или **`commander`**.
+
+---
+
+[[002 Node.js|Назад]]

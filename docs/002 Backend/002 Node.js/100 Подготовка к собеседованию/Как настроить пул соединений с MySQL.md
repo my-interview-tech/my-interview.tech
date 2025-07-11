@@ -1,38 +1,55 @@
 ---
 title: Как настроить пул соединений с MySQL
-draft: true
-tags: NodeJS
+draft: false
+tags:
+  - "#NodeJS"
+  - "#MySQL"
+  - "#база-данных"
+  - "#пул-соединений"
+  - "#Node.js"
 info:
+  - "[Документация по модулю mysql для Node.js](https://github.com/mysqljs/mysql#pooling-connections)"
+  - "[Руководство по работе с MySQL в Node.js](https://www.npmjs.com/package/mysql)"
+  - "[Официальная документация MySQL](https://dev.mysql.com/doc/)"
 ---
+
 Использование пула соединений (`mysql.createPool()`) позволяет **эффективно управлять соединениями**, повторно использовать их и улучшить производительность приложения.
 
 ---
 
 ### **1. Установка библиотеки**
 
-bash
-
-КопироватьРедактировать
-
-`npm install mysql`
+```bash
+npm install mysql
+```
 
 ---
 
 ### **2. Создание пула соединений**
 
-js
+```javascript
+const mysql = require("mysql")
 
-КопироватьРедактировать
+const pool = mysql.createPool({
+  host: "localhost",
+  user: "root",
+  password: "password",
+  database: "test_db",
+  connectionLimit: 10, // Максимальное количество соединений в пуле
+  waitForConnections: true, // Ожидать свободное соединение, если пул заполнен
+  queueLimit: 0, // 0 — не ограничивать очередь ожидания
+})
 
-`const mysql = require('mysql');  const pool = mysql.createPool({   host: 'localhost',   user: 'root',   password: 'password',   database: 'test_db',   connectionLimit: 10, // Максимальное количество соединений в пуле   waitForConnections: true, // Ожидать свободное соединение, если пул заполнен   queueLimit: 0 // 0 — не ограничивать очередь ожидания });  module.exports = pool;`
+module.exports = pool
+```
 
 #### **Описание параметров:**
 
-|Параметр|Описание|
-|---|---|
-|`connectionLimit`|Максимальное количество соединений в пуле.|
-|`waitForConnections`|Если `true`, запросы будут ждать освобождения соединения.|
-|`queueLimit`|Максимальная длина очереди запросов (0 — неограниченно).|
+| Параметр             | Описание                                                  |
+| -------------------- | --------------------------------------------------------- |
+| `connectionLimit`    | Максимальное количество соединений в пуле.                |
+| `waitForConnections` | Если `true`, запросы будут ждать освобождения соединения. |
+| `queueLimit`         | Максимальная длина очереди запросов (0 — неограниченно).  |
 
 ---
 
@@ -40,11 +57,15 @@ js
 
 #### **Выполнение запроса через пул**
 
-js
-
-КопироватьРедактировать
-
-`pool.query('SELECT * FROM users', (err, results) => {   if (err) {     console.error('Ошибка выполнения запроса:', err.message);     return;   }   console.log('Данные пользователей:', results); });`
+```javascript
+pool.query("SELECT * FROM users", (err, results) => {
+  if (err) {
+    console.error("Ошибка выполнения запроса:", err.message)
+    return
+  }
+  console.log("Данные пользователей:", results)
+})
+```
 
 ---
 
@@ -52,11 +73,25 @@ js
 
 Иногда нужно явно получить соединение, выполнить несколько запросов и освободить его.
 
-js
+```javascript
+pool.getConnection((err, connection) => {
+  if (err) {
+    console.error("Ошибка получения соединения:", err.message)
+    return
+  }
 
-КопироватьРедактировать
+  connection.query("SELECT * FROM users", (err, results) => {
+    connection.release() // Освобождаем соединение обратно в пул
 
-`pool.getConnection((err, connection) => {   if (err) {     console.error('Ошибка получения соединения:', err.message);     return;   }    connection.query('SELECT * FROM users', (err, results) => {     connection.release(); // Освобождаем соединение обратно в пул      if (err) {       console.error('Ошибка запроса:', err.message);       return;     }      console.log('Результат запроса:', results);   }); });`
+    if (err) {
+      console.error("Ошибка запроса:", err.message)
+      return
+    }
+
+    console.log("Результат запроса:", results)
+  })
+})
+```
 
 #### **Важно:**
 
@@ -68,11 +103,15 @@ js
 
 При завершении работы сервера пул можно корректно закрыть:
 
-js
-
-КопироватьРедактировать
-
-`pool.end((err) => {   if (err) {     console.error('Ошибка закрытия пула:', err.message);   } else {     console.log('Пул соединений закрыт');   } });`
+```javascript
+pool.end((err) => {
+  if (err) {
+    console.error("Ошибка закрытия пула:", err.message)
+  } else {
+    console.log("Пул соединений закрыт")
+  }
+})
+```
 
 ---
 
@@ -82,3 +121,7 @@ js
 ✅ Запросы выполняйте через `pool.query()`.  
 ✅ Если берете соединение вручную (`pool.getConnection()`), не забудьте вызвать `connection.release()`.  
 ✅ Закрывайте пул при завершении работы (`pool.end()`).
+
+---
+
+[[002 Node.js|Назад]]

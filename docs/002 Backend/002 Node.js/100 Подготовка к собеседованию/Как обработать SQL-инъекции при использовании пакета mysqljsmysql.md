@@ -1,20 +1,28 @@
 ---
-title: Как обработать SQL-инъекции при использовании пакета mysqljsmysql
-draft: true
-tags: NodeJS
+title: Как обработать SQL-инъекции при использовании пакета mysql
+draft: false
+tags:
+  - "#NodeJS"
+  - "#MySQL"
+  - "#безопасность"
+  - "#SQL-инъекции"
+  - "#база-данных"
+  - "#параметры"
 info:
+  - "[Документация по модулю mysql](https://github.com/mysqljs/mysql#performing-queries)"
+  - "[OWASP о SQL-инъекциях](https://owasp.org/www-community/attacks/SQL_Injection)"
+  - "[Руководство по безопасной работе с базами данных](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)"
 ---
+
 SQL-инъекции возникают, когда данные от пользователя напрямую вставляются в SQL-запрос без экранирования. Чтобы предотвратить это, необходимо использовать **подготовленные запросы (prepared statements)** и **параметризованные запросы**.
 
 ---
 
 ### **1. Установка библиотеки `mysql`**
 
-bash
-
-КопироватьРедактировать
-
-`npm install mysql`
+```bash
+npm install mysql
+```
 
 ---
 
@@ -22,11 +30,14 @@ bash
 
 Этот код уязвим для SQL-инъекций:
 
-js
+```javascript
+const userId = "1 OR 1=1" // Вредоносный ввод
 
-КопироватьРедактировать
-
-``const userId = "1 OR 1=1"; // Вредоносный ввод  connection.query(`SELECT * FROM users WHERE id = ${userId}`, (err, results) => {   if (err) throw err;   console.log(results); });``
+connection.query(`SELECT * FROM users WHERE id = ${userId}`, (err, results) => {
+  if (err) throw err
+  console.log(results)
+})
+```
 
 При таком подходе злоумышленник может передать `1 OR 1=1` и получить **все записи из таблицы**.
 
@@ -34,11 +45,26 @@ js
 
 ### **3. Безопасный способ: Подготовленные запросы (`?` в SQL)**
 
-js
+```javascript
+const mysql = require("mysql")
 
-КопироватьРедактировать
+const connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "password",
+  database: "test_db",
+})
 
-`const mysql = require('mysql');  const connection = mysql.createConnection({   host: 'localhost',   user: 'root',   password: 'password',   database: 'test_db' });  const userId = 1; // Безопасное значение  connection.query('SELECT * FROM users WHERE id = ?', [userId], (err, results) => {   if (err) {     console.error('Ошибка выполнения запроса:', err.message);     return;   }   console.log('Результат:', results); });`
+const userId = 1 // Безопасное значение
+
+connection.query("SELECT * FROM users WHERE id = ?", [userId], (err, results) => {
+  if (err) {
+    console.error("Ошибка выполнения запроса:", err.message)
+    return
+  }
+  console.log("Результат:", results)
+})
+```
 
 #### **Как это работает:**
 
@@ -50,11 +76,21 @@ js
 
 ### **4. Безопасные INSERT, UPDATE и DELETE**
 
-js
+```javascript
+const newUser = { name: "Alice", age: 25 }
 
-КопироватьРедактировать
-
-`const newUser = { name: 'Alice', age: 25 };  connection.query(   'INSERT INTO users (name, age) VALUES (?, ?)',   [newUser.name, newUser.age],   (err, results) => {     if (err) {       console.error('Ошибка вставки:', err.message);       return;     }     console.log('Новая запись добавлена:', results.insertId);   } );`
+connection.query(
+  "INSERT INTO users (name, age) VALUES (?, ?)",
+  [newUser.name, newUser.age],
+  (err, results) => {
+    if (err) {
+      console.error("Ошибка вставки:", err.message)
+      return
+    }
+    console.log("Новая запись добавлена:", results.insertId)
+  },
+)
+```
 
 ---
 
@@ -62,11 +98,12 @@ js
 
 Если невозможно использовать `?`, можно вручную экранировать данные:
 
-js
+```javascript
+const unsafeInput = "O'Reilly"
 
-КопироватьРедактировать
-
-`const unsafeInput = "O'Reilly";   const safeInput = mysql.escape(unsafeInput); console.log(safeInput); // Выведет: 'O\'Reilly'`
+const safeInput = mysql.escape(unsafeInput)
+console.log(safeInput) // Выведет: 'O\'Reilly'
+```
 
 Но **предпочтительнее** использовать подготовленные запросы.
 
@@ -76,11 +113,23 @@ js
 
 При частых запросах лучше использовать пул соединений:
 
-js
+```javascript
+const pool = mysql.createPool({
+  host: "localhost",
+  user: "root",
+  password: "password",
+  database: "test_db",
+  connectionLimit: 10,
+})
 
-КопироватьРедактировать
-
-`const pool = mysql.createPool({   host: 'localhost',   user: 'root',   password: 'password',   database: 'test_db',   connectionLimit: 10 });  pool.query('SELECT * FROM users WHERE id = ?', [userId], (err, results) => {   if (err) {     console.error('Ошибка:', err.message);     return;   }   console.log('Данные пользователя:', results); });`
+pool.query("SELECT * FROM users WHERE id = ?", [userId], (err, results) => {
+  if (err) {
+    console.error("Ошибка:", err.message)
+    return
+  }
+  console.log("Данные пользователя:", results)
+})
+```
 
 ---
 
@@ -90,3 +139,7 @@ js
 ✅ **Никогда не вставляйте данные напрямую в SQL-строку**.  
 ✅ **Для экранирования вручную используйте `mysql.escape()`**, если нужно.  
 ✅ **Используйте пул соединений (`createPool()`) для лучшей производительности**.
+
+---
+
+[[002 Node.js|Назад]]

@@ -1,18 +1,26 @@
 ---
 title: Как проверить является ли путь абсолютным (path.isAbsolute()) и зачем это нужно
-draft: true
-tags: NodeJS
+draft: false
+tags:
+  - "#NodeJS"
+  - "#path"
+  - "#файловая-система"
+  - "#пути"
+  - "#isAbsolute"
+  - "#кроссплатформенность"
 info:
+  - "[Документация Node.js по модулю path](https://nodejs.org/api/path.html)"
+  - "[Документация по path.isAbsolute()](https://nodejs.org/api/path.html#path_path_isabsolute_path)"
+  - "[Работа с путями в Node.js](https://nodejs.dev/learn/nodejs-file-paths)"
 ---
+
 Метод **`path.isAbsolute()`** в Node.js используется для проверки, является ли переданный путь абсолютным. Абсолютный путь — это путь, который начинается от корня файловой системы, например, `/home/user` на Unix-подобных системах или `C:\Users\user` на Windows.
 
 ### Синтаксис:
 
-js
-
-КопироватьРедактировать
-
-`path.isAbsolute(path)`
+```javascript
+path.isAbsolute(path)
+```
 
 - **`path`** — это строка, представляющая путь.
 
@@ -23,25 +31,40 @@ js
 
 ### Пример:
 
-js
+```javascript
+const path = require("path")
 
-КопироватьРедактировать
-
-`const path = require('path');  console.log(path.isAbsolute('/home/user/file.txt'));  // true (абсолютный путь) console.log(path.isAbsolute('folder/file.txt'));      // false (относительный путь) console.log(path.isAbsolute('C:\\Users\\user\\file.txt')); // true (абсолютный путь на Windows)`
+console.log(path.isAbsolute("/home/user/file.txt")) // true (абсолютный путь)
+console.log(path.isAbsolute("folder/file.txt")) // false (относительный путь)
+console.log(path.isAbsolute("C:\\Users\\user\\file.txt")) // true (абсолютный путь на Windows)
+```
 
 ### Зачем это нужно:
 
 1. **Управление путями**: Иногда нужно понимать, является ли путь абсолютным или относительным, чтобы правильно обрабатывать его.
+
 2. **Проверка перед выполнением операций с файлами**: Когда вы работаете с путями и хотите убедиться, что путь всегда является абсолютным перед выполнением операций с файлами (например, чтением или записью), использование `path.isAbsolute()` позволяет избежать ошибок.
+
 3. **Создание универсального кода**: Если ваш код должен работать на разных операционных системах, проверка путей на абсолютность поможет вам правильно обрабатывать пути в кросс-платформенных сценариях.
+
 4. **Преобразование относительных путей в абсолютные**: В случаях, когда путь не абсолютен, можно использовать `path.resolve()` для преобразования относительного пути в абсолютный.
 
 ### Пример применения:
 
-js
+```javascript
+const path = require("path")
 
-КопироватьРедактировать
+let userPath = "folder/file.txt"
 
-`const path = require('path');  let userPath = 'folder/file.txt';  if (!path.isAbsolute(userPath)) {   userPath = path.resolve(userPath);  // Преобразуем в абсолютный путь }  console.log(userPath);`
+if (!path.isAbsolute(userPath)) {
+  userPath = path.resolve(userPath) // Преобразуем в абсолютный путь
+}
+
+console.log(userPath)
+```
 
 В этом примере, если путь относительный, он будет преобразован в абсолютный с помощью `path.resolve()`.
+
+---
+
+[[002 Node.js|Назад]]

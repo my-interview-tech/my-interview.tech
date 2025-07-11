@@ -1,9 +1,18 @@
 ---
 title: Что делает path.normalize()
-draft: true
-tags: NodeJS
+draft: false
+tags:
+  - "#NodeJS"
+  - "#path"
+  - "#файловая-система"
+  - "#нормализация"
+  - "#пути"
 info:
+  - "[Документация по path.normalize в Node.js](https://nodejs.org/api/path.html#pathnormalizepath)"
+  - "[Руководство по работе с путями в Node.js](https://nodejs.org/api/path.html)"
+  - "[Примеры работы с файловой системой](https://nodejs.org/en/learn/manipulating-files/nodejs-file-paths)"
 ---
+
 Метод **`path.normalize()`** в Node.js используется для нормализации пути. Он исправляет путь, удаляя избыточные или лишние элементы, такие как двойные слэши, текущие (`.`) и родительские (`..`) директории.
 
 ### Что делает `path.normalize()`:
@@ -14,11 +23,13 @@ info:
 
 ### Пример использования:
 
-js
+```javascript
+const path = require("path")
 
-КопироватьРедактировать
-
-`const path = require('path');  const normalizedPath = path.normalize('/folder//subfolder/../file.txt'); console.log(normalizedPath);  // '/folder/file.txt'`
+const normalizedPath = path.normalize("/folder//subfolder/../file.txt")
+console.log(normalizedPath)
+// '/folder/file.txt'
+```
 
 ### Как работает:
 
@@ -30,3 +41,7 @@ js
 
 - `path.normalize()` не проверяет существование файла или каталога. Он только приводит путь к каноническому виду.
 - Он полезен для исправления путей, которые могут быть созданы с ошибками (например, при работе с пользовательскими данными или динамически генерируемыми путями).
+
+---
+
+[[002 Node.js|Назад]]

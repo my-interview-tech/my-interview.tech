@@ -1,9 +1,20 @@
 ---
 title: Как организовать авторизацию пользователя при работе с WebSocket
-draft: true
-tags: NodeJS
+draft: false
+tags:
+  - "#NodeJS"
+  - "#WebSocket"
+  - "#авторизация"
+  - "#JWT"
+  - "#безопасность"
+  - "#аутентификация"
 info:
+  - "[Документация библиотеки ws для Node.js](https://github.com/websockets/ws#client-authentication)"
+  - "[JSON Web Tokens (JWT)](https://jwt.io/introduction)"
+  - "[OWASP - WebSockets Security](https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#websockets)"
+  - "[WebSocket API - спецификация](https://developer.mozilla.org/ru/docs/Web/API/WebSockets_API)"
 ---
+
 Организация авторизации пользователя при работе с WebSocket требует некоторых специфичных шагов, поскольку WebSocket не использует стандартный механизм HTTP-заголовков для передачи данных (например, cookies или заголовков авторизации). Вот несколько подходов для авторизации при использовании WebSocket:
 
 ### 1. **Передача токена в момент установления соединения**
@@ -13,33 +24,52 @@ info:
 #### Шаги:
 
 1. **Клиентский код**:
-    - Включите токен в строку запроса WebSocket или передавайте его через заголовок (если используете `ws`-библиотеку, которая поддерживает заголовки в момент установления соединения).
+   - Включите токен в строку запроса WebSocket или передавайте его через заголовок (если используете `ws`-библиотеку, которая поддерживает заголовки в момент установления соединения).
 
 Пример с использованием строки запроса:
 
-js
-
-КопироватьРедактировать
-
-``const token = "your-jwt-token"; // Токен, полученный после авторизации const socket = new WebSocket(`wss://your-server.com/socket?token=${token}`);``
+```javascript
+const token = "your-jwt-token" // Токен, полученный после авторизации
+const socket = new WebSocket(`wss://your-server.com/socket?token=${token}`)
+```
 
 Пример с использованием библиотеки `ws`:
 
-js
-
-КопироватьРедактировать
-
-``const WebSocket = require('ws'); const ws = new WebSocket('wss://your-server.com/socket', {     headers: {         'Authorization': `Bearer ${token}`     } });``
+```javascript
+const WebSocket = require("ws")
+const ws = new WebSocket("wss://your-server.com/socket", {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+})
+```
 
 2. **Серверная сторона (Node.js)**: На сервере нужно будет извлечь токен из строки запроса или заголовка при установлении соединения, и проверить его перед дальнейшей обработкой соединения.
 
 Пример для `ws`:
 
-js
+```javascript
+const WebSocket = require("ws")
+const jwt = require("jsonwebtoken") // Для работы с JWT
 
-КопироватьРедактировать
+const wss = new WebSocket.Server({ port: 8080 })
 
-`const WebSocket = require('ws'); const jwt = require('jsonwebtoken'); // Для работы с JWT  const wss = new WebSocket.Server({ port: 8080 });  wss.on('connection', (ws, req) => {     const token = req.url.split('token=')[1]; // Извлечение токена из URL     if (token) {         try {             const decoded = jwt.verify(token, 'your-secret-key');             console.log('User authorized:', decoded);             // Здесь можно продолжить обработку соединения         } catch (err) {             console.error('Invalid token');             ws.close(); // Закрыть соединение, если токен не валиден         }     } else {         ws.close(); // Закрыть соединение, если токен отсутствует     } });`
+wss.on("connection", (ws, req) => {
+  const token = req.url.split("token=")[1] // Извлечение токена из URL
+  if (token) {
+    try {
+      const decoded = jwt.verify(token, "your-secret-key")
+      console.log("User authorized:", decoded)
+      // Здесь можно продолжить обработку соединения
+    } catch (err) {
+      console.error("Invalid token")
+      ws.close() // Закрыть соединение, если токен не валиден
+    }
+  } else {
+    ws.close() // Закрыть соединение, если токен отсутствует
+  }
+})
+```
 
 **Преимущества:**
 
@@ -60,21 +90,40 @@ js
 
 Пример с клиентом:
 
-js
+```javascript
+const ws = new WebSocket("wss://your-server.com/socket")
 
-КопироватьРедактировать
-
-`const ws = new WebSocket('wss://your-server.com/socket');  ws.onopen = () => {     ws.send(JSON.stringify({ type: 'authenticate', token: 'your-jwt-token' })); };`
+ws.onopen = () => {
+  ws.send(JSON.stringify({ type: "authenticate", token: "your-jwt-token" }))
+}
+```
 
 2. **Серверная сторона**: На сервере вы можете обработать это сообщение и, если токен валиден, продолжить обработку дальнейших сообщений.
 
 Пример на сервере:
 
-js
+```javascript
+const WebSocket = require("ws")
+const jwt = require("jsonwebtoken")
 
-КопироватьРедактировать
+const wss = new WebSocket.Server({ port: 8080 })
 
-`const WebSocket = require('ws'); const jwt = require('jsonwebtoken');  const wss = new WebSocket.Server({ port: 8080 });  wss.on('connection', (ws) => {     ws.on('message', (message) => {         const data = JSON.parse(message);         if (data.type === 'authenticate' && data.token) {             try {                 const decoded = jwt.verify(data.token, 'your-secret-key');                 console.log('User authenticated:', decoded);                 // После аутентификации, сервер может начать обслуживать другие сообщения             } catch (err) {                 console.error('Invalid token');                 ws.close(); // Закрыть соединение, если токен неверен             }         }     }); });`
+wss.on("connection", (ws) => {
+  ws.on("message", (message) => {
+    const data = JSON.parse(message)
+    if (data.type === "authenticate" && data.token) {
+      try {
+        const decoded = jwt.verify(data.token, "your-secret-key")
+        console.log("User authenticated:", decoded)
+        // После аутентификации, сервер может начать обслуживать другие сообщения
+      } catch (err) {
+        console.error("Invalid token")
+        ws.close() // Закрыть соединение, если токен неверен
+      }
+    }
+  })
+})
+```
 
 **Преимущества:**
 
@@ -104,3 +153,7 @@ js
 - **Сессии** — могут использоваться для авторизации, но обычно в связке с другими методами, такими как cookies или дополнительными токенами.
 
 Каждый из этих методов имеет свои преимущества и недостатки, и выбор зависит от потребностей вашего приложения.
+
+---
+
+[[002 Node.js|Назад]]

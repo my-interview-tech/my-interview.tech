@@ -1,10 +1,19 @@
 ---
 title: Как безопасно завершить работу HTTP-сервера в Node.js
-draft: true
-tags: NodeJS
+draft: false
+tags:
+  - "#NodeJS"
+  - "#HTTP"
+  - "#process"
+  - "#server"
+  - "#сигналы"
+  - "#graceful_shutdown"
 info:
+  - https://nodejs.org/api/http.html#serverclose
+  - https://nodejs.org/api/process.html#signal-events
 ---
-Чтобы безопасно завершить работу HTTP-сервера в **Node.js**, важно корректно завершить все активные соединения и выполнить необходимые финальные операции, такие как закрытие базы данных или файловых потоков. Для этого можно обработать сигналы завершения процесса и правильно управлять состоянием сервера.
+
+Чтобы безопасно завершить работу HTTP-сервера в Node.js, важно корректно завершить все активные соединения и выполнить необходимые финальные операции, такие как закрытие базы данных или файловых потоков. Для этого можно обработать сигналы завершения процесса и правильно управлять состоянием сервера.
 
 Вот шаги, которые помогут безопасно завершить HTTP-сервер в Node.js:
 
@@ -22,11 +31,51 @@ info:
 
 ### Пример безопасного завершения HTTP-сервера:
 
-javascript
+```javascript
+const http = require("http")
 
-КопироватьРедактировать
+// Создание HTTP-сервера
+const server = http.createServer((req, res) => {
+  res.end("Hello, world!")
+})
 
-`const http = require('http');  // Создание HTTP-сервера const server = http.createServer((req, res) => {   res.end('Hello, world!'); });  // Запуск сервера server.listen(3000, () => {   console.log('Server is running on port 3000'); });  // Обработка сигнала SIGINT (например, Ctrl+C) process.on('SIGINT', () => {   console.log('Received SIGINT, shutting down gracefully...');      // Остановить сервер от принятия новых соединений   server.close(() => {     console.log('HTTP server stopped accepting new connections.');          // Завершаем все активные соединения     process.exit(0);  // Завершаем процесс с кодом 0 (успех)   });    // Даем время завершить текущие запросы (например, 10 секунд)   setTimeout(() => {     console.log('Force shutdown due to timeout');     process.exit(1);  // Завершаем процесс с кодом 1 (ошибка)   }, 10000); });  // Обработка сигнала SIGTERM (например, при завершении через операционную систему) process.on('SIGTERM', () => {   console.log('Received SIGTERM, shutting down gracefully...');      // Останавливаем сервер, не принимаем новые соединения   server.close(() => {     console.log('HTTP server stopped accepting new connections.');          // Завершаем процесс     process.exit(0);  // Завершаем процесс с кодом 0 (успех)   }); });`
+// Запуск сервера
+server.listen(3000, () => {
+  console.log("Server is running on port 3000")
+})
+
+// Обработка сигнала SIGINT (например, Ctrl+C)
+process.on("SIGINT", () => {
+  console.log("Received SIGINT, shutting down gracefully...")
+
+  // Остановить сервер от принятия новых соединений
+  server.close(() => {
+    console.log("HTTP server stopped accepting new connections.")
+
+    // Завершаем все активные соединения
+    process.exit(0) // Завершаем процесс с кодом 0 (успех)
+  })
+
+  // Даем время завершить текущие запросы (например, 10 секунд)
+  setTimeout(() => {
+    console.log("Force shutdown due to timeout")
+    process.exit(1) // Завершаем процесс с кодом 1 (ошибка)
+  }, 10000)
+})
+
+// Обработка сигнала SIGTERM (например, при завершении через операционную систему)
+process.on("SIGTERM", () => {
+  console.log("Received SIGTERM, shutting down gracefully...")
+
+  // Останавливаем сервер, не принимаем новые соединения
+  server.close(() => {
+    console.log("HTTP server stopped accepting new connections.")
+
+    // Завершаем процесс
+    process.exit(0) // Завершаем процесс с кодом 0 (успех)
+  })
+})
+```
 
 ### Ключевые шаги в коде:
 
@@ -45,4 +94,6 @@ javascript
 - **Дайте достаточно времени для завершения**: Если сервер не завершает соединения в пределах нормального времени, используйте тайм-аут для принудительного завершения.
 - **Отслеживайте открытые соединения**: Убедитесь, что все открытые соединения (например, с базой данных) также закрыты, чтобы избежать утечек ресурсов.
 
-Таким образом, правильное завершение работы HTTP-сервера в Node.js предполагает не только остановку сервера, но и завершение всех активных операций с ресурсами и корректное завершение текущих запросов.
+---
+
+[[002 Node.js|Назад]]

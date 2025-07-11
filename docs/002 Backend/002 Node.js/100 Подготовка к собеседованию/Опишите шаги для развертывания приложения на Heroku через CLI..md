@@ -1,181 +1,133 @@
 ---
 title: Опишите шаги для развертывания приложения на Heroku через CLI.
-draft: true
-tags: NodeJS
+draft: false
+tags:
+  - "#NodeJS"
+  - "#Heroku"
+  - "#CLI"
+  - "#деплой"
+  - "#git"
+  - "#PaaS"
 info:
+  - "[Официальная документация Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)"
+  - "[Руководство по деплою Node.js приложений](https://devcenter.heroku.com/articles/deploying-nodejs)"
+  - "[Переменные окружения в Heroku](https://devcenter.heroku.com/articles/config-vars)"
 ---
+
 Для развертывания Node.js приложения на **Heroku** с использованием командной строки (CLI) выполните следующие шаги:
 
 ### 1. Установите Heroku CLI
 
 - Скачайте и установите Heroku CLI с официального сайта: https://devcenter.heroku.com/articles/heroku-cli.
 - После установки проверьте, что Heroku CLI работает:
-    
-    bash
-    
-    КопироватьРедактировать
-    
-    `heroku --version`
-    
+  ```bash
+  heroku --version
+  ```
 
 ### 2. Войдите в Heroku через CLI
 
 - Авторизуйтесь в Heroku с помощью вашей учетной записи:
-    
-    bash
-    
-    КопироватьРедактировать
-    
-    `heroku login`
-    
+  ```bash
+  heroku login
+  ```
 - Это откроет окно браузера для ввода ваших учетных данных Heroku.
 
 ### 3. Инициализируйте Git репозиторий (если ещё не сделано)
 
 - Перейдите в корневую директорию вашего Node.js проекта.
 - Если ваш проект ещё не находится в Git репозитории, инициализируйте его:
-    
-    bash
-    
-    КопироватьРедактировать
-    
-    `git init`
-    
+  ```bash
+  git init
+  ```
 - Добавьте все файлы в репозиторий:
-    
-    bash
-    
-    КопироватьРедактировать
-    
-    `git add .`
-    
+  ```bash
+  git add .
+  ```
 - Сделайте первый коммит:
-    
-    bash
-    
-    КопироватьРедактировать
-    
-    `git commit -m "Initial commit"`
-    
+  ```bash
+  git commit -m "Initial commit"
+  ```
 
 ### 4. Создайте новое приложение на Heroku
 
 - Создайте приложение на Heroku:
-    
-    bash
-    
-    КопироватьРедактировать
-    
-    `heroku create`
-    
+  ```bash
+  heroku create
+  ```
 - Это создаст приложение с уникальным именем (Heroku сгенерирует имя по умолчанию) и создаст удалённый репозиторий для вашего проекта.
 
 ### 5. Настройте файлы для развертывания
 
 - **Procfile**: Убедитесь, что в вашем проекте есть файл `Procfile`, который сообщает Heroku, как запускать ваше приложение. Для Node.js это обычно выглядит так:
-    
-    makefile
-    
-    КопироватьРедактировать
-    
-    `web: node index.js`
-    
-    (Замените `index.js` на основной файл вашего приложения).
-    
+  ```
+  web: node index.js
+  ```
+  (Замените `index.js` на основной файл вашего приложения).
 - **package.json**: Убедитесь, что ваш `package.json` файл настроен и содержит необходимые зависимости (например, `express` или другие пакеты) и команду для запуска:
-    
-    json
-    
-    КопироватьРедактировать
-    
-    `"scripts": {   "start": "node index.js" }`
-    
+  ```json
+  "scripts": {
+    "start": "node index.js"
+  }
+  ```
 
 ### 6. Подключите удалённый репозиторий Heroku к Git
 
 - Если вы ещё не привязали репозиторий Heroku, выполните команду:
-    
-    bash
-    
-    КопироватьРедактировать
-    
-    `git remote add heroku https://git.heroku.com/your-app-name.git`
-    
-    Замените `your-app-name` на имя вашего приложения на Heroku.
+  ```bash
+  git remote add heroku https://git.heroku.com/your-app-name.git
+  ```
+  Замените `your-app-name` на имя вашего приложения на Heroku.
 
 ### 7. Загрузите код на Heroku
 
 - Отправьте изменения в репозиторий на Heroku:
-    
-    bash
-    
-    КопироватьРедактировать
-    
-    `git push heroku master`
-    
+  ```bash
+  git push heroku master
+  ```
 - Это загрузит ваше приложение на платформу Heroku. В процессе Heroku будет автоматически устанавливать зависимости из `package.json` и запускать приложение.
 
 ### 8. Приложение готово
 
 - После успешного развертывания Heroku предоставит URL для доступа к вашему приложению. Обычно это будет что-то вроде:
-    
-    bash
-    
-    КопироватьРедактировать
-    
-    `https://your-app-name.herokuapp.com`
-    
+  ```
+  https://your-app-name.herokuapp.com
+  ```
 - Вы можете открыть его в браузере:
-    
-    bash
-    
-    КопироватьРедактировать
-    
-    `heroku open`
-    
+  ```bash
+  heroku open
+  ```
 
 ### 9. Логирование приложения
 
 - Чтобы просматривать логи работы приложения, используйте команду:
-    
-    bash
-    
-    КопироватьРедактировать
-    
-    `heroku logs --tail`
-    
+  ```bash
+  heroku logs --tail
+  ```
 - Это поможет вам отслеживать ошибки и предупреждения, происходящие в процессе работы приложения.
 
 ### 10. Настройка переменных окружения (если нужно)
 
 - Если вашему приложению требуются переменные окружения (например, для подключения к базе данных или API), настройте их с помощью команды:
-    
-    bash
-    
-    КопироватьРедактировать
-    
-    `heroku config:set VAR_NAME=value`
-    
+  ```bash
+  heroku config:set VAR_NAME=value
+  ```
 - Например:
-    
-    bash
-    
-    КопироватьРедактировать
-    
-    `heroku config:set DATABASE_URL=mongodb://your-db-url`
-    
+  ```bash
+  heroku config:set DATABASE_URL=mongodb://your-db-url
+  ```
 
 ### 11. Обновление приложения
 
 - Если вам нужно внести изменения в приложение, выполните обновления в коде и отправьте их снова:
-    
-    bash
-    
-    КопироватьРедактировать
-    
-    `git commit -am "Description of changes" git push heroku master`
-    
+  ```bash
+  git commit -am "Description of changes"
+  git push heroku master
+  ```
 
 ### Заключение
 
 Теперь ваше приложение развернуто на Heroku. С помощью этих шагов вы можете легко настроить и обновлять ваше Node.js приложение на платформе Heroku через командную строку.
+
+---
+
+[[002 Node.js|Назад]]

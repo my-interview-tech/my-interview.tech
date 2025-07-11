@@ -1,9 +1,18 @@
 ---
 title: Какой модуль Node.js используется для чтения ввода из командной строки
-draft: true
-tags: NodeJS
+draft: false
+tags:
+  - "#NodeJS"
+  - "#readline"
+  - "#CLI"
+  - "#консоль"
+  - "#интерактивность"
 info:
+  - "[Документация Node.js по readline](https://nodejs.org/api/readline.html)"
+  - "[Руководство по работе с консолью в Node.js](https://nodejs.dev/learn/accept-input-from-the-command-line-in-nodejs)"
+  - "[Альтернативные библиотеки для CLI в Node.js](https://github.com/sindresorhus/awesome-nodejs#command-line-utilities)"
 ---
+
 Для чтения ввода из командной строки в **Node.js** обычно используется модуль **`readline`**. Этот модуль позволяет взаимодействовать с пользователем через стандартный ввод и вывод (например, получать текст, который пользователь вводит в консоль).
 
 ### Основные возможности модуля `readline`:
@@ -14,11 +23,23 @@ info:
 
 ### Пример использования `readline`:
 
-javascript
+```javascript
+const readline = require("readline")
 
-КопироватьРедактировать
+// Создание интерфейса для ввода с консоли
+const rl = readline.createInterface({
+  input: process.stdin, // стандартный ввод (клавиатура)
+  output: process.stdout, // стандартный вывод (консоль)
+})
 
-``const readline = require('readline');  // Создание интерфейса для ввода с консоли const rl = readline.createInterface({   input: process.stdin,  // стандартный ввод (клавиатура)   output: process.stdout // стандартный вывод (консоль) });  // Задаём вопрос пользователю rl.question('Как вас зовут? ', (name) => {   console.log(`Привет, ${name}!`);      // Закрываем интерфейс после получения ответа   rl.close(); });``
+// Задаём вопрос пользователю
+rl.question("Как вас зовут? ", (name) => {
+  console.log(`Привет, ${name}!`)
+
+  // Закрываем интерфейс после получения ответа
+  rl.close()
+})
+```
 
 ### Пояснение:
 
@@ -38,3 +59,7 @@ javascript
 ### Заключение:
 
 Модуль **`readline`** является основным инструментом для работы с вводом и выводом в командной строке в Node.js, обеспечивая удобный интерфейс для реализации интерактивных приложений.
+
+---
+
+[[002 Node.js|Назад]]

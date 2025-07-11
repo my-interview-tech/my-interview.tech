@@ -1,9 +1,18 @@
 ---
 title: Как определить работает ли приложение на Windows используя модуль os
-draft: true
-tags: NodeJS
+draft: false
+tags:
+  - "#NodeJS"
+  - "#os"
+  - "#платформа"
+  - "#Windows"
+  - "#операционная-система"
 info:
+  - "[Документация Node.js по модулю os](https://nodejs.org/api/os.html#os_os_platform)"
+  - "[Определение типа операционной системы в Node.js](https://nodejs.org/api/os.html#os_os_type)"
+  - "[Модуль os - кроссплатформенная работа](https://nodejs.dev/learn/the-nodejs-os-module)"
 ---
+
 Для этого можно использовать метод **`os.platform()`**, который возвращает строку, указывающую на операционную систему, на которой работает Node.js.
 
 ---
@@ -18,11 +27,15 @@ info:
 
 #### **Пример кода**:
 
-js
+```javascript
+const os = require("os")
 
-КопироватьРедактировать
-
-`const os = require('os');  if (os.platform() === 'win32') {   console.log('Приложение работает на Windows'); } else {   console.log('Приложение не работает на Windows'); }`
+if (os.platform() === "win32") {
+  console.log("Приложение работает на Windows")
+} else {
+  console.log("Приложение не работает на Windows")
+}
+```
 
 ---
 
@@ -30,19 +43,15 @@ js
 
 - **Если приложение работает на Windows**:
 
-bash
-
-КопироватьРедактировать
-
-`Приложение работает на Windows`
+```
+Приложение работает на Windows
+```
 
 - **Если приложение работает на Linux или macOS**:
 
-bash
-
-КопироватьРедактировать
-
-`Приложение не работает на Windows`
+```
+Приложение не работает на Windows
+```
 
 ---
 
@@ -52,11 +61,15 @@ bash
 
 #### **Пример использования `os.type()`**:
 
-js
+```javascript
+const os = require("os")
 
-КопироватьРедактировать
-
-`const os = require('os');  if (os.type() === 'Windows_NT') {   console.log('Приложение работает на Windows'); } else {   console.log('Приложение не работает на Windows'); }`
+if (os.type() === "Windows_NT") {
+  console.log("Приложение работает на Windows")
+} else {
+  console.log("Приложение не работает на Windows")
+}
+```
 
 ---
 
@@ -64,3 +77,7 @@ js
 
 - Для определения работы приложения на **Windows** используйте метод **`os.platform()`** и сравнивайте с `'win32'`.
 - Альтернативно можно использовать **`os.type()`**, который возвращает более точное имя операционной системы.
+
+---
+
+[[002 Node.js|Назад]]

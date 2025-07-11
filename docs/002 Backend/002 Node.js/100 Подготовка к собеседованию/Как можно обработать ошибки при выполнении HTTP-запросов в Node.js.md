@@ -1,84 +1,306 @@
 ---
 title: Как можно обработать ошибки при выполнении HTTP-запросов в Node.js
-draft: true
-tags: NodeJS
+draft: false
+tags:
+  - "#NodeJS"
+  - "#HTTP"
+  - "#обработка-ошибок"
+  - "#запросы"
+  - "#axios"
+  - "#async-await"
 info:
+  - "[Документация Node.js по HTTP](https://nodejs.org/api/http.html)"
+  - "[Документация по библиотеке Axios](https://axios-http.com/docs/intro)"
+  - "[Руководство по обработке ошибок в Node.js](https://nodejs.org/en/learn/error-handling/error-handling-best-practices)"
 ---
-В **Node.js** при выполнении **HTTP-запросов** (с использованием модуля `http` или `https`) важно правильно обрабатывать ошибки. Ошибки могут возникать как на уровне соединения (например, проблемы с сетью), так и на уровне ответа от сервера (например, неудачный статус код).
 
-Вот как можно обработать ошибки при выполнении HTTP-запросов:
+При выполнении HTTP-запросов в Node.js важно правильно обрабатывать ошибки, которые могут возникать на разных уровнях: при установке соединения, при передаче данных, или при получении некорректных статус-кодов от сервера.
 
-### 1. Обработка ошибок при запросах с использованием `http` или `https`
+## 1. Обработка ошибок в нативных модулях http/https
 
-#### Пример с использованием модуля `https`:
+### Базовая обработка ошибок с модулем https
 
-javascript
+```javascript
+const https = require("https")
 
-КопироватьРедактировать
+const options = {
+  hostname: "api.example.com",
+  port: 443,
+  path: "/data",
+  method: "GET",
+}
 
-`const https = require('https');  // Определяем параметры запроса const options = {   hostname: 'www.example.com',   port: 443,   path: '/',   method: 'GET' };  const req = https.request(options, (res) => {   let data = '';    // Слушаем данные ответа   res.on('data', (chunk) => {     data += chunk;   });    // Когда все данные получены   res.on('end', () => {     console.log('Response Body:', data);   });    // Обработка ошибок статуса (например, 404 или 500)   res.on('error', (error) => {     console.error('Error while receiving response:', error);   }); });  // Обработка ошибок на уровне соединения (например, проблемы с сетью) req.on('error', (error) => {   console.error('Request failed:', error); });  // Завершаем запрос req.end();`
+const req = https.request(options, (res) => {
+  let data = ""
 
-### Важные моменты:
+  // Обработка поступающих данных
+  res.on("data", (chunk) => {
+    data += chunk
+  })
 
-1. **Ошибка соединения**:
-    
-    - В случае проблем с подключением к серверу (например, если сервер недоступен), ошибка будет вызвана событием `error` на объекте запроса `req`.
-    - Для этого мы добавляем обработчик ошибки через `req.on('error', callback)`.
-2. **Ошибка при получении ответа**:
-    
-    - Даже если соединение было установлено успешно, может быть проблема с самим ответом от сервера (например, сервер вернул статус `404` или `500`).
-    - Для этого можно проверять статус код ответа в колбэк-функции для события `res`. Например, если статус код не равен `200`, можно обработать ошибку, сгенерировав собственное исключение:
-        
-        javascript
-        
-        КопироватьРедактировать
-        
-        ``if (res.statusCode !== 200) {   console.error(`Request failed with status code: ${res.statusCode}`); }``
-        
-3. **Ошибки данных**:
-    
-    - В случае ошибок при получении данных (например, в случае прерывания ответа), используйте событие `error` на объекте ответа `res`:
-        
-        javascript
-        
-        КопироватьРедактировать
-        
-        `res.on('error', (error) => {   console.error('Error while receiving response:', error); });`
-        
+  // Обработка завершения ответа
+  res.on("end", () => {
+    // Проверка статус-кода ответа
+    if (res.statusCode >= 400) {
+      console.error(`Ошибка с HTTP-статусом ${res.statusCode}: ${data}`)
+      return
+    }
 
-### 2. Обработка ошибок с использованием библиотек, таких как `axios` или `node-fetch`
+    try {
+      const parsedData = JSON.parse(data)
+      console.log("Полученные данные:", parsedData)
+    } catch (err) {
+      console.error("Ошибка при парсинге JSON:", err.message)
+    }
+  })
 
-Если вы используете библиотеки, такие как `axios` или `node-fetch`, которые возвращают **Promises**, ошибки можно обрабатывать с помощью `try-catch` или с использованием `.catch()`.
+  // Обработка ошибок на уровне ответа
+  res.on("error", (err) => {
+    console.error("Ошибка при получении ответа:", err.message)
+  })
+})
 
-#### Пример с использованием `axios`:
+// Обработка ошибок на уровне запроса
+req.on("error", (err) => {
+  console.error("Ошибка при выполнении запроса:", err.message)
 
-javascript
+  // Дополнительная обработка в зависимости от типа ошибки
+  if (err.code === "ECONNREFUSED") {
+    console.error("Сервер недоступен или отказывает в соединении")
+  } else if (err.code === "ENOTFOUND") {
+    console.error("Доменное имя не найдено")
+  } else if (err.code === "ETIMEDOUT") {
+    console.error("Превышен таймаут соединения")
+  }
+})
 
-КопироватьРедактировать
+// Обработка таймаута соединения
+req.setTimeout(10000, () => {
+  req.destroy()
+  console.error("Запрос отменен из-за превышения таймаута")
+})
 
-`const axios = require('axios');  axios.get('https://www.example.com')   .then((response) => {     console.log('Response Body:', response.data);   })   .catch((error) => {     console.error('Request failed:', error.message);     if (error.response) {       // Сервер ответил, но статус код не в диапазоне 2xx       console.error('Status Code:', error.response.status);       console.error('Response Body:', error.response.data);     } else if (error.request) {       // Запрос был отправлен, но ответа не получено       console.error('No response received:', error.request);     } else {       // Ошибка при настройке запроса       console.error('Error setting up request:', error.message);     }   });`
+// Завершение отправки запроса
+req.end()
+```
 
-### Объяснение:
+### Ключевые моменты обработки ошибок в нативных модулях
 
-- Если запрос выполнен успешно, будет вызван блок `.then()`, и вы можете обработать ответ.
-- В случае ошибки будет вызван блок `.catch()`, в котором можно различать разные типы ошибок:
-    - `error.response`: ошибка на уровне ответа от сервера (например, статус код 404).
-    - `error.request`: ошибка на уровне отправки запроса (например, сервер не отвечает).
-    - `error.message`: ошибка при настройке запроса.
+1. **Ошибки соединения**: Обрабатываются через событие `error` на объекте запроса.
+2. **Ошибки ответа**: Обрабатываются через событие `error` на объекте ответа и проверку статус-кодов.
+3. **Таймауты**: Обрабатываются через метод `setTimeout` на объекте запроса.
+4. **Ошибки парсинга**: Обрабатываются через блоки try-catch при парсинге данных.
 
-### 3. Использование `try-catch` с `async/await` (для асинхронного кода):
+## 2. Обработка ошибок с использованием axios
 
-Если вы используете **`async/await`**, можно обрабатывать ошибки в `try-catch` блоке.
+Библиотека axios упрощает обработку ошибок при выполнении HTTP-запросов, предоставляя удобный Promise-интерфейс.
 
-#### Пример с использованием `axios` и `async/await`:
+### Подход с использованием .then/.catch
 
-javascript
+```javascript
+const axios = require("axios")
 
-КопироватьРедактировать
+axios
+  .get("https://api.example.com/data")
+  .then((response) => {
+    console.log("Полученные данные:", response.data)
+  })
+  .catch((error) => {
+    if (error.response) {
+      // Сервер ответил с кодом, отличным от 2xx
+      console.error(`Ошибка с кодом ${error.response.status}:`, error.response.data)
+    } else if (error.request) {
+      // Запрос был отправлен, но ответ не был получен
+      console.error("Не получен ответ от сервера:", error.request)
+    } else {
+      // Произошла ошибка при настройке запроса
+      console.error("Ошибка при настройке запроса:", error.message)
+    }
 
-`const axios = require('axios');  async function fetchData() {   try {     const response = await axios.get('https://www.example.com');     console.log('Response Body:', response.data);   } catch (error) {     console.error('Request failed:', error.message);     if (error.response) {       console.error('Status Code:', error.response.status);       console.error('Response Body:', error.response.data);     } else if (error.request) {       console.error('No response received:', error.request);     } else {       console.error('Error setting up request:', error.message);     }   } }  fetchData();`
+    // Дополнительная информация об ошибке
+    if (error.code === "ECONNABORTED") {
+      console.error("Запрос отменен из-за превышения таймаута")
+    }
 
-### Заключение:
+    if (error.config) {
+      console.error("Конфигурация запроса, вызвавшего ошибку:", error.config)
+    }
+  })
+```
 
-- Для обработки ошибок в **низкоуровневых** запросах через модули `http` и `https` нужно использовать обработчики событий `error` как для самого запроса (`req`), так и для ответа (`res`).
-- Если вы используете **Promise-базированные библиотеки** (например, `axios` или `node-fetch`), ошибки можно обрабатывать с помощью `.catch()` или `try-catch` (для `async/await`).
+### Подход с использованием async/await
+
+```javascript
+const axios = require("axios")
+
+async function fetchData() {
+  try {
+    const response = await axios.get("https://api.example.com/data", {
+      timeout: 5000, // Таймаут 5 секунд
+      headers: {
+        Accept: "application/json",
+      },
+    })
+
+    console.log("Полученные данные:", response.data)
+    return response.data
+  } catch (error) {
+    handleAxiosError(error)
+    throw error // Повторно выбрасываем ошибку для обработки на верхнем уровне
+  }
+}
+
+// Выделение обработки ошибок в отдельную функцию
+function handleAxiosError(error) {
+  if (error.response) {
+    // Категоризация ошибок по статус-кодам
+    switch (error.response.status) {
+      case 400:
+        console.error("Ошибка в запросе:", error.response.data)
+        break
+      case 401:
+      case 403:
+        console.error("Ошибка авторизации:", error.response.data)
+        break
+      case 404:
+        console.error("Ресурс не найден:", error.response.config.url)
+        break
+      case 500:
+        console.error("Внутренняя ошибка сервера")
+        break
+      default:
+        console.error(`HTTP ошибка ${error.response.status}:`, error.response.data)
+    }
+  } else if (error.request) {
+    console.error("Не получен ответ от сервера")
+  } else {
+    console.error("Ошибка при настройке запроса:", error.message)
+  }
+}
+
+// Использование функции
+fetchData().catch((err) => {
+  console.error("Ошибка в главном потоке:", err.message)
+})
+```
+
+## 3. Централизованная обработка ошибок в приложении
+
+Для обеспечения последовательной обработки ошибок HTTP в большом приложении, полезно реализовать централизованную систему:
+
+```javascript
+const axios = require("axios")
+
+// Создание экземпляра axios с настроенными параметрами
+const api = axios.create({
+  baseURL: "https://api.example.com",
+  timeout: 10000,
+  headers: {
+    "Content-Type": "application/json",
+  },
+})
+
+// Перехватчик ответов для единообразной обработки ошибок
+api.interceptors.response.use(
+  (response) => response, // Успешный ответ проходит без изменений
+  (error) => {
+    // Логирование ошибки
+    logHttpError(error)
+
+    // Автоматические повторные попытки для временных ошибок
+    if (isRetryableError(error) && error.config && error.config.__retryCount < 3) {
+      error.config.__retryCount = error.config.__retryCount || 0
+      error.config.__retryCount += 1
+
+      // Экспоненциальная задержка между попытками
+      const delay = error.config.__retryCount * 1000
+      return new Promise((resolve) => {
+        setTimeout(() => resolve(api(error.config)), delay)
+      })
+    }
+
+    // Преобразование в стандартизированный формат ошибки для приложения
+    return Promise.reject(normalizeError(error))
+  },
+)
+
+// Проверка, подходит ли ошибка для повторной попытки
+function isRetryableError(error) {
+  return (
+    error.code === "ECONNRESET" ||
+    error.code === "ETIMEDOUT" ||
+    (error.response && (error.response.status === 503 || error.response.status === 429))
+  )
+}
+
+// Логирование ошибок HTTP
+function logHttpError(error) {
+  const logData = {
+    timestamp: new Date().toISOString(),
+    method: error.config?.method?.toUpperCase(),
+    url: error.config?.url,
+    status: error.response?.status,
+    data: error.response?.data,
+    message: error.message,
+  }
+
+  console.error("HTTP Error:", JSON.stringify(logData))
+
+  // Тут может быть код для записи в файл логов или отправки в сервис мониторинга
+}
+
+// Нормализация ошибок для единого формата в приложении
+function normalizeError(error) {
+  const normalized = new Error(error.message || "HTTP Error")
+  normalized.isHttpError = true
+  normalized.status = error.response?.status || 0
+  normalized.data = error.response?.data
+  normalized.originalError = error
+  return normalized
+}
+
+// Пример использования
+async function fetchUsers() {
+  try {
+    return await api.get("/users")
+  } catch (error) {
+    // Обработка уже нормализованной ошибки
+    if (error.isHttpError && error.status === 401) {
+      // Возможно, перенаправление на страницу авторизации
+      console.error("Требуется авторизация")
+    }
+    throw error
+  }
+}
+```
+
+## 4. Рекомендации по обработке ошибок HTTP
+
+1. **Дифференцируйте типы ошибок**:
+
+   - Ошибки сети (не удалось подключиться)
+   - Ошибки HTTP (некорректный статус-код)
+   - Ошибки формата данных (невалидный JSON)
+
+2. **Обрабатывайте таймауты**:
+
+   - Устанавливайте разумные значения таймаутов
+   - Имейте стратегию для повторных попыток
+
+3. **Используйте информативные сообщения об ошибках**:
+
+   - Включайте URL, метод, параметры запроса
+   - Логируйте данные ответа, если они доступны
+
+4. **Реализуйте автоматические повторные попытки**:
+
+   - Для временных ошибок (503, 429)
+   - С экспоненциальной задержкой
+
+5. **Логируйте ошибки для анализа**:
+   - Сохраняйте контекст запроса
+   - Отслеживайте частоту и паттерны ошибок
+
+---
+
+[[002 Node.js|Назад]]

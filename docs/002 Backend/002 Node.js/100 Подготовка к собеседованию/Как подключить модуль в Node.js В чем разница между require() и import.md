@@ -1,9 +1,19 @@
 ---
 title: Как подключить модуль в Node.js В чем разница между require() и import
-draft: true
-tags: NodeJS
+draft: false
+tags:
+  - "#NodeJS"
+  - "#модули"
+  - "#require"
+  - "#import"
+  - "#CommonJS"
+  - "#ESModules"
 info:
+  - "[Документация Node.js по модулям](https://nodejs.org/api/modules.html)"
+  - "[Документация Node.js по ES Modules](https://nodejs.org/api/esm.html)"
+  - "[ECMAScript Modules в Node.js](https://nodejs.org/api/esm.html#introduction)"
 ---
+
 В Node.js модули можно подключать разными способами в зависимости от того, используете ли вы **CommonJS** (старый стиль) или **ES Modules** (новый стиль). Вот основные различия между `require()` и `import` в контексте подключения модулей:
 
 ### 1. **`require()` (CommonJS)**
@@ -12,11 +22,16 @@ info:
 
 **Пример использования:**
 
-javascript
+```javascript
+// Подключение встроенного модуля
+const fs = require("fs")
 
-КопироватьРедактировать
+// Подключение пользовательского модуля
+const myModule = require("./myModule")
 
-`// Подключение встроенного модуля const fs = require('fs');  // Подключение пользовательского модуля const myModule = require('./myModule');  // Использование myModule();`
+// Использование
+myModule()
+```
 
 **Особенности:**
 
@@ -30,11 +45,16 @@ javascript
 
 **Пример использования:**
 
-javascript
+```javascript
+// Подключение встроенного модуля
+import fs from "fs"
 
-КопироватьРедактировать
+// Подключение пользовательского модуля
+import { myFunction } from "./myModule.js"
 
-`// Подключение встроенного модуля import fs from 'fs';  // Подключение пользовательского модуля import { myFunction } from './myModule.js';  // Использование myFunction();`
+// Использование
+myFunction()
+```
 
 **Особенности:**
 
@@ -44,64 +64,73 @@ javascript
 
 ### Основные различия между `require()` и `import`:
 
-|**Характеристика**|**`require()` (CommonJS)**|**`import` (ES Modules)**|
-|---|---|---|
-|**Синтаксис**|`const module = require('module')`|`import module from 'module'`|
-|**Тип модуля**|CommonJS (старый стандарт для Node.js)|ES Modules (современный стандарт ECMAScript)|
-|**Место использования**|Можно использовать в любом месте кода (синхронно)|Только в верхней части файла (модули должны быть статическими)|
-|**Асинхронность**|Синхронный импорт|Асинхронный импорт (можно использовать динамически)|
-|**Поддержка циклических зависимостей**|Может вести себя не всегда корректно при циклических зависимостях|Корректно обрабатывает циклические зависимости|
-|**Подключение файлов**|Подключает файлы с расширением `.js`, `.json`, `.node`|Требует указания расширения `.js` или `.mjs` для файлов|
-|**Поддержка в Node.js**|Работает из коробки|Требуется указание `"type": "module"` в `package.json` или использование `.mjs`|
-|**Экспорт**|`module.exports` или `exports`|`export` или `export default`|
-|**Динамическое подключение**|`require()` можно использовать динамически внутри кода|Динамический импорт через `import()`|
+| **Характеристика**                     | **`require()` (CommonJS)**                                        | **`import` (ES Modules)**                                                       |
+| -------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| **Синтаксис**                          | `const module = require('module')`                                | `import module from 'module'`                                                   |
+| **Тип модуля**                         | CommonJS (старый стандарт для Node.js)                            | ES Modules (современный стандарт ECMAScript)                                    |
+| **Место использования**                | Можно использовать в любом месте кода (синхронно)                 | Только в верхней части файла (модули должны быть статическими)                  |
+| **Асинхронность**                      | Синхронный импорт                                                 | Асинхронный импорт (можно использовать динамически)                             |
+| **Поддержка циклических зависимостей** | Может вести себя не всегда корректно при циклических зависимостях | Корректно обрабатывает циклические зависимости                                  |
+| **Подключение файлов**                 | Подключает файлы с расширением `.js`, `.json`, `.node`            | Требует указания расширения `.js` или `.mjs` для файлов                         |
+| **Поддержка в Node.js**                | Работает из коробки                                               | Требуется указание `"type": "module"` в `package.json` или использование `.mjs` |
+| **Экспорт**                            | `module.exports` или `exports`                                    | `export` или `export default`                                                   |
+| **Динамическое подключение**           | `require()` можно использовать динамически внутри кода            | Динамический импорт через `import()`                                            |
 
 ### Пример: `require()` vs `import` в Node.js
 
 #### Использование `require()`:
 
-javascript
+```javascript
+// commonjsModule.js
+module.exports = function greet() {
+  console.log("Hello from CommonJS")
+}
 
-КопироватьРедактировать
-
-`// commonjsModule.js module.exports = function greet() {   console.log('Hello from CommonJS'); };  // main.js const greet = require('./commonjsModule'); greet();`
+// main.js
+const greet = require("./commonjsModule")
+greet()
+```
 
 #### Использование `import`:
 
-javascript
+```javascript
+// esmModule.js
+export function greet() {
+  console.log("Hello from ES Modules")
+}
 
-КопироватьРедактировать
-
-`// esmModule.js export function greet() {   console.log('Hello from ES Modules'); }  // main.mjs (или main.js с type: module в package.json) import { greet } from './esmModule.js'; greet();`
+// main.mjs (или main.js с type: module в package.json)
+import { greet } from "./esmModule.js"
+greet()
+```
 
 ### Как использовать `import` в Node.js:
 
 Для того чтобы использовать `import` в Node.js, нужно выполнить следующие шаги:
 
 1. Убедитесь, что ваша версия Node.js поддерживает ES Modules (начиная с версии 12).
-    
 2. Используйте расширение `.mjs` для файлов, где используется `import`, или добавьте `"type": "module"` в `package.json` вашего проекта.
-    
-    **Пример:**
-    
-    json
-    
-    КопироватьРедактировать
-    
-    `{   "type": "module" }`
-    
+
+   **Пример:**
+
+   ```json
+   {
+     "type": "module"
+   }
+   ```
+
 3. Используйте синтаксис `import` для подключения модулей.
-    
 
 ### Динамический импорт в `import`:
 
 ES Modules также поддерживают динамический импорт, который можно использовать для асинхронного подключения модулей:
 
-javascript
-
-КопироватьРедактировать
-
-`// Динамический импорт import('./someModule.js').then(module => {   module.someFunction(); });`
+```javascript
+// Динамический импорт
+import("./someModule.js").then((module) => {
+  module.someFunction()
+})
+```
 
 ### Заключение:
 
@@ -109,3 +138,7 @@ javascript
 - **`import`** — это более современный и асинхронный способ работы с модулями в **ES Modules**, который имеет более строгие правила использования и лучше подходит для работы в браузерах и в новых версиях Node.js.
 
 В современном Node.js рекомендуется использовать **ES Modules** с `import` и `export`, так как это соответствует стандарту ECMAScript и будет поддерживаться в будущем. Однако **CommonJS** и `require()` всё ещё широко используются в экосистеме Node.js и могут быть удобными для совместимости с существующими модулями.
+
+---
+
+[[002 Node.js|Назад]]

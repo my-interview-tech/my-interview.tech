@@ -1,9 +1,19 @@
 ---
 title: Почему console.trace() полезен для отладки асинхронного кода
-draft: true
-tags: NodeJS
+draft: false
+tags:
+  - "#NodeJS"
+  - "#console.trace"
+  - "#отладка"
+  - "#дебаггинг"
+  - "#асинхронность"
+  - "#стек-вызовов"
 info:
+  - "[Документация Node.js по console.trace()](https://nodejs.org/api/console.html#consoletracemessage-args)"
+  - "[Руководство по отладке в Node.js](https://nodejs.org/en/docs/guides/debugging-getting-started/)"
+  - "[Лучшие практики отладки асинхронного кода](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch#debugging_promise_errors)"
 ---
+
 **`console.trace()`** полезен для отладки асинхронного кода, потому что он позволяет выводить стек вызовов, который помогает отслеживать, как программа пришла к текущей точке выполнения, и позволяет лучше понимать последовательность выполнения кода, включая асинхронные операции.
 
 Вот почему это полезно:
@@ -14,19 +24,27 @@ info:
 
 Пример:
 
-javascript
+```javascript
+function asyncTask() {
+  console.trace("Tracing asyncTask")
+  setTimeout(() => {
+    console.trace("Inside setTimeout")
+  }, 1000)
+}
 
-КопироватьРедактировать
-
-`function asyncTask() {   console.trace('Tracing asyncTask');   setTimeout(() => {     console.trace('Inside setTimeout');   }, 1000); }  asyncTask();`
+asyncTask()
+```
 
 **Вывод**:
 
-scss
-
-КопироватьРедактировать
-
-`Tracing asyncTask at asyncTask (path/to/your/script.js:3:10) at Object.<anonymous> (path/to/your/script.js:8:1) Inside setTimeout at Timeout._onTimeout (timers.js:442:11) at Timer.processTimers (timers.js:309:10)`
+```
+Tracing asyncTask
+  at asyncTask (path/to/your/script.js:3:10)
+  at Object.<anonymous> (path/to/your/script.js:8:1)
+Inside setTimeout
+  at Timeout._onTimeout (timers.js:442:11)
+  at Timer.processTimers (timers.js:309:10)
+```
 
 В этом примере `console.trace()` помогает увидеть, как вызов асинхронной функции `setTimeout` был отложен и как именно пришли к точке внутри `setTimeout`.
 
@@ -40,19 +58,27 @@ scss
 
 Пример:
 
-javascript
+```javascript
+function asyncFunction() {
+  return new Promise((resolve, reject) => {
+    reject("Something went wrong")
+  })
+}
 
-КопироватьРедактировать
-
-`function asyncFunction() {   return new Promise((resolve, reject) => {     reject('Something went wrong');   }); }  asyncFunction().catch((err) => {   console.trace('Error caught in async function');   console.error(err); });`
+asyncFunction().catch((err) => {
+  console.trace("Error caught in async function")
+  console.error(err)
+})
+```
 
 Вывод при ошибке:
 
-vbnet
-
-КопироватьРедактировать
-
-`Error caught in async function at asyncFunction (path/to/your/script.js:7:10) at Object.<anonymous> (path/to/your/script.js:11:1) Something went wrong`
+```
+Error caught in async function
+  at asyncFunction (path/to/your/script.js:7:10)
+  at Object.<anonymous> (path/to/your/script.js:11:1)
+Something went wrong
+```
 
 Стек вызовов помогает понять, что привело к ошибке и где именно произошел сбой.
 
@@ -67,3 +93,7 @@ vbnet
 ### Заключение:
 
 **`console.trace()`** — это мощный инструмент для отладки, который особенно полезен при работе с асинхронным кодом, поскольку он позволяет отслеживать стек вызовов, видеть порядок выполнения операций и обнаруживать ошибки. Это значительно упрощает понимание работы программы и помогает выявить ошибки в асинхронной логике.
+
+---
+
+[[002 Node.js|Назад]]

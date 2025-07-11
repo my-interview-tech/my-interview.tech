@@ -1,62 +1,239 @@
 ---
 title: Чем отличается exports от module.exports
-draft: true
-tags: NodeJS
+draft: false
+tags:
+  - "#NodeJS"
+  - "#модули"
+  - "#JavaScript"
+  - "#экспорт"
+  - "#CommonJS"
+  - "#модульная-система"
 info:
+  - https://nodejs.org/api/modules.html#modules_exports_shortcut
+  - https://habr.com/ru/articles/273497/
 ---
-В **Node.js** `exports` и `module.exports` оба используются для экспорта функциональности из модуля, но между ними есть важные различия, которые влияют на то, как они работают. Вот основные моменты:
 
-### 1. **Ссылка на один и тот же объект**
+# Различия между exports и module.exports в Node.js
 
-- Когда вы пишете `exports = ...`, это не работает так, как ожидается. Вместо этого создается новая ссылка на объект, и изменения на `exports` не повлияют на `module.exports`. Однако изначально `exports` и `module.exports` ссылаются на один и тот же объект, и можно использовать любой из этих вариантов для добавления свойств в экспортируемый объект.
+В Node.js `exports` и `module.exports` используются для экспорта функциональности из модуля, но между ними есть важные различия, которые необходимо понимать.
 
-**Пример:**
+## Основные отличия
 
-javascript
+### 1. Природа отношений между exports и module.exports
 
-КопироватьРедактировать
+`exports` — это просто **ссылка** (reference) на объект `module.exports`. Когда модуль инициализируется, Node.js устанавливает следующее отношение:
 
-`// Экспорт через module.exports module.exports.greet = function() {   console.log('Hello from module!'); };  // Экспорт через exports (который изначально ссылается на module.exports) exports.sayGoodbye = function() {   console.log('Goodbye!'); };`
+```javascript
+// Это происходит неявно при загрузке модуля
+exports = module.exports = {}
+```
 
-### 2. **Разница при присваивании нового значения**
+Это означает, что изначально оба идентификатора указывают на один и тот же пустой объект.
 
-- **`module.exports`**: Вы можете присвоить новый объект или функцию непосредственно `module.exports`, чтобы экспортировать **единственное значение**, например, объект или функцию. Это предпочтительный способ, если вы хотите экспортировать один элемент.
-    
-- **`exports`**: Это объект, через который вы можете добавлять свойства или функции для экспорта. Однако если вы присваиваете `exports` новое значение, это **не будет влиять на `module.exports`**, так как `exports` и `module.exports` становятся независимыми после присваивания.
-    
+### 2. Присваивание свойств vs. перезапись объекта
 
-**Пример неправильного использования `exports`:**
+#### Добавление свойств работает одинаково
 
-javascript
+```javascript
+// module.js
+exports.method1 = function () {
+  return "Hello from method1"
+}
 
-КопироватьРедактировать
+module.exports.method2 = function () {
+  return "Hello from method2"
+}
+```
 
-`exports = function() {  // Это не повлияет на module.exports   console.log('This will not work'); };`
+```javascript
+// main.js
+const myModule = require("./module")
+console.log(myModule.method1()) // 'Hello from method1'
+console.log(myModule.method2()) // 'Hello from method2'
+```
 
-В этом случае `exports` просто будет указывать на новую функцию, но `module.exports` не изменится, и, следовательно, ничего не будет экспортироваться. Это может привести к неожиданному поведению.
+#### Перезапись объекта работает по-разному
 
-**Правильный пример с `module.exports`:**
+```javascript
+// module_wrong.js
+exports = {
+  method: function () {
+    return "This will NOT be exported"
+  },
+}
+```
 
-javascript
+```javascript
+// module_correct.js
+module.exports = {
+  method: function () {
+    return "This WILL be exported"
+  },
+}
+```
 
-КопироватьРедактировать
+В первом случае (`module_wrong.js`) модуль экспортирует пустой объект, потому что перезапись `exports` не влияет на `module.exports`.
 
-`module.exports = function() {   console.log('This works'); };`
+## Визуальное объяснение
 
-### 3. **Что лучше использовать?**
+### При инициализации модуля:
 
-- Если вы хотите экспортировать **один объект или функцию**, лучше использовать **`module.exports`**. Это поможет избежать путаницы.
-- Если вам нужно экспортировать несколько элементов (например, функции или объекты), используйте **`exports`** для добавления свойств.
+```
+┌─────────────┐                  ┌─────────────┐
+│   exports   │───────refers to──▶│     {}     │
+└─────────────┘                  └─────────────┘
+                                     ▲
+┌─────────────┐                      │
+│module.exports│────────refers to────┘
+└─────────────┘
+```
 
-### Пример с использованием обоих:
+### После добавления свойств:
 
-javascript
+```
+┌─────────────┐                  ┌─────────────────────┐
+│   exports   │───────refers to──▶│ { method1, method2 }│
+└─────────────┘                  └─────────────────────┘
+                                     ▲
+┌─────────────┐                      │
+│module.exports│────────refers to────┘
+└─────────────┘
+```
 
-КопироватьРедактировать
+### После перезаписи exports:
 
-`// module1.js  // Экспорт через module.exports module.exports = function greet() {   console.log('Hello from the module!'); };  // Экспорт через exports (добавление свойств) exports.sayGoodbye = function() {   console.log('Goodbye!'); };`
+```
+┌─────────────┐      ┌─────────────────┐
+│   exports   │─────▶│ { newObject... }│ (не экспортируется)
+└─────────────┘      └─────────────────┘
 
-### Резюме:
+┌─────────────┐      ┌─────────────────────┐
+│module.exports│─────▶│ { method1, method2 }│ (экспортируется)
+└─────────────┘      └─────────────────────┘
+```
 
-- **`module.exports`** — это основной способ экспорта значения. Присваивание нового значения `module.exports` определяет, что будет экспортироваться.
-- **`exports`** — это просто ссылка на `module.exports`, и он удобен для добавления свойств или методов в экспортируемый объект. Но если вы хотите экспортировать **один объект или функцию**, лучше использовать `module.exports`.
+## Правила использования
+
+1. **Для простого добавления свойств** можно использовать и `exports`, и `module.exports`:
+
+```javascript
+exports.prop1 = "value1"
+exports.method1 = function () {
+  /* ... */
+}
+
+// Или
+module.exports.prop2 = "value2"
+module.exports.method2 = function () {
+  /* ... */
+}
+```
+
+2. **Для экспорта единого объекта, функции или класса** всегда используйте `module.exports`:
+
+```javascript
+// Экспорт функции
+module.exports = function () {
+  return "I am a function"
+}
+
+// Экспорт класса
+module.exports = class MyClass {
+  constructor() {
+    this.name = "MyClass"
+  }
+}
+
+// Экспорт объекта
+module.exports = {
+  prop: "value",
+  method: function () {
+    /* ... */
+  },
+}
+```
+
+3. **Возможен смешанный подход**, но он может быть запутанным:
+
+```javascript
+// Добавляем свойства к exports
+exports.prop1 = "value1"
+
+// Затем перезаписываем module.exports
+module.exports = function () {
+  return "I am a function with properties"
+}
+
+// Добавляем свойства к новой функции
+module.exports.additionalProp = "value2"
+```
+
+В этом примере `prop1` будет утеряно, потому что `module.exports` был перезаписан.
+
+## Рекомендации
+
+- **Используйте `module.exports` для единого экспорта** (функция, класс, объект)
+- **Используйте `exports.property`** для экспорта множества отдельных элементов
+- **Избегайте смешивания подходов** в одном модуле для ясности
+- **Никогда не перезаписывайте `exports`** напрямую (`exports = ...`)
+
+## Примеры распространенных шаблонов экспорта
+
+### 1. Экспорт объекта конфигурации:
+
+```javascript
+// config.js
+module.exports = {
+  port: 3000,
+  database: {
+    host: "localhost",
+    name: "mydb",
+    user: "admin",
+    password: "secret",
+  },
+  apiKey: "abc123",
+}
+```
+
+### 2. Экспорт утилит в виде отдельных функций:
+
+```javascript
+// utils.js
+exports.formatDate = function (date) {
+  // Форматирование даты
+}
+
+exports.calculateTax = function (amount) {
+  // Расчет налога
+}
+
+exports.validateEmail = function (email) {
+  // Валидация email
+}
+```
+
+### 3. Экспорт класса:
+
+```javascript
+// user-model.js
+class User {
+  constructor(name, email) {
+    this.name = name
+    this.email = email
+  }
+
+  save() {
+    // Сохранение пользователя
+  }
+
+  static findById(id) {
+    // Поиск пользователя по ID
+  }
+}
+
+module.exports = User
+```
+
+---
+
+[[003 JSCore|Назад]]

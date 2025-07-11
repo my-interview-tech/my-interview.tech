@@ -1,9 +1,19 @@
 ---
 title: Чем отличаются методы http.get() и http.request()
-draft: true
-tags: NodeJS
+draft: false
+tags:
+  - "#NodeJS"
+  - "#http"
+  - "#get"
+  - "#request"
+  - "#сетевые-запросы"
+  - "#HTTP-клиент"
 info:
+  - "[Документация по http.get()](https://nodejs.org/api/http.html#httpgeturl-options-callback)"
+  - "[Документация по http.request()](https://nodejs.org/api/http.html#httprequestoptions-callback)"
+  - "[Руководство по HTTP в Node.js](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/)"
 ---
+
 Методы `http.get()` и `http.request()` в Node.js оба используются для отправки HTTP-запросов, но между ними есть несколько ключевых различий. Рассмотрим их:
 
 ### 1. **`http.get()`**
@@ -15,11 +25,25 @@ info:
 
 #### Пример:
 
-js
+```javascript
+const http = require("http")
 
-КопироватьРедактировать
+http
+  .get("http://example.com", (res) => {
+    let data = ""
 
-`const http = require('http');  http.get('http://example.com', (res) => {     let data = '';          res.on('data', chunk => {         data += chunk;     });      res.on('end', () => {         console.log(data); // Ответ от сервера     }); }).on('error', (err) => {     console.log('Error: ' + err.message); });`
+    res.on("data", (chunk) => {
+      data += chunk
+    })
+
+    res.on("end", () => {
+      console.log(data) // Ответ от сервера
+    })
+  })
+  .on("error", (err) => {
+    console.log("Error: " + err.message)
+  })
+```
 
 ### 2. **`http.request()`**
 
@@ -29,11 +53,37 @@ js
 
 #### Пример:
 
-js
+```javascript
+const http = require("http")
 
-КопироватьРедактировать
+const options = {
+  hostname: "example.com",
+  port: 80,
+  path: "/",
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+  },
+}
 
-`const http = require('http');  const options = {     hostname: 'example.com',     port: 80,     path: '/',     method: 'GET',     headers: {         'Content-Type': 'application/json'     } };  const req = http.request(options, (res) => {     let data = '';      res.on('data', chunk => {         data += chunk;     });      res.on('end', () => {         console.log(data); // Ответ от сервера     }); });  req.on('error', (err) => {     console.log('Error: ' + err.message); });  req.end(); // Завершаем запрос`
+const req = http.request(options, (res) => {
+  let data = ""
+
+  res.on("data", (chunk) => {
+    data += chunk
+  })
+
+  res.on("end", () => {
+    console.log(data) // Ответ от сервера
+  })
+})
+
+req.on("error", (err) => {
+  console.log("Error: " + err.message)
+})
+
+req.end() // Завершаем запрос
+```
 
 ### Основные различия:
 
@@ -45,3 +95,7 @@ js
 
 - **`http.get()`**: Подходит для простых GET-запросов, когда не требуется дополнительная настройка или использование другого HTTP-метода.
 - **`http.request()`**: Используется для более сложных запросов, когда требуется контроль над методами, заголовками или телом запроса.
+
+---
+
+[[002 Node.js|Назад]]

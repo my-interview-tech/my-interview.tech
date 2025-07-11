@@ -1,18 +1,62 @@
 ---
 title: Как обработать POST-запрос и прочитать тело запроса
-draft: true
-tags: NodeJS
+draft: false
+tags:
+  - "#NodeJS"
+  - "#HTTP"
+  - "#запросы"
+  - "#POST"
+  - "#сервер"
+  - "#тело-запроса"
 info:
+  - "[Документация Node.js по модулю http](https://nodejs.org/api/http.html)"
+  - "[Руководство по обработке запросов в Node.js](https://nodejs.dev/learn/get-http-request-body-data-using-nodejs)"
+  - "[HTTP протокол - спецификация](https://developer.mozilla.org/ru/docs/Web/HTTP)"
 ---
-Чтобы обработать POST-запрос и прочитать тело запроса в Node.js, можно использовать модуль `http` и обработать данные через событие `data` и `end` потока запроса. Важно помнить, что тело POST-запроса приходит в виде потока, поэтому его нужно собирать по частям.
+
+Чтобы обработать POST-запрос и прочитать тело запроса в Node.js, можно использовать модуль `http` и обработать данные через события `data` и `end` потока запроса. Важно помнить, что тело POST-запроса приходит в виде потока, поэтому его нужно собирать по частям.
 
 Вот пример кода, который демонстрирует, как это сделать:
 
-js
+```javascript
+const http = require("http")
 
-КопироватьРедактировать
+const server = http.createServer((req, res) => {
+  // Проверяем, что это POST-запрос
+  if (req.method === "POST" && req.url === "/data") {
+    let body = ""
 
-`const http = require('http');  const server = http.createServer((req, res) => {     // Проверяем, что это POST-запрос     if (req.method === 'POST' && req.url === '/data') {         let body = '';          // Событие 'data' собирает части тела запроса         req.on('data', chunk => {             body += chunk;         });          // Событие 'end' вызывается, когда весь запрос прочитан         req.on('end', () => {             // Здесь мы можем обработать полученные данные             console.log('Полученные данные:', body);              // Отправляем ответ с подтверждением получения данных             res.writeHead(200, { 'Content-Type': 'application/json' });             res.end(JSON.stringify({                 message: 'Данные успешно получены',                 receivedData: body             }));         });     } else {         // Обработка других запросов         res.writeHead(404, { 'Content-Type': 'text/plain' });         res.end('Страница не найдена');     } });  // Запуск сервера на порту 3000 server.listen(3000, () => {     console.log('Сервер запущен на порту 3000'); });`
+    // Событие 'data' собирает части тела запроса
+    req.on("data", (chunk) => {
+      body += chunk
+    })
+
+    // Событие 'end' вызывается, когда весь запрос прочитан
+    req.on("end", () => {
+      // Здесь мы можем обработать полученные данные
+      console.log("Полученные данные:", body)
+
+      // Отправляем ответ с подтверждением получения данных
+      res.writeHead(200, { "Content-Type": "application/json" })
+      res.end(
+        JSON.stringify({
+          message: "Данные успешно получены",
+          receivedData: body,
+        }),
+      )
+    })
+  } else {
+    // Обработка других запросов
+    res.writeHead(404, { "Content-Type": "text/plain" })
+    res.end("Страница не найдена")
+  }
+})
+
+// Запуск сервера на порту 3000
+server.listen(3000, () => {
+  console.log("Сервер запущен на порту 3000")
+})
+```
 
 ### Пояснение:
 
@@ -25,30 +69,30 @@ js
 
 1. Сохраните код в файл, например, `server.js`.
 2. Запустите сервер командой:
-    
-    bash
-    
-    КопироватьРедактировать
-    
-    `node server.js`
-    
+
+   ```bash
+   node server.js
+   ```
+
 3. Теперь можно отправить POST-запрос с телом. Например, с использованием `curl`:
-    
-    bash
-    
-    КопироватьРедактировать
-    
-    `curl -X POST -d "name=John&age=30" http://localhost:3000/data`
-    
-    Ответ:
-    
-    json
-    
-    КопироватьРедактировать
-    
-    `{   "message": "Данные успешно получены",   "receivedData": "name=John&age=30" }`
-    
+
+   ```bash
+   curl -X POST -d "name=John&age=30" http://localhost:3000/data
+   ```
+
+   Ответ:
+
+   ```json
+   {
+     "message": "Данные успешно получены",
+     "receivedData": "name=John&age=30"
+   }
+   ```
 
 ### Примечание:
 
 Если тело запроса в POST-запросе приходит в формате JSON, то можно использовать `JSON.parse(body)` для парсинга строки JSON в объект.
+
+---
+
+[[002 Node.js|Назад]]

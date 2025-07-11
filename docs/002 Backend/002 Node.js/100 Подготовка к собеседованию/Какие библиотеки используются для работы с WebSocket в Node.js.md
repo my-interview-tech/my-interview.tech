@@ -1,9 +1,18 @@
 ---
 title: Какие библиотеки используются для работы с WebSocket в Node.js
-draft: true
-tags: NodeJS
+draft: false
+tags:
+  - "#NodeJS"
+  - "#WebSocket"
+  - "#ws"
+  - "#socket.io"
+  - "#realtime"
 info:
+  - "[WebSocket API - MDN](https://developer.mozilla.org/ru/docs/Web/API/WebSocket)"
+  - "[ws npm package](https://www.npmjs.com/package/ws)"
+  - "[socket.io документация](https://socket.io/docs/v4/)"
 ---
+
 В Node.js существует несколько популярных библиотек для работы с WebSocket, которые упрощают создание и управление WebSocket-соединениями. Вот некоторые из них:
 
 ### 1. **`ws`**
@@ -14,11 +23,17 @@ info:
 
 Пример использования:
 
-javascript
+```javascript
+const WebSocket = require("ws")
+const wss = new WebSocket.Server({ port: 8080 })
 
-КопироватьРедактировать
-
-`const WebSocket = require('ws'); const wss = new WebSocket.Server({ port: 8080 });  wss.on('connection', (ws) => {   ws.on('message', (message) => {     console.log('Получено сообщение: %s', message);   });   ws.send('Привет, клиент!'); });`
+wss.on("connection", (ws) => {
+  ws.on("message", (message) => {
+    console.log("Получено сообщение: %s", message)
+  })
+  ws.send("Привет, клиент!")
+})
+```
 
 ### 2. **`socket.io`**
 
@@ -28,11 +43,23 @@ javascript
 
 Пример использования:
 
-javascript
+```javascript
+const socketIo = require("socket.io")
+const http = require("http")
+const server = http.createServer()
+const io = socketIo(server)
 
-КопироватьРедактировать
+io.on("connection", (socket) => {
+  console.log("Клиент подключен")
+  socket.emit("message", "Привет, клиент!")
 
-`const socketIo = require('socket.io'); const http = require('http'); const server = http.createServer(); const io = socketIo(server);  io.on('connection', (socket) => {   console.log('Клиент подключен');   socket.emit('message', 'Привет, клиент!');    socket.on('message', (msg) => {     console.log('Получено сообщение: %s', msg);   }); });  server.listen(3000);`
+  socket.on("message", (msg) => {
+    console.log("Получено сообщение: %s", msg)
+  })
+})
+
+server.listen(3000)
+```
 
 ### 3. **`websocket`**
 
@@ -42,11 +69,32 @@ javascript
 
 Пример использования:
 
-javascript
+```javascript
+const WebSocketServer = require("websocket").server
+const http = require("http")
 
-КопироватьРедактировать
+const server = http.createServer((req, res) => {
+  res.writeHead(404)
+  res.end()
+})
 
-`const WebSocketServer = require('websocket').server; const http = require('http');  const server = http.createServer((req, res) => {   res.writeHead(404);   res.end(); });  server.listen(8080, () => {   console.log('Сервер слушает на порту 8080'); });  const wsServer = new WebSocketServer({   httpServer: server });  wsServer.on('request', (request) => {   const connection = request.accept(null, request.origin);    connection.on('message', (message) => {     console.log('Получено сообщение:', message.utf8Data);     connection.sendUTF('Привет, клиент!');   }); });`
+server.listen(8080, () => {
+  console.log("Сервер слушает на порту 8080")
+})
+
+const wsServer = new WebSocketServer({
+  httpServer: server,
+})
+
+wsServer.on("request", (request) => {
+  const connection = request.accept(null, request.origin)
+
+  connection.on("message", (message) => {
+    console.log("Получено сообщение:", message.utf8Data)
+    connection.sendUTF("Привет, клиент!")
+  })
+})
+```
 
 ### 4. **`uWebSockets.js`**
 
@@ -56,11 +104,22 @@ javascript
 
 Пример использования:
 
-javascript
+```javascript
+const uWS = require("uWebSockets.js")
 
-КопироватьРедактировать
-
-`const uWS = require('uWebSockets.js');  uWS.App().ws('/*', {   message: (ws, message) => {     ws.send('Привет, клиент!');   } }).listen(8080, (token) => {   if (token) {     console.log('Сервер запущен на порту 8080');   } });`
+uWS
+  .App()
+  .ws("/*", {
+    message: (ws, message) => {
+      ws.send("Привет, клиент!")
+    },
+  })
+  .listen(8080, (token) => {
+    if (token) {
+      console.log("Сервер запущен на порту 8080")
+    }
+  })
+```
 
 ### 5. **`sockjs`**
 
@@ -70,11 +129,21 @@ javascript
 
 Пример использования:
 
-javascript
+```javascript
+const sockjs = require("sockjs")
+const http = require("http")
 
-КопироватьРедактировать
+const echo = sockjs.createServer()
+echo.on("connection", (conn) => {
+  conn.on("data", (message) => {
+    conn.write(message)
+  })
+})
 
-`const sockjs = require('sockjs'); const http = require('http');  const echo = sockjs.createServer(); echo.on('connection', (conn) => {   conn.on('data', (message) => {     conn.write(message);   }); });  const server = http.createServer(); echo.installHandlers(server, { prefix: '/echo' }); server.listen(8080);`
+const server = http.createServer()
+echo.installHandlers(server, { prefix: "/echo" })
+server.listen(8080)
+```
 
 ### Резюме:
 
@@ -85,3 +154,7 @@ javascript
 - **`sockjs`** — решение для совместимости с устаревшими браузерами и нестабильными сетями.
 
 Выбор библиотеки зависит от специфики вашего проекта и требований к производительности, совместимости и масштабируемости.
+
+---
+
+[[002 Node.js|Назад]]

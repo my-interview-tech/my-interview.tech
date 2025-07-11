@@ -1,9 +1,20 @@
 ---
-title: Какие типы потоков существуют в Node.js Чем они отличаются
-draft: true
-tags: NodeJS
+title: Какие типы потоков существуют в Node.js и чем они отличаются
+draft: false
+tags:
+  - "#NodeJS"
+  - "#потоки"
+  - "#streams"
+  - "#Readable"
+  - "#Writable"
+  - "#Duplex"
+  - "#Transform"
 info:
+  - "[Документация Node.js по потокам](https://nodejs.org/api/stream.html)"
+  - "[Руководство по использованию потоков в Node.js](https://nodejs.dev/learn/nodejs-streams)"
+  - "[Создание собственных потоков в Node.js](https://nodejs.org/api/stream.html#stream_implementing_a_writable_stream)"
 ---
+
 В Node.js существуют несколько типов потоков, которые используются для обработки данных асинхронно. Потоки (streams) позволяют эффективно обрабатывать данные большого объема, не загружая их в память целиком. В Node.js доступны следующие типы потоков:
 
 ### 1. **Readable (Читаемый поток)**
@@ -71,10 +82,35 @@ info:
 
 ### Пример использования всех типов потоков:
 
-js
+```javascript
+const fs = require("fs")
+const zlib = require("zlib")
 
-КопироватьРедактировать
+// Читаем файл (Readable stream)
+const readable = fs.createReadStream("input.txt")
 
-`const fs = require('fs'); const zlib = require('zlib');  // Читаем файл (Readable stream) const readable = fs.createReadStream('input.txt');  // Создаем поток для сжатия данных (Transform stream) const transform = zlib.createGzip();  // Создаем поток для записи (Writable stream) const writable = fs.createWriteStream('output.txt.gz');  // Чтение, преобразование (сжатие) и запись в один поток readable.pipe(transform).pipe(writable);  // Двухнаправленный поток (например, сокет) const net = require('net'); const socket = new net.Socket(); socket.connect(8080, 'localhost', () => {   socket.write('Hello, server');   socket.on('data', (data) => {     console.log('Received:', data.toString());   }); });`
+// Создаем поток для сжатия данных (Transform stream)
+const transform = zlib.createGzip()
+
+// Создаем поток для записи (Writable stream)
+const writable = fs.createWriteStream("output.txt.gz")
+
+// Чтение, преобразование (сжатие) и запись в один поток
+readable.pipe(transform).pipe(writable)
+
+// Двухнаправленный поток (например, сокет)
+const net = require("net")
+const socket = new net.Socket()
+socket.connect(8080, "localhost", () => {
+  socket.write("Hello, server")
+  socket.on("data", (data) => {
+    console.log("Received:", data.toString())
+  })
+})
+```
 
 Этот пример демонстрирует, как можно использовать различные потоки для чтения, сжатия и записи данных в Node.js.
+
+---
+
+[[002 Node.js|Назад]]

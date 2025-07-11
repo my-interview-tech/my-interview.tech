@@ -1,203 +1,278 @@
 ---
 title: Как использовать разные конфигурации для staging и production
-draft: true
-tags: NodeJS
+draft: false
+tags:
+  - "#NodeJS"
+  - "#конфигурация"
+  - "#production"
+  - "#staging"
+  - "#переменные_окружения"
 info:
+  - https://nodejs.org/dist/latest-v18.x/docs/api/process.html#processenv
+  - https://www.npmjs.com/package/dotenv
+  - https://www.npmjs.com/package/config
 ---
-Для использования разных конфигураций в **staging** (предпродакшн) и **production** (продакшн) средах в Node.js, можно использовать несколько подходов. Основным механизмом управления конфигурациями являются переменные окружения, которые позволяют настраивать различные параметры в зависимости от среды.
 
-Вот как можно реализовать это в Node.js:
+Использование различных конфигураций для разных окружений (staging, production) - важная часть разработки, позволяющая адаптировать поведение приложения в зависимости от среды выполнения. В Node.js есть несколько подходов к организации конфигурации.
 
-### 1. **Использование переменных окружения**
+## 1. Использование переменных окружения
 
-Переменные окружения (например, `NODE_ENV`) позволяют определить, в какой среде работает приложение, и на основе этого загружать соответствующие конфигурации.
+Самый простой и распространенный подход - использование переменных окружения через `process.env`.
 
-#### Шаги:
+### Настройка переменных окружения
 
-1. Установите переменную `NODE_ENV` в нужное значение:
-    
-    - Для **production**:
-        
-        bash
-        
-        КопироватьРедактировать
-        
-        `export NODE_ENV=production`
-        
-    - Для **staging**:
-        
-        bash
-        
-        КопироватьРедактировать
-        
-        `export NODE_ENV=staging`
-        
-2. В коде приложения можно использовать эту переменную для выбора конфигурации:
-    
+```bash
+# Для production
+export NODE_ENV=production
 
-js
+# Для staging
+export NODE_ENV=staging
+```
 
-КопироватьРедактировать
+### Использование в коде
 
-`// config.js  const config = {   development: {     db: 'mongodb://localhost/dev-db',     port: 3000,     logLevel: 'debug',   },   staging: {     db: 'mongodb://localhost/staging-db',     port: 4000,     logLevel: 'info',   },   production: {     db: 'mongodb://prod-db-server/prod-db',     port: 8080,     logLevel: 'error',   }, };  // Выбираем конфигурацию в зависимости от среды const currentConfig = config[process.env.NODE_ENV || 'development'];  module.exports = currentConfig;`
+```javascript
+// config.js
+const config = {
+  development: {
+    db: "mongodb://localhost/dev-db",
+    port: 3000,
+    logLevel: "debug",
+  },
+  staging: {
+    db: "mongodb://localhost/staging-db",
+    port: 4000,
+    logLevel: "info",
+  },
+  production: {
+    db: "mongodb://prod-db-server/prod-db",
+    port: 8080,
+    logLevel: "error",
+  },
+}
 
-1. Использование конфигурации в коде:
+// Выбираем конфигурацию в зависимости от среды
+const currentConfig = config[process.env.NODE_ENV || "development"]
 
-js
+module.exports = currentConfig
+```
 
-КопироватьРедактировать
+Использование конфигурации в приложении:
 
-``const config = require('./config');  console.log(`App running on port: ${config.port}`);``
+```javascript
+const config = require("./config")
+console.log(`Приложение запущено на порту: ${config.port}`)
+```
 
-2. Убедитесь, что в вашей продакшн среде правильно настроены переменные окружения (например, через `.env` файлы или инструменты для управления окружениями, такие как **Docker** или **Kubernetes**).
+## 2. Использование .env файлов с dotenv
 
-### 2. **Использование `.env` файлов (dotenv)**
+Библиотека `dotenv` позволяет хранить настройки в отдельных файлах для разных окружений.
 
-С помощью пакета **dotenv** можно хранить настройки для разных сред в отдельных `.env` файлах. Это позволяет легко переключать конфигурации в разных окружениях.
+### Установка dotenv
 
-#### Шаги:
+```bash
+npm install dotenv
+```
 
-3. Установите пакет **dotenv**:
-    
-    bash
-    
-    КопироватьРедактировать
-    
-    `npm install dotenv`
-    
-4. Создайте файлы конфигурации:
-    
-    - `.env.production`:
-        
-        ini
-        
-        КопироватьРедактировать
-        
-        `DB_URI=mongodb://prod-db-server/prod-db PORT=8080 LOG_LEVEL=error`
-        
-    - `.env.staging`:
-        
-        ini
-        
-        КопироватьРедактировать
-        
-        `DB_URI=mongodb://localhost/staging-db PORT=4000 LOG_LEVEL=info`
-        
-5. В коде загрузите конфигурацию из соответствующего файла в зависимости от среды:
-    
+### Создание файлов конфигурации
 
-js
+#### .env.production
 
-КопироватьРедактировать
+```
+DB_URI=mongodb://prod-db-server/prod-db
+PORT=8080
+LOG_LEVEL=error
+```
 
-``require('dotenv').config({   path: `.env.${process.env.NODE_ENV || 'development'}` });  console.log(`DB URI: ${process.env.DB_URI}`); console.log(`Port: ${process.env.PORT}`); console.log(`Log Level: ${process.env.LOG_LEVEL}`);``
+#### .env.staging
 
-6. При запуске приложения задайте `NODE_ENV`:
-    
-    bash
-    
-    КопироватьРедактировать
-    
-    `NODE_ENV=production node app.js`
-    
-    Для **staging**:
-    
-    bash
-    
-    КопироватьРедактировать
-    
-    `NODE_ENV=staging node app.js`
-    
+```
+DB_URI=mongodb://localhost/staging-db
+PORT=4000
+LOG_LEVEL=info
+```
 
-### 3. **Использование разных конфигурационных файлов**
+### Загрузка конфигурации в коде
 
-Иногда бывает удобно разделить конфигурации по отдельным файлам для разных сред, например, в структуре проекта могут быть файлы, такие как `config.production.js`, `config.staging.js`, и так далее.
+```javascript
+// Загружаем переменные из соответствующего файла
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV || "development"}`,
+})
 
-#### Пример:
+// Теперь переменные доступны через process.env
+console.log(`DB URI: ${process.env.DB_URI}`)
+console.log(`Port: ${process.env.PORT}`)
+console.log(`Log Level: ${process.env.LOG_LEVEL}`)
+```
 
-7. Создайте несколько конфигурационных файлов:
-    
-    - `config/production.js`
-        
-        js
-        
-        КопироватьРедактировать
-        
-        `module.exports = {   db: 'mongodb://prod-db-server/prod-db',   port: 8080,   logLevel: 'error', };`
-        
-    - `config/staging.js`
-        
-        js
-        
-        КопироватьРедактировать
-        
-        `module.exports = {   db: 'mongodb://localhost/staging-db',   port: 4000,   logLevel: 'info', };`
-        
-8. В главном файле `app.js` можно выбрать конфигурацию в зависимости от среды:
-    
+### Запуск приложения с указанием окружения
 
-js
+```bash
+NODE_ENV=production node app.js
+# или
+NODE_ENV=staging node app.js
+```
 
-КопироватьРедактировать
+## 3. Использование отдельных конфигурационных файлов
 
-``const environment = process.env.NODE_ENV || 'development'; const config = require(`./config/${environment}`);  console.log(`App running on port: ${config.port}`);``
+Более структурированный подход - создание отдельных файлов конфигурации для каждого окружения.
 
-9. Важно, чтобы в продакшн-среде была правильно настроена переменная окружения `NODE_ENV` (например, через систему управления хостингом или сервером).
+### Структура файлов
 
-### 4. **Использование сторонних библиотек для конфигурации**
+```
+/config
+  production.js
+  staging.js
+  development.js
+  index.js
+```
 
-Можно также использовать библиотеки, такие как **config**, которые упрощают работу с конфигурациями для разных окружений.
+### Содержимое файлов
 
-10. Установите библиотеку **config**:
-    
-    bash
-    
-    КопироватьРедактировать
-    
-    `npm install config`
-    
-11. Создайте структуру файлов конфигурации:
-    
-    - `config/default.json` (общая конфигурация):
-        
-        json
-        
-        КопироватьРедактировать
-        
-        `{   "db": "mongodb://localhost/dev-db",   "port": 3000,   "logLevel": "debug" }`
-        
-    - `config/production.json` (конфигурация для продакшн):
-        
-        json
-        
-        КопироватьРедактировать
-        
-        `{   "db": "mongodb://prod-db-server/prod-db",   "port": 8080,   "logLevel": "error" }`
-        
-    - `config/staging.json` (конфигурация для staging):
-        
-        json
-        
-        КопироватьРедактировать
-        
-        `{   "db": "mongodb://localhost/staging-db",   "port": 4000,   "logLevel": "info" }`
-        
-12. В коде загрузите конфигурацию с помощью библиотеки:
-    
+#### config/production.js
 
-js
+```javascript
+module.exports = {
+  db: "mongodb://prod-db-server/prod-db",
+  port: 8080,
+  logLevel: "error",
+}
+```
 
-КопироватьРедактировать
+#### config/staging.js
 
-``const config = require('config');  console.log(`App running on port: ${config.get('port')}`);``
+```javascript
+module.exports = {
+  db: "mongodb://localhost/staging-db",
+  port: 4000,
+  logLevel: "info",
+}
+```
 
-### Заключение
+#### config/index.js
 
-Чтобы эффективно использовать разные конфигурации для **staging** и **production** сред, можно использовать следующие подходы:
+```javascript
+const environment = process.env.NODE_ENV || "development"
+const config = require(`./${environment}`)
+module.exports = config
+```
 
-- Управлять конфигурациями через **переменные окружения**.
-- Использовать **dotenv** для загрузки значений из `.env` файлов.
-- Разделять конфигурации по отдельным файлам и выбирать нужные при старте приложения.
-- Применять сторонние библиотеки, такие как **config**, для упрощения работы с конфигурациями.
+### Использование в приложении
 
-Каждый из этих методов позволяет эффективно управлять параметрами, такими как база данных, порты и уровни логирования, для разных сред.
+```javascript
+const config = require("./config")
+console.log(`Приложение запущено на порту: ${config.port}`)
+```
+
+## 4. Использование библиотеки config
+
+Библиотека `config` предлагает более комплексное решение с возможностью иерархических конфигураций.
+
+### Установка
+
+```bash
+npm install config
+```
+
+### Структура файлов
+
+```
+/config
+  default.json
+  production.json
+  staging.json
+```
+
+### Содержимое файлов
+
+#### config/default.json (общие настройки)
+
+```json
+{
+  "db": "mongodb://localhost/dev-db",
+  "port": 3000,
+  "logLevel": "debug"
+}
+```
+
+#### config/production.json (перезаписывает настройки для production)
+
+```json
+{
+  "db": "mongodb://prod-db-server/prod-db",
+  "port": 8080,
+  "logLevel": "error"
+}
+```
+
+#### config/staging.json (перезаписывает настройки для staging)
+
+```json
+{
+  "db": "mongodb://localhost/staging-db",
+  "port": 4000,
+  "logLevel": "info"
+}
+```
+
+### Использование в коде
+
+```javascript
+const config = require("config")
+console.log(`Приложение запущено на порту: ${config.get("port")}`)
+```
+
+### Запуск с указанием окружения
+
+```bash
+NODE_ENV=production node app.js
+```
+
+## Рекомендации и лучшие практики
+
+1. **Используйте переменные окружения для критичных параметров** (пароли, ключи API и т.д.)
+2. **Храните настройки по умолчанию в коде**, а среда выполнения должна переопределять их
+3. **Не включайте секретные данные в исходный код** (используйте .env файлы, исключенные из репозитория)
+4. **Документируйте все настройки** и их возможные значения
+5. **Централизуйте конфигурацию** в одном месте для удобства поддержки
+
+## Пример комплексного подхода
+
+```javascript
+// config.js
+const dotenv = require("dotenv")
+
+// Загружаем переменные окружения из файла
+dotenv.config({
+  path: `.env.${process.env.NODE_ENV || "development"}`,
+})
+
+// Базовая конфигурация
+const config = {
+  env: process.env.NODE_ENV || "development",
+  isProduction: process.env.NODE_ENV === "production",
+  isStaging: process.env.NODE_ENV === "staging",
+
+  // Сервер
+  port: parseInt(process.env.PORT, 10) || 3000,
+
+  // База данных
+  db: {
+    uri: process.env.DB_URI || "mongodb://localhost/dev-db",
+    options: {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    },
+  },
+
+  // Логирование
+  logLevel: process.env.LOG_LEVEL || "debug",
+}
+
+module.exports = config
+```
+
+---
+
+[[002 Node.js|Назад]]

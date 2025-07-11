@@ -2,10 +2,10 @@
 title: В каких случаях setInterval() может приводить к неожиданному поведению?
 draft: false
 tags:
-  - NodeJS
-  - setInterval
-  - setTimeout
-  - EventLoop
+  - "#NodeJS"
+  - "#setInterval"
+  - "#setTimeout"
+  - "#EventLoop"
 info:
 ---
 
@@ -15,14 +15,14 @@ info:
 
 Если обработчик (`fn`) выполняется дольше, чем `delay`, вызовы `setInterval()` начнут **задерживаться**.
 
-```js
-setInterval(() => {   
-	console.log('Тик', Date.now());    // Блокируем поток (например, тяжелый расчет)   
+```javascript
+setInterval(() => {
+  console.log("Тик", Date.now()) // Блокируем поток (например, тяжелый расчет)
 
-	const start = Date.now();   
+  const start = Date.now()
 
-	while (Date.now() - start < 2000) {} // Блокируем на 2 сек  
-}, 1000);
+  while (Date.now() - start < 2000) {} // Блокируем на 2 сек
+}, 1000)
 ```
 
 **Ожидание**: вызовы каждые **1000 мс**.  
@@ -30,14 +30,14 @@ setInterval(() => {
 
 **Как исправить?** Использовать `setTimeout()` вместо `setInterval()`, чтобы учитывать длительность выполнения.
 
-```js
-function repeatTask() {   
-	console.log('Тик', Date.now());      
-	
-	setTimeout(repeatTask, 1000); 
-} 
+```javascript
+function repeatTask() {
+  console.log("Тик", Date.now())
 
-repeatTask();`
+  setTimeout(repeatTask, 1000)
+}
+
+repeatTask()
 ```
 
 Теперь каждая итерация **начинается через 1000 мс после завершения предыдущей**.
@@ -48,14 +48,14 @@ repeatTask();`
 
 Если обработчик `fn` иногда работает дольше, чем `delay`, вызовы могут **накладываться друг на друга**.
 
-```js
-setInterval(async () => {   
-	console.log('Начало', Date.now());   
-	
-	await new Promise((res) => setTimeout(res, 1500)); // Ждем 1.5 сек   
-	
-	console.log('Конец', Date.now()); 
-}, 1000);
+```javascript
+setInterval(async () => {
+  console.log("Начало", Date.now())
+
+  await new Promise((res) => setTimeout(res, 1500)) // Ждем 1.5 сек
+
+  console.log("Конец", Date.now())
+}, 1000)
 ```
 
 **Ожидание**: каждые **1000 мс**.  
@@ -63,18 +63,18 @@ setInterval(async () => {
 
 **Как исправить?** Вызывать следующий `setTimeout()` только после завершения асинхронной операции.
 
-```js
-async function repeatTask() {   
-	console.log('Начало', Date.now());   
+```javascript
+async function repeatTask() {
+  console.log("Начало", Date.now())
 
-	await new Promise((res) => setTimeout(res, 1500)); // Ждем 1.5 сек   
+  await new Promise((res) => setTimeout(res, 1500)) // Ждем 1.5 сек
 
-	console.log('Конец', Date.now());    
+  console.log("Конец", Date.now())
 
-	setTimeout(repeatTask, 1000); // Ждем 1 сек перед следующим запуском 
-} 
+  setTimeout(repeatTask, 1000) // Ждем 1 сек перед следующим запуском
+}
 
-repeatTask();`
+repeatTask()
 ```
 
 Теперь новый вызов начнется **только после завершения предыдущего**.
@@ -85,31 +85,31 @@ repeatTask();`
 
 Из-за особенностей **event loop**, `setInterval(1000)` **не гарантирует** выполнение ровно через 1000 мс.
 
-```js
-let prev = Date.now(); 
+```javascript
+let prev = Date.now()
 
-setInterval(() => {   
-	let now = Date.now();   
+setInterval(() => {
+  let now = Date.now()
 
-	console.log(`Разница: ${now - prev} мс`);   
-	prev = now; 
-}, 1000);``
+  console.log(`Разница: ${now - prev} мс`)
+  prev = now
+}, 1000)
 ```
 
 **Реальность**: Разница между вызовами **не будет ровно 1000 мс**, а может колебаться (~1002-1015 мс).
 
 **Как исправить?** Использовать `setTimeout()` с вычислением точного времени.
 
-```js
-function preciseInterval() {   
-	const now = Date.now();   
-	console.log(`Точное время: ${now}`);    
+```javascript
+function preciseInterval() {
+  const now = Date.now()
+  console.log(`Точное время: ${now}`)
 
-	const nextTick = now + 1000;   
-	setTimeout(preciseInterval, nextTick - Date.now()); 
-} 
+  const nextTick = now + 1000
+  setTimeout(preciseInterval, nextTick - Date.now())
+}
 
-preciseInterval();``
+preciseInterval()
 ```
 
 Теперь выполнение будет **подстраиваться под точное время**.
@@ -120,27 +120,27 @@ preciseInterval();``
 
 Если внутри обработчика произошла ошибка, `setInterval()` **не остановится**, и код будет продолжать выполняться.
 
-```js
-setInterval(() => {   
-	console.log('Тик');   
-	
-	throw new Error('Что-то пошло не так'); 
-}, 1000);`
+```javascript
+setInterval(() => {
+  console.log("Тик")
+
+  throw new Error("Что-то пошло не так")
+}, 1000)
 ```
 
 **Результат**: Ошибки появляются в консоли, но `setInterval()` продолжает выполняться!
 
 **Как исправить?** Обернуть код в `try...catch`.
 
-```js
-setInterval(() => {   
-	try {     
-		console.log('Тик');     
-		throw new Error('Ошибка!');   
-	} catch (err) {     
-		console.error('Ошибка обработана:', err.message);   
-	} 
-}, 1000);`
+```javascript
+setInterval(() => {
+  try {
+    console.log("Тик")
+    throw new Error("Ошибка!")
+  } catch (err) {
+    console.error("Ошибка обработана:", err.message)
+  }
+}, 1000)
 ```
 
 Теперь ошибки **не ломают весь процесс**.
@@ -155,3 +155,7 @@ setInterval(() => {
 | **Продолжение работы после ошибки** | Ошибки не останавливают `setInterval()` | Использовать `try...catch`                         |
 
 **Итог:** `setInterval()` удобен, но может приводить к **непредсказуемому поведению**. В большинстве случаев **лучше использовать `setTimeout()`** для точного контроля вызовов.
+
+---
+
+[[002 Node.js|Назад]]

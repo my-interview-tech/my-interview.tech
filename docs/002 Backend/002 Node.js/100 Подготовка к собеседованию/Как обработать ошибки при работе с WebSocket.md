@@ -1,9 +1,19 @@
 ---
 title: Как обработать ошибки при работе с WebSocket
-draft: true
-tags: NodeJS
+draft: false
+tags:
+  - "#NodeJS"
+  - "#WebSocket"
+  - "#обработка-ошибок"
+  - "#ws"
+  - "#сеть"
+  - "#real-time"
 info:
+  - "[Документация библиотеки ws для Node.js](https://github.com/websockets/ws/blob/master/doc/ws.md)"
+  - "[Спецификация WebSocket API](https://developer.mozilla.org/ru/docs/Web/API/WebSockets_API)"
+  - "[Руководство по обработке ошибок в Node.js](https://nodejs.org/en/learn/error-handling/error-handling-best-practices)"
 ---
+
 Ошибки при работе с WebSocket-соединениями могут возникать как на стороне клиента, так и на стороне сервера. Обработка ошибок критична для того, чтобы предотвратить сбои в приложении, корректно завершить соединения и информировать пользователя о проблемах.
 
 ### 1. **Обработка ошибок на сервере (с использованием `ws` в Node.js)**
@@ -12,11 +22,34 @@ info:
 
 #### Пример:
 
-javascript
+```javascript
+const WebSocket = require("ws")
 
-КопироватьРедактировать
+const wss = new WebSocket.Server({ port: 8080 })
 
-``const WebSocket = require('ws');  const wss = new WebSocket.Server({ port: 8080 });  wss.on('connection', (ws) => {   console.log('Клиент подключен');    ws.on('message', (message) => {     console.log('Получено сообщение: %s', message);   });    // Обработка ошибок на уровне конкретного соединения   ws.on('error', (error) => {     console.error('Ошибка WebSocket-соединения:', error);   });    // Закрытие соединения   ws.on('close', (code, reason) => {     console.log(`Соединение закрыто. Код: ${code}, причина: ${reason}`);   }); });  // Обработка ошибок сервера wss.on('error', (error) => {   console.error('Ошибка WebSocket-сервера:', error); });``
+wss.on("connection", (ws) => {
+  console.log("Клиент подключен")
+
+  ws.on("message", (message) => {
+    console.log("Получено сообщение: %s", message)
+  })
+
+  // Обработка ошибок на уровне конкретного соединения
+  ws.on("error", (error) => {
+    console.error("Ошибка WebSocket-соединения:", error)
+  })
+
+  // Закрытие соединения
+  ws.on("close", (code, reason) => {
+    console.log(`Соединение закрыто. Код: ${code}, причина: ${reason}`)
+  })
+})
+
+// Обработка ошибок сервера
+wss.on("error", (error) => {
+  console.error("Ошибка WebSocket-сервера:", error)
+})
+```
 
 ### 2. **Обработка ошибок на клиенте (с использованием WebSocket API)**
 
@@ -24,11 +57,33 @@ javascript
 
 #### Пример:
 
-javascript
+```javascript
+const ws = new WebSocket("ws://localhost:8080")
 
-КопироватьРедактировать
+// Обработка ошибок при установке соединения
+ws.onerror = (error) => {
+  console.error("Ошибка WebSocket:", error)
+}
 
-``const ws = new WebSocket('ws://localhost:8080');  // Обработка ошибок при установке соединения ws.onerror = (error) => {   console.error('Ошибка WebSocket:', error); };  // Обработка сообщений от сервера ws.onmessage = (event) => {   console.log('Сообщение от сервера:', event.data); };  // Обработка закрытия соединения ws.onclose = (event) => {   if (event.wasClean) {     console.log(`Соединение закрыто чисто. Код: ${event.code}, причина: ${event.reason}`);   } else {     console.error(`Ошибка соединения: ${event.code}`);   } };  // Отправка сообщений на сервер ws.onopen = () => {   ws.send('Привет, сервер!'); };``
+// Обработка сообщений от сервера
+ws.onmessage = (event) => {
+  console.log("Сообщение от сервера:", event.data)
+}
+
+// Обработка закрытия соединения
+ws.onclose = (event) => {
+  if (event.wasClean) {
+    console.log(`Соединение закрыто чисто. Код: ${event.code}, причина: ${event.reason}`)
+  } else {
+    console.error(`Ошибка соединения: ${event.code}`)
+  }
+}
+
+// Отправка сообщений на сервер
+ws.onopen = () => {
+  ws.send("Привет, сервер!")
+}
+```
 
 ### 3. **Обработка ошибок при передаче сообщений**
 
@@ -36,11 +91,13 @@ javascript
 
 #### Пример проверки перед отправкой:
 
-javascript
-
-КопироватьРедактировать
-
-`if (ws.readyState === WebSocket.OPEN) {   ws.send('Сообщение'); } else {   console.error('WebSocket соединение не открыто. Не могу отправить сообщение'); }`
+```javascript
+if (ws.readyState === WebSocket.OPEN) {
+  ws.send("Сообщение")
+} else {
+  console.error("WebSocket соединение не открыто. Не могу отправить сообщение")
+}
+```
 
 ### 4. **Обработка ошибок при установке соединения (например, с использованием библиотеки `ws`)**
 
@@ -48,11 +105,17 @@ javascript
 
 #### Пример:
 
-javascript
+```javascript
+const ws = new WebSocket("ws://localhost:8080")
 
-КопироватьРедактировать
+ws.on("open", () => {
+  console.log("Соединение установлено")
+})
 
-`const ws = new WebSocket('ws://localhost:8080');  ws.on('open', () => {   console.log('Соединение установлено'); });  ws.on('error', (error) => {   console.error('Не удалось установить соединение:', error); });`
+ws.on("error", (error) => {
+  console.error("Не удалось установить соединение:", error)
+})
+```
 
 ### 5. **Реализация повторных попыток при ошибке соединения**
 
@@ -60,11 +123,33 @@ javascript
 
 #### Пример с использованием библиотеки `ws` и повторных попыток:
 
-javascript
+```javascript
+const WebSocket = require("ws")
+const MAX_RETRIES = 5
+let retries = 0
 
-КопироватьРедактировать
+function createConnection() {
+  const ws = new WebSocket("ws://localhost:8080")
 
-``const WebSocket = require('ws'); const MAX_RETRIES = 5; let retries = 0;  function createConnection() {   const ws = new WebSocket('ws://localhost:8080');    ws.on('open', () => {     console.log('Соединение установлено');     retries = 0; // сбрасываем количество попыток при успешном соединении   });    ws.on('error', (error) => {     console.error('Ошибка соединения:', error);     if (retries < MAX_RETRIES) {       retries++;       console.log(`Попытка №${retries} повторного подключения...`);       setTimeout(createConnection, 1000 * retries); // задержка перед следующей попыткой     } else {       console.log('Максимальное количество попыток подключения исчерпано');     }   }); }  createConnection();``
+  ws.on("open", () => {
+    console.log("Соединение установлено")
+    retries = 0 // сбрасываем количество попыток при успешном соединении
+  })
+
+  ws.on("error", (error) => {
+    console.error("Ошибка соединения:", error)
+    if (retries < MAX_RETRIES) {
+      retries++
+      console.log(`Попытка №${retries} повторного подключения...`)
+      setTimeout(createConnection, 1000 * retries) // задержка перед следующей попыткой
+    } else {
+      console.log("Максимальное количество попыток подключения исчерпано")
+    }
+  })
+}
+
+createConnection()
+```
 
 ### 6. **Обработка ошибок при несоответствии формата данных**
 
@@ -72,11 +157,16 @@ javascript
 
 #### Пример:
 
-javascript
-
-КопироватьРедактировать
-
-`ws.on('message', (message) => {   try {     const data = JSON.parse(message);     console.log('Данные:', data);   } catch (error) {     console.error('Ошибка парсинга сообщения:', error);   } });`
+```javascript
+ws.on("message", (message) => {
+  try {
+    const data = JSON.parse(message)
+    console.log("Данные:", data)
+  } catch (error) {
+    console.error("Ошибка парсинга сообщения:", error)
+  }
+})
+```
 
 ### Заключение
 
@@ -88,3 +178,7 @@ javascript
 - Реализацию повторных попыток при ошибках соединения.
 
 Правильная обработка ошибок обеспечит стабильную работу вашего WebSocket-сервера и клиентов.
+
+---
+
+[[002 Node.js|Назад]]

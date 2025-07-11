@@ -1,49 +1,128 @@
 ---
 title: Как измерить время выполнения функции с помощью console.time
-draft: true
-tags: NodeJS
+draft: false
+tags:
+  - "#NodeJS"
+  - "#console"
+  - "#производительность"
+  - "#отладка"
+  - "#JavaScript"
 info:
+  - https://nodejs.org/api/console.html#consoletimerlabel
+  - https://developer.mozilla.org/en-US/docs/Web/API/console/time
 ---
-Чтобы измерить время выполнения функции с помощью **`console.time()`** в Node.js, можно использовать следующие методы:
 
-1. **`console.time(label)`** — Начинает отсчет времени с указанным ярлыком (label).
-2. **`console.timeEnd(label)`** — Завершает отсчет времени и выводит его в консоль, используя тот же ярлык.
+Методы `console.time()` и `console.timeEnd()` в Node.js позволяют измерять время выполнения участков кода с высокой точностью.
 
-### Пример:
+## Основные методы для измерения времени
 
-javascript
+Node.js предоставляет два основных метода для измерения времени:
 
-КопироватьРедактировать
+1. **`console.time(label)`** — Начинает таймер с указанным меткой (label)
+2. **`console.timeEnd(label)`** — Завершает таймер и выводит затраченное время в консоль
 
-`// Начинаем отсчет времени с ярлыком 'myFunction' console.time('myFunction');  // Функция, которую нужно измерить function exampleFunction() {   let sum = 0;   for (let i = 0; i < 1e6; i++) {     sum += i;   }   return sum; }  // Вызываем функцию exampleFunction();  // Завершаем отсчет времени и выводим результат console.timeEnd('myFunction');`
+## Базовый пример измерения времени
 
-### Объяснение:
+```javascript
+// Начинаем отсчет времени с меткой 'myFunction'
+console.time("myFunction")
 
-1. **`console.time('myFunction')`** — начинается отсчет времени с ярлыком `'myFunction'`.
-2. **`exampleFunction()`** — это функция, выполнение которой вы хотите измерить.
-3. **`console.timeEnd('myFunction')`** — завершает отсчет времени и выводит его в консоль. Время будет отображено в миллисекундах.
+// Функция, время выполнения которой нужно измерить
+function exampleFunction() {
+  let sum = 0
+  for (let i = 0; i < 1e6; i++) {
+    sum += i
+  }
+  return sum
+}
 
-### Пример вывода:
+// Вызываем функцию
+exampleFunction()
 
-bash
+// Завершаем отсчет времени и выводим результат
+console.timeEnd("myFunction") // Выведет: myFunction: 2.345ms
+```
 
-КопироватьРедактировать
+## Как это работает
 
-`myFunction: 2.345ms`
+1. **`console.time('myFunction')`** запускает таймер с меткой `'myFunction'`
+2. Выполняется функция `exampleFunction()`
+3. **`console.timeEnd('myFunction')`** останавливает таймер и выводит затраченное время в миллисекундах
 
-### Важные замечания:
+> **Важно**: Метка (label) должна быть одинаковой в вызовах `console.time()` и `console.timeEnd()`, чтобы система могла связать начало и конец измерения.
 
-- Ярлык в **`console.time()`** и **`console.timeEnd()`** должен быть одинаковым, чтобы они связались между собой.
-- Использование **`console.time()`** и **`console.timeEnd()`** полезно для измерения времени выполнения небольших участков кода.
+## Измерение времени асинхронных операций
 
-### Измерение времени для асинхронных операций:
+При работе с асинхронным кодом важно правильно разместить `console.timeEnd()`:
 
-Если вам нужно измерить время для асинхронной функции (например, с использованием `setTimeout` или промиса), убедитесь, что **`console.timeEnd()`** вызывается после завершения асинхронной операции:
+```javascript
+console.time("asyncOperation")
 
-javascript
+setTimeout(() => {
+  // Какие-то операции
+  console.timeEnd("asyncOperation") // Выведет время через 1 секунду
+}, 1000)
+```
 
-КопироватьРедактировать
+## Вложенные измерения
 
-`console.time('asyncFunction');  setTimeout(() => {   console.timeEnd('asyncFunction'); }, 1000);  // Завершится через 1 секунду`
+Можно использовать несколько таймеров одновременно с разными метками:
 
-В этом случае время будет измеряться с учетом асинхронной задержки, и результат будет выведен через 1 секунду.
+```javascript
+console.time("total")
+
+console.time("part1")
+// Первая часть кода
+console.timeEnd("part1")
+
+console.time("part2")
+// Вторая часть кода
+console.timeEnd("part2")
+
+console.timeEnd("total")
+```
+
+## Дополнительные возможности
+
+В Node.js версии 10+ также доступны:
+
+- **`console.timeLog(label)`** — выводит промежуточное время, не останавливая таймер
+
+```javascript
+console.time("process")
+// Часть 1
+console.timeLog("process", "Завершена часть 1")
+// Часть 2
+console.timeEnd("process")
+```
+
+## Альтернативные методы измерения времени
+
+Кроме `console.time()`, в Node.js можно использовать:
+
+1. **`process.hrtime()`** — высокоточное измерение времени в наносекундах
+2. **`performance.now()`** — измерение времени с высокой точностью (доступно в более новых версиях Node.js)
+
+```javascript
+// С использованием process.hrtime()
+const start = process.hrtime()
+exampleFunction()
+const diff = process.hrtime(start)
+console.log(`Выполнено за ${diff[0] * 1e9 + diff[1]} наносекунд`)
+
+// С использованием performance.now()
+const { performance } = require("perf_hooks")
+const startTime = performance.now()
+exampleFunction()
+console.log(`Выполнено за ${performance.now() - startTime} миллисекунд`)
+```
+
+## Рекомендации по использованию
+
+- Используйте `console.time()` для быстрой отладки и оптимизации кода
+- Для более точных измерений в продакшн-коде предпочтительнее `performance.now()`
+- Для профилирования сложных приложений рассмотрите использование специализированных инструментов, таких как `node --inspect` с Chrome DevTools
+
+---
+
+[[002 Node.js|Назад]]

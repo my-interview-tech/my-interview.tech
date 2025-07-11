@@ -1,9 +1,19 @@
 ---
 title: Как поведение кэширования шаблонов в Express зависит от NODE_ENV
-draft: true
-tags: NodeJS
+draft: false
+tags:
+  - "#NodeJS"
+  - "#Express"
+  - "#шаблоны"
+  - "#кэширование"
+  - "#NODE_ENV"
+  - "#производительность"
 info:
+  - "[Документация Express.js по настройке шаблонов](https://expressjs.com/en/api.html#app.set)"
+  - "[Express.js - Production Best Practices](https://expressjs.com/en/advanced/best-practice-performance.html)"
+  - "[Оптимизация Express для Production](https://expressjs.com/en/advanced/best-practice-performance.html#set-node_env-to-production)"
 ---
+
 В **Express.js** поведение кэширования шаблонов зависит от значения переменной окружения `NODE_ENV`. Это влияет на то, будет ли кэшироваться скомпилированный шаблон и как часто будет происходить его повторная компиляция.
 
 ### 1. **По умолчанию в режиме разработки (NODE_ENV = 'development')**
@@ -12,11 +22,15 @@ info:
 
 #### Пример:
 
-js
+```javascript
+app.set("view engine", "ejs")
+app.set("views", path.join(__dirname, "views"))
 
-КопироватьРедактировать
-
-`app.set('view engine', 'ejs'); app.set('views', path.join(__dirname, 'views'));  // В режиме разработки шаблон будет компилироваться заново при каждом запросе app.use((req, res, next) => {   res.render('index', { title: 'My App' }); });`
+// В режиме разработки шаблон будет компилироваться заново при каждом запросе
+app.use((req, res, next) => {
+  res.render("index", { title: "My App" })
+})
+```
 
 ### 2. **В режиме продакшн (NODE_ENV = 'production')**
 
@@ -24,40 +38,38 @@ js
 
 #### Пример:
 
-js
+```javascript
+app.set("view engine", "ejs")
+app.set("views", path.join(__dirname, "views"))
 
-КопироватьРедактировать
-
-`app.set('view engine', 'ejs'); app.set('views', path.join(__dirname, 'views'));  // В режиме продакшн шаблон будет кэшироваться, и повторная компиляция не произойдёт app.use((req, res, next) => {   res.render('index', { title: 'My App' }); });`
+// В режиме продакшн шаблон будет кэшироваться, и повторная компиляция не произойдёт
+app.use((req, res, next) => {
+  res.render("index", { title: "My App" })
+})
+```
 
 ### 3. **Настройка кэширования вручную**
 
 Можно также вручную настроить кэширование шаблонов, независимо от значения `NODE_ENV`, с помощью опции `view cache` в Express:
 
 - **Включение кэширования**:
-    
-    js
-    
-    КопироватьРедактировать
-    
-    `app.set('view cache', true); // Включает кэширование шаблонов`
-    
+  ```javascript
+  app.set("view cache", true) // Включает кэширование шаблонов
+  ```
 - **Отключение кэширования**:
-    
-    js
-    
-    КопироватьРедактировать
-    
-    `app.set('view cache', false); // Отключает кэширование шаблонов`
-    
+  ```javascript
+  app.set("view cache", false) // Отключает кэширование шаблонов
+  ```
 
 #### Пример настройки в зависимости от среды:
 
-js
-
-КопироватьРедактировать
-
-`if (process.env.NODE_ENV === 'production') {   app.set('view cache', true); // В продакшне включаем кэширование } else {   app.set('view cache', false); // В разработке выключаем кэширование }`
+```javascript
+if (process.env.NODE_ENV === "production") {
+  app.set("view cache", true) // В продакшне включаем кэширование
+} else {
+  app.set("view cache", false) // В разработке выключаем кэширование
+}
+```
 
 ### 4. **Поведение в зависимости от шаблонизаторов**
 
@@ -74,3 +86,7 @@ js
 - Настройка кэширования может быть изменена вручную с помощью параметра `view cache`, если необходимо.
 
 Использование кэширования шаблонов в продакшн-среде помогает уменьшить нагрузку на сервер и улучшить скорость отклика за счет предотвращения повторной компиляции шаблонов.
+
+---
+
+[[002 Node.js|Назад]]

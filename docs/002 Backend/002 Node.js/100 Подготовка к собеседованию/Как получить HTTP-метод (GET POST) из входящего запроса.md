@@ -1,20 +1,37 @@
 ---
 title: Как получить HTTP-метод (GET POST) из входящего запроса
-draft: true
-tags: NodeJS
+draft: false
+tags:
+  - "#NodeJS"
+  - "#HTTP"
+  - "#запросы"
+  - "#express"
+  - "#web-сервер"
 info:
+  - "[Документация Node.js по модулю http](https://nodejs.org/api/http.html#http_class_http_incomingmessage)"
+  - "[Документация Express.js по объекту Request](https://expressjs.com/en/api.html#req)"
+  - "[Работа с HTTP-запросами в Node.js](https://nodejs.dev/learn/the-nodejs-request-object)"
 ---
-Чтобы получить HTTP-метод (например, `GET`, `POST` и другие) из входящего запроса в Node.js, можно использовать свойство `method` объекта запроса (`req`), который передается в обработчик маршрута.
 
-Пример для HTTP-сервера, созданного с помощью встроенного модуля `http`:
+Чтобы получить HTTP-метод (например, `GET`, `POST` и другие) из входящего запроса в Node.js, можно использовать свойство `method` объекта запроса (`req`), который передается в обработчик маршрута.
 
 ### Пример с использованием модуля `http`:
 
-js
+```javascript
+const http = require("http")
 
-КопироватьРедактировать
+const server = http.createServer((req, res) => {
+  // Получаем HTTP-метод из запроса
+  const method = req.method
 
-``const http = require('http');  const server = http.createServer((req, res) => {     // Получаем HTTP-метод из запроса     const method = req.method;      res.writeHead(200, { 'Content-Type': 'text/plain' });     res.end(`HTTP-метод запроса: ${method}`); });  server.listen(3000, () => {     console.log('Сервер запущен на порту 3000'); });``
+  res.writeHead(200, { "Content-Type": "text/plain" })
+  res.end(`HTTP-метод запроса: ${method}`)
+})
+
+server.listen(3000, () => {
+  console.log("Сервер запущен на порту 3000")
+})
+```
 
 ### Объяснение:
 
@@ -25,11 +42,20 @@ js
 
 Если вы используете фреймворк **Express.js**, это также можно сделать следующим образом:
 
-js
+```javascript
+const express = require("express")
+const app = express()
 
-КопироватьРедактировать
+app.all("*", (req, res) => {
+  // Получаем HTTP-метод
+  const method = req.method
+  res.send(`HTTP-метод запроса: ${method}`)
+})
 
-``const express = require('express'); const app = express();  app.all('*', (req, res) => {     // Получаем HTTP-метод     const method = req.method;     res.send(`HTTP-метод запроса: ${method}`); });  app.listen(3000, () => {     console.log('Сервер Express запущен на порту 3000'); });``
+app.listen(3000, () => {
+  console.log("Сервер Express запущен на порту 3000")
+})
+```
 
 ### Объяснение:
 
@@ -39,3 +65,7 @@ js
 ### Итог:
 
 Чтобы получить HTTP-метод из входящего запроса, достаточно обратиться к свойству `method` объекта запроса `req` в Node.js. Это может быть сделано как в нативном `http` модуле, так и в фреймворке Express.js.
+
+---
+
+[[002 Node.js|Назад]]
