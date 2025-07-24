@@ -1,0 +1,27 @@
+{
+	"nodes":[
+		{"id":"43c934e85d391ea0","x":-280,"y":-183,"width":1640,"height":1063,"type":"group","label":"Структура процесса"},
+		{"id":"d1a42a76e57e752b","type":"text","text":"Ложное срабатывание?","x":360,"y":380,"width":420,"height":65,"color":"4"},
+		{"id":"9b080dfda92b7f20","type":"text","text":"Отметка о ложном срабатывании","x":880,"y":580,"width":420,"height":65,"color":"3"},
+		{"id":"cb36dbe3ac57a61e","x":360,"y":-160,"width":420,"height":60,"color":"4","type":"text","text":"Идентификация объекта исследования"},
+		{"id":"6b03fd550dd57ce8","x":360,"y":-32,"width":420,"height":65,"color":"4","type":"text","text":"Инициирование проверки"},
+		{"id":"df5054aa9f8495cf","type":"text","text":"Отметка о наличии уязвимости и создание задачи на исправление в jira","x":360,"y":548,"width":420,"height":65,"color":"4"},
+		{"id":"9f65021bc417bd29","type":"text","text":"Завершение иттерации","x":360,"y":740,"width":420,"height":65,"color":"4"},
+		{"id":"def3fe7a1c688af8","type":"text","text":"Требуется консультация","x":360,"y":180,"width":420,"height":65,"color":"4"},
+		{"id":"2a99469761841d9f","type":"text","text":"Проведение проверки","x":880,"y":60,"width":420,"height":65,"color":"3"},
+		{"id":"42eff9a21ad8fbc4","x":-220,"y":300,"width":420,"height":60,"color":"1","type":"text","text":"Проведение консультации"}
+	],
+	"edges":[
+		{"id":"0deda14f28e29084","fromNode":"cb36dbe3ac57a61e","fromSide":"bottom","toNode":"6b03fd550dd57ce8","toSide":"top"},
+		{"id":"2759f947278fe651","fromNode":"6b03fd550dd57ce8","fromSide":"bottom","toNode":"2a99469761841d9f","toSide":"left"},
+		{"id":"3268c784e2aee1a5","fromNode":"2a99469761841d9f","fromSide":"bottom","toNode":"def3fe7a1c688af8","toSide":"top"},
+		{"id":"5f3c0fe6c8e2a2c2","fromNode":"def3fe7a1c688af8","fromSide":"bottom","toNode":"42eff9a21ad8fbc4","toSide":"top","label":"да"},
+		{"id":"11e165a06f78355e","fromNode":"def3fe7a1c688af8","fromSide":"bottom","toNode":"d1a42a76e57e752b","toSide":"top","label":"нет"},
+		{"id":"849925d87c20b1d4","fromNode":"42eff9a21ad8fbc4","fromSide":"bottom","toNode":"d1a42a76e57e752b","toSide":"left"},
+		{"id":"6262e35b00c7f042","fromNode":"d1a42a76e57e752b","fromSide":"right","toNode":"9b080dfda92b7f20","toSide":"top","label":"да"},
+		{"id":"5d0e4255bb97c5c1","fromNode":"d1a42a76e57e752b","fromSide":"bottom","toNode":"df5054aa9f8495cf","toSide":"top","label":"нет"},
+		{"id":"d8caf4c430905c41","fromNode":"df5054aa9f8495cf","fromSide":"bottom","toNode":"9f65021bc417bd29","toSide":"top"},
+		{"id":"e6d303a9b6b55bed","fromNode":"9b080dfda92b7f20","fromSide":"bottom","toNode":"9f65021bc417bd29","toSide":"right"},
+		{"id":"b6b8edf324863770","fromNode":"9f65021bc417bd29","fromSide":"left","toNode":"6b03fd550dd57ce8","toSide":"left"}
+	]
+}
