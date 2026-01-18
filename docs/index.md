@@ -10,7 +10,9 @@ description: >-
   интервью на позицию frontend-разработчика.
 draft: false
 technology: index.md
+specialty: Frontend
 tools: []
+chapter: ""
 order: 0
 access: free
 created_at: "2024-01-20T18:21:15+03:00"
