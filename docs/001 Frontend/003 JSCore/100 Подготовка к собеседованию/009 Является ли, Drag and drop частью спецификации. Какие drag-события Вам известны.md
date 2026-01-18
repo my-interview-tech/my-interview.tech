@@ -1,12 +1,23 @@
 ---
-title: Является ли, Drag and drop частью спецификации? Какие drag-события Вам известны?
-draft: false
+uid: WT6gM6_i-VRkxMHgA62XV
+title: >-
+  Является ли, Drag and drop частью спецификации? Какие drag-события Вам
+  известны?
 tags:
   - "#HTML"
   - "#DragAndDrop"
 info:
-  - https://www.youtube.com/watch?v=FgvJH91a5K0
+  - "https://www.youtube.com/watch?v=FgvJH91a5K0"
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 9
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _Drag and Drop (DnD)_ является частью официальной спецификации HTML5. Это API позволяет перетаскивать элементы страницы, а также определять области, куда можно перетаскивать элементы и выполнять соответствующие действия.
 
 Существуют следующие _drag-события:_

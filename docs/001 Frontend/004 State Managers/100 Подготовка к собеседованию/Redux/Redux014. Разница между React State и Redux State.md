@@ -1,13 +1,22 @@
 ---
+uid: cgkOZezkD3qzv-OWu05-B
 title: Разница между React State и Redux State?
-draft: false
 tags:
   - "#React"
   - "#Redux"
   - "#state"
 info:
-  - https://habr.com/ru/articles/509118/
+  - "https://habr.com/ru/articles/509118/"
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704193114.png|600]]
 
 React State и Redux State - это два различных способа управления состоянием в приложении React.
@@ -16,13 +25,13 @@ _React State_ - это _внутреннее состояние_ компоне�
 
 _Redux State_ - это _глобальное состояние_ приложения, которое хранится в хранилище `store` и доступно для всех компонентов приложения. _Состояние в Redux используется для хранения данных, которые используются в нескольких компонентах или на разных уровнях приложения_. Cостояние может быть изменено только с помощью вызова `action`, который передает данные в `reducers` для обновления состояния.
 
-**`store`
+\*\*`store`
 
 ```jsx
-import { createStore } from "redux"
-import initReducer from "./reducers"
+import { createStore } from "redux";
+import initReducer from "./reducers";
 
-const store = createStore(reducer, initialState)
+const store = createStore(reducer, initialState);
 ```
 
 `store` берет на себя следующие задачи:
@@ -49,8 +58,8 @@ store.getState().value_1
 
 ```jsx
 store.subscribe(() => {
-  console.log(store.getState())
-})
+  console.log(store.getState());
+});
 ```
 
 React должен "знать" когда нужно обновлять компоненты `store.subscribe` сообщает о том, что state обновился и обновляет UI. `store.dispatch()` используется для обновления состояния.

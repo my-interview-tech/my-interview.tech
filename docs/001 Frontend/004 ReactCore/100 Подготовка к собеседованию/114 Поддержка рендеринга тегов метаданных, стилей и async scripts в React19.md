@@ -1,6 +1,6 @@
 ---
-title: Поддержка рендеринга тегов метаданных, стилей и async scripts в React19
-draft: false
+uid: MNX4Tu11usra0fSC0edeF
+title: "Поддержка рендеринга тегов метаданных, стилей и async scripts в React19"
 tags:
   - React
   - meta
@@ -9,12 +9,21 @@ tags:
   - script
   - react-helmet
 info:
-  - https://react.dev/reference/react-dom/components/title
-  - https://react.dev/reference/react-dom/components/link
-  - https://react.dev/reference/react-dom/components/meta
-  - https://react.dev/reference/react-dom/components/style
-  - https://react.dev/reference/react-dom/components/script
+  - "https://react.dev/reference/react-dom/components/title"
+  - "https://react.dev/reference/react-dom/components/link"
+  - "https://react.dev/reference/react-dom/components/meta"
+  - "https://react.dev/reference/react-dom/components/style"
+  - "https://react.dev/reference/react-dom/components/script"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 114
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ### Поддержка рендеринга метаданных
 
 В HTML, теги метаданных документа, такие как `<title>`, `<link>` и `<meta>`, зарезервированы для размещения в разделе `<head>` документа. В React компонент, который решает, какие метаданные подходят для приложения, может быть очень далеко от места, где вы рендерите `<head>`, или React вообще не рендерит `<head>`. Раньше эти элементы нужно было вставлять вручную в эффект или с помощью библиотек, таких как `react-helmet`, и требовалось тщательное обращение при серверном рендеринге React-приложения.
@@ -30,9 +39,7 @@ function BlogPost({ post }) {
       <meta name="author" content="Josh" />
       <link rel="author" href="https://twitter.com/joshcstory/" />
       <meta name="keywords" content={post.keywords} />
-      <p>
-        Eee equals em-see-squared...
-      </p>
+      <p>Eee equals em-see-squared...</p>
     </article>
   );
 }
@@ -40,7 +47,7 @@ function BlogPost({ post }) {
 
 Когда React рендерит этот компонент, он увидит теги `<title>`, `<link>` и `<meta>` и автоматически поднимет их в раздел `<head>` документа. Поддерживая эти теги метаданных нативно, мы можем гарантировать, что они будут работать с приложениями, доступными только на клиенте, потоковым SSR и Server Components.
 
-**Примечание:**  
+**Примечание:**
 
 Вы все еще можете захотеть использовать библиотеку метаданных  
 Для простых случаев использования отрисовка метаданных документа в виде тегов может быть подходящей, но библиотеки могут предложить более мощные функции, такие как переопределение общих метаданных конкретными метаданными на основе текущего маршрута. Эти функции облегчают поддержку тегов метаданных для фреймворков и библиотек, таких как `react-helmet`, вместо их замены.
@@ -80,11 +87,14 @@ function ComponentTwo() {
 
 ```javascript
 function App() {
-  return <>
-    <ComponentOne />
-    ...
-    <ComponentOne /> // не приведет к дублированию ссылки на таблицу стилей в DOM
-  </>
+  return (
+    <>
+      <ComponentOne />
+      ...
+      <ComponentOne /> // не приведет к дублированию ссылки на таблицу стилей в
+      DOM
+    </>
+  );
 }
 ```
 
@@ -123,6 +133,6 @@ function App() {
 
 При серверном рендеринге асинхронные скрипты будут включены в `<head>` и будут иметь приоритет за более критическими ресурсами, которые блокируют отрисовку, такими как таблицы стилей, шрифты и предзагрузка изображений.
 
-___
+---
 
 [[004 ReactCore|Назад]]

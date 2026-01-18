@@ -1,13 +1,22 @@
 ---
+uid: wO7-eClMis4atKpAKYWlC
 title: Разница между `display none` и `visibility hidden`
-draft: false
 tags:
   - "#CSS"
   - "#display"
   - "#hidden"
   - "#доступность"
-info:
+info: null
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 20
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704030216.png|600]]
 
 В CSS `display: none` и `visibility: hidden` - это два различных способа скрыть элемент на странице, но они работают по-разному.

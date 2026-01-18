@@ -1,12 +1,21 @@
 ---
+uid: 0WecyuKbUUu0Cq4ZUIT-Z
 title: Парадигмы программирования в JavaScript
-draft: false
 tags:
   - "#JavaScript"
   - "#ООП"
   - "#ФП"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 39
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230702120537.png|600]]
 
 _JavaScript_ поддерживает несколько парадигм программирования, включая:

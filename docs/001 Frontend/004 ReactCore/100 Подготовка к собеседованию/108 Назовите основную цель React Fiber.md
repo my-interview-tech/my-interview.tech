@@ -1,13 +1,22 @@
 ---
+uid: bP9fqctawkJQqPCYIEd_A
 title: Назовите основную цель React Fiber?
-draft: false
 tags:
   - "#React"
   - "#fiber"
   - "#reconciliation"
   - "#VirtualDOM"
-info:
+info: null
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 108
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _Основной целью React Fiber_ является улучшение производительности React-приложений. Это достигается за счет уменьшения времени блокировки главного потока выполнения JavaScript (JavaScript main thread) и более гибкого управления ресурсами процессора.
 
 _В React до версии 16, согласование компонентов и обновление DOM-дерева было синхронным процессом, который выполнялся в одном потоке выполнения JavaScript. Это означало, что процесс согласования мог занимать длительное время, особенно в случаях, когда приложение содержит множество компонентов и обновлений._

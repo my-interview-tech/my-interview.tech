@@ -1,13 +1,22 @@
 ---
+uid: SuznOmNQCL6uv7oxO-KHB
 title: Что такое статический метод класса (`static`)? Как осуществляется его вызов?
-draft: false
 tags:
   - "#JavaScript"
   - "#метод"
   - "#static"
   - "#class"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 180
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703114437.png|600]]
 
 _Статический метод класса (`static`)_ - это метод, который привязывается к самому классу, а не к экземплярам этого класса. Он может быть вызван непосредственно на классе, без необходимости создавать экземпляр класса.
@@ -19,7 +28,7 @@ _Статический метод класса (`static`)_ - это метод,
 ```javascript
 class MyClass {
   static myStaticMethod() {
-    console.log("This is a static method.")
+    console.log("This is a static method.");
   }
 }
 ```
@@ -27,14 +36,14 @@ class MyClass {
 Для вызова статического метода класса необходимо обратиться к классу напрямую, используя имя класса и оператор точки:
 
 ```javascript
-MyClass.myStaticMethod() // 'This is a static method.'
+MyClass.myStaticMethod(); // 'This is a static method.'
 ```
 
 Обратите внимание, что вызов статического метода класса доступен только на самом классе, а не на его экземплярах. Попытка вызова статического метода через экземпляр класса приведет к ошибке:
 
 ```javascript
-var myInstance = new MyClass()
-myInstance.myStaticMethod() // TypeError: myInstance.myStaticMethod is not a function
+var myInstance = new MyClass();
+myInstance.myStaticMethod(); // TypeError: myInstance.myStaticMethod is not a function
 ```
 
 Статические методы класса могут использоваться для выполнения операций, которые не зависят от состояния экземпляра класса, например, для создания утилитарных функций, валидации данных или для взаимодействия с глобальными объектами, такими как `window` или `document`.

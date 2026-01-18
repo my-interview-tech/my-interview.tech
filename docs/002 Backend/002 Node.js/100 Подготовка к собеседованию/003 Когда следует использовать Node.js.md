@@ -1,10 +1,19 @@
 ---
+uid: E6EcYW9eMSRUUYoPnFoY5
 title: Когда следует использовать Node.js?
-draft: false
 tags:
   - "#NodeJS"
   - "#microService"
+draft: false
+technology: Node.js
+specialty: Backend
+tools: []
+order: 3
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704134159.png|600]]
 
 Node.js может быть использован в различных случаях, когда требуется разработка серверных приложений и решений, включая:

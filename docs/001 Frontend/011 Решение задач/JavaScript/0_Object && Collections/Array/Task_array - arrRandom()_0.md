@@ -1,6 +1,6 @@
 ---
+uid: 5WuxCv919u9H5z-_zY7lj
 title: Task_array - arrRandom()_0
-draft: false
 tags:
   - "#JavaScript"
   - "#taskJS"
@@ -8,7 +8,16 @@ tags:
   - "#tsTask"
   - "#array"
   - "#ONLY"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```JS
 // Реализовать функцию, которая будет принимать на вход массив чисел и всегда возвращать
 // массив этих же чисел, но каждый раз в рандомном порялке
@@ -20,12 +29,12 @@ function arrRandom(array) {
 }
 ```
 
-**Ответ
+\*\*Ответ
 
 ```js
 
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

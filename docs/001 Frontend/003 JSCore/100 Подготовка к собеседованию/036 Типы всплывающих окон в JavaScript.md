@@ -1,11 +1,20 @@
 ---
+uid: NpPB-vnCLOZm57yvK8XiL
 title: Типы всплывающих окон в JavaScript?
-draft: false
 tags:
   - "#window"
   - "#browser"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 36
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230702115130.png|600]]
 
 В JavaScript существует несколько типов всплывающих окон, которые могут быть созданы с помощью метода `window.open()`. Вот некоторые из них:
@@ -13,7 +22,7 @@ info:
 1. _Обычное всплывающее окно:_ Это наиболее распространенный тип всплывающего окна. Он может быть создан с помощью следующего кода:
 
 ```javascript
-window.open("http://www.example.com", "popup", "width=400,height=400")
+window.open("http://www.example.com", "popup", "width=400,height=400");
 ```
 
 Этот код создает всплывающее окно, которое открывает страницу `http://www.example.com`, имеет ширину 400 пикселей и высоту 400 пикселей, и имеет имя "popup". Это окно может быть закрыто с помощью метода `window.close()`.
@@ -21,7 +30,11 @@ window.open("http://www.example.com", "popup", "width=400,height=400")
 2. _Всплывающее окно без адресной строки:_ Этот тип всплывающего окна не имеет адресной строки и может быть создан с помощью следующего кода:
 
 ```javascript
-window.open("http://www.example.com", "popup", "width=400,height=400,location=no")
+window.open(
+  "http://www.example.com",
+  "popup",
+  "width=400,height=400,location=no",
+);
 ```
 
 В этом коде опция `location=no` удаляет адресную строку из всплывающего окна.
@@ -29,19 +42,31 @@ window.open("http://www.example.com", "popup", "width=400,height=400,location=no
 3. _Модальное окно:_ Модальное окно блокирует доступ к родительскому окну, пока оно не будет закрыто. Оно может быть создано с помощью опции `modal=yes`:
 
 ```javascript
-window.open("http://www.example.com", "popup", "width=400,height=400,modal=yes")
+window.open(
+  "http://www.example.com",
+  "popup",
+  "width=400,height=400,modal=yes",
+);
 ```
 
 4. _Всплывающее окно без панели инструментов:_ Этот тип всплывающего окна не имеет панели инструментов и может быть создан с помощью опции `toolbar=no`:
 
 ```javascript
-window.open("http://www.example.com", "popup", "width=400,height=400,toolbar=no")
+window.open(
+  "http://www.example.com",
+  "popup",
+  "width=400,height=400,toolbar=no",
+);
 ```
 
 5. _Всплывающее окно без строки состояния:_ Этот тип всплывающего окна не имеет строки состояния и может быть создан с помощью опции `status=no`:
 
 ```javascript
-window.open("http://www.example.com", "popup", "width=400,height=400,status=no")
+window.open(
+  "http://www.example.com",
+  "popup",
+  "width=400,height=400,status=no",
+);
 ```
 
 Всплывающие окна могут быть полезны для создания дополнительных окон, уведомлений и диалоговых окон в вашем приложении. Однако, их использование может быть ограничено пользовательскими настройками браузера, поэтому необходимо использовать их с осторожностью и с учетом возможных ограничений.

@@ -1,25 +1,35 @@
 ---
+uid: dbeb0spFd6CQKP4tb26OF
 title: Метод configureStore()
-draft: false
 tags:
   - "#React"
   - redux-toolkit
   - configureStore
 info:
-  - https://habr.com/ru/companies/inobitec/articles/481288/#configureStore
+  - "https://habr.com/ru/companies/inobitec/articles/481288/#configureStore"
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Чтобы упростить процесс конфигурации хранилища используют `configureStore()`
 
 ```jsx
-import { configureStore } from '@reduxjs/toolkit'  
-  
-import rootReducer from './reducers'  
-  
-const store = configureStore({ reducer: rootReducer })  
+import { configureStore } from "@reduxjs/toolkit";
+
+import rootReducer from "./reducers";
+
+const store = configureStore({ reducer: rootReducer });
 // The store now has redux-thunk added and the Redux DevTools Extension is turned on
 ```
 
 В качестве входных параметров функция `configureStore` принимает объект со следующими свойствами:
+
 - `reducer` — набор пользовательских редьюсеров,
 - `middleware` — опциональный параметр, задающий массив мидлваров, предназначенных для подключения к хранилищу,
 - `devTools` — параметр логического типа, позволяющий включить установленное в браузер расширение Redux DevTools (значение по умолчанию — true),
@@ -80,10 +90,10 @@ const store = configureStore({
   enhancers: [batchedSubscribe(debounceNotify)],
 })
 
-// Store был создан с такими параметрами:  
-// - срезы редукторов были автоматически переданы в combineReducers() 
-// - библиотеки redux-thunk и redux-logger были добавлены как middleware 
-// - расширение Redux DevTools было отключено для продакшена  
+// Store был создан с такими параметрами:
+// - срезы редукторов были автоматически переданы в combineReducers()
+// - библиотеки redux-thunk и redux-logger были добавлены как middleware
+// - расширение Redux DevTools было отключено для продакшена
 // - middleware, пакетное подписывание и улучшители дебаговых инструментов были объединены вместе
 ```
 
@@ -92,9 +102,10 @@ const store = configureStore({
 В production режиме массив состоит только из одного элемента — thunk.
 
 В режиме development на момент написания статьи список пополняется следующими мидлварами:
+
 - `serializableStateInvariant` — инструмент, специально разработанный для использования в Redux Toolkit и предназначенный для проверки дерева состояний на предмет наличия несериализуемых значений, таких как функции, Promise, Symbol и другие значения, не являющиеся простыми JS-данными;
 - `immutableStateInvariant` — мидлвар из пакета [redux-immutable-state-invariant](https://www.npmjs.com/package/redux-immutable-state-invariant), предназначенный для обнаружения мутаций данных, содержащихся в хранилище.
 
-____
+---
 
 [[004 State Managers|Назад]]

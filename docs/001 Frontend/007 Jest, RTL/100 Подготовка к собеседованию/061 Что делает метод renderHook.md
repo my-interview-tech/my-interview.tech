@@ -1,6 +1,6 @@
 ---
+uid: OZW8P9-k_5VXg6ZlfAkJX
 title: Что делает метод renderHook в RTL?
-draft: false
 tags:
   - testing
   - Jest
@@ -9,8 +9,17 @@ tags:
   - rerender
   - unmount
 info:
-  - https://testing-library.com/docs/react-testing-library/api/#renderhook
+  - "https://testing-library.com/docs/react-testing-library/api/#renderhook"
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 61
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 **`renderHook`** — это метод, предоставляемый библиотекой `@testing-library/react-hooks`, который используется для тестирования кастомных хуков. Он позволяет рендерить хук в изолированной среде и получать доступ к его результатам и состоянию.
 
 Основные функции `renderHook`:
@@ -23,14 +32,14 @@ info:
 Пример кастомного хука:
 
 ```javascript
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 function useCounter(initialCount) {
   const [count, setCount] = useState(initialCount);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCount(prevCount => prevCount + 1);
+      setCount((prevCount) => prevCount + 1);
     }, 1000);
 
     return () => clearInterval(interval);
@@ -45,10 +54,10 @@ export default useCounter;
 Пример теста:
 
 ```javascript
-import { renderHook, act } from '@testing-library/react-hooks';
-import useCounter from './useCounter';
+import { renderHook, act } from "@testing-library/react-hooks";
+import useCounter from "./useCounter";
 
-test('useCounter increments the count', () => {
+test("useCounter increments the count", () => {
   // Рендерим хук с начальным значением
   const { result } = renderHook(() => useCounter(0));
 
@@ -87,13 +96,16 @@ test('useCounter increments the count', () => {
 - **`unmount`**: Позволяет отмонтировать хук, что полезно для проверки очистки эффектов.
 
 ```javascript
-import { renderHook, act } from '@testing-library/react-hooks';
-import useCounter from './useCounter';
+import { renderHook, act } from "@testing-library/react-hooks";
+import useCounter from "./useCounter";
 
-test('useCounter handles rerender and unmount', () => {
-  const { result, rerender, unmount } = renderHook(({ initialCount }) => useCounter(initialCount), {
-    initialProps: { initialCount: 0 },
-  });
+test("useCounter handles rerender and unmount", () => {
+  const { result, rerender, unmount } = renderHook(
+    ({ initialCount }) => useCounter(initialCount),
+    {
+      initialProps: { initialCount: 0 },
+    },
+  );
 
   expect(result.current).toBe(0);
 
@@ -120,6 +132,6 @@ test('useCounter handles rerender and unmount', () => {
 });
 ```
 
-____
+---
 
 [[007 Jest, RTL|Назад]]

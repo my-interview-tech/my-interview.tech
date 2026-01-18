@@ -1,13 +1,26 @@
 ---
-title: Что такое rest и spread? В чём их разница? Какой тип данных у rest? Как с помощью spred сделать копию или конкатенацию массива и объекта?
-draft: false
+uid: 1EFI016qFuEp84H--O37G
+title: >-
+  Что такое rest и spread? В чём их разница? Какой тип данных у rest? Как с
+  помощью spred сделать копию или конкатенацию массива и объекта?
 tags:
   - "#JavaScript"
   - "#rest"
   - "#spread"
 info:
-  - "[[0051 Остаточные параметры и оператор расширения|Остаточные параметры и оператор расширения]]"
+  - >-
+    [[0051 Остаточные параметры и оператор расширения|Остаточные параметры и
+    оператор расширения]]
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 106
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230702200519.png|600]]
 
 Rest и Spread - это два оператора в JavaScript, которые используются для работы с массивами и объектами.
@@ -18,12 +31,12 @@ _Оператор Rest (`...`)_ используется для объедине
 
 ```javascript
 function myFunction(a, b, ...rest) {
-  console.log(a) // 1
-  console.log(b) // 2
-  console.log(rest) // [3, 4, 5]
+  console.log(a); // 1
+  console.log(b); // 2
+  console.log(rest); // [3, 4, 5]
 }
 
-myFunction(1, 2, 3, 4, 5)
+myFunction(1, 2, 3, 4, 5);
 ```
 
 В этом примере, мы объявляем функцию `myFunction`, которая имеет первые два аргумента `a` и `b`, а остальные аргументы объединяются в массив `rest` с помощью оператора rest `...`.
@@ -35,12 +48,12 @@ _Оператор Spread (`...`)_ используется для распрос
 Пример:
 
 ```javascript
-const arr1 = [1, 2, 3]
-const arr2 = [4, 5, 6]
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
 
-const arr3 = [...arr1, ...arr2]
+const arr3 = [...arr1, ...arr2];
 
-console.log(arr3) // [1, 2, 3, 4, 5, 6]
+console.log(arr3); // [1, 2, 3, 4, 5, 6]
 ```
 
 В этом примере, мы создаем два массива `arr1` и `arr2`, а затем используем оператор Spread `...` для распространения их элементов в новом массиве `arr3`.
@@ -50,15 +63,15 @@ console.log(arr3) // [1, 2, 3, 4, 5, 6]
 Пример:
 
 ```javascript
-const arr1 = [1, 2, 3]
-const arr2 = [...arr1]
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1];
 
-console.log(arr2) // [1, 2, 3]
+console.log(arr2); // [1, 2, 3]
 
-const obj1 = { a: 1, b: 2 }
-const obj2 = { ...obj1 }
+const obj1 = { a: 1, b: 2 };
+const obj2 = { ...obj1 };
 
-console.log(obj2) // { a: 1, b: 2 }
+console.log(obj2); // { a: 1, b: 2 }
 ```
 
 В этом примере, мы используем оператор Spread `...` для создания копии массива `arr1` и объекта `obj1`.

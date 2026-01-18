@@ -1,13 +1,21 @@
 ---
+uid: KxX22riOWHn63rKRI-JO0
 title: Что такое веб-хранилище (web storage)?
-draft: false
 tags:
   - webStorage
   - localStorage
   - sessionStorage
 info:
-  - https://habr.com/ru/articles/496348/
+  - "https://habr.com/ru/articles/496348/"
+draft: false
+technology: Подготовка к собеседованию
+tools: []
+order: 41
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _Web storage_ - это механизм для хранения данных на стороне клиента в браузере. _Он предоставляет простой способ хранения и доступа к данным, которые могут использоваться для сохранения настроек пользователя, формы, состояния приложения и других данных._
 
 Web storage включает два типа хранилища: localStorage и sessionStorage.

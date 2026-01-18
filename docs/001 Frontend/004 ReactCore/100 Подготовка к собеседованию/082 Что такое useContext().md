@@ -1,14 +1,23 @@
 ---
+uid: l87bbA-_hXNWShkXt0CG5
 title: Что такое `useContext()`?
-draft: false
 tags:
   - React
   - useContext
   - React19
 info:
-  - https://react.dev/reference/react/useContext
-  - https://dev.to/ilizette/understanding-usecontext-in-react-26gf
+  - "https://react.dev/reference/react/useContext"
+  - "https://dev.to/ilizette/understanding-usecontext-in-react-26gf"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 82
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _`Context API`_ - это механизм, который позволяет передавать данные через дерево компонентов, без необходимости передавать их через промежуточные компоненты.
 
 _В React 16.3 была представлена новая версия `Context API`, которая упростила передачу данных через дерево компонентов и добавила новые возможности для управления контекстом._
@@ -20,25 +29,25 @@ _В React 16.3 была представлена новая версия `Contex
 Пример использования Context API:
 
 ```jsx
-import React, { createContext, useState, useContext } from "react"
+import React, { createContext, useState, useContext } from "react";
 
 // Создание контекста
-const ThemeContext = createContext("light")
+const ThemeContext = createContext("light");
 
 function App() {
-  const [theme, setTheme] = useState("light")
+  const [theme, setTheme] = useState("light");
 
   // Обработчик изменения темы
   const handleThemeChange = () => {
-    setTheme(theme === "light" ? "dark" : "light")
-  }
+    setTheme(theme === "light" ? "dark" : "light");
+  };
 
   // Передача значения контекста через Provider
   return (
     <ThemeContext.Provider value={theme}>
       <Toolbar onThemeChange={handleThemeChange} />
     </ThemeContext.Provider>
-  )
+  );
 }
 
 function Toolbar(props) {
@@ -46,12 +55,12 @@ function Toolbar(props) {
     <div>
       <ThemedButton onClick={props.onThemeChange} />
     </div>
-  )
+  );
 }
 
 function ThemedButton(props) {
   // Получение значения контекста через useContext
-  const theme = useContext(ThemeContext)
+  const theme = useContext(ThemeContext);
   return (
     <button
       {...props}
@@ -60,10 +69,10 @@ function ThemedButton(props) {
         color: theme === "light" ? "#000" : "#fff",
       }}
     />
-  )
+  );
 }
 
-export default App
+export default App;
 ```
 
 В данном примере мы создаем контекст `ThemeContext` и определяем начальное значение `light`. Мы передаем значение контекста через компонент `Provider` и обрабатываем изменение темы в родительском компоненте `App`. В дочерних компонентах `Toolbar` и `ThemedButton` мы получаем значение контекста через `useContext()` и используем его для определения стилей элементов. При нажатии на кнопку в компоненте `ThemedButton` вызывается функция `handleThemeChange()`, которая обновляет значение состояния и передает его через контекст.
@@ -105,7 +114,7 @@ const { Provider , Consumer } = React.createService()
 Для того, чтобы создать контекст, используем:
 
 ```jsx
-const MyContext = React.createContext(defaultValue)
+const MyContext = React.createContext(defaultValue);
 ```
 
 Создаёт объект `Context`. Когда React рендерит компонент, который подписан на этот объект, React получит текущее значение контекста из ближайшего подходящего `Provider` выше в дереве компонентов.
@@ -134,23 +143,23 @@ const MyContext = React.createContext(defaultValue)
 ```jsx
 class MyClass extends React.Component {
   componentDidMount() {
-    let value = this.context
+    let value = this.context;
     /* выполнить побочный эффект на этапе монтирования, используя значение MyContext */
   }
   componentDidUpdate() {
-    let value = this.context
+    let value = this.context;
     /* ... */
   }
   componentWillUnmount() {
-    let value = this.context
+    let value = this.context;
     /* ... */
   }
   render() {
-    let value = this.context
+    let value = this.context;
     /* отрендерить что-то, используя значение MyContext */
   }
 }
-MyClass.contextType = MyContext
+MyClass.contextType = MyContext;
 ```
 
 В свойство класса `contextType` может быть назначен объект контекста, созданный с помощью [`React.createContext()`](https://ru.reactjs.org/docs/context.html#reactcreatecontext). С помощью этого свойства вы можете использовать ближайшее и актуальное значение указанного контекста при помощи `this.context`. В этом случае вы получаете доступ к контексту, как во всех методах жизненного цикла, так и в рендер-методе.
@@ -162,9 +171,9 @@ MyClass.contextType = MyContext
 
 ```jsx
 class MyClass extends React.Component {
-  static contextType = MyContext
+  static contextType = MyContext;
   render() {
-    let value = this.context
+    let value = this.context;
     /* отрендерить что-то, используя значение MyContext */
   }
 }
@@ -218,17 +227,17 @@ export const ThemeContext = React.createContext(  themes.dark // значени�
 ```
 
 ```jsx themed-button.js
-import { ThemeContext } from "./theme-context"
+import { ThemeContext } from "./theme-context";
 
 class ThemedButton extends React.Component {
   render() {
-    let props = this.props
-    let theme = this.context
-    return <button {...props} style={{ backgroundColor: theme.background }} />
+    let props = this.props;
+    let theme = this.context;
+    return <button {...props} style={{ backgroundColor: theme.background }} />;
   }
 }
-ThemedButton.contextType = ThemeContext
-export default ThemedButton
+ThemedButton.contextType = ThemeContext;
+export default ThemedButton;
 ```
 
 ```jsx app.js
@@ -288,7 +297,7 @@ root.render(<App />);
 export const ThemeContext = React.createContext({
   theme: themes.dark,
   toggleTheme: () => {},
-})
+});
 ```
 
 ```jsx theme-toggler-button.js
@@ -360,16 +369,16 @@ root.render(<App />);
 
 ```jsx
 // Контекст UI-темы, со светлым значением по умолчанию
-const ThemeContext = React.createContext("light")
+const ThemeContext = React.createContext("light");
 
 // Контекст активного пользователя
 const UserContext = React.createContext({
   name: "Guest",
-})
+});
 
 class App extends React.Component {
   render() {
-    const { signedInUser, theme } = this.props
+    const { signedInUser, theme } = this.props;
 
     // Компонент App, который предоставляет начальные значения контекстов
     return (
@@ -380,7 +389,7 @@ class App extends React.Component {
           <Layout />
         </UserContext.Provider>{" "}
       </ThemeContext.Provider>
-    )
+    );
   }
 }
 
@@ -390,7 +399,7 @@ function Layout() {
       <Sidebar />
       <Content />
     </div>
-  )
+  );
 }
 
 // Компонент, который может использовать несколько контекстов
@@ -405,7 +414,7 @@ function Content() {
         </UserContext.Consumer>
       )}{" "}
     </ThemeContext.Consumer>
-  )
+  );
 }
 ```
 
@@ -423,7 +432,7 @@ class App extends React.Component {
         {" "}
         <Toolbar />
       </MyContext.Provider>
-    )
+    );
   }
 }
 ```
@@ -433,10 +442,10 @@ class App extends React.Component {
 ```jsx
 class App extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       value: { something: "something" },
-    }
+    };
   }
 
   render() {
@@ -445,7 +454,7 @@ class App extends React.Component {
         {" "}
         <Toolbar />
       </MyContext.Provider>
-    )
+    );
   }
 }
 ```
@@ -464,18 +473,13 @@ class App extends React.Component {
 
 ### as React19
 
-
 В React 19 вы можете использовать `<Context>` в качестве провайдера вместо `<Context.Provider>`:
 
 ```javascript
-const ThemeContext = createContext('');
+const ThemeContext = createContext("");
 
-function App({children}) {
-  return (
-    <ThemeContext value="dark">
-      {children}
-    </ThemeContext>
-  );  
+function App({ children }) {
+  return <ThemeContext value="dark">{children}</ThemeContext>;
 }
 ```
 

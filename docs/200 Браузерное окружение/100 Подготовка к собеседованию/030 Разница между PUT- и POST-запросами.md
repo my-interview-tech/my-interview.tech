@@ -1,14 +1,22 @@
 ---
+uid: aR7i7bZ328CBCUrMbD1wU
 title: Разница между `PUT`- и `POST`-запросами
-draft: false
 tags:
   - HTTP
   - HTTP-запрос
   - PUT
   - POST
   - browser
-info:
+info: null
+draft: false
+technology: Подготовка к собеседованию
+tools: []
+order: 30
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703190846.png|600]]
 
 _PUT_ и _POST_ - это два разных метода HTTP-запросов, которые используются для отправки данных на сервер. Основная разница между ними заключается в том, как они обрабатывают данные на сервере.

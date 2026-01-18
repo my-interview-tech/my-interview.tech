@@ -1,18 +1,27 @@
 ---
+uid: eL2UZuBhup_FWNLh7QkEy
 title: Как вы имитируете вызовы внешних API в тестах Jest?
-draft: false
 tags:
   - testing
   - Jest
   - API
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 67
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Имитация вызовов внешних API в тестах Jest позволяет вам тестировать код, который зависит от данных из внешних источников, без необходимости делать реальные запросы. Это делает ваши тесты детерминированными и независимыми от внешних зависимостей. Вот пошаговое руководство, как это сделать:
 
 1. **Определите внешние вызовы API**:
 
 Определите, какие вызовы API выполняет ваш код, который нужно имитировать.
 
- 2. **Создайте имитацию внешнего API**:
+2. **Создайте имитацию внешнего API**:
 
 Используйте `jest.fn()` для создания имитации функции, которая будет возвращать поддельные данные.
 
@@ -22,8 +31,8 @@ const mockGetData = jest.fn(() => {
   return {
     data: {
       id: 1,
-      name: 'John Doe',
-      email: 'johndoe@example.com',
+      name: "John Doe",
+      email: "johndoe@example.com",
     },
   };
 });
@@ -35,7 +44,7 @@ const mockGetData = jest.fn(() => {
 
 ```javascript
 // Пример имитации внешнего API
-jest.mock('./api', () => ({
+jest.mock("./api", () => ({
   getData: mockGetData,
 }));
 ```
@@ -48,18 +57,18 @@ jest.mock('./api', () => ({
 
 ```javascript
 // Пример тестового случая для кода, который выполняет внешний вызов API
-test('should return the correct user data', async () => {
+test("should return the correct user data", async () => {
   const result = await getUserData();
   expect(result).toEqual({
     id: 1,
-    name: 'John Doe',
-    email: 'johndoe@example.com',
+    name: "John Doe",
+    email: "johndoe@example.com",
   });
 });
 ```
 
 В этом примере тестируется функция `getUserData()`, которая выполняет внешний вызов API для функции `getData()`. Тест проверяет, что функция корректно возвращает ожидаемые данные на основе поддельных данных, возвращаемых фиктивной реализацией.
 
-____
+---
 
 [[007 Jest, RTL|Назад]]

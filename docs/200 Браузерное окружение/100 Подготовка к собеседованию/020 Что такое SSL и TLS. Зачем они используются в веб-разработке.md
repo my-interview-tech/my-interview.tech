@@ -1,13 +1,21 @@
 ---
+uid: 9dBkRQM2fie0lQ52L81_x
 title: Что такое SSL и TLS? Зачем они используются в веб-разработке?
-draft: false
 tags:
   - SSL
   - TLS
   - browser
 info:
-  - https://habr.com/ru/companies/1cloud/articles/326292/
+  - "https://habr.com/ru/companies/1cloud/articles/326292/"
+draft: false
+technology: Подготовка к собеседованию
+tools: []
+order: 20
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703191457.png|600]]
 
 _SSL_ (`Secure Sockets Layer`) и его преемник _TLS_ (`Transport Layer Security`) - это криптографические протоколы, которые обеспечивают безопасную передачу данных между сервером и клиентом в сети Интернет.

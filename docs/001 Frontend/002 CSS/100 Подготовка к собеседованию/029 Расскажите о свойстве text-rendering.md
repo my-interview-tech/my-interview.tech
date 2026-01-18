@@ -1,11 +1,20 @@
 ---
+uid: 4usimHJDbk2iTp5rwJilh
 title: Расскажите о свойстве `text-rendering`
-draft: false
 tags:
   - "#CSS"
   - "#text-rendering"
-info:
+info: null
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 29
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704030546.png|600]]
 
 _Свойство `text-rendering`_ позволяет задавать способ отображения текста на странице. Оно влияет на то, как браузер отображает шрифты и текст на экране.

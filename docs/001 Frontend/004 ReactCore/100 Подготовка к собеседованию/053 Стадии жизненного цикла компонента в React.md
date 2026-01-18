@@ -1,6 +1,6 @@
 ---
+uid: ezl8Q7olA---4JkAcmVol
 title: Стадии жизненного цикла компонента в React?
-draft: false
 tags:
   - "#React"
   - "#Lifecycle"
@@ -8,9 +8,18 @@ tags:
   - "#updating"
   - "#unmounting"
 info:
-  - https://habr.com/ru/articles/358090/
-  - https://dev.to/yohanesss/lifecycle-in-react-component-28g7
+  - "https://habr.com/ru/articles/358090/"
+  - "https://dev.to/yohanesss/lifecycle-in-react-component-28g7"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 53
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704174855.png]]
 
 Жизненный цикл компонента можно разделить на _три основные стадии: монтирование, обновление и размонтирование._

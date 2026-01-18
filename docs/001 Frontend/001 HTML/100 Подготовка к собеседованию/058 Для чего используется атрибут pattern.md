@@ -1,11 +1,20 @@
 ---
+uid: MS1DYvMcQfxMF_ueQVuZ6
 title: Для чего используется атрибут `pattern`?
-draft: false
 tags:
   - "#HTML"
   - "#pattern"
-info:
+info: null
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 58
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704022303.png|600]]
 
 Атрибут `pattern` используется для указания регулярного выражения, которое должно соответствовать значению поля ввода формы.
@@ -16,7 +25,12 @@ info:
 
 ```html
 <label for="phone">Телефон:</label>
-<input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+<input
+  type="tel"
+  id="phone"
+  name="phone"
+  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+/>
 ```
 
 В данном примере, регулярное выражение `[0-9]{3}-[0-9]{3}-[0-9]{4}` описывает формат ввода для номера телефона в США, где номер телефона должен быть в формате XXX-XXX-XXXX, где X - это цифра от 0 до 9.

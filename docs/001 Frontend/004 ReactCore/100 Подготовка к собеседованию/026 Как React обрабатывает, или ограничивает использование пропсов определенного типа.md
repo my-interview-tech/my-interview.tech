@@ -1,13 +1,25 @@
 ---
-title: Как React обрабатывает, или ограничивает использование пропсов определенного типа?
-draft: false
+uid: 6MjjFnVwNQb1agf2wpjhH
+title: >-
+  Как React обрабатывает, или ограничивает использование пропсов определенного
+  типа?
 tags:
   - "#React"
   - "#props"
   - "#propTypes"
 info:
-  - https://ru.legacy.reactjs.org/docs/typechecking-with-proptypes.html#gatsby-focus-wrapper
+  - >-
+    https://ru.legacy.reactjs.org/docs/typechecking-with-proptypes.html#gatsby-focus-wrapper
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 26
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704174101.png|600]]
 
 _React не ограничивает использование пропсов определенного типа напрямую, но существует несколько способов, которыми можно обрабатывать пропсы определенного типа:_
@@ -20,8 +32,8 @@ _React не ограничивает использование пропсов �
 Конкретный пример использования валидации пропсов в React с помощью `PropTypes`:
 
 ```jsx
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
+import PropTypes from "prop-types";
 
 function MyComponent(props) {
   return (
@@ -29,15 +41,15 @@ function MyComponent(props) {
       <h1>{props.title}</h1>
       <p>{props.text}</p>
     </div>
-  )
+  );
 }
 
 MyComponent.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-}
+};
 
-export default MyComponent
+export default MyComponent;
 ```
 
 В этом примере мы создали компонент `MyComponent`, который принимает два обязательных пропса: `title` и `text`. Для валидации пропсов мы использовали PropTypes из библиотеки `prop-types`. Мы определили типы пропсов как `string` и установили для них обязательное значение с помощью метода `isRequired()`. Если тип пропса не соответствует ожидаемому или он не был передан в компонент, то будет выведена ошибка в консоль.
@@ -45,11 +57,11 @@ export default MyComponent
 Пример использования типизации с помощью TypeScript:
 
 ```tsx
-import React from "react"
+import React from "react";
 
 interface MyComponentProps {
-  title: string
-  text: string
+  title: string;
+  text: string;
 }
 
 function MyComponent(props: MyComponentProps) {
@@ -58,10 +70,10 @@ function MyComponent(props: MyComponentProps) {
       <h1>{props.title}</h1>
       <p>{props.text}</p>
     </div>
-  )
+  );
 }
 
-export default MyComponent
+export default MyComponent;
 ```
 
 В этом примере мы создали компонент `MyComponent`, который принимает два пропса: `title` и `text`. Мы определили типы пропсов с помощью интерфейса `MyComponentProps`. Если тип пропса не соответствует ожидаемому, то TypeScript выведет ошибку во время компиляции.

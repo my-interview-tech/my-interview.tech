@@ -1,13 +1,24 @@
 ---
-title: Можете ли вы описать разницу между прогрессивным улучшением (progressive enhancement) и изящной деградацией (graceful degradation)?
-draft: false
+uid: m92GzwpBAQdIF9qBpLVOe
+title: >-
+  Можете ли вы описать разницу между прогрессивным улучшением (progressive
+  enhancement) и изящной деградацией (graceful degradation)?
 tags:
   - "#HTML"
   - "#video"
   - "#audio"
 info:
-  - https://youtu.be/rlWgI7AvV18?t=286
+  - "https://youtu.be/rlWgI7AvV18?t=286"
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 60
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704022441.png|600]]
 
 **Прогрессивное улучшение** - разработка приложения, начиная с самых простых вещей, которые будут работать во всех браузерах. Постепенное добавление новых технологий.

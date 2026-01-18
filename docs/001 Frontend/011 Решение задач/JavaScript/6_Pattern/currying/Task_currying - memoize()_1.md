@@ -1,11 +1,20 @@
 ---
+uid: htkDLnzOQZGbbDk2thuYG
 title: Task_currying - memoize()_1
-draft: false
 tags:
   - "#JavaScript"
   - "#taskJS"
   - "#currying"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```js
 /*
 Описание: 
@@ -28,16 +37,16 @@ console.log(memoizedFibonacci(10)); // 55 (вычислено)
 console.log(memoizedFibonacci(10)); // 55 (взято из кэша)
 ```
 
-**Ответ
+\*\*Ответ
 
 ```js
 function memoize(operation) {
-  return function(...args) {
-    return operation(...args)
-  }
+  return function (...args) {
+    return operation(...args);
+  };
 }
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

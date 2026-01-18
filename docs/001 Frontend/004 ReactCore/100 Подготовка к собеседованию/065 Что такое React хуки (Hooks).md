@@ -1,6 +1,6 @@
 ---
+uid: QdoieHsn_KtRzZbK7KQjg
 title: Что такое React хуки (Hooks)?
-draft: false
 tags:
   - "#React"
   - "#Hooks"
@@ -10,13 +10,22 @@ tags:
   - "#useContext"
 info:
   - "[[0044 Все хуки и концепты React|Все хуки и концепты React]]"
-  - https://habr.com/ru/articles/534632/
-  - https://nuancesprog.ru/p/9823/
-  - https://habr.com/ru/articles/553104/
-  - https://habr.com/ru/companies/ruvds/articles/445276/
-  - https://www.robinwieruch.de/react-hooks-fetch-data/
-  - https://habr.com/ru/articles/588799/
+  - "https://habr.com/ru/articles/534632/"
+  - "https://nuancesprog.ru/p/9823/"
+  - "https://habr.com/ru/articles/553104/"
+  - "https://habr.com/ru/companies/ruvds/articles/445276/"
+  - "https://www.robinwieruch.de/react-hooks-fetch-data/"
+  - "https://habr.com/ru/articles/588799/"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 65
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _React Hooks_ - это новый механизм, появившийся в React 16.8 (2019 год), который позволяет использовать состояние и другие возможности React в функциональных компонентах.
 
 В React встроены некоторые хуки, такие как `useState()`, `useEffect()`, `useContext()`, `useReducer()` и другие. Вы также можете создавать собственные хуки для повторного использования логики между компонентами.

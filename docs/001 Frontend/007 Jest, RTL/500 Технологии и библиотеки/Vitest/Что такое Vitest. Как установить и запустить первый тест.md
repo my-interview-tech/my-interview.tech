@@ -1,16 +1,27 @@
 ---
+uid: hQTs7tYhjmTE18vch0loE
 title: Что такое Vitest? Как установить и запустить первый тест?
-draft: false
 tags:
   - "#testing"
   - "#vitest"
   - "#react-testing-library"
 info:
   - "[[Обзор ViteJS]]"
-  - https://github.com/GizmoDevDev/vitest-tescting/blob/main/docs/basic-knowledge.md
-  - https://markus.oberlehner.net/blog/using-testing-library-jest-dom-with-vitest/
-  - https://www.robinwieruch.de/vitest-react-testing-library/
+  - >-
+    https://github.com/GizmoDevDev/vitest-tescting/blob/main/docs/basic-knowledge.md
+  - >-
+    https://markus.oberlehner.net/blog/using-testing-library-jest-dom-with-vitest/
+  - "https://www.robinwieruch.de/vitest-react-testing-library/"
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![](https://www.youtube.com/watch?v=wUxu1LSmNAo)
 
 #### keywords:
@@ -37,14 +48,16 @@ _В данном проекте мы рассмотрим только втор�
 Создаем файл `vitest.config.ts` со следующим содержимым
 
 ```ts
-import { mergeConfig } from 'vite'
-import { defineConfig } from 'vitest/config'
-import viteConfig from './vite.config'
+import { mergeConfig } from "vite";
+import { defineConfig } from "vitest/config";
+import viteConfig from "./vite.config";
 
-export default mergeConfig(viteConfig, defineConfig({
-  test: {
-  },
-}))
+export default mergeConfig(
+  viteConfig,
+  defineConfig({
+    test: {},
+  }),
+);
 ```
 
 ##### Запуск
@@ -71,9 +84,9 @@ test: {
 
 ```js
 //setup.js
-import { expect, afterEach } from 'vitest';
-import { cleanup } from '@testing-library/react';
-import matchers from '@testing-library/jest-dom/matchers';
+import { expect, afterEach } from "vitest";
+import { cleanup } from "@testing-library/react";
+import matchers from "@testing-library/jest-dom/matchers";
 
 // extends Vitest's expect method with methods from react-testing-library
 expect.extend(matchers);
@@ -86,7 +99,7 @@ afterEach(() => {
 
 6. Дорабатываем настройки vitest:
 
-```js
+````js
   test: {
     globals: true,
     environment: 'jsdom',
@@ -121,9 +134,9 @@ describe('isSortedDescendant tests', () => {
     expect(isSortedDescendant(array)).toBeFalsy();
   })
 })
-```
+````
 
-###### [](https://github.com/GizmoDevDev/vitest-tescting/blob/main/docs/basic-knowledge.md#%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8-expect)Возможности _**expect**_
+###### [](https://github.com/GizmoDevDev/vitest-tescting/blob/main/docs/basic-knowledge.md#%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8-expect)Возможности **_expect_**
 
 После `expect(testingValue)` через точку нужно указать одну из следующих функций для сравнения
 
@@ -155,5 +168,4 @@ describe('isSortedDescendant tests', () => {
 
 - `describe.each` - позволяет передать набор данных, которые будут использоваться во всех тестах внутри блока
 
-
-_____
+---

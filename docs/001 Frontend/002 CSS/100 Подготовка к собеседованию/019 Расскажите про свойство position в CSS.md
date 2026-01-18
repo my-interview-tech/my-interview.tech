@@ -1,11 +1,20 @@
 ---
+uid: U-SJ8waEsflI8uuGLkdmo
 title: Расскажите про свойство `position` в CSS
-draft: false
 tags:
   - CSS
   - "#position"
-info:
+info: null
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 19
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Свойство **position** в CSS определяет способ позиционирования элемента на веб-странице. Это свойство может принимать несколько значений, которые определяют, как элемент будет расположен на странице относительно других элементов.
 
 Значения свойства position в CSS:

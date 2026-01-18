@@ -1,11 +1,20 @@
 ---
+uid: AS2CgHXKwFEXF6HmwtEFL
 title: Как выполнить действие с новым состоянием стейта после setState?
-draft: false
 tags:
   - "#React"
   - "#setState"
-info:
+info: null
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 34
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Если вам нужно выполнить какое-либо действие с новым состоянием компонента после обновления его состояния с помощью метода `setState()`, то вы можете использовать функцию обратного вызова, которую можно передать в качестве второго аргумента в `setState()`.
 
 _Функция обратного вызова будет вызвана после того, как состояние компонента будет обновлено и компонент будет перерисован. В этой функции вы можете выполнить любое действие с новым состоянием компонента._
@@ -15,16 +24,16 @@ _Функция обратного вызова будет вызвана пос
 ```jsx
 class Counter extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { count: 0 }
-    this.handleClick = this.handleClick.bind(this)
+    super(props);
+    this.state = { count: 0 };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
     this.setState({ count: this.state.count + 1 }, () => {
-      console.log("New count:", this.state.count)
+      console.log("New count:", this.state.count);
       // выполнить любое другое действие с новым состоянием здесь
-    })
+    });
   }
 
   render() {
@@ -33,7 +42,7 @@ class Counter extends React.Component {
         <p>Count: {this.state.count}</p>
         <button onClick={this.handleClick}>Increment</button>
       </div>
-    )
+    );
   }
 }
 ```

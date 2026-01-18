@@ -1,11 +1,20 @@
 ---
+uid: sI7CctZ6az-uYrywfwbmd
 title: TSTask - Machine_0
-draft: false
 tags:
   - "#TypeScript"
   - "#tsTask"
   - "#астон"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```ts
 // 1
 /*
@@ -36,10 +45,10 @@ interface Car extends Machine {
   isAirConditioner: boolean;
 }
 
-
-
-type ElectroBusListType = Map<string, Omit<ElectroBus, "capacity" | "specialNumber" | "color">>;
-
+type ElectroBusListType = Map<
+  string,
+  Omit<ElectroBus, "capacity" | "specialNumber" | "color">
+>;
 
 // 3
 /*
@@ -59,21 +68,23 @@ interface ElectroBus extends Bus {
   specialNumber: string;
 }
 
-
 // 5
 /*
 Создать тип ElecroBusListType - представляющую собой мапу(ключ: значение), где ключ - произвольная строка, а значение - сущность * ElectroBus из которой удалены capacity , specialNumber, color
 */
 
-type ElectroBusListType = Map<string, Omit<ElectroBus, "capacity" | "specialNumber" | "color">>;
+type ElectroBusListType = Map<
+  string,
+  Omit<ElectroBus, "capacity" | "specialNumber" | "color">
+>;
 
-или
+или;
 
 interface ElectroBusListType {
   [key: string]: Omit<ElectroBus, "capacity" | "specialNumber" | "color">;
 }
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

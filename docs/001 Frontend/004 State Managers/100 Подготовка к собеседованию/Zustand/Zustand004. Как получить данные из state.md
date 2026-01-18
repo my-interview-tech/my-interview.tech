@@ -1,18 +1,27 @@
 ---
+uid: fOAmSH3Y-L7WrG9vm2c-U
 title: Как получить данные из state ?
-draft: false
 tags:
   - React
   - Zustand
   - state
   - create
   - State-manager
-info:
+info: null
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Используйте хук `useStore` для получения данных из состояния. Пример:
 
 ```jsx
-import { create } from 'zustand';
+import { create } from "zustand";
 
 const useStore = create((set) => ({
   count: 0,
@@ -29,6 +38,6 @@ function Counter() {
 
 Здесь `count` извлекается из состояния с помощью `useStore`.
 
-___
+---
 
 [[004 State Managers|Назад]]

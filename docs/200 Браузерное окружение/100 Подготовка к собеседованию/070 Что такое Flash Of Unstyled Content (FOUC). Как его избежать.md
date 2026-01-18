@@ -1,12 +1,20 @@
 ---
+uid: S-h8te9od_pN_Tsp09xtq
 title: Что такое Flash Of Unstyled Content (FOUC) ? Как его избежать?
-draft: false
 tags:
   - FOUC
   - CSS
   - browser
-info:
+info: null
+draft: false
+technology: Подготовка к собеседованию
+tools: []
+order: 70
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703194234.png|600]]
 
 Flash of Unstyled Content (_FOUC_) - это неприятный эффект, когда браузер показывает неоформленный контент на странице перед тем, как CSS-стили будут полностью загружены и применены. FOUC происходит, когда браузер рендерит HTML-код до того, как он получит CSS-стили, что может привести к неожиданному изменению внешнего вида страницы.

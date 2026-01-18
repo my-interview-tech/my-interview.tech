@@ -1,12 +1,21 @@
 ---
+uid: AbPAj6bhoJqfUDn_p70kN
 title: Разница между `JSON` и `XML`
-draft: false
 tags:
   - "#JSON"
   - "#XML"
   - "#browser"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 25
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230701222134.png|600]]
 
 `JSON` и `XML` - это два формата данных, которые используются для хранения и передачи данных между приложениями.

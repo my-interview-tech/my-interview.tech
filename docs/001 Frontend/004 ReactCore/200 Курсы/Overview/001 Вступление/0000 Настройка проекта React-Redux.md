@@ -1,11 +1,21 @@
 ---
+uid: RNsFys6dApuPaoGaOcwZJ
 title: Настройка проекта React-Redux
-draft: false
 tags:
   - "#React"
   - Redux
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Для того, чтобы работать в #React необходимо применить скрипт:
+
 ```bash
 npx create-react-app my-app
 ```
@@ -26,4 +36,4 @@ npm install date-fns --save
 **npm** **install** **react**-**router**-**dom**
 npm install react-markdown
 
-___
+---

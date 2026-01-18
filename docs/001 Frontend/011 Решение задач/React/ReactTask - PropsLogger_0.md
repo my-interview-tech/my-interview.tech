@@ -1,26 +1,38 @@
 ---
+uid: lKjVQ-BmHHhHWa2AgMZXw
 title: ReactTask - PropsLogger_0
-draft: false
 tags:
   - "#React"
   - "#reactTask"
   - "#Hooks"
   - "#itOne"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```jsx
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
 function PropsLogger(props) {
   const prevProps = useRef(props);
 
   useEffect(() => {
-    const changedProps = Object.entries(props).reduce((result, [key, value]) => {
-      if (prevProps.current[key] !== value) {
-        result[key] = value;
-      }
-      return result;
-    }, {});
-    console.log('Props changed:', changedProps);
+    const changedProps = Object.entries(props).reduce(
+      (result, [key, value]) => {
+        if (prevProps.current[key] !== value) {
+          result[key] = value;
+        }
+        return result;
+      },
+      {},
+    );
+    console.log("Props changed:", changedProps);
     prevProps.current = props;
   }, [props]);
 
@@ -28,7 +40,6 @@ function PropsLogger(props) {
 }
 
 export default PropsLogger;
-
 
 /* 
 В этом компоненте мы используем хук useRef, чтобы сохранить предыдущие значения пропсов. 
@@ -40,6 +51,6 @@ Object.entries для перебора объекта и метод reduce дл�
 */
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

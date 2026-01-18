@@ -1,11 +1,19 @@
 ---
+uid: 0AR8hmgwUyBW4j2DBYyJ2
 title: Что такое History API в браузере?
-draft: false
 tags:
   - history-API
   - browser
-info:
+info: null
+draft: false
+technology: Подготовка к собеседованию
+tools: []
+order: 84
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703194305.png|600]]
 
 _History API_ - это набор методов и свойств JavaScript, доступных в браузерах, которые позволяют управлять историей браузера (или историей переходов по страницам). Он позволяет создавать динамические веб-страницы без перезагрузки страницы и обновления URL-адреса.

@@ -1,6 +1,6 @@
 ---
-title: Объясни, как можно запросить query параметр в Next.js?
-draft: false
+uid: n99UBHTNGJtenDRq3Nsss
+title: "Объясни, как можно запросить query параметр в Next.js?"
 tags:
   - NextJS
   - query
@@ -9,9 +9,20 @@ tags:
   - getStaticProps
   - getStaticPaths
 info:
-  - https://www.geeksforgeeks.org/how-to-get-query-parameters-from-url-in-next-js/
-  - https://stackoverflow.com/questions/43862600/how-can-i-get-query-string-parameters-from-the-url-in-next-js
+  - >-
+    https://www.geeksforgeeks.org/how-to-get-query-parameters-from-url-in-next-js/
+  - >-
+    https://stackoverflow.com/questions/43862600/how-can-i-get-query-string-parameters-from-the-url-in-next-js
+draft: false
+technology: Next.js
+specialty: Frontend
+tools: []
+order: 34
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 В Next.js вы можете запросить параметры запроса (query parameters) из URL, используя несколько различных подходов в зависимости от того, где и как вы хотите их получить. Вот несколько методов:
 
 1. Использование `useRouter` в функциональных компонентах
@@ -19,7 +30,7 @@ info:
 Если вы работаете в функциональном компоненте, вы можете использовать хук `useRouter` из `next/router` для доступа к параметрам запроса.
 
 ```javascript
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
 const MyComponent = () => {
   const router = useRouter();
@@ -71,9 +82,7 @@ export default MyComponent;
 ```javascript
 export async function getStaticPaths() {
   return {
-    paths: [
-      { params: { param1: 'value1', param2: 'value2' } },
-    ],
+    paths: [{ params: { param1: "value1", param2: "value2" } }],
     fallback: false,
   };
 }
@@ -106,15 +115,15 @@ export default MyComponent;
 Вы также можете программно перемещаться по вашему приложению, используя `router.push` с параметрами запроса.
 
 ```javascript
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
 const MyComponent = () => {
   const router = useRouter();
 
   const navigateWithQuery = () => {
     router.push({
-      pathname: '/another-page',
-      query: { param1: 'value1', param2: 'value2' },
+      pathname: "/another-page",
+      query: { param1: "value1", param2: "value2" },
     });
   };
 
@@ -130,6 +139,6 @@ export default MyComponent;
 
 Эти методы позволяют вам гибко работать с параметрами запроса в различных сценариях использования Next.js.
 
-___
+---
 
 [[006 Next.js|Назад]]

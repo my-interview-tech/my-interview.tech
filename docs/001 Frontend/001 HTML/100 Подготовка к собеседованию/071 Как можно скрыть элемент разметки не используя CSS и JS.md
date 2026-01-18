@@ -1,11 +1,20 @@
 ---
+uid: oq7JgCZSNhJdKzzIvRVns
 title: Как можно скрыть элемент разметки не используя CSS и JS?
-draft: false
 tags:
   - "#HTML"
   - "#hidden"
-info:
+info: null
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 71
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704022924.png|600]]
 
 Можно скрыть элемент разметки, используя атрибут `hidden`. Атрибут `hidden` является стандартным атрибутом HTML5, который позволяет скрывать элементы разметки без использования CSS или JavaScript.

@@ -1,12 +1,21 @@
 ---
+uid: qWIDz61xKcBs1tTSG-bxe
 title: Как работает boxing и unboxing в JavaScript?
-draft: false
 tags:
   - "#JavaScript"
   - "#boxing"
   - "#unboxing"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 145
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230702123635.png|600]]
 
 Boxing и unboxing - это процессы преобразования между примитивными типами данных и соответствующими объектными обертками в JavaScript.
@@ -16,13 +25,13 @@ _Boxing (упаковка)_ - это процесс, при котором пр�
 Например:
 
 ```javascript
-const str = "Hello, world!"
-const strObj = new String(str) // явное создание объектной обертки
-const length = str.length // неявное создание объектной обертки
+const str = "Hello, world!";
+const strObj = new String(str); // явное создание объектной обертки
+const length = str.length; // неявное создание объектной обертки
 
-console.log(typeof str) // "string"
-console.log(typeof strObj) // "object"
-console.log(typeof length) // "number"
+console.log(typeof str); // "string"
+console.log(typeof strObj); // "object"
+console.log(typeof length); // "number"
 ```
 
 В этом примере мы создаем строку `str` и объектную обертку `strObj`, которая оборачивает эту строку. Затем мы имплицитно создаем объектную обертку для строки, обращаясь к свойству `length`.
@@ -32,11 +41,11 @@ _Unboxing (распаковка)_ - это процесс, при котором
 Например:
 
 ```javascript
-const numObj = new Number(42)
-const num = numObj.valueOf()
+const numObj = new Number(42);
+const num = numObj.valueOf();
 
-console.log(typeof numObj) // "object"
-console.log(typeof num) // "number"
+console.log(typeof numObj); // "object"
+console.log(typeof num); // "number"
 ```
 
 В этом примере мы создаем объектную обертку `numObj` для числа 42. Затем мы используем метод `valueOf()`, чтобы получить примитивное значение из объектной обертки и сохранить его в переменной `num`.

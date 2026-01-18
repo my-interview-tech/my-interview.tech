@@ -1,13 +1,22 @@
 ---
+uid: 4sUo3QCd77UrnBaMfuAsV
 title: Что такое делегирование событий (Event Delegation)?
-draft: false
 tags:
   - "#DOM"
   - "#event"
   - "#event-delegation"
   - "#browser"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 15
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230701214221.png|600]]
 
 _Делегирование событий (Event Delegation)_ - это методика обработки событий, при которой обработка событий делегируется родительскому элементу, вместо того, чтобы добавлять отдельный обработчик события на каждый дочерний элемент.
@@ -23,13 +32,13 @@ _Делегирование событий (Event Delegation)_ - это мето
 Вот пример использования делегирования событий:
 
 ```javascript
-const parent = document.querySelector(".parent")
+const parent = document.querySelector(".parent");
 
 parent.addEventListener("click", function (event) {
   if (event.target.classList.contains("child")) {
-    console.log("Дочерний элемент кликнут")
+    console.log("Дочерний элемент кликнут");
   }
-})
+});
 ```
 
 В этом примере мы добавляем обработчик события клика на родительский элемент с классом "parent". Затем в обработчике события мы проверяем, кликнули ли мы на элемент с классом "child", используя свойство `target` объекта события. Если да, то выполняем соответствующее действие. Таким образом, мы можем обрабатывать события на всех дочерних элементах, которые имеют класс "child", используя только один обработчик события на родительском элементе "parent".

@@ -1,12 +1,21 @@
 ---
+uid: bPr5c4M5DWnyMyNKW2aKX
 title: Как проверить на null или undefined?
-draft: false
 tags:
   - "#TypeScript"
   - "#null"
   - "#undefined"
-info:
+info: null
+draft: false
+technology: TypeScript
+specialty: Frontend
+tools: []
+order: 16
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Для выполнения подобных проверок достаточно воспользоваться следующей конструкцией:
 
 ```ts
@@ -15,6 +24,7 @@ if (value) {
 ```
 
 Выражение в скобках будет приведено к `true` в том случае, если оно не является чем-то из следующего списка:
+
 - `null`
 - `undefined`
 - `NaN`
@@ -24,6 +34,6 @@ if (value) {
 
 TypeScript поддерживает те же правила преобразования типов, что и JavaScript.
 
-_____
+---
 
 [[005 TypeScript|Назад]]

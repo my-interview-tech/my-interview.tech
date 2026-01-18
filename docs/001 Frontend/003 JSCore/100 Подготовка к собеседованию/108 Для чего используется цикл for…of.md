@@ -1,13 +1,22 @@
 ---
+uid: YP_q-Z78jV4Et3EP9Xe_y
 title: Для чего используется цикл `for…of`?
-draft: false
 tags:
   - "#JavaScript"
   - "#цикл"
   - "#for-of"
 info:
-  - https://habr.com/ru/companies/vk/articles/533822/
+  - "https://habr.com/ru/companies/vk/articles/533822/"
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 108
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230702200931.png|600]]
 
 Цикл `for...of` используется для перебора элементов массива, строки или других итерируемых (iterable) объектов, таких как наборы (Set), карты (Map) и т.д.
@@ -25,10 +34,10 @@ for (let value of iterable) {
 Пример использования цикла `for...of` для перебора элементов массива:
 
 ```javascript
-const arr = [1, 2, 3]
+const arr = [1, 2, 3];
 
 for (let value of arr) {
-  console.log(value)
+  console.log(value);
 }
 // Вывод: 1 2 3
 ```

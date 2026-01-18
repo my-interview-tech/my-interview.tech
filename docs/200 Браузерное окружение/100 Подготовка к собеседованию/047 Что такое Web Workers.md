@@ -1,13 +1,21 @@
 ---
+uid: YrV0noE39FoL7Q64tW_zY
 title: Что такое Web Workers?
-draft: false
 tags:
   - webWorker
   - browser
 info:
-  - https://webformyself.com/javascript-web-workers-service-workers-i-worklets/
-  - https://habr.com/ru/companies/ruvds/articles/348424/
+  - "https://webformyself.com/javascript-web-workers-service-workers-i-worklets/"
+  - "https://habr.com/ru/companies/ruvds/articles/348424/"
+draft: false
+technology: Подготовка к собеседованию
+tools: []
+order: 47
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703192453.png|600]]
 
 _Web Workers_ - это скрипты, которые _позволяют выполнять задачи в фоновом режиме, не блокируя основной поток выполнения веб-страницы._ Они позволяют создавать более отзывчивые веб-приложения, которые могут обрабатывать большие объемы данных или сложные задачи, не прерывая работу интерфейса пользователя.

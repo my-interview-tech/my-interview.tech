@@ -1,9 +1,17 @@
 ---
+uid: 86tHiMk5zfwoWvYPScPVN
 title: Как создать host Application?
+tags: null
+info: null
 draft: false
-tags: 
-info:
+technology: Архитектура Веб-приложений
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 У нас есть host-приложение , которое будет включать в себя 3-remote (`addtocart, cart, server`) репозитория.
 
 ![[Pasted image 20231003225257.png|600]]
@@ -18,4 +26,4 @@ info:
 
 Имена `remote` должны совпадать в имени host и remote файла `webpack.config.js`.
 
-Далее я могу импортировать выбранный компонент в свой хост приложение. 
+Далее я могу импортировать выбранный компонент в свой хост приложение.

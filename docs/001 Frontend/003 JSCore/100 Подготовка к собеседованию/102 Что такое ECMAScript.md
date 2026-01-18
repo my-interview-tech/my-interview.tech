@@ -1,12 +1,21 @@
 ---
+uid: cnAJAN9UwSFeksyZkaj_D
 title: Что такое ECMAScript?
-draft: false
 tags:
   - "#JavaScript"
   - "#ECMAScript"
 info:
-  - https://262.ecma-international.org/
+  - "https://262.ecma-international.org/"
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 102
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230702195527.png]]
 
 _ECMAScript (аббревиатура `ES`)_ - это стандарт, описывающий язык программирования JavaScript. ECMAScript определяет базовый синтаксис и функциональность языка, которые должны поддерживаться браузерами и другими реализациями JavaScript.

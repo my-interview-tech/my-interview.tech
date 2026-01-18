@@ -1,14 +1,22 @@
 ---
-title: Как создать свою ветку gitlab, git, vsCode, webstorm?
-draft: false
+uid: GzmRfJsLumjDEP3SLRjK3
+title: "Как создать свою ветку gitlab, git, vsCode, webstorm?"
 tags:
   - "#gitlab"
   - "#git"
   - IDE
   - "#VSCode"
   - "#webstorm"
-info:
+info: null
+draft: false
+technology: Подготовка к собеседованию
+tools: []
+order: 6
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ## Gitlab
 
 ##### Вариант 1
@@ -72,6 +80,6 @@ info:
 
 Выбираем + New Branch --> в форме New branch name пишем имя новой ветки и оставляем галочку на Checkout branch (чтобы сразу переключиться на нее) --> нажимаем Create.
 
-____
+---
 
 [[100 Git|Назад]]

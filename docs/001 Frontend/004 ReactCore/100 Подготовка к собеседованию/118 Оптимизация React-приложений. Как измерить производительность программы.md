@@ -1,6 +1,6 @@
 ---
+uid: rnHU9sEG85RrUuAKFZ1J1
 title: Оптимизация React-приложений. Как измерить производительность программы?
-draft: false
 tags:
   - "#React"
   - "#shouldComponentUpdate"
@@ -8,9 +8,18 @@ tags:
   - "#useMemo"
   - "#DevTools"
 info:
-  - https://habr.com/ru/companies/ruvds/articles/343888/
-  - https://habr.com/ru/companies/ruvds/articles/442650/
+  - "https://habr.com/ru/companies/ruvds/articles/343888/"
+  - "https://habr.com/ru/companies/ruvds/articles/442650/"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 118
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Оптимизация производительности React-приложений является важной задачей для создания быстрых и отзывчивых пользовательских интерфейсов. Ниже представлены несколько способов, которые могут помочь улучшить производительность React-приложений:
 
 1. _Использование shouldComponentUpdate()_ - метод shouldComponentUpdate() позволяет определить, нужно ли перерисовывать компонент при изменении его свойств или состояния. Это позволяет избежать ненужных перерисовок компонентов и улучшить производительность. Можно использовать библиотеки, такие как React.memo или PureComponent, чтобы автоматически реализовывать этот метод.

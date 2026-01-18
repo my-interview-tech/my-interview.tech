@@ -1,13 +1,22 @@
 ---
+uid: amtJgVPeRIXlS0tiT9hup
 title: Как избежать Callback Hell?
-draft: false
 tags:
   - "#NodeJS"
   - "#JavaScript"
   - "#promise"
   - "#асинхронность"
   - "#CallbackHell"
+draft: false
+technology: Node.js
+specialty: Backend
+tools: []
+order: 12
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704135353.png|600]]
 
 _Callback Hell_ - это ситуация, когда множество асинхронных функций в JavaScript вложены друг в друга через обратные вызовы, что делает код менее читаемым и управляемым. Это может произойти, когда несколько асинхронных функций взаимодействуют друг с другом, и каждая из них требует выполнения после завершения предыдущей.

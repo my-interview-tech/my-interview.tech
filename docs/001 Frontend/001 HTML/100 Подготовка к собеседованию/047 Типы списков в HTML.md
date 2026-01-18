@@ -1,6 +1,6 @@
 ---
+uid: dRKkxxFV2tNS4G77VKA2H
 title: Типы списков в HTML?
-draft: false
 tags:
   - "#HTML"
   - "#ul"
@@ -9,8 +9,17 @@ tags:
   - "#dl"
   - "#dt"
   - "#dd"
-info:
+info: null
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 47
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704021306.png|600]]
 
 Существует два типа списков в HTML: маркированные (буллетные) и нумерованные списки.
@@ -67,4 +76,4 @@ _Нумерованные списки_ используются для пред
 
 ---
 
-[[001 HTML|Назад]] 
+[[001 HTML|Назад]]

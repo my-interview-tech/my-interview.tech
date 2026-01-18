@@ -1,16 +1,25 @@
 ---
+uid: 8cpOP3SVTHNVRXkeFoH8J
 title: Redux и MobX - что лучше и для каких задач?
-draft: false
 tags:
   - "#React"
   - "#Redux"
   - "#MobX"
 info:
-  - https://github.com/mobxjs/mobx-react-devtools
-  - https://habr.com/ru/articles/340592/
-  - https://habr.com/ru/articles/747884/
-  - https://habr.com/ru/articles/324388/
+  - "https://github.com/mobxjs/mobx-react-devtools"
+  - "https://habr.com/ru/articles/340592/"
+  - "https://habr.com/ru/articles/747884/"
+  - "https://habr.com/ru/articles/324388/"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 125
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _`Redux`_ - это библиотека, которая использует принцип `UDF`. Состояние хранится в `store`, который является `SSOT` в приложении и использует чистые функции-редьюсеры для обновления состояния в `store`. Redux может быть лучшим выбором для больших и сложных приложений, где необходимо управлять большим количеством данных и реагировать на сложные события.
 
 Также, Redux относительно сложный для входа, но использует единый подход к разработке приложения, хорошая архитектура, нужно меньше думать о построении архитектуры приложения и больше делать.

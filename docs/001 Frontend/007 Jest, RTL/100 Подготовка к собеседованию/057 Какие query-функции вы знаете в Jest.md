@@ -1,6 +1,6 @@
 ---
+uid: NJy7wD2-SXXV3xrVlh40H
 title: Какие query-функции вы знаете в Jest?
-draft: false
 tags:
   - testing
   - Jest
@@ -11,8 +11,17 @@ tags:
   - getByPlaceholderText
   - getByAltText
   - getByTestId
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 57
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
-В Jest есть несколько query-функций, которые помогают находить элементы в DOM при использовании библиотеки тестирования React, такой как `react-testing-library`. 
+
+В Jest есть несколько query-функций, которые помогают находить элементы в DOM при использовании библиотеки тестирования React, такой как `react-testing-library`.
 
 Анатомия query-функция:
 
@@ -28,10 +37,10 @@ tags:
 | **queryAllBy** | []           | Element[]    | Element[]      |
 | **findAllBy**  | Ошибка       | Element[]    | Element[]      |
 
-| **getBy,  getAllBy**              | **queryBy, queryAllBy**              | **findBy, findAllBy**              |
+| **getBy, getAllBy**               | **queryBy, queryAllBy**              | **findBy, findAllBy**              |
 | --------------------------------- | ------------------------------------ | ---------------------------------- |
 | Доказать, что элементы существуют | Доказать, что элементы не существуют | Убедиться, что элементы появляются |
 
-____
+---
 
 [[007 Jest, RTL|Назад]]

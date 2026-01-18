@@ -1,22 +1,32 @@
 ---
+uid: EJ8cGKwN-CjIXJ8V6FrB3
 title: Что такое AbortController() ?
-draft: false
 tags:
   - React
   - AbortController
   - async
   - fetch
 info:
-  - https://habr.com/ru/articles/588799/
-  - https://vc.ru/dev/674490-abortcontroller-varianty-primeneniya-dlya-effektivnogo-upravleniya-asinhronnymi-operaciyami
-  - https://www.youtube.com/watch?v=RKSNE23lNi4
+  - "https://habr.com/ru/articles/588799/"
+  - >-
+    https://vc.ru/dev/674490-abortcontroller-varianty-primeneniya-dlya-effektivnogo-upravleniya-asinhronnymi-operaciyami
+  - "https://www.youtube.com/watch?v=RKSNE23lNi4"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 44
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
-**AbortController** используется *для отмены или прерывания асинхронных операций, таких как запросы к серверу, чтобы избежать утечки ресурсов и обновлять компоненты только в тех случаях, когда операция все еще актуальна.*
+
+**AbortController** используется _для отмены или прерывания асинхронных операций, таких как запросы к серверу, чтобы избежать утечки ресурсов и обновлять компоненты только в тех случаях, когда операция все еще актуальна._
 
 Вот пример, как можно использовать AbortController в React:
 
 ```js
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 const MyComponent = () => {
   const [data, setData] = useState(null);
@@ -26,7 +36,7 @@ const MyComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://api.example.com/data', {
+        const response = await fetch("https://api.example.com/data", {
           signal: abortController.signal, // Передаем сигнал отмены в запрос
         });
         const jsonData = await response.json();
@@ -59,6 +69,6 @@ export default MyComponent;
 
 Обратите внимание, что AbortController поддерживается в современных браузерах, но не является частью стандарта JavaScript. Если вы планируете использовать его в проекте, убедитесь, что ваш целевой браузер поддерживает AbortController или рассмотрите использование полифила или другого подходящего решения для отмены асинхронных операций.
 
-____
+---
 
 [[004 ReactCore|Назад]]

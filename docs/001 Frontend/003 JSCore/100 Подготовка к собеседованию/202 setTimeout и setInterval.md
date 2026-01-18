@@ -1,13 +1,24 @@
 ---
+uid: 8kAE4aSb0t4_Y9OpMpsSz
 title: setTimeout и setInterval
-draft: false
 tags:
   - "#JavaScript"
   - "#setTimeout"
   - "#setInterval"
 info:
-  - "[[063 Планирование setTimeout и setInterval|Планирование setTimeout и setInterval?]]"
+  - >-
+    [[063 Планирование setTimeout и setInterval|Планирование setTimeout и
+    setInterval?]]
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 202
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Мы можем вызвать функцию не в данный момент, а позже, через заданный интервал времени. Это называется _«планирование вызова»_.
 
 Для этого существуют два метода:
@@ -30,19 +41,19 @@ info:
 
 ```javascript
 function sayHi() {
-  alert("Привет")
+  alert("Привет");
 }
-setTimeout(sayHi, 1000)
+setTimeout(sayHi, 1000);
 ```
 
 С аргументами:
 
 ```javascript
 function sayHi(phrase, who) {
-  alert(phrase + ", " + who)
+  alert(phrase + ", " + who);
 }
-_
-setTimeout(sayHi, 1000, "Привет", "Джон") // Привет, Джон_`
+_;
+setTimeout(sayHi, 1000, "Привет", "Джон"); // Привет, Джон_`
 ```
 
 Если первый аргумент является строкой, то JavaScript создаст из неё функцию.
@@ -59,11 +70,11 @@ setTimeout(sayHi, 1000, "Привет", "Джон") // Привет, Джон_`
 Применение вложенного `setTimeout`:
 
 ```javascript
-let i = 1
+let i = 1;
 setTimeout(function run() {
-  func(i)
-  setTimeout(run, 100)
-}, 100)
+  func(i);
+  setTimeout(run, 100);
+}, 100);
 ```
 
 Ниже представлено изображение, показывающее процесс работы рекурсивного `setTimeout`:
@@ -101,10 +112,10 @@ setInterval(function() {
 В результате ничего не происходит:
 
 ```javascript
-let timerId = setTimeout(() => alert("ничего не происходит"), 1000)
-alert(timerId) // идентификатор таймера
-clearTimeout(timerId)
-alert(timerId) // тот же идентификатор (не принимает значение null после отмены)`
+let timerId = setTimeout(() => alert("ничего не происходит"), 1000);
+alert(timerId); // идентификатор таймера
+clearTimeout(timerId);
+alert(timerId); // тот же идентификатор (не принимает значение null после отмены)`
 ```
 
 Как мы видим из вывода `alert`, в браузере идентификатором таймера является число. В других средах это может быть что-то ещё. Например, Node.js возвращает объект таймера с дополнительными методами.

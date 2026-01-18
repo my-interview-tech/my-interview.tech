@@ -1,14 +1,24 @@
 ---
+uid: BDk2gH6rx40voDjXn1xnX
 title: В чем разница между Snapshot и Unit тестированием?
-draft: false
 tags:
   - testing
   - unit-test
   - snapshot-test
 info:
-  - https://wolfero.medium.com/snapshot-testing-248f6973a361
-  - https://website-sitepe-git-fork-morrinene-blog-web-development-p-cb7563.vercel.app/blog/snapshot-testing-benefits-and-drawbacks
+  - "https://wolfero.medium.com/snapshot-testing-248f6973a361"
+  - >-
+    https://website-sitepe-git-fork-morrinene-blog-web-development-p-cb7563.vercel.app/blog/snapshot-testing-benefits-and-drawbacks
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 3
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Основное различие между SnapShot и Unit-тестами заключается в том, что Snapshot-тесты никогда не подтверждают правильное поведение функциональных возможностей приложения, а вместо этого выполняют сравнение выходных данных.
 
 |                           | Snapshot                                                              | Unit                                                                                                |
@@ -26,6 +36,6 @@ info:
 
 ![[Pasted image 20241018213537.png|600]]
 
-____
+---
 
 [[007 Jest, RTL|Назад]]

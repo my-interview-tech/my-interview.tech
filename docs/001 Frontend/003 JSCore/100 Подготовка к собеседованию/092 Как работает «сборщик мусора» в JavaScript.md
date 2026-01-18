@@ -1,12 +1,21 @@
 ---
+uid: Bfu-NA0mw-P4DWbpBwQul
 title: Как работает «сборщик мусора» в JavaScript?
-draft: false
 tags:
   - "#JavaScript"
   - "#garbage-collector"
 info:
-  - https://habr.com/ru/companies/oleg-bunin/articles/433318/
+  - "https://habr.com/ru/companies/oleg-bunin/articles/433318/"
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 92
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703105015.png|600]]
 
 _Сборщик мусора (`garbage collector`)_ - это встроенная в среду выполнения JavaScript функция, которая _автоматически удаляет объекты, которые больше не используются в программе, и освобождает память, занимаемую этими объектами. Сборщик мусора работает в фоновом режиме и запускается периодически, чтобы определить, какие объекты в программе больше не нужны, и удалить их из памяти._

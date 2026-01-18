@@ -1,6 +1,6 @@
 ---
+uid: UqiJ5Lwhtv9esrLviU3A0
 title: Возможно ли использовать Module Federation вместе с Remix ?
-draft: false
 tags:
   - React
   - Remix
@@ -9,8 +9,17 @@ tags:
   - bundle
   - webpack
   - remix-webpack
-info:
+info: null
+draft: false
+technology: Remix.run
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-02-03T01:48:15+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Да, использование `Module Federation` вместе с Remix возможно, но это не «из коробки» и требует определённой настройки сборки. По умолчанию `Remix` использует **esbuild** для бандлинга, поэтому чтобы подключить Module Federation, нужно переключиться на использование Webpack (либо внедрить дополнительную настройку поверх стандартного билда). Ниже приведён один из подходов, как это можно сделать.
 
 ---
@@ -26,67 +35,70 @@ Remix по умолчанию не предоставляет возможнос
 После того, как вы настроили проект на использование Webpack, можно подключить Module Federation. Пример файла `webpack.config.js` для Remix-приложения может выглядеть следующим образом:
 
 ```js
+// webpack.config.js
 
+const path = require("path");
+const { ModuleFederationPlugin } = require("webpack").container;
+const RemixWebpackPlugin = require("remix-webpack-plugin");
 
-// webpack.config.js 
+// Гипотетический плагин для интеграции Remix с Webpack
 
-const path = require("path"); 
-const { ModuleFederationPlugin } = require("webpack").container; 
-const RemixWebpackPlugin = require("remix-webpack-plugin"); 
-
-// Гипотетический плагин для интеграции Remix с Webpack  
-
-module.exports = {   
-	mode: process.env.NODE_ENV || "development",   
-	entry: "./app/entry.client.tsx", // входная точка вашего Remix-приложения  
-	output: {    
-		path: path.resolve(__dirname, "build"),     
-		filename: "[name].js",     
-		publicPath: "auto"   
-	},   
-	resolve: {     
-		extensions: [".js", ".jsx", ".ts", ".tsx"]   
-	},  
-	 module: {     
-		rules: [{         
-			test: /\.[jt]sx?$/,         
-			loader: "babel-loader",         
-			exclude: /node_modules/,         
-			options: {           
-				presets: ["@babel/preset-react", "@babel/preset-typescript"]         
-			}       
-		}]   
-	},   
-	plugins: [     
-	// Плагин для сборки Remix (зависит от выбранного решения интеграции)     
-		new RemixWebpackPlugin({ /* настройки, необходимые для Remix */ }),     
-	// Настройка Module Federation     
-		new ModuleFederationPlugin({       
-			name: "remixApp",       
-			filename: "remoteEntry.js",       
-			exposes: {         
-// Экспортируем компонент, который хотим сделать доступным для других приложений         
-				"./Header": "./app/components/Header.tsx"       
-			},       
-			remotes: {         
-// Подключаем удалённые приложения, собранные с Module Federation         
-// Например, remoteApp может быть другим микрофронтендом         
-			remoteApp: "remoteApp@https://example.com/remoteEntry.js"       
-			},       
-			shared: {         
-				react: { 
-					singleton: true, 
-					eager: true, 
-					requiredVersion: "^17.0.0" 
-				},
-				"react-dom": { 
-					singleton: true, 
-					eager: true, 
-					requiredVersion: "^17.0.0" 
-				}       
-			}     
-	})   
-]};
+module.exports = {
+  mode: process.env.NODE_ENV || "development",
+  entry: "./app/entry.client.tsx", // входная точка вашего Remix-приложения
+  output: {
+    path: path.resolve(__dirname, "build"),
+    filename: "[name].js",
+    publicPath: "auto",
+  },
+  resolve: {
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.[jt]sx?$/,
+        loader: "babel-loader",
+        exclude: /node_modules/,
+        options: {
+          presets: ["@babel/preset-react", "@babel/preset-typescript"],
+        },
+      },
+    ],
+  },
+  plugins: [
+    // Плагин для сборки Remix (зависит от выбранного решения интеграции)
+    new RemixWebpackPlugin({
+      /* настройки, необходимые для Remix */
+    }),
+    // Настройка Module Federation
+    new ModuleFederationPlugin({
+      name: "remixApp",
+      filename: "remoteEntry.js",
+      exposes: {
+        // Экспортируем компонент, который хотим сделать доступным для других приложений
+        "./Header": "./app/components/Header.tsx",
+      },
+      remotes: {
+        // Подключаем удалённые приложения, собранные с Module Federation
+        // Например, remoteApp может быть другим микрофронтендом
+        remoteApp: "remoteApp@https://example.com/remoteEntry.js",
+      },
+      shared: {
+        react: {
+          singleton: true,
+          eager: true,
+          requiredVersion: "^17.0.0",
+        },
+        "react-dom": {
+          singleton: true,
+          eager: true,
+          requiredVersion: "^17.0.0",
+        },
+      },
+    }),
+  ],
+};
 ```
 
 ### Шаг 3. Динамическая загрузка удалённого модуля в Remix
@@ -94,55 +106,55 @@ module.exports = {
 После настройки сборки и Module Federation можно загружать удалённые модули в компонентах Remix. Например, если вы хотите динамически загрузить компонент из другого микрофронтенда, можно сделать так:
 
 ```tsx
+// app/routes/index.tsx
 
+import React, {
+  Suspense,
+  lazy,
+  useEffect,
+  useState,
+  ComponentType,
+} from "react";
 
-// app/routes/index.tsx 
+// Функция для динамической загрузки удалённого модуля
 
-import React, { Suspense, lazy, useEffect, useState, ComponentType } from "react";  
+const loadRemoteComponent = (scope: string, module: string) => {
+  // @ts-ignore
+  return async () => {
+    // Инициализация контейнера remoteApp
 
-// Функция для динамической загрузки удалённого модуля 
+    await __webpack_init_sharing__("default");
+    const container = window[scope];
 
-const loadRemoteComponent = (scope: string, module: string) => {   
+    // Инициализация разделяемых модулей в контейнере
 
-// @ts-ignore   
-	return async () => {     
-	// Инициализация контейнера remoteApp     
+    await container.init(__webpack_share_scopes__.default);
+    const factory = await container.get(module);
+    const Module = factory();
 
-		await __webpack_init_sharing__("default");     
-		const container = window[scope];     
+    return Module;
+  };
+};
 
-	// Инициализация разделяемых модулей в контейнере     
+export default function Index() {
+  const [RemoteHeader, setRemoteHeader] = useState<ComponentType | null>(null);
 
-		await container.init(__webpack_share_scopes__.default);     
-		const factory = await container.get(module);     
-		const Module = factory();     
+  useEffect(() => {
+    // Загружаем компонент "Header" из remoteApp
 
-		return Module;   
-	}; 
-};  
+    loadRemoteComponent("remoteApp", "./Header")().then((module: any) => {
+      setRemoteHeader(() => module.default || module);
+    });
+  }, []);
 
-
-export default function Index() {   
-
-	const [RemoteHeader, setRemoteHeader] = useState<ComponentType | null>(null);    
-
-	useEffect(() => {     
-
-// Загружаем компонент "Header" из remoteApp     
-
-		loadRemoteComponent("remoteApp", "./Header")().then((module: any) => {    
-			 setRemoteHeader(() => module.default || module);     
-		});   
-	}, []);    
-
-	return (     
-		<div>       
-			<h1>Главная страница Remix</h1>      
-			<Suspense fallback={<div>Загрузка удалённого компонента...</div>}>        
-			{RemoteHeader ? <RemoteHeader /> : <div>Компонент не загружен</div>}      
-			</Suspense>     
-		</div>   
-	); 
+  return (
+    <div>
+      <h1>Главная страница Remix</h1>
+      <Suspense fallback={<div>Загрузка удалённого компонента...</div>}>
+        {RemoteHeader ? <RemoteHeader /> : <div>Компонент не загружен</div>}
+      </Suspense>
+    </div>
+  );
 }
 ```
 
@@ -164,6 +176,6 @@ export default function Index() {
 
 Выбор подхода зависит от требований вашего проекта и готовности кастомизировать сборку. Если у вас возникнут дополнительные вопросы или потребуется помощь в интеграции, дайте знать!
 
-___
+---
 
 [[006 Remix.run|Назад]]

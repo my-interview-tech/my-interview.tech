@@ -1,13 +1,22 @@
 ---
+uid: G4Rum393WlztarM9X7F6b
 title: Slice-паттерн в Zustand
-draft: false
 tags:
   - React
   - Zustand
   - State-manager
   - slice
-info:
+info: null
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Slice-паттерн в Zustand позволяет разбить управление состоянием на отдельные логические части (слайсы), что упрощает поддержку и масштабирование приложения. Вот как это можно реализовать:
 
 ##### 1. Создание слайсов
@@ -16,7 +25,7 @@ Slice-паттерн в Zustand позволяет разбить управле
 
 ```typescript
 // slices/CartSlice.ts
-import { StateCreator } from 'zustand';
+import { StateCreator } from "zustand";
 
 export type CartState = {
   items: string[];
@@ -27,11 +36,12 @@ export type CartState = {
 export const createCartSlice: StateCreator<CartState> = (set) => ({
   items: [],
   addItem: (item) => set((state) => ({ items: [...state.items, item] })),
-  removeItem: (item) => set((state) => ({ items: state.items.filter((i) => i !== item) })),
+  removeItem: (item) =>
+    set((state) => ({ items: state.items.filter((i) => i !== item) })),
 });
 
 // slices/ListSlice.ts
-import { StateCreator } from 'zustand';
+import { StateCreator } from "zustand";
 
 export type ListState = {
   list: string[];
@@ -50,9 +60,9 @@ export const createListSlice: StateCreator<ListState> = (set) => ({
 
 ```typescript
 // store.ts
-import create from 'zustand';
-import { createCartSlice, CartState } from './slices/CartSlice';
-import { createListSlice, ListState } from './slices/ListSlice';
+import create from "zustand";
+import { createCartSlice, CartState } from "./slices/CartSlice";
+import { createListSlice, ListState } from "./slices/ListSlice";
 
 type StoreState = CartState & ListState;
 
@@ -70,8 +80,8 @@ export default useStore;
 
 ```tsx
 // components/CartComponent.tsx
-import React from 'react';
-import useStore from '../store';
+import React from "react";
+import useStore from "../store";
 
 const CartComponent = () => {
   const { items, addItem, removeItem } = useStore();
@@ -87,7 +97,7 @@ const CartComponent = () => {
           </li>
         ))}
       </ul>
-      <button onClick={() => addItem('New Item')}>Add Item</button>
+      <button onClick={() => addItem("New Item")}>Add Item</button>
     </div>
   );
 };
@@ -101,8 +111,8 @@ export default CartComponent;
 
 ```tsx
 // components/ListComponent.tsx
-import React from 'react';
-import useStore from '../store';
+import React from "react";
+import useStore from "../store";
 
 const ListComponent = () => {
   const { list, setList } = useStore();
@@ -115,13 +125,16 @@ const ListComponent = () => {
           <li key={index}>{item}</li>
         ))}
       </ul>
-      <button onClick={() => setList(['Item 1', 'Item 2', 'Item 3'])}>Set List</button>
+      <button onClick={() => setList(["Item 1", "Item 2", "Item 3"])}>
+        Set List
+      </button>
     </div>
   );
 };
 
 export default ListComponent;
 ```
+
 ##### Основные моменты:
 
 - **Слайсы** позволяют разделить состояние на логические части.
@@ -131,6 +144,6 @@ export default ListComponent;
 
 Таким образом, Slice-паттерн помогает эффективно управлять состоянием приложения, делая код более структурированным и удобным для работы.
 
-___
+---
 
 [[004 State Managers|Назад]]

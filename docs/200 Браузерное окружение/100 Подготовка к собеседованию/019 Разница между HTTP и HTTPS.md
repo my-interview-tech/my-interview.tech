@@ -1,6 +1,6 @@
 ---
+uid: mUTMIwI2b1QGgvs7lQ52n
 title: Разница между `HTTP` и `HTTPS`
-draft: false
 tags:
   - HTTP
   - HTTPS
@@ -10,8 +10,16 @@ tags:
 info:
   - "[[0089 HTTP простым языком|HTTP]]"
   - "[[0090 Обзор протокола HTTP|Обзор протокола HTTP]]"
-  - https://habr.com/ru/articles/332294/
+  - "https://habr.com/ru/articles/332294/"
+draft: false
+technology: Подготовка к собеседованию
+tools: []
+order: 19
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703191011.png|600]]
 
 _HTTP_ и _HTTPS_ - это _протоколы передачи данных в Интернете._ Основная разница между ними заключается в том, что _`HTTPS` обеспечивает защищенное соединение, в то время как `HTTP` передает данные в незашифрованном виде._

@@ -1,11 +1,18 @@
 ---
+uid: IhsM60CiAA8Ep8SzrpSOj
 title: Что такое Agile?
-draft: false
 tags:
   - Agile
   - softskills
 info:
-  - https://youtu.be/nTE4qvSvxXY?t=135
+  - "https://youtu.be/nTE4qvSvxXY?t=135"
+draft: false
+technology: other themes
+tools: []
+order: 2
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
 
 ![[Pasted image 20230704164928.png|600]]

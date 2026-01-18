@@ -1,11 +1,20 @@
 ---
+uid: uLMW_yV05jOf8RN_6YHzd
 title: Что такое Strict mode в JavaScript?
-draft: false
 tags:
   - "#JavaScript"
   - "#strict-mode"
 info: []
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 193
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703121206.png|600]]
 
 _Strict mode_ - это определенный режим работы JavaScript, который вводится с помощью директивы `"use strict"`. Этот режим позволяет разработчикам писать более безопасный и строгий код, уменьшая количество ошибок и неявных действий.
@@ -26,14 +35,14 @@ _Strict mode_ - это определенный режим работы JavaScri
 Вот пример использования директивы `"use strict"`:
 
 ```javascript
-"use strict"
+"use strict";
 
 function doSomething() {
-  x = 10 // вызывает ошибку, потому что x не объявлена
-  return x
+  x = 10; // вызывает ошибку, потому что x не объявлена
+  return x;
 }
 
-console.log(doSomething())
+console.log(doSomething());
 ```
 
 В этом примере мы используем директиву `"use strict"` внутри функции `doSomething()`. Когда функция запускается, она пытается присвоить значение переменной `x`, которая не была объявлена, что вызывает ошибку в строгом режиме.

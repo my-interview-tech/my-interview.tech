@@ -1,12 +1,19 @@
 ---
+uid: h9KUJ9TWnlo1OlIuKPL_h
 title: Почему критерии DoD и DoR важны для проекта?
-draft: false
 tags:
   - softskills
   - DoR
   - DoD
 info:
-  - https://youtu.be/DZjIcc6KdjE?t=709
+  - "https://youtu.be/DZjIcc6KdjE?t=709"
+draft: false
+technology: other themes
+tools: []
+order: 10
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
 
 ![[Pasted image 20230704170335.png|600]]

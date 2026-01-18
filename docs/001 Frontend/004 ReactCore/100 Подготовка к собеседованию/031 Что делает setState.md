@@ -1,17 +1,26 @@
 ---
+uid: VVagwUyOtwumR0K2i4e98
 title: Что делает setState?
-draft: false
 tags:
   - "#React"
   - "#setState"
   - "#batched"
 info:
-  - https://ru.legacy.reactjs.org/docs/faq-state.html
+  - "https://ru.legacy.reactjs.org/docs/faq-state.html"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 31
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 `setState()` - это метод, который используется в React для обновления состояния компонента и запуска перерисовки `re-render` компонента с обновленным состоянием.
 
 ```jsx
-setState(updater, [callback])
+setState(updater, [callback]);
 ```
 
 Когда вызывается `setState()`, React обновляет состояние компонента, объединяя его с новыми данными, переданными в качестве аргумента. Затем React перерисовывает компонент с обновленным состоянием, что приводит к обновлению отображения на экране.
@@ -42,13 +51,13 @@ handleSomething() {
 ```jsx
 class Counter extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { count: 0 }
-    this.handleClick = this.handleClick.bind(this)
+    super(props);
+    this.state = { count: 0 };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
-    this.setState({ count: this.state.count + 1 })
+    this.setState({ count: this.state.count + 1 });
   }
 
   render() {
@@ -57,7 +66,7 @@ class Counter extends React.Component {
         <p>Count: {this.state.count}</p>
         <button onClick={this.handleClick}>Increment</button>
       </div>
-    )
+    );
   }
 }
 ```
@@ -75,15 +84,15 @@ class Counter extends React.Component {
 ```jsx
 class MyComponent extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { count: 0 }
-    this.handleClick = this.handleClick.bind(this)
+    super(props);
+    this.state = { count: 0 };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
     this.setState({ count: this.state.count + 1 }, () =>
       console.log("Count updated:", this.state.count),
-    )
+    );
   }
 
   render() {
@@ -92,7 +101,7 @@ class MyComponent extends React.Component {
         <p>Count: {this.state.count}</p>
         <button onClick={this.handleClick}>Increment</button>
       </div>
-    )
+    );
   }
 }
 ```

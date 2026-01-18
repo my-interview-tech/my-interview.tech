@@ -1,19 +1,29 @@
 ---
+uid: Mp0dQg0HkK875kH1OCS14
 title: Что такое редьюсер (Reducer)?
-draft: false
 tags:
   - "#React"
   - "#Redux"
   - "#reducer"
 info:
-  - https://rajdee.gitbooks.io/redux-in-russian/content/docs/basics/Reducers.html
+  - >-
+    https://rajdee.gitbooks.io/redux-in-russian/content/docs/basics/Reducers.html
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704193008.png|600]]
 
 _Редюсер (`reducer`) — это чистая функция, которая принимает предыдущее состояние и экшен (`state` и `action`) и возвращает следующее состояние (новую версию предыдущего)._
 
 ```jsx
-;(previousState, action) => newState
+(previousState, action) => newState;
 ```
 
 _Если previousState - underfined , то нужно вернуть первоначальный (initial) state ._
@@ -34,9 +44,9 @@ _Редьюсеры должны быть чистыми функциями, т�
 function counterReducer(state = { count: 0 }, action) {
   switch (action.type) {
     case "INCREMENT":
-      return { ...state, count: state.count + 1 }
+      return { ...state, count: state.count + 1 };
     default:
-      return state
+      return state;
   }
 }
 ```

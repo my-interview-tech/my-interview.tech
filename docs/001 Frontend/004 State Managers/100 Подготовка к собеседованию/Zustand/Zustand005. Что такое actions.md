@@ -1,19 +1,28 @@
 ---
+uid: 7Z1begGqyynIo3_PWhZZk
 title: Что такое actions ?
-draft: false
 tags:
   - React
   - Zustand
   - actions
   - State-manager
-info:
+info: null
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
-"actions" — это функции, которые изменяют состояние. 
+
+"actions" — это функции, которые изменяют состояние.
 
 Пример:
 
 ```jsx
-import create from 'zustand';
+import create from "zustand";
 
 const useStore = create((set) => ({
   count: 0,
@@ -39,6 +48,6 @@ function Counter() {
 
 Здесь `increment` и `decrement` — это "actions", которые изменяют состояние.
 
-___
+---
 
 [[004 State Managers|Назад]]

@@ -1,11 +1,20 @@
 ---
+uid: lzaOBwr-ITxirdzNWPCRC
 title: Для чего нужен атрибут `autocomplete`?
-draft: false
 tags:
   - "#HTML"
   - "#autocomplete"
-info:
+info: null
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 54
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704021815.png|600]]
 
 Атрибут `autocomplete` используется для указания браузеру, должен ли он заполнять автоматически поля ввода формы на основе предыдущих вводов пользователя или сохраненных значений.

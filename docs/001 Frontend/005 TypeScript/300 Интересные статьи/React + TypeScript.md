@@ -1,20 +1,31 @@
 ---
+uid: gILDPjW-WDGN8fWxnjo6U
 title: React + TypeScript
-draft: false
 tags:
   - React
   - TypeScript
+draft: false
+technology: TypeScript
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Подробнее:
+
 - [Карманная книга по TypeScript](https://my-js.org/docs/guide/ts/);
 - [Шпаргалка по TypeScript](https://my-js.org/docs/cheatsheet/ts/);
 - [TypeScript в деталях](https://my-js.org/docs/cheatsheet/mastering-ts/);
 - [Шпаргалка по React + TypeScript](https://my-js.org/docs/cheatsheet/react-typescript/);
 - [Выдержки из определений типов TypeScript для React](https://my-js.org/docs/cheatsheet/react-types/).
 
-_____
+---
 
 Преимущества изучения TS могут быть сведены к следующему:
+
 - ваши шансы получить более высокооплачиваемую работу сильно увеличатся;
 - в вашем коде будет намного меньше багов, его будет легче читать и поддерживать;
 - рефакторить код и обновлять зависимости станет гораздо проще.
@@ -30,9 +41,9 @@ _____
 Существует 3 основных примитива, которые являются фундаментом для других типов:
 
 ```ts
-string // например, "Pat"
-boolean // например, true
-number // например, 23 или 1.99
+string; // например, "Pat"
+boolean; // например, true
+number; // например, 23 или 1.99
 ```
 
 **Массивы**
@@ -55,8 +66,8 @@ const user = {
   age: 23,
   isNice: false,
   role: "CTO",
-  skills: ["HTML", "CSS", "jQuery"]
-}
+  skills: ["HTML", "CSS", "jQuery"],
+};
 ```
 
 Тип, описывающий этот объект, выглядит следующим образом:
@@ -68,7 +79,7 @@ type User = {
   isNice: boolean;
   role: string;
   skills: string[];
-}
+};
 ```
 
 Предположим, что у пользователя есть друзья, которые также являются пользователями:
@@ -77,7 +88,7 @@ type User = {
 type User = {
   // ...
   friends: User[];
-}
+};
 ```
 
 Пэт всегда ставил карьеру на первое место, поэтому у него вполне может не быть друзей:
@@ -90,7 +101,7 @@ const user = {
   role: "CTO",
   skills: ["CSS", "HTML", "jQuery"],
   friends: undefined,
-}
+};
 ```
 
 В TS для обозначения опционального (необязательного) поля используется символ `?` после названия поля:
@@ -99,7 +110,7 @@ const user = {
 type User = {
   // ...
   friends?: User[];
-}
+};
 ```
 
 **Перечисления**
@@ -110,7 +121,7 @@ type User = {
 type User = {
   // ...
   role: string;
-}
+};
 ```
 
 Пэту это не нравится. Он считает, что тип `string` недостаточно строгий. Его работники должны выбирать из ограниченного набора ролей.
@@ -153,7 +164,7 @@ type User = {
   role: UserRole;
   skills: string[];
   friends?: User[];
-}
+};
 
 const user = {
   firstName: "Pat",
@@ -161,7 +172,7 @@ const user = {
   isNice: false,
   role: UserRole.CTO, // равняется "cto"
   skills: ["HTML", "CSS", "jQuery"],
-}
+};
 ```
 
 **Функции**
@@ -180,13 +191,17 @@ function fireUser(firstName: string, age: number, isNice: boolean) {
 // или так
 const fireUser = (firstName: string, age: number, isNice: boolean) => {
   // ...
-}
+};
 ```
 
 Во-вторых, мы можем обернуть параметры в объект и определить типы в объекте:
 
 ```ts
-function fireUser({ firstName, age, isNice }: {
+function fireUser({
+  firstName,
+  age,
+  isNice,
+}: {
   firstName: string;
   age: number;
   isNice: boolean;
@@ -202,7 +217,7 @@ type User = {
   firstName: string;
   age: number;
   role: UserRole;
-}
+};
 
 function fireUser({ firstName, age, role }: User) {
   // ...
@@ -225,16 +240,16 @@ function fireUser(firstName: string, age: number, role: UserRole): User {
 const fireUser = (firstName: string, age: number, role: UserRole): User => {
   // ...
   return { firstName, age, role };
-}
+};
 ```
 
 Если мы попытается вернуть `null`, например, то получим ошибку:
-  
-![](https://habrastorage.org/webt/rv/75/wp/rv75wpwcl31enskrzpfw9vj2evk.png)  
+
+![](https://habrastorage.org/webt/rv/75/wp/rv75wpwcl31enskrzpfw9vj2evk.png)
 
 На самом деле, чаще всего у нас нет необходимости определять тип значения, возвращаемого функцией, явно. TS отлично справляется с предположением (выводом) таких типов:
 
-![](https://habrastorage.org/webt/ny/ud/3-/nyud3-phtk2y9nskpoidhhcq33c.png)  
+![](https://habrastorage.org/webt/ny/ud/3-/nyud3-phtk2y9nskpoidhhcq33c.png)
 
 При наличии сомнений в корректности выводимого TS типа, достаточно навести курсор на название переменной или функции (спасибо современным редакторам кода).
 
@@ -260,12 +275,12 @@ function UserProfile() {
 ```
 
 Типом, возвращаемым компонентом является `JSX.Element`, как видно на приведенном ниже изображении:
-  
-![](https://habrastorage.org/webt/fh/0h/rm/fh0hrmfsry8w2gwsto6f4vfaq8w.png)  
+
+![](https://habrastorage.org/webt/fh/0h/rm/fh0hrmfsry8w2gwsto6f4vfaq8w.png)
 
 Если мы попробуем вернуть из компонента не `JSX`, то получим предупреждение:
 
-![](https://habrastorage.org/webt/ns/yc/mt/nsycmt_x1u8ltspmx7sc2hcixnq.png)  
+![](https://habrastorage.org/webt/ns/yc/mt/nsycmt_x1u8ltspmx7sc2hcixnq.png)
 
 В данном случае объект `user` не является валидным `JSX`:
 
@@ -351,7 +366,7 @@ _Дефолтные пропы_
 type UserProfileProps = {
   age: number;
   role?: UserRole;
-}
+};
 ```
 
 Опциональный проп может иметь значение по умолчанию:
@@ -386,11 +401,11 @@ function UserProfile({ firstName, role }: UserProfileProps) {
 }
 ```
 
-![](https://habrastorage.org/webt/oj/pu/hp/ojpuhpr7ol7nwtb5wgu69g3vqpy.png)  
+![](https://habrastorage.org/webt/oj/pu/hp/ojpuhpr7ol7nwtb5wgu69g3vqpy.png)
 
 Теперь мы в безопасности. При попытке обновить состояние не логическим значением получаем ошибку:
 
-![](https://habrastorage.org/webt/ly/cr/4k/lycr4kugtflokenb2anylp6u-54.png)  
+![](https://habrastorage.org/webt/ly/cr/4k/lycr4kugtflokenb2anylp6u-54.png)
 
 В некоторых случаях TS не может вывести тип значений, возвращаемых `useState()`:
 
@@ -405,7 +420,7 @@ const [user, setUser] = useState();
 const user = useState(null);
 ```
 
-![](https://habrastorage.org/webt/aa/xr/-k/aaxr-ksy0oemed6q6ah0ro8qa1q.png)  
+![](https://habrastorage.org/webt/aa/xr/-k/aaxr-ksy0oemed6q6ah0ro8qa1q.png)
 
 `useState()` реализован с помощью общего типа (дженерика, generic type). Мы можем использовать это для типизации состояния:
 
@@ -487,10 +502,11 @@ function FireButton() {
 ```
 
 Какой тип имеет `event`? Существует 2 подхода:
+
 - гуглить (не рекомендуется, вызывает головокружение));
 - приступить к реализации встроенной функции и позволить TS вывести типы:
 
-![](https://habrastorage.org/webt/ql/ii/qi/qliiqi0ljlt0njwxfwqxsnht3fm.gif)  
+![](https://habrastorage.org/webt/ql/ii/qi/qliiqi0ljlt0njwxfwqxsnht3fm.gif)
 
 Счастливый копипастинг. Нам даже не нужно понимать, что происходит (большинство обработчиков являются дженериками, как `useState()`).
 
@@ -547,8 +563,8 @@ function Layout({ children }: LayoutProps) {
 ```
 
 Тип `React.ReactNode` предоставляет большую свободу выбора передаваемого значения. Он позволяет передавать почти что угодно (кроме объекта):
-  
-![](https://habrastorage.org/webt/yo/n0/ff/yon0ff_6pxdzcd0nnytlfukjuks.png)  
+
+![](https://habrastorage.org/webt/yo/n0/ff/yon0ff_6pxdzcd0nnytlfukjuks.png)
 
 Если в качестве пропа должна передаваться только разметка, тип `children` можно ограничить до `React.ReactElement` или `JSX.Element` (что по сути одно и тоже):
 
@@ -559,8 +575,8 @@ type LayoutProps = {
 ```
 
 Эти типы являются гораздо более строгими:
-  
-![](https://habrastorage.org/webt/-j/-q/uq/-j-quqxycnth6dnpujuucjx9w08.png)  
+
+![](https://habrastorage.org/webt/-j/-q/uq/-j-quqxycnth6dnpujuucjx9w08.png)
 
 ## Сторонние библиотеки
 
@@ -570,7 +586,7 @@ type LayoutProps = {
 
 Типы для большого количества существующих библиотек содержатся в репозитории [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) на GitHub и публикуются под эгидой организации `@types` (в том числе типы React). При установке пакета без типов и его импорте получаем такую ошибку:
 
-![](https://habrastorage.org/webt/m_/em/ak/m_emak2fek801_vodu5krxsoqka.png)  
+![](https://habrastorage.org/webt/m_/em/ak/m_emak2fek801_vodu5krxsoqka.png)
 
 Копируем выделенную команду и выполняем ее в терминале:
 
@@ -591,7 +607,7 @@ const [names, setNames] = useState<string[]>([]);
 Такой прием является очень распространенным для сторонних библиотек. Пример с Axios:
 
 ```ts
-import axios from "axios"
+import axios from "axios";
 
 async function fetchUser() {
   const response = await axios.get<User>("https://example.com/api/user");
@@ -599,7 +615,7 @@ async function fetchUser() {
 }
 ```
 
-![](https://habrastorage.org/webt/1y/22/xx/1y22xxaoubtvy1ie6ajlbi_ndlm.png)  
+![](https://habrastorage.org/webt/1y/22/xx/1y22xxaoubtvy1ie6ajlbi_ndlm.png)
 
 React Query:
 
@@ -618,6 +634,7 @@ function UserProfile() {
 ```
 
 Styled Components:
+
 ```ts
 import styled from "styled-components";
 
@@ -651,22 +668,21 @@ npx create-next-app [project-name] --ts
 
 Мы это уже рассматривали, но повторим еще раз: начинаем писать встроенную функцию и позволяем TS вывести правильный тип события:
 
-  
-![](https://habrastorage.org/webt/ql/ii/qi/qliiqi0ljlt0njwxfwqxsnht3fm.gif)  
+![](https://habrastorage.org/webt/ql/ii/qi/qliiqi0ljlt0njwxfwqxsnht3fm.gif)
 
 При наличии сомнений относительно количества доступных параметров набираем `(...args) =>` и получаем соответствующий массив:
 
-![](https://habrastorage.org/webt/ya/ip/te/yaiptegmkbbds6fk2abuzbloykw.png)   
+![](https://habrastorage.org/webt/ya/ip/te/yaiptegmkbbds6fk2abuzbloykw.png)
 
 **Изучение типа**
 
 Простейший способ получить список всех доступных полей типа — использовать автозавершение в IDE. Для этого достаточно нажать CTRL + Пробел (Windows) или Option + Пробел (Mac):
 
-![](https://habrastorage.org/webt/sr/gd/zf/srgdzfil9nblft8wnf7ku6cqjim.png)  
+![](https://habrastorage.org/webt/sr/gd/zf/srgdzfil9nblft8wnf7ku6cqjim.png)
 
 Для того, чтобы перейти к определению типа, следует нажать CTRL + Click (Windows) или CMD + Click (Mac):
 
-![](https://habrastorage.org/webt/jt/hp/el/jthpelymlud8fq4xfyuytjoinhw.gif)  
+![](https://habrastorage.org/webt/jt/hp/el/jthpelymlud8fq4xfyuytjoinhw.gif)
 
 **Чтение сообщений об ошибках**
 
@@ -687,8 +703,8 @@ function Form() {
 ```
 
 Вот что показывает TS:
-  
-![](https://habrastorage.org/webt/5t/qt/tv/5tqttvywbbj6tyvrftoifm3wuws.png)  
+
+![](https://habrastorage.org/webt/5t/qt/tv/5tqttvywbbj6tyvrftoifm3wuws.png)
 
 Что это означает? Что еще за тип `IntrinsicAttributes`? При работе с библиотеками (в том числе, с самим React) вы будете часто встречать странные названия типов, вроде этого.
 
@@ -721,12 +737,12 @@ function Menu() {
   return <MenuItem isActive>Menu Item</MenuItem>;
 }
 ```
-  
-![](https://habrastorage.org/webt/md/1u/w-/md1uw-10zdvr7msymks8pjh3_ci.png)  
+
+![](https://habrastorage.org/webt/md/1u/w-/md1uw-10zdvr7msymks8pjh3_ci.png)
 
 Ничего себе сообщение об ошибке! Без паники: прокручиваем в самый конец сообщения — как правило, ответ находится там:
 
-![](https://habrastorage.org/webt/lg/-7/ua/lg-7uagpwsxweefircxq2xatcg0.gif)  
+![](https://habrastorage.org/webt/lg/-7/ua/lg-7uagpwsxweefircxq2xatcg0.gif)
 
 **Пересечения**
 
@@ -736,7 +752,7 @@ function Menu() {
 export type User = {
   firstName: string;
   role: UserRole;
-}
+};
 ```
 
 Он используется для типизации пропов компонента `UserProfile`:
@@ -774,7 +790,7 @@ function UserProfile({ firstName, role, fireUser }: User) {
 
 Получаем ошибку:
 
-![](https://habrastorage.org/webt/zg/m1/4v/zgm14vhh2f-f-vgmvqif05w6n94.png)  
+![](https://habrastorage.org/webt/zg/m1/4v/zgm14vhh2f-f-vgmvqif05w6n94.png)
 
 Эту проблему можно решить с помощью пересечения (intersection type). При пересечении все поля двух типов объединяются в один тип. Пересечения создаются с помощью символа `&`:
 
@@ -826,4 +842,3 @@ function UserProfile({ user, onClick }: UserProfileProps) {
   );
 }
 ```
-

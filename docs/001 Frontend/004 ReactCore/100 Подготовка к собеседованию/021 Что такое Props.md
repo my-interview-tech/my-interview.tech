@@ -1,13 +1,22 @@
 ---
+uid: FAElmz63Cz57KGgkDtqSP
 title: Что такое Props?
-draft: false
 tags:
   - "#React"
   - "#props"
   - "#immutable"
 info:
-  - https://ru.legacy.reactjs.org/docs/components-and-props.html
+  - "https://ru.legacy.reactjs.org/docs/components-and-props.html"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 21
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _Props (`properties`)_ - это объект, содержащий свойства компонента, переданные ему из родительского компонента. Props передаются в качестве аргументов в функцию компонента или записываются в свойство `props` классового компонента.
 
 _Props используются для передачи данных и настроек между компонентами. Родительский компонент может передать дочернему компоненту любые значения, включая простые типы данных, такие как строки и числа, а также объекты и функции._
@@ -16,11 +25,11 @@ _Props используются для передачи данных и наст
 
 ```jsx
 function Greeting(props) {
-  return <h1>Hello, {props.name}!</h1>
+  return <h1>Hello, {props.name}!</h1>;
 }
 
 function App() {
-  return <Greeting name="John" />
+  return <Greeting name="John" />;
 }
 ```
 

@@ -1,14 +1,23 @@
 ---
+uid: OuVHOo5gFmJUetIgEYlX0
 title: Как в JavaScript удалять пробельные символы в начале и в конце строки?
-draft?: false
 tags:
   - "#JavaScript"
   - "#string"
   - "#trim"
   - "#trimStart"
   - "#trimEnd"
-info:
+info: null
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 122
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
+draft?: false
 ---
+
 ![[Pasted image 20230702203316.png|600]]
 
 Для удаления пробельных символов в начале и в конце строки в JavaScript можно использовать методы `.trim()`, `.trimStart()` и `.trimEnd()`.
@@ -18,7 +27,7 @@ info:
 Синтаксис метода `.trim()`:
 
 ```javascript
-string.trim()
+string.trim();
 ```
 
 - `string` - строка, из которой нужно удалить пробельные символы.
@@ -26,11 +35,11 @@ string.trim()
 Пример использования метода `.trim()`:
 
 ```javascript
-const str = "   hello world    "
+const str = "   hello world    ";
 
-const trimmedStr = str.trim()
+const trimmedStr = str.trim();
 
-console.log(trimmedStr) // Вывод: "hello world"
+console.log(trimmedStr); // Вывод: "hello world"
 ```
 
 В этом примере, мы используем метод `.trim()` для удаления пробельных символов в начале и в конце строки `str`. Результатом вызова метода `.trim()` является новая строка `trimmedStr`, содержащая исходную строку без пробельных символов в начале и в конце.
@@ -40,7 +49,7 @@ console.log(trimmedStr) // Вывод: "hello world"
 Синтаксис метода `.trimStart()`:
 
 ```javascript
-string.trimStart()
+string.trimStart();
 ```
 
 - `string` - строка, из которой нужно удалить пробельные символы в начале.
@@ -48,7 +57,7 @@ string.trimStart()
 Синтаксис метода `.trimEnd()`:
 
 ```javascript
-string.trimEnd()
+string.trimEnd();
 ```
 
 - `string` - строка, из которой нужно удалить пробельные символы в конце.
@@ -56,13 +65,13 @@ string.trimEnd()
 Пример использования методов `.trimStart()` и `.trimEnd()`:
 
 ```javascript
-const str = "   hello world    "
+const str = "   hello world    ";
 
-const trimmedStartStr = str.trimStart()
-const trimmedEndStr = str.trimEnd()
+const trimmedStartStr = str.trimStart();
+const trimmedEndStr = str.trimEnd();
 
-console.log(trimmedStartStr) // Вывод: "hello world    "
-console.log(trimmedEndStr) // Вывод: "   hello world"
+console.log(trimmedStartStr); // Вывод: "hello world    "
+console.log(trimmedEndStr); // Вывод: "   hello world"
 ```
 
 В этом примере, мы используем метод `.trimStart()` для удаления пробельных символов в начале строки `str`, и метод `.trimEnd()` для удаления пробельных символов в конце строки `str`. Результатом вызовов методов `.trimStart()` и `.trimEnd()` являются новые строки `trimmedStartStr` и `trimmedEndStr`, содержащие исходную строку без пробельных символов в начале и в конце соответственно.

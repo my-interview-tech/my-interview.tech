@@ -1,13 +1,25 @@
 ---
-title: Опишите сценарии, в которых вы бы предпочли использовать `getStaticProps()` вместо `getServerSideProps()`, и наоборот
-draft: false
+uid: iPLefH_9j4Z8zxgFSDt-K
+title: >-
+  Опишите сценарии, в которых вы бы предпочли использовать `getStaticProps()`
+  вместо `getServerSideProps()`, и наоборот
 tags:
   - NextJS
   - getStaticProps
   - getServerSideProps
 info:
-  - https://dev.to/dmuraco3/when-to-user-server-side-rendering-vs-static-generation-in-nextjs-8ab
+  - >-
+    https://dev.to/dmuraco3/when-to-user-server-side-rendering-vs-static-generation-in-nextjs-8ab
+draft: false
+technology: Next.js
+specialty: Frontend
+tools: []
+order: 10
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Выбор между `getStaticProps` и `getServerSideProps` в Next.js зависит от конкретных требований вашего приложения. Вот сценарии, в которых предпочтительнее использовать каждую из этих функций:
 
 Использование `getStaticProps`
@@ -24,6 +36,6 @@ info:
 
 В целом, `getStaticProps` подходит для контента, который можно предварительно отрендерить и который не требует частого обновления, обеспечивая высокую производительность и SEO. `getServerSideProps`, с другой стороны, идеально подходит для динамического контента, который должен обновляться при каждом запросе, обеспечивая актуальность данных и возможность персонализации.
 
-____
+---
 
 [[006 Next.js|Назад]]

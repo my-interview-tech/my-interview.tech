@@ -1,15 +1,24 @@
 ---
+uid: kg_ZPOSk-wp6naJRQ_0sx
 title: Расскажите о хуках `useCallback()` и`useMemo()`
-draft: false
 tags:
   - "#React"
   - "#Hooks"
   - "#useCallback"
   - "#useMemo"
 info:
-  - https://reactdev.ru/reference/useCallback/#usecallbackfn-dependencies
-  - https://habr.com/ru/articles/579242/
+  - "https://reactdev.ru/reference/useCallback/#usecallbackfn-dependencies"
+  - "https://habr.com/ru/articles/579242/"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 79
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Хуки `useCallback()` и `useMemo()` - эsто дополнительные хуки в React, которые позволяют оптимизировать производительность и управлять поведением компонентов.
 
 ### **`useMemo()`**:
@@ -17,7 +26,7 @@ info:
 **useMemo()** - это хук, который сохраняет результат вызова функции (первый аргумент) и пересчитывает его только при изменении зависимостей (второй аргумент). `useMemo()` возвращает результат вызова первого аргумента.
 
 ```jsx
-const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b])
+const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 ```
 
 Хук `useMemo()` используется для оптимизации производительности.
@@ -41,8 +50,8 @@ _`useCallback()` под капотом тот же `useMemo()` и по сути 
 
 ```jsx
 const memoizedCallback = useCallback(() => {
-  doSomething(a, b)
-}, [a, b])
+  doSomething(a, b);
+}, [a, b]);
 ```
 
 В этом примере, `memoizedCallback` - это мемоизированная версия функции `doSomething`, которая будет пересоздаваться только тогда, когда изменятся зависимости `a` или `b`.
@@ -55,23 +64,23 @@ _`useCallback()` не работает с классическими замык�
 
 ```jsx
 function useRouter() {
-  const { dispatch } = useContext(RouterStateContext)
+  const { dispatch } = useContext(RouterStateContext);
 
   const navigate = useCallback(
     (url) => {
-      dispatch({ type: "navigate", url })
+      dispatch({ type: "navigate", url });
     },
     [dispatch],
-  )
+  );
 
   const goBack = useCallback(() => {
-    dispatch({ type: "back" })
-  }, [dispatch])
+    dispatch({ type: "back" });
+  }, [dispatch]);
 
   return {
     navigate,
     goBack,
-  }
+  };
 }
 ```
 
@@ -79,21 +88,21 @@ function useRouter() {
 
 ```jsx
 function ChatRoom({ roomId }) {
-  const [message, setMessage] = useState("")
+  const [message, setMessage] = useState("");
 
   function createOptions() {
     return {
       serverUrl: "https://localhost:1234",
       roomId: roomId,
-    }
+    };
   }
 
   useEffect(() => {
-    const options = createOptions()
-    const connection = createConnection()
-    connection.connect()
+    const options = createOptions();
+    const connection = createConnection();
+    connection.connect();
     // ...
-  })
+  });
 }
 ```
 
@@ -101,11 +110,11 @@ function ChatRoom({ roomId }) {
 
 ```jsx
 useEffect(() => {
-  const options = createOptions()
-  const connection = createConnection()
-  connection.connect()
-  return () => connection.disconnect()
-}, [createOptions]) // 🔴 Problem: This dependency changes on every render
+  const options = createOptions();
+  const connection = createConnection();
+  connection.connect();
+  return () => connection.disconnect();
+}, [createOptions]); // 🔴 Problem: This dependency changes on every render
 // ...
 ```
 
@@ -113,21 +122,21 @@ useEffect(() => {
 
 ```jsx
 function ChatRoom({ roomId }) {
-  const [message, setMessage] = useState("")
+  const [message, setMessage] = useState("");
 
   const createOptions = useCallback(() => {
     return {
       serverUrl: "https://localhost:1234",
       roomId: roomId,
-    }
-  }, [roomId]) // ✅ Only changes when roomId changes
+    };
+  }, [roomId]); // ✅ Only changes when roomId changes
 
   useEffect(() => {
-    const options = createOptions()
-    const connection = createConnection()
-    connection.connect()
-    return () => connection.disconnect()
-  }, [createOptions]) // ✅ Only changes when createOptions changes
+    const options = createOptions();
+    const connection = createConnection();
+    connection.connect();
+    return () => connection.disconnect();
+  }, [createOptions]); // ✅ Only changes when createOptions changes
   // ...
 }
 ```
@@ -136,7 +145,7 @@ function ChatRoom({ roomId }) {
 
 ```jsx
 function ChatRoom({ roomId }) {
-  const [message, setMessage] = useState("")
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     function createOptions() {
@@ -144,14 +153,14 @@ function ChatRoom({ roomId }) {
       return {
         serverUrl: "https://localhost:1234",
         roomId: roomId,
-      }
+      };
     }
 
-    const options = createOptions()
-    const connection = createConnection()
-    connection.connect()
-    return () => connection.disconnect()
-  }, [roomId]) // ✅ Only changes when roomId changes
+    const options = createOptions();
+    const connection = createConnection();
+    connection.connect();
+    return () => connection.disconnect();
+  }, [roomId]); // ✅ Only changes when roomId changes
   // ...
 }
 ```

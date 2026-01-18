@@ -1,11 +1,20 @@
 ---
+uid: ZmAAeeodFsYJok5TBq2BE
 title: Task_object - includes()_1
-draft: false
 tags:
   - "#JavaScript"
   - "#taskJS"
   - "#object"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```js
 // Напиши функцию includes(value) для объекта, которая принимает value и возращает true,
 // если есть поле value с этим значением и false, если нет. Объект следующий:
@@ -24,9 +33,7 @@ const tree = {
   ],
 };
 
-function includes(value, tree) {
-
-}
+function includes(value, tree) {}
 
 console.log(includes(1, tree));
 console.log(includes(11, tree)); // false
@@ -39,7 +46,7 @@ console.log(includes(7, tree));
 console.log(includes(77, tree)); // false
 ```
 
-**Ответ
+\*\*Ответ
 
 ```js
 function includes(value, tree) {
@@ -57,6 +64,6 @@ function includes(value, tree) {
 }
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

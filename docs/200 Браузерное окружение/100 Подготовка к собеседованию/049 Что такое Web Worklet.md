@@ -1,12 +1,20 @@
 ---
+uid: eqMo0-D6j0J1Tist7R5_P
 title: Что такое Web Worklet?
-draft: false
 tags:
   - webWorklet
   - browser
 info:
-  - https://habr.com/ru/companies/skillfactory/articles/650499/
+  - "https://habr.com/ru/companies/skillfactory/articles/650499/"
+draft: false
+technology: Подготовка к собеседованию
+tools: []
+order: 49
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230723161428.png]]
 
 _Web Worklet_ - это API, которое _позволяет создавать и запускать пользовательские скрипты в работающем веб-приложении, не блокируя основной поток выполнения страницы._ Они позволяют создавать более гибкие и функциональные веб-приложения, которые могут выполнять сложные задачи в фоновом режиме.

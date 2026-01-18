@@ -1,12 +1,21 @@
 ---
-title: Опишите, как в React обрабатываются события?
-draft: false
+uid: VlYOlIrNPvUXc6zGM7AKQ
+title: "Опишите, как в React обрабатываются события?"
 tags:
   - "#React"
   - "#SyntheticEvent"
   - "#event"
-info:
+info: null
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 49
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 В React обработка событий происходит с помощью _передачи функций-обработчиков в качестве атрибутов JSX элементов._ Когда происходит событие, React вызывает соответствующую функцию-обработчик и передает ей объект `event`.
 
 Например, чтобы обработать клик на кнопке, мы можем передать функцию-обработчик в атрибут `onClick`:
@@ -14,11 +23,11 @@ info:
 ```jsx
 class MyComponent extends React.Component {
   handleClick(event) {
-    console.log("Button clicked!")
+    console.log("Button clicked!");
   }
 
   render() {
-    return <button onClick={this.handleClick}>Click me</button>
+    return <button onClick={this.handleClick}>Click me</button>;
   }
 }
 ```
@@ -30,12 +39,12 @@ class MyComponent extends React.Component {
 ```jsx
 class MyForm extends React.Component {
   handleSubmit(event) {
-    event.preventDefault()
-    console.log("Form submitted!")
+    event.preventDefault();
+    console.log("Form submitted!");
   }
 
   handleInputChange(event) {
-    console.log(`Input value: ${event.target.value}`)
+    console.log(`Input value: ${event.target.value}`);
   }
 
   render() {
@@ -47,7 +56,7 @@ class MyForm extends React.Component {
         </label>
         <button type="submit">Submit</button>
       </form>
-    )
+    );
   }
 }
 ```

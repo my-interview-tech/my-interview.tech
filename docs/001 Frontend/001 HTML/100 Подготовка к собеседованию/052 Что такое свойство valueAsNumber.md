@@ -1,12 +1,21 @@
 ---
+uid: egQ6d4UBHRZJNHXdK4Llb
 title: Что такое свойство `valueAsNumber`?
-draft: false
 tags:
   - "#HTML"
   - "#valueAsNumber"
-info:
+info: null
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 52
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
- ![[Pasted image 20230704021651.png|600]]
+
+![[Pasted image 20230704021651.png|600]]
 
 Свойство `valueAsNumber` является свойством элемента формы в HTML5 и представляет числовое значение введенного пользователем в поле формы типа "number".
 
@@ -17,24 +26,24 @@ info:
 Например, следующий код использует свойство `valueAsNumber` для получения числовых значений из двух полей формы типа "number" и вычисления их суммы:
 
 ```html
-<form>          
+<form>
   <label for="num1">Number 1:</label>
-  <input type="number" id="num1">
+  <input type="number" id="num1" />
 
   <label for="num2">Number 2:</label>
-  <input type="number" id="num2">
+  <input type="number" id="num2" />
 
   <button onclick="sum()">Calculate Sum</button>
 </form>
 
 <script>
-function sum() {
-  var num1 = document.getElementById("num1").valueAsNumber;
-  var num2 = document.getElementById("num2").valueAsNumber;
+  function sum() {
+    var num1 = document.getElementById("num1").valueAsNumber;
+    var num2 = document.getElementById("num2").valueAsNumber;
 
-  var result = num1 + num2;
-  alert("The sum is: " + result);
-}
+    var result = num1 + num2;
+    alert("The sum is: " + result);
+  }
 </script>
 ```
 

@@ -1,13 +1,22 @@
 ---
+uid: 7aPQQYJCYn_R7FNmgGrpz
 title: Как привязать методы или обработчики событий в callback() JSX?
-draft: false
 tags:
   - "#React"
   - "#arrowFunction"
   - "#class"
   - "#bind"
-info:
+info: null
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 50
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 В React есть несколько способов привязать методы или обработчики событий в `callback()` JSX:
 
 1. Использование стрелочной функции внутри `callback()`. Это позволяет сохранить контекст `this` и передать дополнительные аргументы в метод:
@@ -15,11 +24,15 @@ info:
 ```jsx
 class MyComponent extends React.Component {
   handleClick = (event, id) => {
-    console.log(`Clicked item with id ${id}`)
-  }
+    console.log(`Clicked item with id ${id}`);
+  };
 
   render() {
-    return <button onClick={(event) => this.handleClick(event, 123)}>Click me</button>
+    return (
+      <button onClick={(event) => this.handleClick(event, 123)}>
+        Click me
+      </button>
+    );
   }
 }
 ```
@@ -29,16 +42,20 @@ class MyComponent extends React.Component {
 ```jsx
 class MyComponent extends React.Component {
   constructor(props) {
-    super(props)
-    this.handleClick = this.handleClick.bind(this)
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(event, id) {
-    console.log(`Clicked item with id ${id}`)
+    console.log(`Clicked item with id ${id}`);
   }
 
   render() {
-    return <button onClick={(event) => this.handleClick(event, 123)}>Click me</button>
+    return (
+      <button onClick={(event) => this.handleClick(event, 123)}>
+        Click me
+      </button>
+    );
   }
 }
 ```
@@ -50,11 +67,15 @@ class MyComponent extends React.Component {
 ```jsx
 class MyComponent extends React.Component {
   handleClick(event, id) {
-    console.log(`Clicked item with id ${id}`)
+    console.log(`Clicked item with id ${id}`);
   }
 
   render() {
-    return <button onClick={this.handleClick.bind(this, event, 123)}>Click me</button>
+    return (
+      <button onClick={this.handleClick.bind(this, event, 123)}>
+        Click me
+      </button>
+    );
   }
 }
 ```

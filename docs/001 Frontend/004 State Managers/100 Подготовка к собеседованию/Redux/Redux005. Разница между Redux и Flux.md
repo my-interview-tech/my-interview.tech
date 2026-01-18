@@ -1,14 +1,23 @@
 ---
+uid: d1omMAjeAryL2_ARH1Us1
 title: Разница между Redux и Flux?
-draft: false
 tags:
   - "#React"
   - "#Redux"
   - "#flux"
   - "#singleton"
   - "#UDF"
-info:
+info: null
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704192527.png]]
 
 Redux и Flux - это две архитектуры для управления состоянием в веб-приложениях. Они имеют схожие концепции, но есть и отличия.

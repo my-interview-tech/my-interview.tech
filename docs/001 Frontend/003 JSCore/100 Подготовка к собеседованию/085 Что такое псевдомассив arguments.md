@@ -1,11 +1,20 @@
 ---
+uid: X0FoDPvw3umwUkV1odhvp
 title: Что такое псевдомассив `arguments`?
-draft: false
 tags:
   - "#JavaScript"
   - "#arguments"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 85
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230702150039.png|600]]
 
 `arguments` - это псевдомассив, доступный внутри функции в JavaScript, который содержит значения всех аргументов, переданных в функцию, а также имеет свойство `length`, содержащее количество переданных аргументов.
@@ -16,15 +25,15 @@ info:
 
 ```javascript
 function sum() {
-  let result = 0
+  let result = 0;
   for (let i = 0; i < arguments.length; i++) {
-    result += arguments[i]
+    result += arguments[i];
   }
-  return result
+  return result;
 }
 
-console.log(sum(1, 2, 3)) // 6
-console.log(sum(4, 5, 6, 7)) // 22
+console.log(sum(1, 2, 3)); // 6
+console.log(sum(4, 5, 6, 7)); // 22
 ```
 
 В этом примере функция `sum()` принимает любое количество аргументов и использует псевдомассив `arguments` для вычисления их суммы.

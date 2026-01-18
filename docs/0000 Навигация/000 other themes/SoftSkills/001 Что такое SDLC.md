@@ -1,18 +1,27 @@
 ---
+uid: um4V2uaS86wmw6SwJxvoY
 title: Что такое SDLC?
-draft: false
 tags:
   - SDLC
   - softskills
 info:
-  - https://youtu.be/nTE4qvSvxXY?t=49
-  - https://www.youtube.com/watch?v=qg1GF7gsSNo&list=PLNkWIWHIRwMGlOBjDYTeqnNcuZ2cH1_7-&index=7
+  - "https://youtu.be/nTE4qvSvxXY?t=49"
+  - >-
+    https://www.youtube.com/watch?v=qg1GF7gsSNo&list=PLNkWIWHIRwMGlOBjDYTeqnNcuZ2cH1_7-&index=7
+draft: false
+technology: other themes
+tools: []
+order: 1
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704164804.png|600]]
 
 _SDLC_ - это аббревиатура, которая означает жизненный цикл разработки программного обеспечения (`Software Development Life Cycle`). Это процесс разработки программного обеспечения, который включает в себя ряд этапов, начиная от концепции и заканчивая поддержкой и обновлением программного обеспечения после его выпуска.
 
-Жизненный цикл разработки программного обеспечения обычно включает следующие этапы: 
+Жизненный цикл разработки программного обеспечения обычно включает следующие этапы:
 
 0. _Концепция:_ этот этап включает определение целей и потребностей разработки программного обеспечения, определение требований и определение общей концепции проекта.
 

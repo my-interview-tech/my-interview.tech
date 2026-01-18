@@ -1,6 +1,6 @@
 ---
+uid: QFeflLi-96RKmkOw_6d7v
 title: Зачем нужны eslint и prettier?
-draft: false
 tags:
   - "#React"
   - "#ESLint"
@@ -8,11 +8,20 @@ tags:
   - Husky
   - lint-staged
 info:
-  - https://habr.com/ru/companies/domclick/articles/743384/
-  - https://habr.com/ru/companies/ruvds/articles/428173/
+  - "https://habr.com/ru/companies/domclick/articles/743384/"
+  - "https://habr.com/ru/companies/ruvds/articles/428173/"
   - "[[000 Настройка eslint & prettier|Настройка eslint & prettier]]"
   - "[[002 Руководство Eslint + Prettier|Руководство Eslint + Prettier]]"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 40
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ESLint необходим для подсветки ошибок и работы с описанными правилами. 
 Prettier служит для чтения правил и форматирования кода .
 

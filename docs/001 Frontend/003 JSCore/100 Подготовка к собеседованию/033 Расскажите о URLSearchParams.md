@@ -1,12 +1,21 @@
 ---
+uid: MLYh5im94365S_41XiaI9
 title: Расскажите о `URLSearchParams`
-draft: false
 tags:
   - "#DOM"
   - "#URLSearchParams"
   - "#browser"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 33
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230702114118.png|600]]
 
 `URLSearchParams` - это встроенный класс JavaScript, который предоставляет удобный интерфейс для работы с параметрами строки запроса URL.
@@ -25,28 +34,28 @@ info:
 Пример использования `URLSearchParams`:
 
 ```javascript
-const urlParams = new URLSearchParams(window.location.search)
+const urlParams = new URLSearchParams(window.location.search);
 
 // Получение значения параметра
-const name = urlParams.get("name")
+const name = urlParams.get("name");
 
 // Установка значения параметра
-urlParams.set("age", 25)
+urlParams.set("age", 25);
 
 // Удаление параметра
-urlParams.delete("name")
+urlParams.delete("name");
 
 // Получение всех значений параметра
-const hobbies = urlParams.getAll("hobby")
+const hobbies = urlParams.getAll("hobby");
 
 // Проверка наличия параметра
-const hasName = urlParams.has("name")
+const hasName = urlParams.has("name");
 
 // Получение всех параметров в виде итератора
-const params = urlParams.entries()
+const params = urlParams.entries();
 
 // Преобразование в строку
-const paramsString = urlParams.toString()
+const paramsString = urlParams.toString();
 ```
 
 Здесь мы создаем экземпляр `URLSearchParams`, используя строку запроса из текущего URL-адреса страницы. Затем мы используем методы класса `URLSearchParams` для получения, установки, удаления и проверки параметров строки запроса. Мы также используем метод `entries()` для получения всех параметров в виде итератора, а метод `toString()` для преобразования параметров в строку.

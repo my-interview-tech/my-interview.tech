@@ -1,6 +1,6 @@
 ---
+uid: 499uBE6L4TjF5iu-NIvlD
 title: Ключевые концепции Redux?
-draft: false
 tags:
   - "#React"
   - "#Redux"
@@ -9,8 +9,17 @@ tags:
   - "#reducer"
   - "#selector"
   - "#Middleware"
-info:
+info: null
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704192340.png|600]]
 
 Redux основан на нескольких ключевых концепциях, которые обеспечивают единообразное и предсказуемое управление состоянием приложения. Некоторые из этих концепций включают:

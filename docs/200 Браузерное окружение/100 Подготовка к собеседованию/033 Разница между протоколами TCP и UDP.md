@@ -1,14 +1,22 @@
 ---
+uid: "-dxUgaZxMpiiptcPrtSGL"
 title: Разница между протоколами `TCP` и `UDP`
-draft: false
 tags:
   - TCP
   - UPD
   - TCP/IP
   - browser
 info:
-  - https://habr.com/ru/companies/oleg-bunin/articles/461829/
+  - "https://habr.com/ru/companies/oleg-bunin/articles/461829/"
+draft: false
+technology: Подготовка к собеседованию
+tools: []
+order: 33
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703191224.png]]
 
 _TCP_ (`Transmission Control Protocol`) и _UDP_ (`User Datagram Protocol`) - это два основных протокола передачи данных в сетях TCP/IP. Они отличаются друг от друга по нескольким параметрам.

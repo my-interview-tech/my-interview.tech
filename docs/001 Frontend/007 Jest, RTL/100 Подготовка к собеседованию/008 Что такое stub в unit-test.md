@@ -1,14 +1,23 @@
 ---
+uid: anMTCx9W32G_00PGGpMBp
 title: Что такое stub в unit-test?
-draft: false
 tags:
   - "#testing"
   - "#unit-test"
   - "#unit-stub"
 info:
-  - https://blog.pragmatists.com/test-doubles-fakes-mocks-and-stubs-1a7491dfa3da
+  - "https://blog.pragmatists.com/test-doubles-fakes-mocks-and-stubs-1a7491dfa3da"
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 8
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
-В unit-тестировании `Stub` (англ. "заглушка") - это объект, который *заменяет реальный объект, но не имитирует его полностью, а предоставляет только минимальный набор функций*, необходимых для тестирования. `Stub` обычно используется, когда необходимо создать объект, который зависит от других компонентов, но эти компоненты еще не готовы или не доступны на момент тестирования.
+
+В unit-тестировании `Stub` (англ. "заглушка") - это объект, который _заменяет реальный объект, но не имитирует его полностью, а предоставляет только минимальный набор функций_, необходимых для тестирования. `Stub` обычно используется, когда необходимо создать объект, который зависит от других компонентов, но эти компоненты еще не готовы или не доступны на момент тестирования.
 
 `Stub` может предоставлять фиктивные данные для тестирования, а также имитировать поведение реального объекта. Однако он не предоставляет полную функциональность реального объекта, а только те методы, которые необходимы для тестирования.
 
@@ -31,7 +40,7 @@ const PaymentServiceStub = {
 Затем мы можем создать функциональный компонент `OrderProcessor`, который будет использовать этот Stub сервис.
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const OrderProcessor = ({ amount, paymentService }) => {
   const [paymentResult, setPaymentResult] = useState(null);
@@ -44,7 +53,9 @@ const OrderProcessor = ({ amount, paymentService }) => {
   return (
     <div>
       <button onClick={handleProcessOrder}>Process Order</button>
-      {paymentResult !== null && <div>Payment Result: {paymentResult ? 'Success' : 'Failure'}</div>}
+      {paymentResult !== null && (
+        <div>Payment Result: {paymentResult ? "Success" : "Failure"}</div>
+      )}
     </div>
   );
 };
@@ -53,16 +64,16 @@ const OrderProcessor = ({ amount, paymentService }) => {
 Теперь мы можем протестировать компонент `OrderProcessor` с использованием Stub сервиса `PaymentServiceStub`.
 
 ```jsx
-import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import { render, screen, fireEvent } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 
-test('processes order and shows success message', () => {
+test("processes order and shows success message", () => {
   render(<OrderProcessor amount={100} paymentService={PaymentServiceStub} />);
   const processButton = screen.getByText(/Process Order/i);
-  
+
   fireEvent.click(processButton);
   const paymentResultElement = screen.getByText(/Payment Result: Success/i);
-  
+
   expect(paymentResultElement).toBeInTheDocument();
 });
 ```

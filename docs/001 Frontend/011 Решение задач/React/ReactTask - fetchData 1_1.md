@@ -1,25 +1,34 @@
 ---
+uid: kAbnCQO59yV5XbIcqGxFB
 title: ReactTask - fetchData 1_1
-draft: false
 tags:
   - "#React"
   - "#reactTask"
   - "#fetch"
   - "#async"
   - "#сбербанк"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```jsx
 /*
 Есть компонент и функция fetchData() необходимо получить данные и отрисовать их в списке
 */
 
 function fetchData() {
-	fetch('api/tada.json');
+  fetch("api/tada.json");
 }
 // ['hello', 'again', 'hello', 'Just called to say hello']
 
 function Component() {
-	return <div />
+  return <div />;
 }
 ```
 
@@ -53,6 +62,6 @@ function Component() {
 }
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

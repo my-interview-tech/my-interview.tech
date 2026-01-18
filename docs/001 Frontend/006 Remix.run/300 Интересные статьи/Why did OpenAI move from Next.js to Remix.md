@@ -1,13 +1,22 @@
 ---
+uid: mhMfugKfrc_08Vau2I2O5
 title: Why did OpenAI move from Next.js to Remix
-draft: false
 tags:
   - React
   - Remix
   - NextJS
 info:
-  - https://www.youtube.com/watch?v=hHWgGfZpk00
+  - "https://www.youtube.com/watch?v=hHWgGfZpk00"
+draft: false
+technology: Remix.run
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-02-03T01:48:15+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ### Почему OpenAI перешла с Next.js на Remix?
 
 Недавно OpenAI объявила о переходе с Next.js на Remix. Это вызвано рядом факторов, таких как улучшенная работа с клиентским рендерингом, гибкость маршрутизации и более эффективное управление данными. В этом тексте мы разберем ключевые особенности Remix, его отличия от Next.js и приведем примеры кода.
@@ -24,7 +33,7 @@ import { MetaFunction } from "@remix-run/node";
 export const meta: MetaFunction = () => {
   return [
     { name: "description", content: "Пример страницы на Remix" },
-    { property: "og:title", content: "Заголовок страницы" }
+    { property: "og:title", content: "Заголовок страницы" },
   ];
 };
 ```
@@ -40,7 +49,9 @@ import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
 export const loader = async () => {
-  const data = await fetch("https://jsonplaceholder.typicode.com/posts/1").then(res => res.json());
+  const data = await fetch("https://jsonplaceholder.typicode.com/posts/1").then(
+    (res) => res.json(),
+  );
   return json(data);
 };
 
@@ -65,7 +76,7 @@ export default function Post() {
 export const action: ActionFunction = async ({ request }) => {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
-  
+
   return json({ success: true, data });
 };
 ```
@@ -80,6 +91,6 @@ Next.js использует Webpack, который может создават
 
 Remix – это перспективный фреймворк, который позволяет создавать эффективные клиентские приложения с продуманной маршрутизацией и оптимизированной загрузкой данных. **OpenAI выбрала его из-за удобства работы с рендерингом и API, а также более гибкого управления потоками данных по сравнению с Next.js.**
 
-___
+---
 
 [[006 Remix.run|Назад]]

@@ -1,13 +1,22 @@
 ---
+uid: 4qxL2riih8jHaK7BvYkW-
 title: Разница между `margin` и `padding`
-draft: false
 tags:
   - "#CSS"
   - "#margin"
   - "#padding"
 info:
-  - https://habr.com/ru/articles/465839/
+  - "https://habr.com/ru/articles/465839/"
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 5
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704025440.png|600]]
 
 В CSS `margin` и `padding` - это два различных свойства, которые используются для управления отступами и размерами элементов на странице.

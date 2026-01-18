@@ -1,13 +1,24 @@
 ---
-title: Какие проблемы может вызвать неправильное использование асинхронности в JavaScript?
-draft: false
+uid: akuP7t3ZKLqRSrD_ZhWYx
+title: >-
+  Какие проблемы может вызвать неправильное использование асинхронности в
+  JavaScript?
 tags:
   - "#JavaScript"
   - "#асинхронность"
   - "#CallbackHell"
   - "#memory-leaks"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 215
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703140717.png|600]]
 
 Неправильное использование асинхронности в JavaScript может вызвать несколько проблем:

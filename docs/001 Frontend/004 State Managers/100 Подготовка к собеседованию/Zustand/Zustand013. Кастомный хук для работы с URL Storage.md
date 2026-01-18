@@ -1,6 +1,6 @@
 ---
+uid: Enxg-ZFgYGN8uA7iZ8j78
 title: Кастомный хук для работы с URL Storage
-draft: false
 tags:
   - React
   - Zustand
@@ -8,8 +8,17 @@ tags:
   - URL
   - react-router-dom
   - useURLStorage
-info:
+info: null
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Кастомный хук `useURLStorage` позволяет синхронизировать состояние приложения с параметрами URL, что упрощает управление состоянием и улучшает масштабируемость. Вот как это можно реализовать:
 
 ##### 1. Создание хука `useURLStorage.ts`
@@ -18,9 +27,9 @@ info:
 
 ```typescript
 // hooks/useURLStorage.ts
-import { useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { StoreApi } from 'zustand';
+import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
+import { StoreApi } from "zustand";
 
 type URLStorageParams = {
   searchText?: string;
@@ -34,9 +43,11 @@ const useURLStorage = (store: StoreApi<URLStorageParams>) => {
   // Синхронизация состояния из URL
   useEffect(() => {
     const params: URLStorageParams = {
-      searchText: searchParams.get('searchText') || undefined,
-      page: searchParams.get('page') ? Number(searchParams.get('page')) : undefined,
-      filters: searchParams.get('filters') || undefined,
+      searchText: searchParams.get("searchText") || undefined,
+      page: searchParams.get("page")
+        ? Number(searchParams.get("page"))
+        : undefined,
+      filters: searchParams.get("filters") || undefined,
     };
 
     // Обновляем состояние стора
@@ -48,9 +59,9 @@ const useURLStorage = (store: StoreApi<URLStorageParams>) => {
     const state = store.getState();
     const newParams = new URLSearchParams();
 
-    if (state.searchText) newParams.set('searchText', state.searchText);
-    if (state.page) newParams.set('page', state.page.toString());
-    if (state.filters) newParams.set('filters', state.filters);
+    if (state.searchText) newParams.set("searchText", state.searchText);
+    if (state.page) newParams.set("page", state.page.toString());
+    if (state.filters) newParams.set("filters", state.filters);
 
     setSearchParams(newParams);
   }, [store, setSearchParams]);
@@ -58,18 +69,19 @@ const useURLStorage = (store: StoreApi<URLStorageParams>) => {
 
 export default useURLStorage;
 ```
+
 ##### 2. Использование хука в главном компоненте `App.tsx`
 
 Хук подключается к стору и синхронизирует его состояние с URL.
 
 ```tsx
 // App.tsx
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import useURLStorage from './hooks/useURLStorage';
-import useSearchStore from './stores/SearchStore';
-import SearchComponent from './components/SearchComponent';
-import PaginationComponent from './components/PaginationComponent';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import useURLStorage from "./hooks/useURLStorage";
+import useSearchStore from "./stores/SearchStore";
+import SearchComponent from "./components/SearchComponent";
+import PaginationComponent from "./components/PaginationComponent";
 
 const App = () => {
   const searchStore = useSearchStore();
@@ -78,12 +90,15 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={
-          <>
-            <SearchComponent />
-            <PaginationComponent />
-          </>
-        } />
+        <Route
+          path="/"
+          element={
+            <>
+              <SearchComponent />
+              <PaginationComponent />
+            </>
+          }
+        />
       </Routes>
     </Router>
   );
@@ -91,13 +106,14 @@ const App = () => {
 
 export default App;
 ```
+
 ##### 3. Пример стора `SearchStore.ts`
 
 Создайте стор, который будет хранить состояние поиска, пагинации и фильтров.
 
 ```typescript
 // stores/SearchStore.ts
-import create from 'zustand';
+import create from "zustand";
 
 type SearchState = {
   searchText?: string;
@@ -119,14 +135,15 @@ const useSearchStore = create<SearchState>((set) => ({
 
 export default useSearchStore;
 ```
+
 ##### 4. Пример использования в компонентах
 
 Компоненты могут использовать стор для управления состоянием, которое автоматически синхронизируется с URL.
 
 ```tsx
 // components/SearchComponent.tsx
-import React from 'react';
-import useSearchStore from '../stores/SearchStore';
+import React from "react";
+import useSearchStore from "../stores/SearchStore";
 
 const SearchComponent = () => {
   const { searchText, setSearchText } = useSearchStore();
@@ -135,7 +152,7 @@ const SearchComponent = () => {
     <div>
       <input
         type="text"
-        value={searchText || ''}
+        value={searchText || ""}
         onChange={(e) => setSearchText(e.target.value)}
         placeholder="Поиск..."
       />
@@ -148,8 +165,8 @@ export default SearchComponent;
 
 ```tsx
 // components/PaginationComponent.tsx
-import React from 'react';
-import useSearchStore from '../stores/SearchStore';
+import React from "react";
+import useSearchStore from "../stores/SearchStore";
 
 const PaginationComponent = () => {
   const { page, setPage } = useSearchStore();
@@ -165,6 +182,7 @@ const PaginationComponent = () => {
 
 export default PaginationComponent;
 ```
+
 ##### Основные моменты:
 
 - **Хук `useURLStorage`** синхронизирует состояние приложения с URL.
@@ -173,6 +191,6 @@ export default PaginationComponent;
 
 Этот подход улучшает масштабируемость, уменьшает связанность компонентов и упрощает работу с URL.
 
-___
+---
 
 [[004 State Managers|Назад]]

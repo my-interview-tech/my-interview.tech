@@ -1,13 +1,22 @@
 ---
+uid: _8C9LhFQcqnznZJzV0ARx
 title: Task_async - heavyJob()_1
-draft: false
 tags:
   - "#JavaScript"
   - "#taskJS"
   - "#callback"
   - "#async"
   - "#unknownINC"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```js
 // Необходимо выполнить таски
 // Перед началом выполнения нужно вызвать onStart
@@ -16,31 +25,31 @@ tags:
 // Эти функции обязательные (Изменять не можем)
 
 function heavyJob(idx, ms, callback) {
-    setTimeout(() => {
-        console.log(`Task ${idx} is done`);
-        if (callback) callback(idx);
-    }, ms);
+  setTimeout(() => {
+    console.log(`Task ${idx} is done`);
+    if (callback) callback(idx);
+  }, ms);
 }
 
 function onStart() {
-    console.log("Start");
+  console.log("Start");
 }
 
 function onEnd() {
-    console.log("All tasks completed");
+  console.log("All tasks completed");
 }
 
 const task1 = (callback = () => {}) => heavyJob(1, 1500, callback);
 const task2 = (callback = () => {}) => heavyJob(2, 1000, callback);
 ```
 
-**Ответ
+\*\*Ответ
 
 ```js
 function heavyJob(idx, ms, callback) {
   setTimeout(() => {
-      console.log(`Task ${idx} is done`);
-      if (callback) callback(idx);
+    console.log(`Task ${idx} is done`);
+    if (callback) callback(idx);
   }, ms);
 }
 
@@ -55,14 +64,14 @@ function onEnd() {
 const task1 = (callback = () => {}) => heavyJob(1, 1500, callback);
 const task2 = (callback = () => {}) => heavyJob(2, 1000, callback);
 
-onStart()
+onStart();
 task1(() => {
   task2(() => {
-    onEnd()
-  })
-})
+    onEnd();
+  });
+});
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

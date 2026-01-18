@@ -1,11 +1,20 @@
 ---
+uid: LqS_GlsMpp0lPzSxRqW9P
 title: Что такое полифил (polyfill)?
-draft: false
 tags:
   - "#JavaScript"
   - "#polyfill"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 152
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703112938.png|600]]
 
 _Полифил (Polyfill)_ - это код, написанный на JavaScript, который обеспечивает реализацию функциональности, которая может отсутствовать в браузерах, не поддерживающих новые стандарты языка или API. Полифилы обычно используются для обеспечения обратной совместимости кода, написанного с использованием новых функций или методов, с более старыми браузерами.
@@ -15,8 +24,8 @@ _Полифил (Polyfill)_ - это код, написанный на JavaScrip
 ```javascript
 if (!Array.from) {
   Array.from = function (object) {
-    return [].slice.call(object)
-  }
+    return [].slice.call(object);
+  };
 }
 ```
 

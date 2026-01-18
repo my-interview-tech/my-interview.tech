@@ -1,6 +1,6 @@
 ---
+uid: _1h5aO3G_fyJ28m1u-Ijv
 title: Что такое Flux?
-draft: false
 tags:
   - "#React"
   - "#Redux"
@@ -11,9 +11,18 @@ tags:
   - "#view"
   - "#UDF"
 info:
-  - https://habr.com/ru/companies/hexlet/articles/268249/
-  - https://facebook.github.io/flux/
+  - "https://habr.com/ru/companies/hexlet/articles/268249/"
+  - "https://facebook.github.io/flux/"
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704191924.png|600]]
 
 _Flux_ - это архитектурный шаблон для управления состоянием пользовательского интерфейса.

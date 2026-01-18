@@ -1,14 +1,23 @@
 ---
+uid: Ytmc7scz6IE18PjhG8Z98
 title: Библиотеки prop-types
-draft: false
 tags:
   - "#React"
   - "#prop-types"
   - "#propTypes"
 info:
-  - https://github.com/airbnb/prop-types
-  - https://ru.reactjs.org/docs/typechecking-with-proptypes.html
+  - "https://github.com/airbnb/prop-types"
+  - "https://ru.reactjs.org/docs/typechecking-with-proptypes.html"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 29
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Библиотека #prop-types - набор стандартных функций-валидаторов
 
 ```jsx
@@ -20,24 +29,23 @@ MyComponent.propTypes = {
 
 Есть и другие библиотеки, с дополнительными валидаторами.
 
-_____
+---
+
 ## Введение
 
-По мере роста вашего приложения вы можете отловить много ошибок с помощью проверки типов.  Для этого можно использовать расширения JavaScript вроде [Flow](https://flow.org/) и [TypeScript](https://www.typescriptlang.org/). Но, даже если вы ими не пользуетесь, React предоставляет встроенные возможности для проверки типов. Для запуска этой проверки на пропсах компонента вам нужно использовать специальное свойство `propTypes`:
+По мере роста вашего приложения вы можете отловить много ошибок с помощью проверки типов. Для этого можно использовать расширения JavaScript вроде [Flow](https://flow.org/) и [TypeScript](https://www.typescriptlang.org/). Но, даже если вы ими не пользуетесь, React предоставляет встроенные возможности для проверки типов. Для запуска этой проверки на пропсах компонента вам нужно использовать специальное свойство `propTypes`:
 
 ```jsx
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 class Greeting extends React.Component {
   render() {
-    return (
-      <h1>Привет, {this.props.name}</h1>
-    );
+    return <h1>Привет, {this.props.name}</h1>;
   }
 }
 
 Greeting.propTypes = {
-  name: PropTypes.string
+  name: PropTypes.string,
 };
 ```
 
@@ -50,7 +58,7 @@ Greeting.propTypes = {
 Пример использования возможных валидаторов:
 
 ```jsx
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 MyComponent.propTypes = {
   // Можно объявить проп на соответствие определённому JS-типу.
@@ -73,20 +81,20 @@ MyComponent.propTypes = {
 
   // Тип React-элемент (например, MyComponent).
   optionalElementType: PropTypes.elementType,
-  
+
   // Можно указать, что проп должен быть экземпляром класса
   // Для этого используется JS-оператор instanceof.
   optionalMessage: PropTypes.instanceOf(Message),
 
   // Вы можете задать ограничение конкретными значениями
   // при помощи перечисления
-  optionalEnum: PropTypes.oneOf(['News', 'Photos']),
+  optionalEnum: PropTypes.oneOf(["News", "Photos"]),
 
   // Объект, одного из нескольких типов
   optionalUnion: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
-    PropTypes.instanceOf(Message)
+    PropTypes.instanceOf(Message),
   ]),
 
   // Массив объектов конкретного типа
@@ -98,14 +106,14 @@ MyComponent.propTypes = {
   // Объект с определённой структурой
   optionalObjectWithShape: PropTypes.shape({
     color: PropTypes.string,
-    fontSize: PropTypes.number
+    fontSize: PropTypes.number,
   }),
-  
+
   // При наличии необъявленных свойств в объекте будут вызваны предупреждения
   optionalObjectWithStrictShape: PropTypes.exact({
     name: PropTypes.string,
-    quantity: PropTypes.number
-  }),   
+    quantity: PropTypes.number,
+  }),
 
   // Можно добавить`isRequired` к любому приведённому выше типу,
   // чтобы показывать предупреждение,
@@ -117,13 +125,17 @@ MyComponent.propTypes = {
 
   // Можно добавить собственный валидатор.
   // Он должен возвращать объект `Error` при ошибке валидации.
-  // Не используйте `console.warn` или `throw` 
+  // Не используйте `console.warn` или `throw`
   // - это не будет работать внутри `oneOfType`
-  customProp: function(props, propName, componentName) {
+  customProp: function (props, propName, componentName) {
     if (!/matchme/.test(props[propName])) {
       return new Error(
-        'Проп `' + propName + '` компонента' +
-        ' `' + componentName + '` имеет неправильное значение'
+        "Проп `" +
+          propName +
+          "` компонента" +
+          " `" +
+          componentName +
+          "` имеет неправильное значение",
       );
     }
   },
@@ -132,16 +144,22 @@ MyComponent.propTypes = {
   // Он должен возвращать объект Error при ошибке валидации.
   // Валидатор будет вызван для каждого элемента в массиве
   // или для каждого свойства объекта.
-  // Первые два параметра валидатора 
+  // Первые два параметра валидатора
   // - это массив или объект и ключ текущего элемента
-  customArrayProp: PropTypes.arrayOf(function(propValue, key, componentName, location, propFullName) {
-    if (!/matchme/.test(propValue[key])) {
-      return new Error(
-        'Проп `' + propFullName + '` компонента' +
-        ' `' + componentName + '` имеет неправильное значение'
-      );
-    }
-  })
+  customArrayProp: PropTypes.arrayOf(
+    function (propValue, key, componentName, location, propFullName) {
+      if (!/matchme/.test(propValue[key])) {
+        return new Error(
+          "Проп `" +
+            propFullName +
+            "` компонента" +
+            " `" +
+            componentName +
+            "` имеет неправильное значение",
+        );
+      }
+    },
+  ),
 };
 ```
 
@@ -150,22 +168,18 @@ MyComponent.propTypes = {
 С помощью `PropTypes.element` вы можете указать, что только один дочерний элемент может быть передан компоненту в качестве потомка.
 
 ```jsx
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 class MyComponent extends React.Component {
   render() {
     // Это должен быть ровно один элемент, иначе вы увидите предупреждение.
     const children = this.props.children;
-    return (
-      <div>
-        {children}
-      </div>
-    );
+    return <div>{children}</div>;
   }
 }
 
 MyComponent.propTypes = {
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
 };
 ```
 
@@ -176,19 +190,17 @@ MyComponent.propTypes = {
 ```jsx
 class Greeting extends React.Component {
   render() {
-    return (
-      <h1>Привет, {this.props.name}</h1>
-    );
+    return <h1>Привет, {this.props.name}</h1>;
   }
 }
 
 // Задание значений по умолчанию для пропсов:
 Greeting.defaultProps = {
-  name: 'Незнакомец'
+  name: "Незнакомец",
 };
 
 // Отрендерит "Привет, Незнакомец":
-const root = ReactDOM.createRoot(document.getElementById('example'));
+const root = ReactDOM.createRoot(document.getElementById("example"));
 root.render(<Greeting />);
 ```
 
@@ -197,13 +209,11 @@ C ES2022 вы можете объявить `defaultProps` как стати�
 ```jsx
 class Greeting extends React.Component {
   static defaultProps = {
-    name: 'Незнакомец'
-  }
+    name: "Незнакомец",
+  };
 
   render() {
-    return (
-      <div>Привет, {this.props.name}</div>
-    )
+    return <div>Привет, {this.props.name}</div>;
   }
 }
 ```
@@ -218,9 +228,7 @@ class Greeting extends React.Component {
 
 ```jsx
 export default function HelloWorldComponent({ name }) {
-  return (
-    <div>Hello, {name}</div>
-  )
+  return <div>Hello, {name}</div>;
 }
 ```
 
@@ -228,30 +236,26 @@ export default function HelloWorldComponent({ name }) {
 
 ```jsx
 function HelloWorldComponent({ name }) {
-  return (
-    <div>Hello, {name}</div>
-  )
+  return <div>Hello, {name}</div>;
 }
 
-export default HelloWorldComponent
+export default HelloWorldComponent;
 ```
 
 А затем добавить PropTypes напрямую к компоненту `HelloWorldComponent`:
 
 ```jsx
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
 function HelloWorldComponent({ name }) {
-  return (
-    <div>Hello, {name}</div>
-  )
+  return <div>Hello, {name}</div>;
 }
 
 HelloWorldComponent.propTypes = {
-  name: PropTypes.string
-}
+  name: PropTypes.string,
+};
 
-export default HelloWorldComponent
+export default HelloWorldComponent;
 ```
 
-___
+---

@@ -1,11 +1,20 @@
 ---
+uid: HFpdWKrMelTdFnYuc36kf
 title: Что такое Node.js?
-draft: false
 tags:
   - "#NodeJS"
   - "#JavaScript"
   - "#backend"
+draft: false
+technology: Node.js
+specialty: Backend
+tools: []
+order: 1
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _`Node.js`_ - это программная платформа, основанная на языке JavaScript, которая позволяет запускать JavaScript-код на стороне сервера.
 
 Node.js был разработан _Райаном Далом в 2009 году_ и быстро стал популярным веб-фреймворком благодаря своей эффективности и гибкости.

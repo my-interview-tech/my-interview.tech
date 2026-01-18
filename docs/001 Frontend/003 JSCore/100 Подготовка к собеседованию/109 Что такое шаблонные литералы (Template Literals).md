@@ -1,12 +1,21 @@
 ---
+uid: Hw2X7PZo3gLq2L3lfjKCx
 title: Что такое шаблонные литералы (Template Literals)?
-draft: false
 tags:
   - "#JavaScript"
   - "#template-literals"
 info:
   - "[[0037 Template string|Шаблонные литералы]]"
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 109
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230702201111.png|600]]
 
 _Шаблонные литералы (Template Literals)_ - это способ создания строковых литералов в JavaScript, который позволяет встраивать выражения внутрь строковых литералов с помощью специальных символов.
@@ -14,7 +23,7 @@ _Шаблонные литералы (Template Literals)_ - это способ 
 Синтаксис шаблонных литералов выглядит следующим образом:
 
 ```javascript
-;`строка ${выражение} строка`
+`строка ${выражение} строка`;
 ```
 
 Здесь символы   используются для обозначения начала и конца строки, а выражение заключается внутри `${ }` и вставляется внутрь строки.
@@ -22,12 +31,12 @@ _Шаблонные литералы (Template Literals)_ - это способ 
 Пример использования шаблонных литералов:
 
 ```javascript
-const name = "John"
-const age = 30
+const name = "John";
+const age = 30;
 
-const message = `Меня зовут ${name} и мне ${age} лет.`
+const message = `Меня зовут ${name} и мне ${age} лет.`;
 
-console.log(message)
+console.log(message);
 // Вывод: "Меня зовут John и мне 30 лет."
 ```
 
@@ -39,9 +48,9 @@ console.log(message)
 
 ```javascript
 const message = `Многострочный
-текст`
+текст`;
 
-console.log(message)
+console.log(message);
 // Вывод:
 // "Многострочный
 // текст"

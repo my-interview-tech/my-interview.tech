@@ -1,12 +1,21 @@
 ---
+uid: ErLgbvgFS4w9eVCjkM_Fc
 title: Лучшие практики безопасности в React?
-draft: false
 tags:
   - "#React"
 info:
-  - https://habr.com/ru/companies/ruvds/articles/467255/
-  - https://habr.com/ru/companies/otus/articles/759222/
+  - "https://habr.com/ru/companies/ruvds/articles/467255/"
+  - "https://habr.com/ru/companies/otus/articles/759222/"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 129
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704202031.png|600]]
 
 Вот несколько лучших практик безопасности, которые могут помочь обеспечить безопасность в приложениях React:

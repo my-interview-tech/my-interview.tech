@@ -1,9 +1,16 @@
 ---
+uid: Idx2PIxJgN1XuCnuKovXA
 title: Что такое GRASP паттерны?
-draft: false
 tags:
   - design-pattern
   - GRASP
+draft: false
+technology: Подготовка к собеседованиям
+tools: []
+order: 24
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
 
 ![[Pasted image 20230703185241.png|600]]

@@ -1,16 +1,25 @@
 ---
+uid: Q2LqGaKdCzLRI2xWA7zGs
 title: Что такое Vitest? Какую функцию выполняет? В чем отличие Vitest от Jest?
-draft: false
 tags:
   - testing
   - Jest
   - vitest
 info:
-  - https://vitest.dev/guide/
+  - "https://vitest.dev/guide/"
   - "[[Что такое Vitest. Как установить и запустить первый тест]]"
   - "[[Тестирование с помощью Vitest]]"
   - "[[Тестирование на примере реального проекта]]"
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 17
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 **Vitest** — это современный фреймворк для тестирования JavaScript и TypeScript, разработанный с учетом производительности и простоты использования. Он позиционируется как альтернатива Jest, но с упором на более быстрое выполнение тестов и лучшую интеграцию с современными инструментами и фреймворками, такими как Vite.
 
 1. **Быстрое выполнение тестов**: Vitest использует Vite для быстрой сборки и выполнения тестов, что делает его особенно быстрым для проектов с большим количеством модулей.
@@ -49,10 +58,10 @@ npm install --save-dev vitest
 ```
 
 ```javascript
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect } from "vitest";
 
-describe('sum', () => {
-  it('should add two numbers', () => {
+describe("sum", () => {
+  it("should add two numbers", () => {
     expect(sum(1, 2)).toBe(3);
   });
 });
@@ -69,6 +78,6 @@ function sum(a, b) {
 
 Выбор между Jest и Vitest зависит от ваших потребностей и предпочтений. Если вам нужен зрелый и надежный инструмент с обширной экосистемой, Jest может быть лучшим выбором. Если же вам важна производительность и интеграция с современными инструментами, Vitest может стать отличной альтернативой.
 
-____
+---
 
 [[007 Jest, RTL|Назад]]

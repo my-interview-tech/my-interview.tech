@@ -1,13 +1,22 @@
 ---
+uid: eZgrgF903jV_bl75Uk3MX
 title: ReactTask - Counter 2_1
-draft: false
 tags:
   - "#JavaScript"
   - "#taskJS"
   - "#альфабанк"
   - "#useEffect"
   - "#useState"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 [Реализуй Counter()](https://codesandbox.io/s/reacttask-counter-2-1-sxr78t?file=/src/App.js)
 
 ```jsx
@@ -40,6 +49,6 @@ export default function App() {
 }
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

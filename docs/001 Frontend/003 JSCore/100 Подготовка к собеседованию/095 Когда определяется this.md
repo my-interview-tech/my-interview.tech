@@ -1,14 +1,23 @@
 ---
+uid: nCTUo0DmIfEzj0TR_dzde
 title: Когда определяется this?
-draft: false
 tags:
   - "#JavaScript"
   - "#this"
   - "#call"
   - "#bind"
   - "#apply"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 95
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Значение `this` в JavaScript определяется во время выполнения кода, когда функция вызывается. Значение `this` зависит от контекста вызова функции, то есть от того, как именно была вызвана функция.
 
 Значение `this` может быть определено в следующих контекстах:
@@ -24,9 +33,9 @@ console.log(this === window); // true (in a browser)
 ```js
 const obj = {
   name: "John",
-  greet: function() {
+  greet: function () {
     console.log(`Hello, my name is ${this.name}`);
-  }
+  },
 };
 
 obj.greet(); // "Hello, my name is John"
@@ -37,9 +46,9 @@ obj.greet(); // "Hello, my name is John"
 ```js
 const obj = {
   name: "John",
-  greet: function() {
+  greet: function () {
     console.log(`Hello, my name is ${this.name}`);
-  }
+  },
 };
 
 const myGreet = obj.greet;
@@ -51,9 +60,9 @@ myGreet(); // "Hello, my name is undefined"
 ```js
 function Person(name) {
   this.name = name;
-  this.greet = function() {
+  this.greet = function () {
     console.log(`Hello, my name is ${this.name}`);
-  }
+  };
 }
 
 const john = new Person("John");
@@ -65,13 +74,13 @@ john.greet(); // "Hello, my name is John"
 ```js
 const obj = {
   name: "John",
-  greet: function() {
+  greet: function () {
     console.log(`Hello, my name is ${this.name}`);
-  }
+  },
 };
 
 const otherObj = {
-  name: "Jane"
+  name: "Jane",
 };
 
 obj.greet.call(otherObj); // "Hello, my name is Jane"

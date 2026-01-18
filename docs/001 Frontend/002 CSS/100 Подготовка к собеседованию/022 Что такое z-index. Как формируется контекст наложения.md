@@ -1,13 +1,23 @@
 ---
+uid: o3iIqjC1HkhyW7NeWIAAN
 title: Что такое `z-index`? Как формируется контекст наложения?
-draft: false
 tags:
   - "#CSS"
   - "#z-index"
 info:
   - "[[0004 Позиционирование|z-index и контекст наложения]]"
-  - https://developer.mozilla.org/ru/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context
+  - >-
+    https://developer.mozilla.org/ru/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 22
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704030324.png|600]]
 
 **z-index**

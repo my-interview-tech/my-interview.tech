@@ -1,19 +1,27 @@
 ---
+uid: G_LVZ64A6K46kL4QjxGHs
 title: Что такое `WebSocket`? В чем принцип его работы?
-draft: false
 tags:
   - webSocket
   - socket
 info:
-  - https://learn.javascript.ru/websocket
-  - https://habr.com/ru/articles/727696/
+  - "https://learn.javascript.ru/websocket"
+  - "https://habr.com/ru/articles/727696/"
+draft: false
+technology: Подготовка к собеседованию
+tools: []
+order: 35
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _`WebSocket`_ - это протокол, который позволяет устанавливать постоянное двустороннее соединение между клиентом и сервером. Данные передаются по нему в обоих направлениях в виде «пакетов», без разрыва соединения и дополнительных HTTP-запросов.
 
 Чтобы открыть веб-сокет-соединение, нам нужно создать объект `new WebSocket`, указав в url-адресе специальный протокол `ws`:
 
 ```jsx
-let socket = new WebSocket("ws://javascript.info")
+let socket = new WebSocket("ws://javascript.info");
 ```
 
 _Протокол `wss://` не только использует шифрование, но и обладает повышенной надёжностью._ _Это потому, что данные `ws://` не зашифрованы, видны для любого посредника. Старые прокси-серверы не знают о `WebSocket`, они могут увидеть «странные» заголовки и закрыть соединение._
@@ -80,9 +88,9 @@ Sec-WebSocket-Accept: hsBlbuDTkk24srzEOTBUlZAlC2g=X
 
 setInterval(() => {
   if (socket.bufferedAmount == 0) {
-    socket.send(moreData())
+    socket.send(moreData());
   }
-}, 100)
+}, 100);
 ```
 
 ##### Закрытие подключения
@@ -92,7 +100,7 @@ setInterval(() => {
 Метод для этого:
 
 ```jsx
-socket.close([code], [reason])
+socket.close([code], [reason]);
 ```
 
 - `code` – специальный WebSocket-код закрытия (не обязателен).
@@ -135,23 +143,25 @@ _WebSocket_ – это современный способ иметь посто
 ```js
 const socket = new WebSocket("ws://just-test.com");
 
-socket.onopen = function() {
-    alert("[open] Connected!");
-    socket.send("Hello world!");
+socket.onopen = function () {
+  alert("[open] Connected!");
+  socket.send("Hello world!");
 };
 
-socket.onmessage = function(e) {
-    alert(`[message] Data is received from server: ${e.data}`);
+socket.onmessage = function (e) {
+  alert(`[message] Data is received from server: ${e.data}`);
 };
 
-socket.onclose = function(e) {
-    e.wasClean
-        ? alert(`[close] Connection closed cleanly, code=${e.code} reason=${e.reason}`)
-        : alert('[close] Connection interrupted');
+socket.onclose = function (e) {
+  e.wasClean
+    ? alert(
+        `[close] Connection closed cleanly, code=${e.code} reason=${e.reason}`,
+      )
+    : alert("[close] Connection interrupted");
 };
 
-socket.onerror = function(e) {
-    alert(`[error] ${e.message}`);
+socket.onerror = function (e) {
+  alert(`[error] ${e.message}`);
 };
 ```
 

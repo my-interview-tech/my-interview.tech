@@ -1,14 +1,23 @@
 ---
+uid: Dxy0S1UyEOOINiG-2LeC7
 title: Разница между `event.target` и `event.currentTarget`
-draft: false
 tags:
   - "#DOM"
   - "#event"
   - "#target"
   - "#currentTarget"
   - "#browser"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 21
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 `event.target` и `event.currentTarget` - это два свойства объекта события в JavaScript, которые используются для определения элемента, на котором произошло событие, и элемента, на котором был установлен обработчик события.
 
 `event.target` - это свойство, которое содержит ссылку на элемент, на котором произошло событие. В обработчике события `event.target` обычно используется для определения элемента, на который был совершен клик или другое действие.
@@ -17,8 +26,8 @@ info:
 
 ```javascript
 document.addEventListener("click", function (event) {
-  console.log(event.target) // выводит элемент, на который был совершен клик
-})
+  console.log(event.target); // выводит элемент, на который был совершен клик
+});
 ```
 
 `event.currentTarget` - это свойство, которое содержит ссылку на элемент, на котором был установлен обработчик события. В обработчике события `event.currentTarget` обычно используется для выполнения дополнительных действий на элементе, на котором был установлен обработчик.
@@ -27,9 +36,9 @@ document.addEventListener("click", function (event) {
 
 ```javascript
 document.querySelector(".parent").addEventListener("click", function (event) {
-  console.log(event.currentTarget) // выводит элемент, на котором был установлен обработчик
+  console.log(event.currentTarget); // выводит элемент, на котором был установлен обработчик
   // дополнительный код для выполнения действий на родительском элементе
-})
+});
 ```
 
 В этом примере мы используем метод `querySelector()` для получения родительского элемента с классом `.parent`. Затем мы устанавливаем обработчик события `click` на родительском элементе и используем `event.currentTarget` для выполнения дополнительных действий на родительском элементе.

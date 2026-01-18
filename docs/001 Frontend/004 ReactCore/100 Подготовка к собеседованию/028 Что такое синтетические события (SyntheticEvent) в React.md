@@ -1,6 +1,6 @@
 ---
+uid: qXzBUkkrOshexMcYq6g-S
 title: Что такое синтетические события (SyntheticEvent) в React?
-draft: false
 tags:
   - "#React"
   - "#SyntheticEvent"
@@ -8,8 +8,17 @@ tags:
   - "#eventBubbling"
   - "#eventPersist"
 info:
-  - https://ru.legacy.reactjs.org/docs/events.html
+  - "https://ru.legacy.reactjs.org/docs/events.html"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 28
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704174242.png]]
 
 ##### `SyntheticEvent`
@@ -24,8 +33,8 @@ _`SyntheticEvent` - это обертка вокруг нативного бра
 
 ```jsx
 function handleClick(event) {
-  event.preventDefault()
-  console.log("The link was clicked.")
+  event.preventDefault();
+  console.log("The link was clicked.");
 }
 
 function MyComponent() {
@@ -33,7 +42,7 @@ function MyComponent() {
     <a href="#" onClick={handleClick}>
       Click me
     </a>
-  )
+  );
 }
 ```
 
@@ -76,13 +85,13 @@ _Метод `event.persist()` позволяет сохранить объект
 ```jsx
 function MyComponent() {
   function handleClick(event) {
-    event.persist()
+    event.persist();
     setTimeout(() => {
-      console.log(event.type)
-    }, 1000)
+      console.log(event.type);
+    }, 1000);
   }
 
-  return <button onClick={handleClick}>Click me</button>
+  return <button onClick={handleClick}>Click me</button>;
 }
 ```
 

@@ -1,14 +1,24 @@
 ---
+uid: bAIEq9X0D3Ni334F4kjON
 title: " Что такое режим совместимости (Quirks Mode) и стандартный режим (Standards Mode)?"
-draft: false
 tags:
   - "#HTML"
   - "#quirks-mode"
   - "#standarts-mode"
 info:
-  - https://developer.mozilla.org/ru/docs/Web/HTML/Quirks_Mode_and_Standards_Mode
-  - https://habrahabr.ru/post/71364/
+  - >-
+    https://developer.mozilla.org/ru/docs/Web/HTML/Quirks_Mode_and_Standards_Mode
+  - "https://habrahabr.ru/post/71364/"
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 8
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 На сегодняшний день существует три режима отображения, которые используются движками разметки **(layout engines)** браузеров: режим совместимости **(quirks mode)**, частично стандартный режим **(almost standards mode)** и стандартный режим **(full standards mode)**.
 
 _В режиме совместимости (quirks mode), разметка эмулирует нестандартное поведение браузеров Navigator 4 и Internet Explorer 5._ Этот режим необходим для поддержки сайтов, созданных до начала широкого применения веб стандартов.

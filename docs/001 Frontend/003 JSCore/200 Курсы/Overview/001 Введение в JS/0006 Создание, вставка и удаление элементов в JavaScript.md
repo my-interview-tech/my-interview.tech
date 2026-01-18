@@ -1,10 +1,20 @@
 ---
-title: Создание, вставка и удаление элементов в JavaScript
-draft: false
+uid: LtS6ozMwV9RyAp-Lk9Fdv
+title: "Создание, вставка и удаление элементов в JavaScript"
 tags:
   - JavaScript
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 6
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _На этом уроке мы научимся создавать узлы-элементы (`createElement`) и текстовые узлы (`createTextNode`). А также рассмотрим методы, предназначенные для добавления узлов к дереву (`appendChild`, `insertBefore`) и для удаления узлов из дерева (`removeChild`)._
+
 ## Создания элементов и текстовых узлов
 
 Создание элемента в JavaScript выполняется с помощью метода `createElement`:
@@ -54,10 +64,10 @@ $elem.appendChild($node);
 </ol>
 
 <script>
-	const $newLi = document.createElement('li');
-	$newLi.textContent = 'Фиолетовый';
-	const $colors = document.querySelector('#colors');
-	$colors.appendChild($newLi);
+  const $newLi = document.createElement("li");
+  $newLi.textContent = "Фиолетовый";
+  const $colors = document.querySelector("#colors");
+  $colors.appendChild($newLi);
 </script>
 ```
 
@@ -84,9 +94,9 @@ $elem.appendChild($node);
 </ol>
 
 <script>
-  const $newLi = document.createElement('li');
-  $newLi.textContent = 'Жёлтый';
-  const $colors = document.querySelector('#colors');
+  const $newLi = document.createElement("li");
+  $newLi.textContent = "Жёлтый";
+  const $colors = document.querySelector("#colors");
   $colors.insertBefore($newLi, $colors.children[2]);
 </script>
 ```
@@ -95,10 +105,10 @@ $elem.appendChild($node);
 
 В JavaScript имеются следующие современные методы для вставки элементов и строк:
 
--   `node.append` – для добавления узлов или строк в конец `node`;
--   `node.prepend` – для вставки узлов или строк в начало `node`;
--   `node.before` – для вставки узлов или строк до `node`;
--   `node.after` – для вставки узлов или строк после `node`.
+- `node.append` – для добавления узлов или строк в конец `node`;
+- `node.prepend` – для вставки узлов или строк в начало `node`;
+- `node.before` – для вставки узлов или строк до `node`;
+- `node.after` – для вставки узлов или строк после `node`.
 
 Пример использования методов:
 
@@ -108,26 +118,27 @@ $elem.appendChild($node);
 </div>
 
 <script>
-	const $message = document.querySelector('#message');
+  const $message = document.querySelector("#message");
 
-	// вставим строку «before» перед $message
-	$message.before('before');
-	
-	// вставим строку «after» перед $message
-	$message.after('after');
+  // вставим строку «before» перед $message
+  $message.before("before");
 
-	const $p1 = document.createElement('p');
-	$p1.textContent = 'prepend';
-	// вставим элемент $p1 в начало $message
-	$message.prepend($p1);
+  // вставим строку «after» перед $message
+  $message.after("after");
 
-	const $p2 = document.createElement('p');
-	$p2.textContent = 'append';
-	
-	// вставим элемент $p2 в конец $message
-	$message.append($p2);
+  const $p1 = document.createElement("p");
+  $p1.textContent = "prepend";
+  // вставим элемент $p1 в начало $message
+  $message.prepend($p1);
+
+  const $p2 = document.createElement("p");
+  $p2.textContent = "append";
+
+  // вставим элемент $p2 в конец $message
+  $message.append($p2);
 </script>
 ```
+
 В результате:
 
 ```html
@@ -139,22 +150,23 @@ before
 </div>
 after
 ```
+
 ### InsertAdjacent
 
 В JavaScript имеется набор методов insertAdjacent, которые позволяют вставить один или несколько узлов в указанную позицию `position` относительно `$elem`
 
 Всего существует 3 таких метода:
 
--   `$elem.insertAdjacentElement(position, element)` – для вставки элемента (`element`);
--   `$elem.insertAdjacentHTML(position, htmlString)` – для вставки строки (`htmlString`) как HTML;
--   $elem.insertAdjacentText(position, string) – для вставки строки (`string`);
+- `$elem.insertAdjacentElement(position, element)` – для вставки элемента (`element`);
+- `$elem.insertAdjacentHTML(position, htmlString)` – для вставки строки (`htmlString`) как HTML;
+- $elem.insertAdjacentText(position, string) – для вставки строки (`string`);
 
 Значение `position`, может быть, одним из следующих:
 
--   `'beforebegin'` – непосредственно перед `$elem`;
--   `'afterbegin'` – перед первым дочерним узлом `$elem`;
--   `'beforeend'` – после последнего дочернего узла `$elem`;
--   `'afterend'` – сразу после `$elem`;
+- `'beforebegin'` – непосредственно перед `$elem`;
+- `'afterbegin'` – перед первым дочерним узлом `$elem`;
+- `'beforeend'` – после последнего дочернего узла `$elem`;
+- `'afterend'` – сразу после `$elem`;
 
 Пример использования `insertAdjacentHTML`:
 
@@ -164,26 +176,32 @@ after
 </ul>
 
 <script>
-  const $list = document.querySelector('#list');
+  const $list = document.querySelector("#list");
 
-  $list.insertAdjacentHTML('beforebegin', '<h2>Веб-технологии</h2>');
-  $list.insertAdjacentHTML('afterbegin', '<li>HTML</li>');
-  $list.insertAdjacentHTML('beforeend', '<li>JavaScript</li>');
-  $list.insertAdjacentHTML('afterend', '<p>Для фронтенд разработчиков</p>');
+  $list.insertAdjacentHTML("beforebegin", "<h2>Веб-технологии</h2>");
+  $list.insertAdjacentHTML("afterbegin", "<li>HTML</li>");
+  $list.insertAdjacentHTML("beforeend", "<li>JavaScript</li>");
+  $list.insertAdjacentHTML("afterend", "<p>Для фронтенд разработчиков</p>");
 </script>
 ```
 
 Результат:
 
 ```html
-  <h2>Веб-технологии</h2>  <!-- beforebegin -->
-  <ul id="list"> <!-- целевой элемент -->
-    <li>HTML</li> <!-- afterbegin -->
-    <li>CSS</li>
-    <li>JavaScript</li> <!-- beforeend -->
-  </ul>
-  <p>Для фронтенд разработчиков</p> <!-- afterend -->
+<h2>Веб-технологии</h2>
+<!-- beforebegin -->
+<ul id="list">
+  <!-- целевой элемент -->
+  <li>HTML</li>
+  <!-- afterbegin -->
+  <li>CSS</li>
+  <li>JavaScript</li>
+  <!-- beforeend -->
+</ul>
+<p>Для фронтенд разработчиков</p>
+<!-- afterend -->
 ```
+
 ## DocumentFragment
 
 `DocumentFragment` – это облегчённая версия `Document`. Он используется в качестве обёртки для временного хранения HTML элементов.
@@ -202,6 +220,7 @@ after
   <li>Four</li>
 </ul>
 ```
+
 <ul id="target-list"></ul>
 ```html
 <script>
@@ -223,17 +242,17 @@ after
 <ul id="list"></ul>
 
 <script>
-  const $list = document.querySelector('#list');
+  const $list = document.querySelector("#list");
   // создадим пустой фрагмент
   let $fragment = new DocumentFragment();
-  for(let i = 0; i < 10; i++) {
-    const $li = document.createElement('li');
-    $li.textContent = 'item-' + i;
+  for (let i = 0; i < 10; i++) {
+    const $li = document.createElement("li");
+    $li.textContent = "item-" + i;
     // добавим в фрагмент элемент $li
     $fragment.appendChild($li);
   }
   // вставим фрагмент в #target-list
-  document.querySelector('#list').append($fragment);
+  document.querySelector("#list").append($fragment);
 </script>
 ```
 
@@ -256,7 +275,7 @@ after
 <ul id="target-list"></ul>
 
 <script>
-  const $evenLi = document.querySelectorAll('#source-list li:nth-child(even)');
+  const $evenLi = document.querySelectorAll("#source-list li:nth-child(even)");
   // создадим пустой массив
   let $list = [];
   $evenLi.forEach(($li) => {
@@ -264,9 +283,10 @@ after
     $list.appendChild($li);
   });
   // вставим массив элементов в #target-list
-  document.querySelector('#target-list').append(...$list);
+  document.querySelector("#target-list").append(...$list);
 </script>
 ```
+
 ## Замена и клонирование узлов
 
 Замену одних узлов другими в JavaScript можно выполнить с помощью методов `replaceChild` (когда нужна поддержка «старых» браузеров) и `replaceWith`.
@@ -278,8 +298,9 @@ after
 parentNode.replaceChild(newChild, oldChild);
 
 Где:
--   `newChild` – элемент, которым необходимо заменить `oldChild`;
--   `parentNode` – родительский узел по отношению `oldChild`.
+
+- `newChild` – элемент, которым необходимо заменить `oldChild`;
+- `parentNode` – родительский узел по отношению `oldChild`.
 
 В качестве результата данный метод возвращает узел, который был заменён новым узлом, т.е. `oldChild`.
 
@@ -300,6 +321,7 @@ ul id="list">
   // заменим $two на $newLi $two.parentNode.replaceChild($newLi, $two);
 </script>
 ```
+
 ### replaceWith
 
 `node.replaceWith` позволяет node заменить заданными узлами или строками:
@@ -326,6 +348,7 @@ ul id="list">
   $two.replaceWith($newLi1, $newLi2);
 </script>
 ```
+
 ### cloneNode – клонирование узла
 
 `cloneNode` предназначен для создания копии узла:
@@ -333,9 +356,10 @@ ul id="list">
 `let copy = node.cloneNode(deep);`
 
 Где:
--   `node` – узел, который нужно клонировать;
--   `copy` – переменная, в которую нужно поместить новый узел, который будет копией `node`;
--   `deep` – глубина клонирования (по умолчанию `false`, т.е. выполняется клонирование только самого элемента `node` без детей); если установить `true`, то `node` будет скопирован со всеми его детьми.
+
+- `node` – узел, который нужно клонировать;
+- `copy` – переменная, в которую нужно поместить новый узел, который будет копией `node`;
+- `deep` – глубина клонирования (по умолчанию `false`, т.е. выполняется клонирование только самого элемента `node` без детей); если установить `true`, то `node` будет скопирован со всеми его детьми.
 
 Например, скопируем ul> и вставим её в конец body.
 
@@ -354,6 +378,7 @@ ul id="list">
   document.body.append($copy);
 </script>
 ```
+
 ## Удаление узлов
 
 Удалить узел из DOM можно в JavaScript с помощью методов `removeChild` (считается устаревшим) и `remove`.
@@ -375,11 +400,12 @@ ul id="list">
   <li>Ноутбук</li>
 </ol>
 ```
+
 ```html
 <script>
-const $liSecond = document.querySelector('#devices li:nth-child(2)');
-// вызываем у родительского элемента метод removeChild и передаём ему в качестве аргумента узел который нужно удалить
-$liSecond.parentNode.removeChild($liSecond);
+  const $liSecond = document.querySelector("#devices li:nth-child(2)");
+  // вызываем у родительского элемента метод removeChild и передаём ему в качестве аргумента узел который нужно удалить
+  $liSecond.parentNode.removeChild($liSecond);
 </script>
 ```
 
@@ -395,11 +421,11 @@ $liSecond.parentNode.removeChild($liSecond);
 <div id="message-2"></div>
 
 <script>
-  const $p = document.querySelector('#message-1>p');
+  const $p = document.querySelector("#message-1>p");
   // удалим элемент p
   const result = $p.parentElement.removeChild($p);
   // вставим удалённый элемент p в #message-2
-  document.querySelector('#message-2').append(result);
+  document.querySelector("#message-2").append(result);
 </script>
 ```
 
@@ -413,13 +439,14 @@ $liSecond.parentNode.removeChild($liSecond);
 
 Например, удалим элемент при нажатии на него:
 ``
+
 ```html
 <button>Кнопка</button>
 <script>
-document.querySelector('button').onclick = function() {
-  // удалим элемент
-  this.remove();
-}
+  document.querySelector("button").onclick = function () {
+    // удалим элемент
+    this.remove();
+  };
 </script>
 ```
 

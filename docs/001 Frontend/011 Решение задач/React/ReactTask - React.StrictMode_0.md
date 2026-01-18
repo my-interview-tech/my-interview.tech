@@ -1,16 +1,25 @@
 ---
+uid: Ej8GyjcHOZhUCVRVu9Ns7
 title: ReactTask - React.StrictMode_0
-draft: false
 tags:
   - "#React"
   - "#reactTask"
   - "#strict-mode"
   - "#астон"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```jsx
 	// В каком порядке выведутся в console.log с использованием
 	// и без использования Strict Mode
-	
+
 	const c1 = ({ children }) => {
 		console.log('1')
 		React.useEffect(() => {
@@ -20,7 +29,7 @@ tags:
 			{children}
 		</>
 	}
-	
+
 	const c2 = {} => {
 		console.log('3')
 		React.useEffect(() => {
@@ -28,7 +37,7 @@ tags:
 		}, [])
 		return <div> YOWZ </div>
 	}
-	
+
 	export default function App() {
 		return (
 			<c1>
@@ -41,6 +50,6 @@ tags:
 // с 11 33 42 42
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

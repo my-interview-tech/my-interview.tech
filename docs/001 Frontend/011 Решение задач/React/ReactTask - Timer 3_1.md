@@ -1,16 +1,24 @@
 ---
+uid: gPQ69G8FgB24EWcBu0oyi
 title: ReactTask - Timer 3_1
-draft: false
 tags:
   - "#React"
   - "#reactTask"
   - "#Hooks"
   - "#БКС"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```
 // найти где происходит утечка данных и как это исправить
 ```
-
 
 ```jsx
 import React, { useEffect, useState } from "react";
@@ -48,6 +56,6 @@ const App = () => {
 export default App;
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

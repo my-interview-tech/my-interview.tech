@@ -1,11 +1,20 @@
 ---
+uid: AZBHpWAqPWN96dZBTI9o2
 title: Назовите основные типы утечек памяти в JavaScript?
-draft: false
 tags:
   - "#JavaScript"
   - "#memory-leaks"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 91
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 В JavaScript существует несколько типов утечек памяти, вот некоторые из них:
 
 1. _Утечки памяти из-за циклических ссылок:_ это происходит, когда объекты взаимно ссылается друг на друга, и ни один из них не может быть удален сборщиком мусора, даже если он больше не нужен.

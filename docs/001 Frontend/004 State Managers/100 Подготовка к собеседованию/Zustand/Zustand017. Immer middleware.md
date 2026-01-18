@@ -1,16 +1,26 @@
 ---
+uid: HohW0pOPIlkcw9WMHa0sO
 title: Immer middleware
-draft: false
 tags:
   - React
   - Zustand
   - State-manager
   - Immer
-info:
+info: null
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Использование Immer middleware в Zustand преследует цель упрощения работы с неизменяемыми состояниями.
 
 Преимущества использования Immer:
+
 - **Упрощение работы с неизменяемыми состояниями:** Immer позволяет работать с состоянием как с изменяемым, автоматически создавая новые версии состояния.
 - **Уменьшение ошибок:** Меньше вероятность ошибок, связанных с неправильным обновлением состояния.
 - **Улучшение читаемости кода:** Код становится более читаемым и понятным.
@@ -19,7 +29,7 @@ info:
 
 ```typescript
 // middleware/immerMiddleware.ts
-import produce from 'immer';
+import produce from "immer";
 
 const immerMiddleware = (config) => (set, get, api) =>
   config((fn) => set(produce(fn)), get, api);
@@ -31,8 +41,8 @@ export default immerMiddleware;
 
 ```typescript
 // store.ts
-import create from 'zustand';
-import immerMiddleware from './middleware/immerMiddleware';
+import create from "zustand";
+import immerMiddleware from "./middleware/immerMiddleware";
 
 type CoffeeState = {
   coffeeList: any[];
@@ -40,15 +50,21 @@ type CoffeeState = {
   removeCoffee: (id: number) => void;
 };
 
-const useCoffeeStore = create<CoffeeState>(immerMiddleware((set) => ({
-  coffeeList: [],
-  addCoffee: (coffee) => set((state) => {
-    state.coffeeList.push(coffee);
-  }),
-  removeCoffee: (id) => set((state) => {
-    state.coffeeList = state.coffeeList.filter((coffee) => coffee.id !== id);
-  }),
-})));
+const useCoffeeStore = create<CoffeeState>(
+  immerMiddleware((set) => ({
+    coffeeList: [],
+    addCoffee: (coffee) =>
+      set((state) => {
+        state.coffeeList.push(coffee);
+      }),
+    removeCoffee: (id) =>
+      set((state) => {
+        state.coffeeList = state.coffeeList.filter(
+          (coffee) => coffee.id !== id,
+        );
+      }),
+  })),
+);
 
 export default useCoffeeStore;
 ```
@@ -112,12 +128,13 @@ export default AddCoffeeForm;
 ```
 
 Основные моменты:
+
 - **Установка зависимостей:** Установка `immer` и `zustand`.
 - **Создание Immer middleware:** Создание middleware для использования Immer в Zustand.
 - **Использование Immer middleware в Store:** Применение middleware при создании Store.
 - **Работа с неизменяемыми состояниями:** Использование Immer для упрощения работы с состоянием.
 - **Использование Store в компонентах:** Добавление и удаление кофе с использованием Store.
 
-___
+---
 
 [[004 State Managers|Назад]]

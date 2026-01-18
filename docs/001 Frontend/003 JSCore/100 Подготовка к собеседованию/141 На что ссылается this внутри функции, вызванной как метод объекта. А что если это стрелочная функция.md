@@ -1,22 +1,33 @@
 ---
-title: На что ссылается this внутри функции, вызванной как метод объекта? А что если это стрелочная функция?
-draft: false
+uid: 11as4AX3dN-Tpt2CS-cAG
+title: >-
+  На что ссылается this внутри функции, вызванной как метод объекта? А что если
+  это стрелочная функция?
 tags:
   - "#JavaScript"
   - "#this"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 141
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _Внутри функции_, вызванной как метод объекта, значение `this` ссылается на сам объект, который вызывает метод. То есть `this` указывает на контекст объекта, который является контейнером для вызываемого метода.
 
 ```javascript
 const obj = {
   name: "John",
   greet: function () {
-    console.log(`Hello, my name is ${this.name}`)
+    console.log(`Hello, my name is ${this.name}`);
   },
-}
+};
 
-obj.greet() // "Hello, my name is John"
+obj.greet(); // "Hello, my name is John"
 ```
 
 В этом примере `this` внутри метода `greet()` ссылается на объект `obj`, потому что метод вызывается как метод этого объекта.
@@ -27,11 +38,11 @@ obj.greet() // "Hello, my name is John"
 const obj = {
   name: "John",
   greet: () => {
-    console.log(`Hello, my name is ${this.name}`)
+    console.log(`Hello, my name is ${this.name}`);
   },
-}
+};
 
-obj.greet() // "Hello, my name is undefined"
+obj.greet(); // "Hello, my name is undefined"
 ```
 
 В этом примере `this` внутри стрелочной функции `greet()` ссылается на контекст, в котором она была определена — глобальный объект в браузере или объект `global` в Node.js. Поэтому значение `this.name` будет `undefined`, потому что свойство `name` не определено в глобальном объекте.

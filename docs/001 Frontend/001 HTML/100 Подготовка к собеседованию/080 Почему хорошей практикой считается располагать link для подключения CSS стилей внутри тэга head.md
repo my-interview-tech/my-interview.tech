@@ -1,14 +1,26 @@
 ---
-title: Почему хорошей практикой считается располагать `link` для подключения CSS стилей внутри тэга `head`, а `script` для подключения JS ставить перед закрывающимся тэгом `body`?
-draft: false
+uid: FbV9qUUOYkxZOXj5iuM8a
+title: >-
+  Почему хорошей практикой считается располагать `link` для подключения CSS
+  стилей внутри тэга `head`, а `script` для подключения JS ставить перед
+  закрывающимся тэгом `body`?
 tags:
   - "#HTML"
   - "#script"
   - "#body"
   - "#link"
   - "#head"
-info:
+info: null
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 80
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704023237.png|600]]
 
 ##### **Размещение** `**<script>**` **прямо перед** `**</body>**`

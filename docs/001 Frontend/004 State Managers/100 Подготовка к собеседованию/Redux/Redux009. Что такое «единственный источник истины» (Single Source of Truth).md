@@ -1,13 +1,23 @@
 ---
+uid: QN_jX80W40uwdreOnwZ9C
 title: Что такое «единственный источник истины» (Single Source of Truth)?
-draft: false
 tags:
   - "#React"
   - "#SSOT"
   - "#Redux"
 info:
-  - https://rajdee.gitbooks.io/redux-in-russian/content/docs/introduction/ThreePrinciples.html
+  - >-
+    https://rajdee.gitbooks.io/redux-in-russian/content/docs/introduction/ThreePrinciples.html
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704192817.png|600]]
 
 _«Единственный источник истины» (Single Source of Truth или `SSOT`)_ - это концепция, используемая в программировании, которая предполагает, что _существует только один источник информации, который является авторитетным и надежным для всей системы_ или приложения. В контексте Redux, _хранилище (`store`) является SSOT_, потому что оно содержит всю текущую информацию о состоянии приложения.

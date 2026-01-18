@@ -1,13 +1,22 @@
 ---
+uid: rJCYUpZkqEyUS4H4XVma6
 title: React Router и Redux-Router
-draft: false
 tags:
   - "#React"
   - "#React-router"
   - "#redux-router"
 info:
-  - https://reactdev.ru/libs/redux/advanced/UsageWithReactRouter/
+  - "https://reactdev.ru/libs/redux/advanced/UsageWithReactRouter/"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 103
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 React Router и redux-router - это две разные библиотеки, которые предназначены для управления навигацией в React-приложениях.
 
 _React Router_ - это официальная библиотека для маршрутизации в React, которая предоставляет компоненты и API для управления навигацией между страницами и компонентами в React-приложении. Она используется для создания динамических маршрутов, обработки параметров маршрута, вложенных маршрутов и т.д.

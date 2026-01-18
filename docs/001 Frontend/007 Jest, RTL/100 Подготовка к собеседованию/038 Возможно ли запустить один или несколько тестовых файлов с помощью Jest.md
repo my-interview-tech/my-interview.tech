@@ -1,15 +1,25 @@
 ---
-title: Возможно ли запустить один или несколько тестовых файлов с помощью Jest? Если да, то каким образом?
-draft: false
+uid: 5zr4HT4lkNVeJLVrrfd0W
+title: "Возможно ли запустить один или несколько тестовых файлов с помощью Jest?\_Если да, то каким образом?"
 tags:
   - testing
   - Jest
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 38
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Да, Jest позволяет запускать один или несколько тестовых файлов, используя различные параметры командной строки. Вот несколько способов, как это можно сделать:
 
 1. **Запуск одного тестового файла**:
 
 Чтобы запустить один тестовый файл, укажите путь к этому файлу в команде Jest:
+
 ```bash
 jest path/to/your-test-file.js
 ```
@@ -27,6 +37,7 @@ jest path/to/your-test-file1.js path/to/your-test-file2.js
 ```
 
 Пример:
+
 ```bash
 jest src/components/MyComponent.test.js src/utils/myUtility.test.js
 ```
@@ -40,6 +51,7 @@ jest --testPathPattern=pattern
 ```
 
 Пример:
+
 ```bash
 jest --testPathPattern=src/components
 ```
@@ -88,6 +100,6 @@ jest --watch --testNamePattern=/testA|testB/
 
 Это запустит тесты в режиме наблюдения и будет автоматически перезапускать тесты, соответствующие шаблону `testA` или `testB`, при изменении файлов.
 
-____
+---
 
 [[007 Jest, RTL|Назад]]

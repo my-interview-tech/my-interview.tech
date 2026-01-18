@@ -1,13 +1,23 @@
 ---
+uid: Jz-_-ZXhatVdQa-NVTDOw
 title: Объясните назначение функции `getServerSideProps()`
-draft: false
 tags:
   - NextJS
   - getServerSideProps
   - SSR
 info:
-  - https://nextjs.org/docs/pages/building-your-application/data-fetching/get-server-side-props
+  - >-
+    https://nextjs.org/docs/pages/building-your-application/data-fetching/get-server-side-props
+draft: false
+technology: Next.js
+specialty: Frontend
+tools: []
+order: 7
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Функция `getServerSideProps` в Next.js используется для реализации рендеринга на стороне сервера (SSR) для динамических страниц. Когда пользователь запрашивает страницу, эта функция выполняется на сервере и динамически извлекает данные, позволяя странице быть предварительно отрендеренной с самыми актуальными данными.
 
 Основные назначения и особенности функции `getServerSideProps`:
@@ -39,6 +49,6 @@ export async function getServerSideProps(context) {
 
 В этом примере `getServerSideProps` выполняет запрос к внешнему API и передает полученные данные в компонент страницы в качестве пропсов. Если данные не найдены, функция возвращает `notFound: true`, что приводит к отображению страницы 404.
 
-___
+---
 
 [[006 Next.js|Назад]]

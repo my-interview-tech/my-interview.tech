@@ -1,6 +1,6 @@
 ---
+uid: cOC9F9KzxXPJz2Z6sM2kT
 title: Что такое forwardRef() ?
-draft: false
 tags:
   - React
   - Hooks
@@ -8,14 +8,23 @@ tags:
   - useRef
   - React19
 info:
-  - https://react.dev/blog/2024/04/25/react-19
-  - https://react.dev/reference/react/forwardRef
-  - https://dev.to/alakkadshaw/react-forwardref-1dkn
+  - "https://react.dev/blog/2024/04/25/react-19"
+  - "https://react.dev/reference/react/forwardRef"
+  - "https://dev.to/alakkadshaw/react-forwardref-1dkn"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 76
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
- `forwardRef()` - это функция в React, которая позволяет передавать ссылки (refs) через компоненты. Обычно ссылки можно присоединять только к DOM-элементам или классовым компонентам, но с помощью `forwardRef()` можно передать ссылку через функциональный компонент.
- 
+
+`forwardRef()` - это функция в React, которая позволяет передавать ссылки (refs) через компоненты. Обычно ссылки можно присоединять только к DOM-элементам или классовым компонентам, но с помощью `forwardRef()` можно передать ссылку через функциональный компонент.
+
 ```javascript
-import React, { forwardRef } from 'react';
+import React, { forwardRef } from "react";
 
 // Функциональный компонент, который принимает ref
 const MyInput = forwardRef((props, ref) => {
@@ -60,32 +69,30 @@ function MyInput({ placeholder, ref }) {
 }
 
 //...
-<MyInput ref={ref} />
+<MyInput ref={ref} />;
 ```
 
 Новые функциональные компоненты больше не будут нуждаться в `forwardRef`, и мы опубликуем `codemod` для автоматического обновления ваших компонентов для использования нового пропса `ref`. В будущих версиях мы планируем объявить `forwardRef` устаревшим и удалить его.
 
-**Примечание:**  
+**Примечание:**
 
 Ссылки, переданные классовым компонентам, не передаются как пропсы, так как они ссылаются на экземпляр компонента.
 
 Мы добавили опцию `initialValue` в `useDeferredValue`:
 
 ```javascript
-function Search({deferredValue}) {
+function Search({ deferredValue }) {
   // При первоначальном рендеринге значение будет ''.
   // Затем запланирован повторный рендеринг с deferredValue.
-  const value = useDeferredValue(deferredValue, '');
-  
-  return (
-    <Results query={value} />
-  );
+  const value = useDeferredValue(deferredValue, "");
+
+  return <Results query={value} />;
 }
 ```
 
 Когда предоставляется `initialValue`, `useDeferredValue` вернет его как значение для первоначального рендеринга компонента и запланирует повторный рендеринг в фоновом режиме с возвращенным `deferredValue`.
 
-**Очищающие функции для refs** 
+**Очищающие функции для refs**
 
 Теперь мы поддерживаем возвращение очищающей функции из колбэков `ref`:
 
@@ -113,14 +120,20 @@ function Search({deferredValue}) {
 Из-за введения очищающих функций ref, возвращение чего-либо другого из колбэка ref теперь будет отклонено TypeScript. Исправление обычно заключается в прекращении использования неявных возвратов, например:
 
 ```javascript
-- <div ref={current => (instance = current)} />
-+ <div ref={current => {instance = current}} />
+-(<div ref={(current) => (instance = current)} />) +
+(
+  <div
+    ref={(current) => {
+      instance = current;
+    }}
+  />
+);
 ```
 
 Исходный код возвращал экземпляр HTMLDivElement, и TypeScript не мог определить, была ли это предполагаемая очищающая функция или вы не хотели возвращать очищающую функцию.
 
 Вы можете автоматически исправить этот шаблон с помощью `no-implicit-ref-callback-return`.
 
-___
+---
 
 [[004 ReactCore|Назад]]

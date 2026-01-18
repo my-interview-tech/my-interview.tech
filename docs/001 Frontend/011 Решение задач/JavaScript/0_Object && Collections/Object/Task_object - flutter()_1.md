@@ -1,12 +1,21 @@
 ---
+uid: NK9f9YFR3jm8mKHs0Of30
 title: Task_object - flutter()_1
-draft: false
 tags:
   - "#JavaScript"
   - "#taskJS"
   - "#object"
   - "#unknownINC"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```js
 //ЕСТЬ СТРУКТУРА ДАННЫХ
 
@@ -44,15 +53,15 @@ const structure = [
 // РЕШЕНИЕ
 
 const flutter = (arr, divider = "") => {
- // Ваш код здесь
+  // Ваш код здесь
 };
 ```
 
-**Ответ
+\*\*Ответ
 
 #### Моё решение
 
-```js 
+```js
 const flutter = (structure, divider = "", stack = []) => {
   for (let file of structure) {
     if (typeof file === "string") {
@@ -66,7 +75,7 @@ const flutter = (structure, divider = "", stack = []) => {
   return stack;
 };
 
-console.log(flutter(structure, ''));
+console.log(flutter(structure, ""));
 ```
 
 #### Предоставленное решение
@@ -90,6 +99,6 @@ const flutter = (arr, divider = "") => {
 };
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

@@ -1,18 +1,27 @@
 ---
-title: Объясните разницу между cookies, sessionStorage и localStorage?
-draft: false
+uid: bcv_dvH7wRjcPtZbQaY5E
+title: "Объясните разницу между cookies, sessionStorage и localStorage?"
 tags:
   - "#HTML"
   - "#Cookie"
   - "#sessionStorage"
   - "#localStorage"
 info:
-  - https://developer.mozilla.org/ru/docs/Web/API/Window/localStorage
-  - https://developer.mozilla.org/ru/docs/Web/HTTP/%D0%9A%D1%83%D0%BA%D0%B8
-  - https://habr.com/ru/companies/ruvds/articles/556742/
-  - https://developer.mozilla.org/ru/docs/Web/API/Window/sessionStorage
+  - "https://developer.mozilla.org/ru/docs/Web/API/Window/localStorage"
+  - "https://developer.mozilla.org/ru/docs/Web/HTTP/%D0%9A%D1%83%D0%BA%D0%B8"
+  - "https://habr.com/ru/companies/ruvds/articles/556742/"
+  - "https://developer.mozilla.org/ru/docs/Web/API/Window/sessionStorage"
   - "[[0082 LocalStorage, sessionStorage|LocalStorage и sessionStorage]]"
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 74
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703192140.png|600]]
 
 ##### **LocalStorage**

@@ -1,12 +1,22 @@
 ---
-title: Можете ли вы привести пример свойства media, отличного от screen?
-draft: false
+uid: 0lnpVePI9PN17exCb8D54
+title: "Можете ли вы привести пример свойства media, отличного от screen?"
 tags:
   - "#CSS"
   - "#media"
 info:
-  - https://developer.mozilla.org/ru/docs/Web/CSS/CSS_media_queries/Using_media_queries#создание_комплексных_медиавыражений
+  - >-
+    https://developer.mozilla.org/ru/docs/Web/CSS/CSS_media_queries/Using_media_queries#создание_комплексных_медиавыражений
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 64
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Да, я могу привести пример свойства _media_, отличного от _screen_.
 
 _Свойство media используется для определения различных стилей CSS в зависимости от характеристик устройства пользователя,_ таких как размер экрана, ориентация экрана, разрешение экрана и т. д. Обычно свойство media используется с типом устройства screen, который указывает на экран компьютера или мобильного устройства.

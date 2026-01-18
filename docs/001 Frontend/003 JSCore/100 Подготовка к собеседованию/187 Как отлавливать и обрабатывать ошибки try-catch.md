@@ -1,12 +1,21 @@
 ---
+uid: UZc8_EILcYdGo2V-LBK4A
 title: Как отлавливать и обрабатывать ошибки try-catch?
-draft: false
 tags:
   - "#JavaScript"
   - "#try-catch"
 info:
   - "[[0060 Методы try..catch|Метод try...catch]]"
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 187
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Есть синтаксическая конструкция `try..catch`, которая позволяет «ловить» ошибки и вместо падения делать что-то более осмысленное.
 
 Конструкция `try..catch` состоит из двух основных блоков: `try`, и затем `catch`:

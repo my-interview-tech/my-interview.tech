@@ -1,6 +1,6 @@
 ---
-title: Как вы тестируете компоненты, у которых есть Children?
-draft: false
+uid: tFa76Are7Aw--2N5d4lHw
+title: "Как вы тестируете компоненты, у которых есть Children?"
 tags:
   - testing
   - Jest
@@ -8,7 +8,16 @@ tags:
   - findBy
   - getBy
   - queryBy
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 81
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Тестирование компонентов, которые содержат дочерние элементы (children), может быть выполнено с использованием библиотеки **React Testing Library**. Эта библиотека предоставляет мощные инструменты для тестирования компонентов, включая дочерние элементы.
 
 Основные методы для тестирования дочерних элементов:
@@ -22,14 +31,10 @@ tags:
 Компонент `Wrapper.js`:
 
 ```javascript
-import React from 'react';
+import React from "react";
 
 const Wrapper = ({ children }) => {
-  return (
-    <div data-testid="wrapper">
-      {children}
-    </div>
-  );
+  return <div data-testid="wrapper">{children}</div>;
 };
 
 export default Wrapper;
@@ -38,8 +43,8 @@ export default Wrapper;
 Компонент `App.js`:
 
 ```javascript
-import React from 'react';
-import Wrapper from './Wrapper';
+import React from "react";
+import Wrapper from "./Wrapper";
 
 const App = () => {
   return (
@@ -55,20 +60,20 @@ export default App;
 Тестовый файл `App.test.js`:
 
 ```javascript
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders Wrapper with child component', () => {
+test("renders Wrapper with child component", () => {
   render(<App />);
 
   // Проверка наличия Wrapper
-  const wrapperElement = screen.getByTestId('wrapper');
+  const wrapperElement = screen.getByTestId("wrapper");
   expect(wrapperElement).toBeInTheDocument();
 
   // Проверка наличия дочернего компонента
-  const childElement = screen.getByTestId('child');
+  const childElement = screen.getByTestId("child");
   expect(childElement).toBeInTheDocument();
-  expect(childElement).toHaveTextContent('Child Component');
+  expect(childElement).toHaveTextContent("Child Component");
 });
 ```
 
@@ -79,7 +84,7 @@ test('renders Wrapper with child component', () => {
 Компонент `DynamicWrapper.js`:
 
 ```javascript
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const DynamicWrapper = ({ children }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -90,11 +95,7 @@ const DynamicWrapper = ({ children }) => {
     }, 1000);
   }, []);
 
-  return (
-    <div data-testid="dynamic-wrapper">
-      {isLoaded && children}
-    </div>
-  );
+  return <div data-testid="dynamic-wrapper">{isLoaded && children}</div>;
 };
 
 export default DynamicWrapper;
@@ -103,29 +104,29 @@ export default DynamicWrapper;
 Тестовый файл `DynamicWrapper.test.js`:
 
 ```javascript
-import { render, screen, waitFor } from '@testing-library/react';
-import DynamicWrapper from './DynamicWrapper';
+import { render, screen, waitFor } from "@testing-library/react";
+import DynamicWrapper from "./DynamicWrapper";
 
-test('renders DynamicWrapper with child component after loading', async () => {
+test("renders DynamicWrapper with child component after loading", async () => {
   render(
     <DynamicWrapper>
       <div data-testid="dynamic-child">Dynamic Child Component</div>
-    </DynamicWrapper>
+    </DynamicWrapper>,
   );
 
   // Проверка наличия DynamicWrapper
-  const wrapperElement = screen.getByTestId('dynamic-wrapper');
+  const wrapperElement = screen.getByTestId("dynamic-wrapper");
   expect(wrapperElement).toBeInTheDocument();
 
   // Проверка наличия дочернего компонента после загрузки
   await waitFor(() => {
-    const childElement = screen.getByTestId('dynamic-child');
+    const childElement = screen.getByTestId("dynamic-child");
     expect(childElement).toBeInTheDocument();
-    expect(childElement).toHaveTextContent('Dynamic Child Component');
+    expect(childElement).toHaveTextContent("Dynamic Child Component");
   });
 });
 ```
 
-____
+---
 
 [[007 Jest, RTL|Назад]]

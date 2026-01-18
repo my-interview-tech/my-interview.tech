@@ -1,13 +1,22 @@
 ---
+uid: APS2s-lY823hcSSWjYfiJ
 title: Для чего используется элемент `datalist`?
-draft: false
 tags:
   - "#HTML"
   - "#input"
   - "#datalist"
   - "#option"
-info:
+info: null
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 48
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704021344.png|600]]
 
 Элемент `datalist` используется для создания выпадающего списка, который предлагает пользователю список предварительно определенных вариантов для выбора. Это может упростить процесс заполнения формы и улучшить пользовательский опыт.
@@ -18,15 +27,15 @@ info:
 
 ```html
 <label for="fruit">Choose a fruit:</label>
-<input list="fruits" id="fruit" name="fruit">
+<input list="fruits" id="fruit" name="fruit" />
 <datalist id="fruits">
-  <option value="Apple">
-  <option value="Banana">
-  <option value="Cherry">
-  <option value="Grape">
-  <option value="Orange">
-  <option value="Pineapple">
-  <option value="Strawberry">
+  <option value="Apple"></option>
+  <option value="Banana"></option>
+  <option value="Cherry"></option>
+  <option value="Grape"></option>
+  <option value="Orange"></option>
+  <option value="Pineapple"></option>
+  <option value="Strawberry"></option>
 </datalist>
 ```
 

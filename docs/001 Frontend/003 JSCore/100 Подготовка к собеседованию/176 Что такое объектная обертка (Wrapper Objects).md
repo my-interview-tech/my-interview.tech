@@ -1,11 +1,20 @@
 ---
+uid: 3qMiRHA-e0mmtLJZkafw6
 title: Что такое объектная обертка (Wrapper Objects)?
-draft: false
 tags:
   - "#JavaScript"
   - "#wrapperObject"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 176
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230702123432.png|600]]
 
 В _JavaScript_ объектная обертка _(Wrapper Objects)_ - это объект, который оборачивает примитивное значение (строку, число или логическое значение) и предоставляет к нему доступ через методы объекта.
@@ -15,14 +24,14 @@ info:
 Рассмотрим пример использования объектной обертки `String`:
 
 ```javascript
-const str = "Hello, world!"
-const strObj = new String(str) // создаем объектную обертку
+const str = "Hello, world!";
+const strObj = new String(str); // создаем объектную обертку
 
-console.log(typeof str) // "string"
-console.log(typeof strObj) // "object"
+console.log(typeof str); // "string"
+console.log(typeof strObj); // "object"
 
-console.log(str.toUpperCase()) // "HELLO, WORLD!"
-console.log(strObj.toUpperCase()) // "HELLO, WORLD!"
+console.log(str.toUpperCase()); // "HELLO, WORLD!"
+console.log(strObj.toUpperCase()); // "HELLO, WORLD!"
 ```
 
 В этом примере мы создали строку `str` и объектную обертку `strObj`, которая оборачивает эту строку. Затем мы используем метод `toUpperCase()` для конвертации строки в верхний регистр, как в случае примитивного типа, так и объектной обертки.

@@ -1,6 +1,6 @@
 ---
+uid: 40lXopSRDzf9TXx5PQIFl
 title: Что такое React Fiber?
-draft: false
 tags:
   - "#React"
   - "#fiber"
@@ -8,23 +8,33 @@ tags:
   - "#VirtualDOM"
   - concurrentMode
 info:
-  - https://habr.com/ru/articles/444276/
-  - https://dev.to/jennypollard/chto-takoie-react-fiber-react-fiber-architecture-2cho
-  - https://www.youtube.com/watch?v=TYEIovD-llI
-  - https://habr.com/ru/articles/662549/
-  - https://my-js.org/blog/react-18/
-  - https://web.dev/long-tasks-devtools/#what-are-long-tasks
-  - https://reactjs.org/docs/concurrent-mode-intro.html
-  - https://react.dev/blog/2022/03/08/react-18-upgrade-guide
-  - https://habr.com/ru/companies/yandex/articles/514016/comments/
+  - "https://habr.com/ru/articles/444276/"
+  - >-
+    https://dev.to/jennypollard/chto-takoie-react-fiber-react-fiber-architecture-2cho
+  - "https://www.youtube.com/watch?v=TYEIovD-llI"
+  - "https://habr.com/ru/articles/662549/"
+  - "https://my-js.org/blog/react-18/"
+  - "https://web.dev/long-tasks-devtools/#what-are-long-tasks"
+  - "https://reactjs.org/docs/concurrent-mode-intro.html"
+  - "https://react.dev/blog/2022/03/08/react-18-upgrade-guide"
+  - "https://habr.com/ru/companies/yandex/articles/514016/comments/"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 107
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704195043.png]]
 
 _Fiber_ был введен в React начиная с версии 16 в 2017 году. Он позволил увеличить FPS отображения элементов на экране до 60 кадров в секунду. Это переработанный и улучшенный алгоритм согласования _(`reconciliation`)_ компонентов и обновления DOM-дерева, который разбивает работу на мелкие части (фибры-волокна) в виде дерева односвязного списка, они могут быть приостановлены и возобновлены по мере необходимости.
 
 _Основная цель React Fiber_ - это улучшение производительности React-приложений путем уменьшения времени блокировки главного потока выполнения JavaScript (JavaScript main thread). _Это означает, что React может перераспределять ресурсы процессора между фибрами и использовать дополнительные потоки выполнения для выполнения тяжелых задач._
 
-**Планировщик задач
+\*\*Планировщик задач
 
 _Фибры разбиваются и выполняются по приоритету выполнения. Регулирует приоритетность выполнения работ - планировщик Fiber._ Ниже приведены различные типы работ, упорядоченные по приоритету от самого высокого к самому низкому:
 

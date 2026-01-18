@@ -1,6 +1,6 @@
 ---
+uid: AfEnw6j3GLta4HfIgJF9a
 title: Разница между `memo()` и `useMemo()`
-draft: false
 tags:
   - "#React"
   - "#Hooks"
@@ -8,16 +8,25 @@ tags:
   - "#memo"
   - "#useMemo"
 info:
-  - https://dev.to/alakkadshaw/memo-vs-usememo-in-react-ddb
+  - "https://dev.to/alakkadshaw/memo-vs-usememo-in-react-ddb"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 80
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 `memo` и `useMemo` - это два разных инструмента в React для оптимизации производительности, но они решают разные задачи.
 
-### **`React.memo()`
+### \*\*`React.memo()`
 
 *`React.memo`* - это _HOC (Higher-Order Component)_, который позволяет мемоизировать (кэшировать) результат рендеринга функционального компонента на основе его пропсов. `memo` предотвращает повторный рендеринг компонента, если его пропсы не изменились.
 
 ```jsx
-const MemoizedComponent = memo(MyComponent)
+const MemoizedComponent = memo(MyComponent);
 ```
 
 В этом примере, `MemoizedComponent` - это мемоизированная версия компонента `MyComponent`, которая будет перерендериваться только тогда, когда его пропсы изменятся.
@@ -33,12 +42,12 @@ const MemoizedComponent = memo(MyComponent)
 - `shouldComponentUpdate` - "должен ли компонент обновиться?", если скажем да (вернем true) - **обновится**.
 - `propsAreEqual` - "пропсы равны?", если скажем да (вернем true) - **не обновится**, пропсы ведь равны.  Правда `propsAreEqual` это утверждение, а не вопрос и я бы назвал: `arePropsEqual`, но суть не меняется.
 
-### **`useMemo()`
+### \*\*`useMemo()`
 
 *`useMemo`* - это хук в React, который позволяет мемоизировать результат выполнения функции. `useMemo` возвращает мемоизированное значение, которое будет пересоздаваться только тогда, когда изменятся зависимости.
 
 ```jsx
-const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b])
+const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 ```
 
 В этом примере, `memoizedValue` - это мемоизированное значение, которое будет пересоздаваться только тогда, когда изменятся зависимости `a` или `b`.
@@ -46,7 +55,7 @@ const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b])
 Таким образом, `memo` и `useMemo` решают разные задачи. 
 _`memo` используется для мемоизации (кэширования) результатов рендеринга компонента, а `useMemo` используется для мемоизации результатов выполнения функции._ Оба инструмента могут быть полезными для оптимизации производительности в React, но их применение зависит от конкретной ситуации.
 
-### **`Event switch` vs. `useMemo()`
+### \*\*`Event switch` vs. `useMemo()`
 
 **Event switch** в React - это конструкция, которая используется для обработки различных типов событий в компонентах. Она позволяет определить, какой код должен быть выполнен в зависимости от типа события, которое произошло.
 

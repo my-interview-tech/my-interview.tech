@@ -1,15 +1,24 @@
 ---
+uid: 9otWp90n-JHm1EdnupRhG
 title: Что такое Reselect и как он работает?
-draft: false
 tags:
   - "#React"
   - "#Redux"
   - "#reselect"
   - "#selector"
 info:
-  - https://habr.com/ru/articles/490526/
-  - https://github.com/reduxjs/reselect
+  - "https://habr.com/ru/articles/490526/"
+  - "https://github.com/reduxjs/reselect"
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704193915.png|600]]
 
 _Reselect_ - это библиотека для работы с селекторами .
@@ -31,16 +40,19 @@ _Reselect_ предоставляет удобный API для создания
 Вот пример создания мемоизированного селектора с помощью Reselect:
 
 ```jsx
-import { createSelector } from "reselect"
+import { createSelector } from "reselect";
 
-const getItems = (state) => state.items
-const getFilter = (state) => state.filter
+const getItems = (state) => state.items;
+const getFilter = (state) => state.filter;
 
-const getFilteredItems = createSelector([getItems, getFilter], (items, filter) => {
-  return items.filter((item) => item.name.includes(filter))
-})
+const getFilteredItems = createSelector(
+  [getItems, getFilter],
+  (items, filter) => {
+    return items.filter((item) => item.name.includes(filter));
+  },
+);
 
-export default getFilteredItems
+export default getFilteredItems;
 ```
 
 В этом примере создается селектор getFilteredItems, который получает данные из состояния приложения (items и filter) и фильтрует их на основе значения filter. Селектор мемоизируется с помощью Reselect, что позволяет повторно использовать результаты вычислений, если входные данные не изменились.

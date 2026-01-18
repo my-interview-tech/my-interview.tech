@@ -1,14 +1,23 @@
 ---
+uid: BJMmi0uv5UyMKUXPlL37e
 title: Для чего используется элемент `picture`?
-draft: false
 tags:
   - "#HTML"
   - "#picture"
   - "#img"
   - "#sourse"
   - "#srcset"
-info:
+info: null
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 41
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704020947.png|600]]
 
 Элемент `picture` в HTML используется для предоставления различных изображений для разных размеров экранов и разных устройств. Этот элемент позволяет веб-разработчикам оптимизировать загрузку изображений, уменьшить время загрузки страницы и улучшить пользовательский опыт.
@@ -21,9 +30,9 @@ info:
 
 ```html
 <picture>
-  <source media="(min-width: 800px)" srcset="large-image.jpg">
-  <source media="(min-width: 400px)" srcset="medium-image.jpg">
-  <img src="small-image.jpg" alt="Small Image">
+  <source media="(min-width: 800px)" srcset="large-image.jpg" />
+  <source media="(min-width: 400px)" srcset="medium-image.jpg" />
+  <img src="small-image.jpg" alt="Small Image" />
 </picture>
 ```
 

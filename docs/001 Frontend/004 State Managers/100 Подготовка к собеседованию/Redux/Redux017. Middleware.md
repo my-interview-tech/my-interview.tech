@@ -1,13 +1,23 @@
 ---
+uid: kUGfIkhYQ6cTy7Dh2WOq2
 title: Middleware
-draft: false
 tags:
   - "#React"
   - "#Redux"
   - "#Middleware"
 info:
-  - https://rajdee.gitbooks.io/redux-in-russian/content/docs/advanced/Middleware.html
+  - >-
+    https://rajdee.gitbooks.io/redux-in-russian/content/docs/advanced/Middleware.html
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _Middleware (мидлвар)_ - это функция, которая обрабатывает `actions` перед тем, как они попадают в `reducer`. `Middleware` может изменять действие, вызывать асинхронные операции, логировать действия и многое другое.
 
 _Middleware используется для повышения гибкости и расширяемости приложений._ Они упрощают реализацию сложной логики, которая не может быть реализована с помощью простых действий и редьюсеров.
@@ -25,13 +35,13 @@ _Middleware используется для повышения гибкости 
 
 ```jsx
 const myMiddleware = (store) => (next) => (action) => {
-  console.log("Dispatching action:", action)
-  const result = next(action)
-  console.log("New state:", store.getState())
-  return result
-}
+  console.log("Dispatching action:", action);
+  const result = next(action);
+  console.log("New state:", store.getState());
+  return result;
+};
 
-const store = createStore(reducer, applyMiddleware(myMiddleware))
+const store = createStore(reducer, applyMiddleware(myMiddleware));
 ```
 
 В этом примере `middleware` логирует каждое действие и новое состояние приложения после обновления. Middleware получает доступ к store и может использовать его для получения текущего состояния или диспетчеризации новых действий.

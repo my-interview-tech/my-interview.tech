@@ -1,13 +1,22 @@
 ---
+uid: JGuBgYOVlheBpRR84RO0_
 title: Разница между attribute и property у DOM-элементов
-draft: false
 tags:
   - "#DOM"
   - "#attributes"
   - "#property"
   - "#browser"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 6
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230701211801.png]]
 
 Существует разница между атрибутами (_attributes_) и свойствами (_properties_) DOM-элементов.

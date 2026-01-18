@@ -1,18 +1,27 @@
 ---
+uid: xdq48e2eCxxKbs5Hox7aQ
 title: Что такое slice ?
-draft: false
 tags:
   - React
   - Zustand
   - slice
   - create
   - State-manager
-info:
+info: null
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 В Zustand "slice" — это часть состояния, которая управляется отдельным хуком. Это позволяет разделить состояние на независимые части, что упрощает управление и тестирование.
 
 ```jsx
-import { create } from 'zustand';
+import { create } from "zustand";
 
 const useCounterSlice = create((set) => ({
   count: 0,
@@ -20,7 +29,7 @@ const useCounterSlice = create((set) => ({
 }));
 
 const useUserSlice = create((set) => ({
-  name: 'John',
+  name: "John",
   setName: (newName) => set({ name: newName }),
 }));
 
@@ -44,6 +53,6 @@ function App() {
 
 Здесь `useCounterSlice` и `useUserSlice` — это разные "slice" состояния.
 
-___
+---
 
 [[004 State Managers|Назад]]

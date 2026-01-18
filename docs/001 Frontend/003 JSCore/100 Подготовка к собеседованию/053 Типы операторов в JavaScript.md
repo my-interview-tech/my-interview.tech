@@ -1,10 +1,19 @@
 ---
+uid: bJ4ikAgCvZZ24M-PS3rvl
 title: Типы операторов в JavaScript
-draft: false
 tags:
   - "#JavaScript"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 53
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230702123838.png|600]]
 
 В JavaScript существуют различные типы операторов, которые могут быть использованы для выполнения разных операций. Ниже перечислены некоторые из наиболее распространенных типов операторов:

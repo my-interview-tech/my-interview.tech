@@ -1,14 +1,23 @@
 ---
+uid: ChyzFNDYTwkDA61WFm0If
 title: Что такое connect()?
-draft: false
 tags:
   - "#React"
   - "#Redux"
   - "#connect"
   - "#mapDispatchToProps"
   - "#mapStateToProps"
-info:
+info: null
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _mapDispatchToProps_ и _mapStateToProps_ - это функции, которые передаются в `connect()` в качестве аргументов и определяют, какие данные и действия передавать компоненту.
 
 **`mapStateToProps()`**
@@ -21,7 +30,7 @@ _mapStateToProps()_ - это функция, которая принимает �
 function mapStateToProps(state) {
   return {
     count: state.count,
-  }
+  };
 }
 ```
 
@@ -35,7 +44,7 @@ _mapDispatchToProps()_ - это функция, которая принимае�
 function mapDispatchToProps(dispatch) {
   return {
     incrementCount: () => dispatch({ type: "INCREMENT" }),
-  }
+  };
 }
 ```
 

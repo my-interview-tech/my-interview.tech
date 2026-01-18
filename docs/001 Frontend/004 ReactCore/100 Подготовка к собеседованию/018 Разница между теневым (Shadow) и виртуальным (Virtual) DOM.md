@@ -1,13 +1,22 @@
 ---
+uid: I8658kUhAJDFfiwgMFgMh
 title: Разница между теневым (Shadow) и виртуальным (Virtual) DOM?
-draft: false
 tags:
   - "#React"
   - "#ShadowDOM"
   - "#VirtualDOM"
 info:
-  - https://learn.javascript.ru/shadow-dom
+  - "https://learn.javascript.ru/shadow-dom"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 18
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704173739.png|600]]
 
 _Теневой (Shadow) DOM_ и _Virtual DOM (виртуальное DOM)_ - это два разных концепта, которые используются в веб-разработке.

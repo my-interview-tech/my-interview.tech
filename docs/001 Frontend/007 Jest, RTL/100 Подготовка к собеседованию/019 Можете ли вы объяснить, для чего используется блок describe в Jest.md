@@ -1,11 +1,20 @@
 ---
-title: Можете ли вы объяснить, для чего используется блок "describe" в Jest?
-draft: false
+uid: 3zDqvBMb8-Fe9VDMswJIX
+title: 'Можете ли вы объяснить, для чего используется блок "describe" в Jest?'
 tags:
   - testing
   - Jest
   - describe
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 19
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 **Блок `describe`** в Jest используется для группировки связанных тестов. Он предоставляет способ организовать наборы тестов в иерархические, читаемые структуры. Функция `describe` принимает два аргумента: первый — строка, описывающая набор тестов, а второй — функция обратного вызова, содержащая сами тесты или другие блоки `describe`. Эта структура позволяет лучше организовывать и читать тесты, особенно когда их много.
 
 Основные функции `describe`:
@@ -25,16 +34,16 @@ function sum(a, b) {
 Пример теста:
 
 ```javascript
-describe('sum function', () => {
-  it('adds 2 + 2 to equal 4', () => {
+describe("sum function", () => {
+  it("adds 2 + 2 to equal 4", () => {
     expect(sum(2, 2)).toBe(4);
   });
 
-  it('adds 0 + 0 to equal 0', () => {
+  it("adds 0 + 0 to equal 0", () => {
     expect(sum(0, 0)).toBe(0);
   });
 
-  it('adds -1 + 1 to equal 0', () => {
+  it("adds -1 + 1 to equal 0", () => {
     expect(sum(-1, 1)).toBe(0);
   });
 });
@@ -51,23 +60,23 @@ describe('sum function', () => {
 Вы также можете создавать вложенные блоки `describe` для более глубокой организации тестов:
 
 ```javascript
-describe('math operations', () => {
-  describe('sum function', () => {
-    it('adds 2 + 2 to equal 4', () => {
+describe("math operations", () => {
+  describe("sum function", () => {
+    it("adds 2 + 2 to equal 4", () => {
       expect(sum(2, 2)).toBe(4);
     });
 
-    it('adds 0 + 0 to equal 0', () => {
+    it("adds 0 + 0 to equal 0", () => {
       expect(sum(0, 0)).toBe(0);
     });
   });
 
-  describe('subtraction function', () => {
-    it('subtracts 2 - 2 to equal 0', () => {
+  describe("subtraction function", () => {
+    it("subtracts 2 - 2 to equal 0", () => {
       expect(subtract(2, 2)).toBe(0);
     });
 
-    it('subtracts 0 - 0 to equal 0', () => {
+    it("subtracts 0 - 0 to equal 0", () => {
       expect(subtract(0, 0)).toBe(0);
     });
   });
@@ -80,6 +89,6 @@ describe('math operations', () => {
 2. **Создание вложенных блоков `describe`**: Внутри родительского блока создайте вложенные блоки `describe` для каждой функции (`sum` и `subtract`).
 3. **Написание тестов**: Внутри каждого вложенного блока напишите тесты для соответствующей функции.
 
-____
+---
 
 [[007 Jest, RTL|Назад]]

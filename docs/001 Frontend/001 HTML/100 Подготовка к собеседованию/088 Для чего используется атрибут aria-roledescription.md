@@ -1,12 +1,21 @@
 ---
+uid: ggEfRmaXgYhiSFh8WHZMN
 title: Для чего используется атрибут `aria-roledescription`?
-draft: false
 tags:
   - "#HTML"
   - "#доступность"
   - "#aria"
-info:
+info: null
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 88
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704125407.png|600]]
 
 Атрибут `aria-roledescription` используется для предоставления пользовательской озвучки описания роли элемента, определенной атрибутом `role` веб-компонента. Этот атрибут может быть полезен для пользователя, если он не знает, какая роль у элемента, или если роль элемента не ясна из контекста.
@@ -16,8 +25,11 @@ info:
 Пример использования атрибута `aria-roledescription`:
 
 ```html
-<button role="button" aria-roledescription="Кнопка, которая сохраняет изменения">
-Сохранить изменения
+<button
+  role="button"
+  aria-roledescription="Кнопка, которая сохраняет изменения"
+>
+  Сохранить изменения
 </button>
 ```
 

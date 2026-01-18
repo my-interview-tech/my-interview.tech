@@ -1,13 +1,22 @@
 ---
+uid: mM42qKRn9T8wwHD0Qn4A5
 title: Что возвращает fetch? Как получить содержимое ответа? Как обрабатывать ошибки?
-draft: false
 tags:
   - "#JavaScript"
   - "#fetch"
   - "#response"
 info:
   - "[[0086 FETCH|Подробнее о fetch]]"
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 220
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Метод fetch() позволяет нам делать запросы, схожие с XMLHttpRequest (XHR).
 Основное отличие заключается в том, что Fetch API использует [Promises (Обещания)](http://habrahabr.ru/post/209662/), которые позволяют использовать более простое и чистое API, избегать катастрофического количества callback'ов и необходимости помнить API для XMLHttpRequest.
 
@@ -50,8 +59,8 @@ if (response.ok) {
 Типичный запрос с помощью `fetch` состоит из двух операторов `await`:
 
 ```javascript
-let response = await fetch(url, options) // завершается с заголовками ответа
-let result = await response.json() // читать тело ответа в формате JSON`
+let response = await fetch(url, options); // завершается с заголовками ответа
+let result = await response.json(); // читать тело ответа в формате JSON`
 ```
 
 Или, без `await`:

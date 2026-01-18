@@ -1,15 +1,26 @@
 ---
+uid: RvSmgJfUmXAT4DZEklwcg
 title: " Объясните назначение `getStaticProps()`?"
-draft: false
 tags:
   - NextJS
   - getStaticProps
 info:
-  - https://nextjs.org/docs/pages/building-your-application/data-fetching/get-static-props
+  - >-
+    https://nextjs.org/docs/pages/building-your-application/data-fetching/get-static-props
+draft: false
+technology: Next.js
+specialty: Frontend
+tools: []
+order: 8
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 `getStaticProps` — это функция, используемая в Next.js для статической генерации страниц. Она позволяет вам предварительно рендерить страницы во время сборки, что означает, что HTML для этих страниц создается заранее и может быть кэширован и обслуживаться статически. Это особенно полезно для страниц, которые не часто меняются и могут быть предварительно сгенерированы для улучшения производительности и SEO.
 
 Основные назначения и особенности `getStaticProps`:
+
 1. **Предварительная генерация страниц**: `getStaticProps` позволяет вам заранее генерировать HTML для страниц во время сборки, что улучшает производительность, так как пользователи получают уже готовый HTML, а не ждут, пока JavaScript загрузит и отрендерит страницу.
 2. **Оптимизация для SEO**: Поскольку страницы предварительно рендерятся, они содержат полностью готовый HTML, что улучшает индексацию поисковыми системами и оптимизацию для SEO.
 3. **Получение данных**: Внутри `getStaticProps` вы можете выполнять запросы к базе данных, API или другим источникам данных для получения данных, необходимых для рендеринга страницы. Эти данные затем передаются в компонент страницы в виде пропсов.
@@ -21,7 +32,7 @@ info:
 ```javascript
 export async function getStaticProps() {
   // Fetch data from an API
-  const res = await fetch('https://api.example.com/data');
+  const res = await fetch("https://api.example.com/data");
   const data = await res.json();
 
   // Pass data to the page via props
@@ -39,6 +50,6 @@ export async function getStaticProps() {
 
 В этом примере `getStaticProps` выполняет запрос к API и передает полученные данные в компонент страницы в виде пропсов. Параметр `revalidate` указывает, что Next.js должен попытаться перегенерировать страницу каждые 10 секунд, если есть новые запросы.
 
-___
+---
 
 [[006 Next.js|Назад]]

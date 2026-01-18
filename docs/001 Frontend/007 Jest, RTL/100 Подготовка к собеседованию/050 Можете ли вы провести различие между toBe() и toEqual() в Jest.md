@@ -1,12 +1,21 @@
 ---
+uid: N6jjPa_NRRph-1om8Li02
 title: Можете ли вы провести различие между toBe() и toEqual() в Jest?
-draft: false
 tags:
   - testing
   - Jest
   - toBe
   - toEqual
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 50
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 `toBe` и `toEqual` — это матчеры, используемые для сравнения значений. Основное различие между ними заключается в способе сравнения:
 
 - **`toBe`** использует `Object.is` для проверки **строгого равенства**. Если вы проверяете объект или массив с помощью `toBe`, он пройдет только в том случае, если вы сравниваете **точно ту же самую** инстанцию объекта или массива. Это идеально подходит для проверки примитивных типов, таких как числа, строки и булевы значения, где важно строгое равенство.
@@ -15,7 +24,7 @@ tags:
 Примеры:
 
 ```javascript
-test('toBe vs toEqual', () => {
+test("toBe vs toEqual", () => {
   const obj1 = { a: 1, b: 2 };
   const obj2 = { a: 1, b: 2 };
   const obj3 = obj1;
@@ -28,6 +37,6 @@ test('toBe vs toEqual', () => {
 });
 ```
 
-____
+---
 
 [[007 Jest, RTL|Назад]]

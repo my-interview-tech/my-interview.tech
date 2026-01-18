@@ -1,10 +1,19 @@
 ---
+uid: x5TjVtljTXRJsf1rrTGLx
 title: Task_others - FizzBuzz() v2_1
-draft: false
 tags:
   - "#JavaScript"
   - "#taskJS"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```js
 /*
 Реализуйте функцию, которая выводит (console.log) в терминал числа в диапазоне от begin до end. При этом:
@@ -32,30 +41,30 @@ Buzz
 */
 
 const fizzBuzz = (begin, end) => {
-    let counter = begin;
-    
-    while (counter <= end) {
-        switch (true) {
-            case counter % 3 === 0 && counter % 5 === 0:
-                console.log('FizzBuzz');
-                break;
-            case counter % 3 === 0:
-                console.log('Fizz');
-                break;
-            case counter % 5 === 0:
-                console.log('Buzz');
-                break;
-            default:
-                console.log(counter);
-        }
-        
-        counter += 1;
-    }  
-}
+  let counter = begin;
+
+  while (counter <= end) {
+    switch (true) {
+      case counter % 3 === 0 && counter % 5 === 0:
+        console.log("FizzBuzz");
+        break;
+      case counter % 3 === 0:
+        console.log("Fizz");
+        break;
+      case counter % 5 === 0:
+        console.log("Buzz");
+        break;
+      default:
+        console.log(counter);
+    }
+
+    counter += 1;
+  }
+};
 
 fizzBuzz(11, 20);
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

@@ -1,13 +1,22 @@
 ---
+uid: pzMcjgIkZefR2qz96IHRE
 title: AJAX и обращение к API
-draft: false
 tags:
   - "#React"
   - "#AJAX"
   - "#API"
   - "#componentDidMount"
-info:
+info: null
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 41
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Вы можете использовать встроенный в браузер метод [window.fetch](https://learn.javascript.ru/fetch)
 
 Вы можете сделать #AJAX-запрос в [`componentDidMount`](https://ru.reactjs.org/docs/react-component.html#mounting). Когда вы получите данные, вызовите `setState`, чтобы передать их компоненту.

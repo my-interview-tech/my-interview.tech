@@ -1,14 +1,23 @@
 ---
+uid: DQla9NsXaCXYvO7mMiox5
 title: Как работает Middleware?
-draft: false
 tags:
   - "#React"
   - "#Redux"
   - "#Middleware"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 60
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 # Mидлвар (Middleware)
 
-Вы видели мидлвары в действии в [примере асинхронных экшенов](https://rajdee.gitbooks.io/redux-in-russian/content/docs/advanced/AsyncActions.html). Если вы когда-либо использовали такие серверные библиотеки, как [Express](http://expressjs.com/) и [Koa](http://koajs.com/), то, вероятно, вы уже хорошо знакомы с концепцией _мидлвар_. В этих фреймворках мидлвары — это части кода, которые вы можете поместить между фреймворком, принимающим запрос и фреймворком, генерирующим ответ. Например, мидлвары из Express или Koa могут добавлять CORS-заголовки, логирование, сжатие и т.д. Лучшая особенность мидлваров заключается в том, что их можно соединять в цепочки/последовательности. Вы можете использовать множество независимых сторонних мидлваров в одном проекте.
+Вы видели мидлвары в действии в [примере асинхронных экшенов](https://rajdee.gitbooks.io/redux-in-russian/content/docs/advanced/AsyncActions.html). Если вы когда-либо использовали такие серверные библиотеки, как [Express](http://expressjs.com/) и [Koa](http://koajs.com/), то, вероятно, вы уже хорошо знакомы с концепцией *мидлвар*. В этих фреймворках мидлвары — это части кода, которые вы можете поместить между фреймворком, принимающим запрос и фреймворком, генерирующим ответ. Например, мидлвары из Express или Koa могут добавлять CORS-заголовки, логирование, сжатие и т.д. Лучшая особенность мидлваров заключается в том, что их можно соединять в цепочки/последовательности. Вы можете использовать множество независимых сторонних мидлваров в одном проекте.
 
 Redux-мидлвары, в отличие от мидлваров Express или Koa, решают немного другие проблемы, но концептуально схожим способом. **Они предоставляют стороннюю точку расширения, между отправкой экшена и моментом, когда этот экшен достигает редюсера.** Люди используют Redux-мидлвары для логирования, сообщения об ошибках, общения с асинхронным API, роутинга и т.д.
 
@@ -29,26 +38,27 @@ Redux-мидлвары, в отличие от мидлваров Express или
 Как мы подходим к этому с Redux?
 
 ### Попытка #1: Логируем вручную
+
 Простейшее решение - самостоятельно записывать экшен и состояние каждый раз, когда вы вызываете [`store.dispatch(action)`](https://rajdee.gitbooks.io/redux-in-russian/content/docs/api/Store.html#dispatch). На самом деле это не слишком хорошее решение, это просто первый шаг на пути к пониманию проблемы.
 
 ##### Обратите внимание[](https://rajdee.gitbooks.io/redux-in-russian/content/docs/advanced/Middleware.html#%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%B8%D1%82%D0%B5-%D0%B2%D0%BD%D0%B8%D0%BC%D0%B0%D0%BD%D0%B8%D0%B5)
-> 
+
 > Если вы используете [react-redux](https://github.com/gaearon/react-redux) или похожий биндинг, у вас, скорее всего, не будет прямого доступа к экземпляру стора в ваших компонентах. Для следующих нескольких параграфов представьте, что вы передаете состояние явно.
 
 Например, вы вызываете такой код, когда создаете todo-элемент:
 
 ```jsx
-store.dispatch(addTodo('Use Redux'))
+store.dispatch(addTodo("Use Redux"));
 ```
 
 Для того чтобы логировать экшен и состояние, вы можете изменить код примерно так:
 
 ```jsx
-let action = addTodo('Use Redux')
+let action = addTodo("Use Redux");
 
-console.log('dispatching', action)
-store.dispatch(action)
-console.log('next state', store.getState())
+console.log("dispatching", action);
+store.dispatch(action);
+console.log("next state", store.getState());
 ```
 
 Это даст желаемый эффект, но вы бы не хотели делать так каждый раз.
@@ -59,16 +69,16 @@ console.log('next state', store.getState())
 
 ```jsx
 function dispatchAndLog(store, action) {
-  console.log('dispatching', action)
-  store.dispatch(action)
-  console.log('next state', store.getState())
+  console.log("dispatching", action);
+  store.dispatch(action);
+  console.log("next state", store.getState());
 }
 ```
 
 Вы можете использовать ее везде вместо обычного `store.dispatch()`:
 
 ```jsx
-dispatchAndLog(store, addTodo('Use Redux'))
+dispatchAndLog(store, addTodo("Use Redux"));
 ```
 
 Мы бы могли закончить на этом, но не очень удобно импортировать специальную функцию каждый раз.
@@ -78,13 +88,13 @@ dispatchAndLog(store, addTodo('Use Redux'))
 Что, если мы просто заменим функцию `dispatch` в экземпляре стора? Redux стор — это простой объект с [парой методов](https://rajdee.gitbooks.io/redux-in-russian/content/docs/api/Store.html), а мы пишем на JavaScript, следовательно, мы можем применить технику monkeypatch для реализации `dispatch`:
 
 ```jsx
-const next = store.dispatch
+const next = store.dispatch;
 store.dispatch = function dispatchAndLog(action) {
-  console.log('dispatching', action)
-  let result = next(action)
-  console.log('next state', store.getState())
-  return result
-}
+  console.log("dispatching", action);
+  let result = next(action);
+  console.log("next state", store.getState());
+  return result;
+};
 ```
 
 Это уже ближе к тому, что нам нужно! Не важно, откуда мы посылаем экшен, он гарантированно будет залогирован. Monkeypatching никогда не покажется правильным ходом, но пока мы можем с этим жить.
@@ -103,60 +113,60 @@ store.dispatch = function dispatchAndLog(action) {
 
 ```jsx
 function patchStoreToAddLogging(store) {
-  const next = store.dispatch
+  const next = store.dispatch;
   store.dispatch = function dispatchAndLog(action) {
-    console.log('dispatching', action)
-    let result = next(action)
-    console.log('next state', store.getState())
-    return result
-  }
+    console.log("dispatching", action);
+    let result = next(action);
+    console.log("next state", store.getState());
+    return result;
+  };
 }
 
 function patchStoreToAddCrashReporting(store) {
-  const next = store.dispatch
+  const next = store.dispatch;
   store.dispatch = function dispatchAndReportErrors(action) {
     try {
-      return next(action)
+      return next(action);
     } catch (err) {
-      console.error('Caught an exception!', err)
+      console.error("Caught an exception!", err);
       Raven.captureException(err, {
         extra: {
           action,
-          state: store.getState()
-        }
-      })
-      throw err
+          state: store.getState(),
+        },
+      });
+      throw err;
     }
-  }
+  };
 }
 ```
 
 Если эти функции опубликованы, как отдельные модули, то позже мы можем использовать их для изменения нашего стора:
 
 ```jsx
-patchStoreToAddLogging(store)
-patchStoreToAddCrashReporting(store)
+patchStoreToAddLogging(store);
+patchStoreToAddCrashReporting(store);
 ```
 
 Но это все еще не очень хорошо.
 
 ### Попытка #4: Прячем Monkeypatching
 
-Monkeypatching — это хак. "Замените любой метод, который хотите" — что это за вид API? Давайте разберемся в его сути. Ранее наши функции заменяли `store.dispatch`. Что если бы они вместо этого _возвращали_ новую функцию `dispatch`?
+Monkeypatching — это хак. "Замените любой метод, который хотите" — что это за вид API? Давайте разберемся в его сути. Ранее наши функции заменяли `store.dispatch`. Что если бы они вместо этого *возвращали* новую функцию `dispatch`?
 
 ```jsx
 function logger(store) {
-  let next = store.dispatch
+  let next = store.dispatch;
 
   // ранее было так:
   // store.dispatch = function dispatchAndLog(action) {
 
   return function dispatchAndLog(action) {
-    console.log('dispatching', action)
-    let result = next(action)
-    console.log('next state', store.getState())
-    return result
-  }
+    console.log("dispatching", action);
+    let result = next(action);
+    console.log("next state", store.getState());
+    return result;
+  };
 }
 ```
 
@@ -164,20 +174,18 @@ function logger(store) {
 
 ```jsx
 function applyMiddlewareByMonkeypatching(store, middlewares) {
-  middlewares = middlewares.slice()
-  middlewares.reverse()
+  middlewares = middlewares.slice();
+  middlewares.reverse();
 
   // Изменяем функцию dispatch каждым мидлваром.
-  middlewares.forEach(middleware =>
-    store.dispatch = middleware(store)
-  )
+  middlewares.forEach((middleware) => (store.dispatch = middleware(store)));
 }
 ```
 
 Мы можем использовать такой подход для применения нескольких мидлваров:
 
 ```jsx
-applyMiddlewareByMonkeypatching(store, [ logger, crashReporter ])
+applyMiddlewareByMonkeypatching(store, [logger, crashReporter]);
 ```
 
 Тем не менее - это все еще monkeypatching. Факт того, что мы прячем его внутри библиотеки, не отменяет использования monkeypatching.
@@ -189,14 +197,14 @@ applyMiddlewareByMonkeypatching(store, [ logger, crashReporter ])
 ```jsx
 function logger(store) {
   // Обязательно нужно закешировать функцию, которую вернул предыдущий мидлвар:
-  let next = store.dispatch
+  let next = store.dispatch;
 
   return function dispatchAndLog(action) {
-    console.log('dispatching', action)
-    let result = next(action)
-    console.log('next state', store.getState())
-    return result
-  }
+    console.log("dispatching", action);
+    let result = next(action);
+    console.log("next state", store.getState());
+    return result;
+  };
 }
 ```
 
@@ -210,39 +218,39 @@ function logger(store) {
 function logger(store) {
   return function wrapDispatchToAddLogging(next) {
     return function dispatchAndLog(action) {
-      console.log('dispatching', action)
-      let result = next(action)
-      console.log('next state', store.getState())
-      return result
-    }
-  }
+      console.log("dispatching", action);
+      let result = next(action);
+      console.log("next state", store.getState());
+      return result;
+    };
+  };
 }
 ```
 
 Это тот момент, когда [“we need to go deeper”](http://knowyourmeme.com/memes/we-need-to-go-deeper), так что имеет смысл потратить некоторе время на это. Каскад функций выглядит пугающим. Стрелочные функции из ES6 делают это [каррирование](https://en.wikipedia.org/wiki/Currying) чуть более простым для глаз:
 
 ```jsx
-const logger = store => next => action => {
-  console.log('dispatching', action)
-  let result = next(action)
-  console.log('next state', store.getState())
-  return result
-}
+const logger = (store) => (next) => (action) => {
+  console.log("dispatching", action);
+  let result = next(action);
+  console.log("next state", store.getState());
+  return result;
+};
 
-const crashReporter = store => next => action => {
+const crashReporter = (store) => (next) => (action) => {
   try {
-    return next(action)
+    return next(action);
   } catch (err) {
-    console.error('Caught an exception!', err)
+    console.error("Caught an exception!", err);
     Raven.captureException(err, {
       extra: {
         action,
-        state: store.getState()
-      }
-    })
-    throw err
+        state: store.getState(),
+      },
+    });
+    throw err;
   }
-}
+};
 ```
 
 **Именно так выглядят мидлвары в Redux.**
@@ -257,19 +265,19 @@ const crashReporter = store => next => action => {
 // Осторожно: Простейшая имплементация!
 // Это *не* Redux API.
 function applyMiddleware(store, middlewares) {
-  middlewares = middlewares.slice()
-  middlewares.reverse()
-  let dispatch = store.dispatch
-  middlewares.forEach(middleware => (dispatch = middleware(store)(dispatch)))
-  return Object.assign({}, store, { dispatch })
+  middlewares = middlewares.slice();
+  middlewares.reverse();
+  let dispatch = store.dispatch;
+  middlewares.forEach((middleware) => (dispatch = middleware(store)(dispatch)));
+  return Object.assign({}, store, { dispatch });
 }
 ```
 
 Реализация [`applyMiddleware()`](https://rajdee.gitbooks.io/redux-in-russian/content/docs/api/applyMiddleware.html), которая поставляется с Redux, похожа на эту, но **отличается тремя важными аспектами**:
 
--   Она предоставляет мидлвару только подмножество [API стора](https://rajdee.gitbooks.io/redux-in-russian/content/docs/api/Store.html): методы [`dispatch(action)`](https://rajdee.gitbooks.io/redux-in-russian/content/docs/api/Store.html#dispatch) и [`getState()`](https://rajdee.gitbooks.io/redux-in-russian/content/docs/api/Store.html#getState).
--   Она использует некоторые хитрости для того, чтобы убедиться, что, экшен снова пройдет через всю цепочку мидлваров, включая текущий, если вы вызываете `store.dispatch(action)` из вашего мидлвара вместо `next(action)`. Это полезно для асинхронных мидлваров, как мы [ранее](https://rajdee.gitbooks.io/redux-in-russian/content/docs/advanced/AsyncActions.html) видели
--   Для того чтобы гарантировать, что вы можете применить мидлвар только один раз, она работает с `createStore()`, а не с самим `store`. Вместо `(store, middlewares) => store`, ее сигнатурой является `(...middlewares) => (createStore) => createStore`.
+- Она предоставляет мидлвару только подмножество [API стора](https://rajdee.gitbooks.io/redux-in-russian/content/docs/api/Store.html): методы [`dispatch(action)`](https://rajdee.gitbooks.io/redux-in-russian/content/docs/api/Store.html#dispatch) и [`getState()`](https://rajdee.gitbooks.io/redux-in-russian/content/docs/api/Store.html#getState).
+- Она использует некоторые хитрости для того, чтобы убедиться, что, экшен снова пройдет через всю цепочку мидлваров, включая текущий, если вы вызываете `store.dispatch(action)` из вашего мидлвара вместо `next(action)`. Это полезно для асинхронных мидлваров, как мы [ранее](https://rajdee.gitbooks.io/redux-in-russian/content/docs/advanced/AsyncActions.html) видели
+- Для того чтобы гарантировать, что вы можете применить мидлвар только один раз, она работает с `createStore()`, а не с самим `store`. Вместо `(store, middlewares) => store`, ее сигнатурой является `(...middlewares) => (createStore) => createStore`.
 
 #### Предостережение: отправка во время установки
 
@@ -280,47 +288,47 @@ function applyMiddleware(store, middlewares) {
 Дан мидлвар который мы только что написали:
 
 ```jsx
-const logger = store => next => action => {
-  console.log('dispatching', action)
-  let result = next(action)
-  console.log('next state', store.getState())
-  return result
-}
+const logger = (store) => (next) => (action) => {
+  console.log("dispatching", action);
+  let result = next(action);
+  console.log("next state", store.getState());
+  return result;
+};
 
-const crashReporter = store => next => action => {
+const crashReporter = (store) => (next) => (action) => {
   try {
-    return next(action)
+    return next(action);
   } catch (err) {
-    console.error('Caught an exception!', err)
+    console.error("Caught an exception!", err);
     Raven.captureException(err, {
       extra: {
         action,
-        state: store.getState()
-      }
-    })
-    throw err
+        state: store.getState(),
+      },
+    });
+    throw err;
   }
-}
+};
 ```
 
 Вот так можно его применить к Redux стору:
 
 ```jsx
-import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from "redux";
 
-const todoApp = combineReducers(reducers)
+const todoApp = combineReducers(reducers);
 const store = createStore(
   todoApp,
   // applyMiddleware() tells createStore() how to handle middleware
-  applyMiddleware(logger, crashReporter)
-)
+  applyMiddleware(logger, crashReporter),
+);
 ```
 
 Вот и все! Теперь любые экшены, отправленные в экземпляр стора, будут проходить через `logger` и `crashReporter`:
 
 ```jsx
 // будет проходить через `logger` и `crashReporter`!
-store.dispatch(addTodo('Use Redux'))
+store.dispatch(addTodo("Use Redux"));
 ```
 
 ## Семь примеров
@@ -333,148 +341,145 @@ store.dispatch(addTodo('Use Redux'))
 /**
  * Логирует все экшены и состояния после того, как они будут отправлены.
  */
-const logger = store => next => action => {
-  console.group(action.type)
-  console.info('dispatching', action)
-  let result = next(action)
-  console.log('next state', store.getState())
-  console.groupEnd(action.type)
-  return result
-}
+const logger = (store) => (next) => (action) => {
+  console.group(action.type);
+  console.info("dispatching", action);
+  let result = next(action);
+  console.log("next state", store.getState());
+  console.groupEnd(action.type);
+  return result;
+};
 
 /**
  * Отправляет отчеты об ошибках когда обновляется состояние и уведомляются слушатели.
  */
-const crashReporter = store => next => action => {
+const crashReporter = (store) => (next) => (action) => {
   try {
-    return next(action)
+    return next(action);
   } catch (err) {
-    console.error('Caught an exception!', err)
+    console.error("Caught an exception!", err);
     Raven.captureException(err, {
       extra: {
         action,
-        state: store.getState()
-      }
-    })
-    throw err
+        state: store.getState(),
+      },
+    });
+    throw err;
   }
-}
+};
 
 /**
  * Планирует экшены с { meta: { delay: N } }, которые будут отложены на N миллисекунд.
  * Создает `dispatch`, возвращающий функцию, для отмены таймаута.
  */
-const timeoutScheduler = store => next => action => {
+const timeoutScheduler = (store) => (next) => (action) => {
   if (!action.meta || !action.meta.delay) {
-    return next(action)
+    return next(action);
   }
 
-  let timeoutId = setTimeout(
-    () => next(action),
-    action.meta.delay
-  )
+  let timeoutId = setTimeout(() => next(action), action.meta.delay);
 
   return function cancel() {
-    clearTimeout(timeoutId)
-  }
-}
+    clearTimeout(timeoutId);
+  };
+};
 
 /**
- * Планирует экшены с { meta: { raf: true } }, которые будут отправлены внутри 
- * фрейма rAF цикла. Создает  `dispatch`, который возвращает функцию для удаления 
+ * Планирует экшены с { meta: { raf: true } }, которые будут отправлены внутри
+ * фрейма rAF цикла. Создает  `dispatch`, который возвращает функцию для удаления
  * экшена из очереди.
  */
-const rafScheduler = store => next => {
-  const queuedActions = []
-  let frame = null
+const rafScheduler = (store) => (next) => {
+  const queuedActions = [];
+  let frame = null;
 
   function loop() {
-    frame = null
+    frame = null;
     try {
       if (queuedActions.length) {
-        next(queuedActions.shift())
+        next(queuedActions.shift());
       }
     } finally {
-      maybeRaf()
+      maybeRaf();
     }
   }
 
   function maybeRaf() {
     if (queuedActions.length && !frame) {
-      frame = requestAnimationFrame(loop)
+      frame = requestAnimationFrame(loop);
     }
   }
 
-  return action => {
+  return (action) => {
     if (!action.meta || !action.meta.raf) {
-      return next(action)
+      return next(action);
     }
 
-    queuedActions.push(action)
-    maybeRaf()
+    queuedActions.push(action);
+    maybeRaf();
 
     return function cancel() {
-      queuedActions = queuedActions.filter(a => a !== action)
-    }
-  }
-}
+      queuedActions = queuedActions.filter((a) => a !== action);
+    };
+  };
+};
 
 /**
  * Позволяет вам отправлять промисы в дополнение к экшенам.
  * Если промис зарезолвен, его результат будет отправлен как экшен.
- * Промис возвращается из `dispatch`, т.о. вызывающая функция может 
+ * Промис возвращается из `dispatch`, т.о. вызывающая функция может
  * обрабатывать отказ (rejection) промиса.
  */
-const vanillaPromise = store => next => action => {
-  if (typeof action.then !== 'function') {
-    return next(action)
+const vanillaPromise = (store) => (next) => (action) => {
+  if (typeof action.then !== "function") {
+    return next(action);
   }
 
-  return Promise.resolve(action).then(store.dispatch)
-}
+  return Promise.resolve(action).then(store.dispatch);
+};
 
 /**
  * Позволяет вам отправлять специальные экшены с полем { promise }.
  * Этот мидлвар превратит их в единственный экшен в начале,
  * и в единственный успешный (или неудачный) экшен, когда `promise` будет зарезолвен.
  *
- * Для удобства `dispatch` будет возвращать промис, т.е. вызывающая функция 
+ * Для удобства `dispatch` будет возвращать промис, т.е. вызывающая функция
  * может ожидать разрешения этого промиса.
  */
-const readyStatePromise = store => next => action => {
+const readyStatePromise = (store) => (next) => (action) => {
   if (!action.promise) {
-    return next(action)
+    return next(action);
   }
 
   function makeAction(ready, data) {
-    const newAction = Object.assign({}, action, { ready }, data)
-    delete newAction.promise
-    return newAction
+    const newAction = Object.assign({}, action, { ready }, data);
+    delete newAction.promise;
+    return newAction;
   }
 
-  next(makeAction(false))
+  next(makeAction(false));
   return action.promise.then(
-    result => next(makeAction(true, { result })),
-    error => next(makeAction(true, { error }))
-  )
-}
+    (result) => next(makeAction(true, { result })),
+    (error) => next(makeAction(true, { error })),
+  );
+};
 
 /**
  * Позволяет вам отправлять функцию вместо экшена.
  * Функция будет принимать `dispatch` и `getState` в качестве аргументов.
  *
- * Полезно для раннего выхода (условия над `getState()`), а также для 
+ * Полезно для раннего выхода (условия над `getState()`), а также для
  * асинхронного потока управления (может `dispatch()` что-то другое)
- * 
+ *
  * `dispatch` будет возвращать значение отправляемой функции.
  */
-const thunk = store => next => action =>
-  typeof action === 'function' ?
-    action(store.dispatch, store.getState) :
-    next(action)
+const thunk = (store) => (next) => (action) =>
+  typeof action === "function"
+    ? action(store.dispatch, store.getState)
+    : next(action);
 
 // Вы можете использовать их все! (Это не значит, что вы должны.)
-const todoApp = combineReducers(reducers)
+const todoApp = combineReducers(reducers);
 const store = createStore(
   todoApp,
   applyMiddleware(
@@ -484,7 +489,7 @@ const store = createStore(
     vanillaPromise,
     readyStatePromise,
     logger,
-    crashReporter
-  )
-)
+    crashReporter,
+  ),
+);
 ```

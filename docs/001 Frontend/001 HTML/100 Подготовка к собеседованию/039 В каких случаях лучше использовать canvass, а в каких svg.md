@@ -1,12 +1,21 @@
 ---
-title: В каких случаях лучше использовать `canvas`s, а в каких `svg`?
-draft: false
+uid: JuPUrkwp4-iiRcDjAjq9P
+title: "В каких случаях лучше использовать `canvas`s, а в каких `svg`?"
 tags:
   - "#HTML"
   - "#canvas"
   - "#svg"
-info:
+info: null
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 39
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704020849.png|600]]
 
 Выбор между `canvas` и `SVG` зависит от требований проекта и характеристик графических элементов, которые необходимо создать. Ниже приведены случаи, когда лучше использовать `canvas` и `SVG`:

@@ -1,6 +1,6 @@
 ---
+uid: BbRi1IgpYswxr3JssX_47
 title: Что такое CSS-modules и `styled-components`?
-draft: false
 tags:
   - "#React"
   - "#CSS-modules"
@@ -8,11 +8,20 @@ tags:
   - "#CSS-in-JS"
 info:
   - "[[0046 Стилизация и CSS|Стилизация и CSS]]"
-  - https://habr.com/ru/articles/591381/
+  - "https://habr.com/ru/articles/591381/"
   - "[[0013 Как подключить CSS|Как подключить CSS?]]"
-  - https://github.com/callstack/linaria
+  - "https://github.com/callstack/linaria"
   - "[[069 CSS-modules и styled-components|CSS-modules и styled-components]]"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 115
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ### **`CSS-modules`**
 
 _CSS модули_ - это подход к стилизации компонентов в React, который позволяет изолировать стили каждого компонента и предотвратить конфликты имен классов между компонентами. Это достигается путем создания уникальных имен классов для каждого компонента.
@@ -30,18 +39,18 @@ npm install --save-dev css-loader
 3.  _Импортируйте файл стилей в компонент и присвойте классам уникальные имена_ с помощью синтаксиса `import styles from './styles.module.css'`.
 
 ```jsx
-import React from "react"
-import styles from "./styles.module.css"
+import React from "react";
+import styles from "./styles.module.css";
 
 const MyComponent = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Hello, world!</h1>
     </div>
-  )
-}
+  );
+};
 
-export default MyComponent
+export default MyComponent;
 ```
 
 4.  _Теперь вы можете использовать классы из файла стилей в JSX-элементах и webpack автоматически присвоит им уникальные имена классов._
@@ -51,10 +60,10 @@ CSS модули - это удобный и безопасный способ с
 Кроме того, любой компонент может иметь настоящую зависимость, например:
 
 ```javascript
-import buttons from "./buttons.css"
-import padding from "./padding.css"
+import buttons from "./buttons.css";
+import padding from "./padding.css";
 
-element.innerHTML = `<div class="${buttons.red} ${padding.large}">`
+element.innerHTML = `<div class="${buttons.red} ${padding.large}">`;
 
 // Этот подход предназначен для решения проблемы глобальной _области видимости_ в CSS.
 
@@ -68,19 +77,19 @@ element.innerHTML = `<div class="${buttons.red} ${padding.large}">`
 > _CSS in JS — описание стилей в JavaScript файлах._
 
 ```jsx
-import React from "react"
-import styled from "styled-components"
+import React from "react";
+import styled from "styled-components";
 
 // Создание стилизованного компонента с помощью Styled-components
 const Wrapper = styled.div`
   background-color: #f2f2f2;
   padding: 20px;
-`
+`;
 
 const Title = styled.h1`
   font-size: 24px;
   color: #333;
-`
+`;
 
 const Button = styled.button`
   background-color: #007bff;
@@ -93,7 +102,7 @@ const Button = styled.button`
   &:hover {
     background-color: #0056b3;
   }
-`
+`;
 
 const MyComponent = () => {
   return (
@@ -101,10 +110,10 @@ const MyComponent = () => {
       <Title>Hello, Styled-components!</Title>
       <Button>Click me</Button>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default MyComponent
+export default MyComponent;
 ```
 
 Преимущества:

@@ -1,13 +1,22 @@
 ---
+uid: 3zrivXY58LMRBi78ATrVG
 title: Что такое хук useTransition() ?
-draft: false
 tags:
   - React
   - Hooks
   - useTransition
 info:
-  - https://react.dev/reference/react/useTransition
+  - "https://react.dev/reference/react/useTransition"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 90
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 `useTransition` - это хук в React, предназначенный для управления переходами между состояниями компонентов. Он позволяет вам отложить обновление интерфейса до тех пор, пока не будут завершены более важные обновления, что может быть полезно для улучшения производительности и плавности работы приложения.
 
 `useTransition` возвращает массив из двух элементов:
@@ -18,10 +27,10 @@ info:
 Предположим, у вас есть компонент, который обновляет состояние при вводе пользователя, и вы хотите отложить это обновление, чтобы не блокировать другие важные обновления, такие как анимации или взаимодействие с пользователем.
 
 ```jsx
-import React, { useState, useTransition } from 'react';
+import React, { useState, useTransition } from "react";
 
 function App() {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [isPending, startTransition] = useTransition();
 
   const handleChange = (e) => {
@@ -61,6 +70,6 @@ export default App;
 - **Улучшение производительности**: Откладывание менее важных обновлений позволяет React фокусироваться на более критичных задачах, что может улучшить общую производительность приложения.
 - **Плавность интерфейса**: Позволяет избежать "заикания" интерфейса, когда быстрые обновления могут привести к нежелательным эффектам.
 
-___
+---
 
 [[004 ReactCore|Назад]]

@@ -1,6 +1,6 @@
 ---
+uid: QNXpX1Ht5rXC_KXB0z2Kl
 title: Git Rebase
-draft: false
 tags:
   - "#git"
   - "#gitlab"
@@ -8,10 +8,18 @@ tags:
   - "#git-merge"
   - git-rebase
 info:
-  - https://www.atlassian.com/ru/git/tutorials/rewriting-history/git-rebase
-  - https://habr.com/ru/articles/432420/
-  - https://selectel.ru/blog/tutorials/how-to-rebase-commits-and-branches/
+  - "https://www.atlassian.com/ru/git/tutorials/rewriting-history/git-rebase"
+  - "https://habr.com/ru/articles/432420/"
+  - "https://selectel.ru/blog/tutorials/how-to-rebase-commits-and-branches/"
+draft: false
+technology: Подготовка к собеседованию
+tools: []
+order: 11
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 git-rebase (перебазирование) — это процесс перемещения последовательности коммитов к новому базовому коммиту или их объединение. Операцию перебазирования удобнее всего применить и отобразить в контексте создания функциональных веток. В общих чертах процесс можно представить следующим образом:
 
 ![[Pasted image 20230529004212.png]]
@@ -64,6 +72,6 @@ git rebase master
 [https://habr.com/ru/articles/432420/](https://habr.com/ru/articles/432420/)
 [https://selectel.ru/blog/tutorials/how-to-rebase-commits-and-branches/](https://selectel.ru/blog/tutorials/how-to-rebase-commits-and-branches/)
 
-____
+---
 
 [[100 Git|Назад]]

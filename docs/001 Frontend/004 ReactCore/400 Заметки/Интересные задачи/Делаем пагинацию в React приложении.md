@@ -1,12 +1,22 @@
 ---
+uid: oAI_iCbZTPXN8Sf_78DTE
 title: Делаем пагинацию в React приложении
-draft: false
 tags:
   - "#React"
   - "#TypeScript"
   - "#pagination"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Ссылки из статьи:
+
 - про [stateless components](https://testsuite.io/react-stateless-function-components#:~:text=A%20stateless%20function%20component%20is,return%20JSX%20as%20an%20output.)
 - про [условный рендеринг](https://react.dev/learn/conditional-rendering)
 - про типизацию [catch блока](https://kentcdodds.com/blog/get-a-catch-block-error-message-with-typescript)
@@ -16,9 +26,10 @@ tags:
 - про [useEffect](https://react.dev/reference/react/useEffect) и [useState](https://react.dev/reference/react/useState)
 - про [React.memo](https://react.dev/reference/react/memo)
 
-___
+---
 
 Пишем на typescript простой, переиспользуемый пагинатор для React приложения. Покрываем его тестам на Jest.
+
 ### План действий
 
 Весь план действий будет состоять из 5 последовательных этапов:
@@ -342,7 +353,7 @@ export default App;
 Все эти объекты мы берём из **[@testing-library](https://habr.com/users/testing-library)**:
 
 ```jsx
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, fireEvent, screen } from "@testing-library/react";
 ```
 
 Подробнее можно посмотреть на примерах и в документации [@testing-library/react](https://testing-library.com/docs/react-testing-library/example-intro)
@@ -393,12 +404,12 @@ export default React.memo(Pagination);
 Здесь нам нужно воспользоваться методом **toHaveAttribute**.
 
 ```jsx
-import '@testing-library/jest-dom';
-import { render, fireEvent, screen } from '@testing-library/react';
+import "@testing-library/jest-dom";
+import { render, fireEvent, screen } from "@testing-library/react";
 
-import Pagination from '../../src/components/pagination';
+import Pagination from "../../src/components/pagination";
 
-describe('React component: Pagination', () => {
+describe("React component: Pagination", () => {
   it('Должен проставляться атрибут [disabled] для кнопки "назад", если выбрана первая страница', async () => {
     render(
       <Pagination
@@ -408,11 +419,11 @@ describe('React component: Pagination', () => {
         }}
         onPrevPageClick={jest.fn()}
         onNextPageClick={jest.fn()}
-      />
+      />,
     );
 
-    const prevButton = screen.getByTestId('pagination-prev-button');
-    expect(prevButton).toHaveAttribute('disabled');
+    const prevButton = screen.getByTestId("pagination-prev-button");
+    expect(prevButton).toHaveAttribute("disabled");
   });
 
   it('Должен проставляться атрибут [disabled] для кнопки "вперёд", если выбрана последняя страница', async () => {
@@ -424,11 +435,11 @@ describe('React component: Pagination', () => {
         }}
         onPrevPageClick={jest.fn()}
         onNextPageClick={jest.fn()}
-      />
+      />,
     );
 
-    const nextButton = screen.getByTestId('pagination-next-button');
-    expect(nextButton).toHaveAttribute('disabled');
+    const nextButton = screen.getByTestId("pagination-next-button");
+    expect(nextButton).toHaveAttribute("disabled");
   });
 });
 ```
@@ -517,4 +528,3 @@ describe('React component: Pagination', () => {
 });
 
 ```
-

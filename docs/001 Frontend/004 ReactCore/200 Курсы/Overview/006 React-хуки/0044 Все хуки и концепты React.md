@@ -1,6 +1,6 @@
 ---
+uid: DQZtnvsk2DYAIP4xgFdtu
 title: Все хуки и концепты React
-draft: false
 tags:
   - "#React"
   - "#Hooks"
@@ -11,30 +11,35 @@ tags:
   - "#useCallback"
   - "#useMemo"
   - "#useRef"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 44
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ## Введение
 
-*Состояние* – это место, в котором хранятся данные, предназначенные для компонента. Когда состояние меняется, компонент начинает перерисовываться, что позволяет нам управлять измененными данными в приложении.
+_Состояние_ – это место, в котором хранятся данные, предназначенные для компонента. Когда состояние меняется, компонент начинает перерисовываться, что позволяет нам управлять измененными данными в приложении.
 
 ## useState()
 
 ```jsx
 const component = () => {
-	// Давайте вызовем console.log, передадим в него useState 
-	// и посмотрим, что он вернет
-	console.log(useState(100));
-	// Он возвращает массив [100, функция]
-	// Возвращается состояние, а также функция для обновления состояния
-	// Мы можем деструктуризировать массив 
-	// для получения значения состояния и функции
-	const [state, setState] = useState(100);
+  // Давайте вызовем console.log, передадим в него useState
+  // и посмотрим, что он вернет
+  console.log(useState(100));
+  // Он возвращает массив [100, функция]
+  // Возвращается состояние, а также функция для обновления состояния
+  // Мы можем деструктуризировать массив
+  // для получения значения состояния и функции
+  const [state, setState] = useState(100);
 
-	return (
-		<div>
-			Привет!!!
-		</div>
-	)
-}
+  return <div>Привет!!!</div>;
+};
 ```
 
 Совет: используйте состояние только внутри компонентов.
@@ -47,8 +52,8 @@ const component = () => {
 
 ```jsx
 const [state, setState] = useState(() => {
-	console.log("initial state");
-	return 100;
+  console.log("initial state");
+  return 100;
 });
 ```
 
@@ -58,11 +63,11 @@ const [state, setState] = useState(() => {
 
 ```jsx
 onClick={() => {
-	// Аргумент value это текущее состояние 
+	// Аргумент value это текущее состояние
 	setState((value) => {
 		return value + 1;
 	});
-}} 
+}}
 ```
 
 ---
@@ -72,20 +77,21 @@ onClick={() => {
 useEffect хук имеет 2 части, первая – это функция, и вторая – это массив зависимости, что является опциональным.
 
 ```jsx
-useEffect(()=>{},[])
+useEffect(() => {}, []);
 ```
 
-Мы будем получать console log каждый раз, когда состояние будет меняться.  К примеру, если вы имеете 2 состояния внутри компонента, и один из них изменился, то мы сразу получим console.log, а это то, что мы обычно не хотим.
+Мы будем получать console log каждый раз, когда состояние будет меняться. К примеру, если вы имеете 2 состояния внутри компонента, и один из них изменился, то мы сразу получим console.log, а это то, что мы обычно не хотим.
 
 ```jsx
 useEffect(() => {
-   console.log('change');
-})
+  console.log("change");
+});
 ```
 
 Примечание: первый вызов useEffect() будет сразу после того, как ваш компонент будет вмонтирован в DOM.
 
 Подробнее: [Полное руководство по useEffect](https://habr.com/ru/companies/ruvds/articles/445276/)
+
 ### Массив зависимостей
 
 Мы можем указывать состояние внутри массива зависимости у useEffect, чтобы он отслеживал только те изменения состояний, которые были указаны внутри массива.
@@ -94,8 +100,8 @@ useEffect(() => {
 const [state1, setState1] = useState(0);
 const [state2, setState2] = useState(0);
 useEffect(() => {
-	console.log('state1 changed');
-}, [state1])
+  console.log("state1 changed");
+}, [state1]);
 ```
 
 Напоминание: не обновляйте состояние внутри useEffect без продуманной логики, иначе это может вызвать бесконечный круг перерисовок.
@@ -106,11 +112,11 @@ useEffect(() => {
 
 ```jsx
 useEffect(() => {
-	console.log(`state1 changed | ${state1}`);
-	return () => {
-		console.log('state1 unmounted | ', state1);
-	}
-}, [state1])
+  console.log(`state1 changed | ${state1}`);
+  return () => {
+    console.log("state1 unmounted | ", state1);
+  };
+}, [state1]);
 ```
 
 ![](https://habrastorage.org/r/w1560/getpro/habr/upload_files/fdf/c91/3db/fdfc913dbf42448b1b404dd3c787f39f.png)
@@ -119,16 +125,16 @@ useEffect(() => {
 
 ```jsx
 useEffect(() => {
-	const url = "https://jsonplaceholder.typicode.com/todos/1";
-	const fetchData = () => {
-		fetch(url)
-			.then(res => res.json())
-			.then(data => {
-				setState(data.title)
-			})
-	}
-		fetchData();
-	}, []);
+  const url = "https://jsonplaceholder.typicode.com/todos/1";
+  const fetchData = () => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setState(data.title);
+      });
+  };
+  fetchData();
+}, []);
 ```
 
 ---
@@ -146,25 +152,27 @@ import { useState } from "react";
 const StoreContext = createContext();
 
 const component = () => {
-    const data = useState({
-        name: 'Ritesh',
-        email: 'someMail@gmail.com',
-    })[0];
+  const data = useState({
+    name: "Ritesh",
+    email: "someMail@gmail.com",
+  })[0];
 
-    const Child = () => {
-        return <div>
-            <StoreContext.Consumer>
-                {value => <h1>Ваше имя: {value.name}</h1>}
-            </StoreContext.Consumer>
-        </div>
-    }
-
+  const Child = () => {
     return (
-        <StoreContext.Provider value={data}>
-            <Child />
-        </StoreContext.Provider>
-    )
-}
+      <div>
+        <StoreContext.Consumer>
+          {(value) => <h1>Ваше имя: {value.name}</h1>}
+        </StoreContext.Consumer>
+      </div>
+    );
+  };
+
+  return (
+    <StoreContext.Provider value={data}>
+      <Child />
+    </StoreContext.Provider>
+  );
+};
 
 export default component;
 ```
@@ -180,24 +188,26 @@ import { useState } from "react";
 const StoreContext = createContext();
 
 const component = () => {
-    const data = useState({
-        name: 'Ritesh',
-        email: 'someMail@gmail.com',
-    })[0];
+  const data = useState({
+    name: "Ritesh",
+    email: "someMail@gmail.com",
+  })[0];
 
-    const Child = () => {
-        const value = useContext(StoreContext);
-        return <div>
-            <h1>Ваше имя: {value.name}</h1>
-        </div>
-    }
-
+  const Child = () => {
+    const value = useContext(StoreContext);
     return (
-        <StoreContext.Provider value={data}>
-            <Child />
-        </StoreContext.Provider>
-    )
-}
+      <div>
+        <h1>Ваше имя: {value.name}</h1>
+      </div>
+    );
+  };
+
+  return (
+    <StoreContext.Provider value={data}>
+      <Child />
+    </StoreContext.Provider>
+  );
+};
 
 export default component;
 ```
@@ -222,106 +232,128 @@ useReducer(reducer, initialState);
 ### Давайте создаем простой счетчик используя useReducer
 
 ```jsx
-import { useReducer } from 'react'
+import { useReducer } from "react";
 
 const initialState = 0;
 const reducer = (state, action) => {
-    switch (action) {
-        case 'increment':
-            return state + 1;
-        case 'decrement':
-            return state - 1;
-        default:
-            return state;
-    }
-}
+  switch (action) {
+    case "increment":
+      return state + 1;
+    case "decrement":
+      return state - 1;
+    default:
+      return state;
+  }
+};
 
 export default function main() {
-    const [count, dispatch] = useReducer(reducer, initialState);
+  const [count, dispatch] = useReducer(reducer, initialState);
 
-    return (
-        <div>
-            <p>Значение: {count}</p>
-            <button onClick={() => dispatch('increment')}>+</button>
-            <button onClick={() => dispatch('decrement')}>-</button>
-        </div>
-    )
+  return (
+    <div>
+      <p>Значение: {count}</p>
+      <button onClick={() => dispatch("increment")}>+</button>
+      <button onClick={() => dispatch("decrement")}>-</button>
+    </div>
+  );
 }
 ```
 
 Мы также можем усложнить задачу, превратив наше состояние в объект.
 
 ```jsx
-import { useReducer } from 'react'
+import { useReducer } from "react";
 
 const initialState = {
-    firstCounter: 0,
-    secondCounter: 0
+  firstCounter: 0,
+  secondCounter: 0,
 };
 const reducer = (state, action) => {
-    switch (action.type) {
-        case 'increment':
-            return { ...state, firstCounter: state.firstCounter + action.value };
-        case 'decrement':
-            return { ...state, firstCounter: state.firstCounter - action.value };
-        default:
-            return { ...state };
-    }
-}
+  switch (action.type) {
+    case "increment":
+      return { ...state, firstCounter: state.firstCounter + action.value };
+    case "decrement":
+      return { ...state, firstCounter: state.firstCounter - action.value };
+    default:
+      return { ...state };
+  }
+};
 
 export default function main() {
-    const [count, dispatch] = useReducer(reducer, initialState);
+  const [count, dispatch] = useReducer(reducer, initialState);
 
-    return (
-        <div>
-            <p>Значение: {count.firstCounter}</p>
-            <button className='bg-gray-200 p-2' onClick={() => dispatch({ type: 'increment', value: 2 })}>
-                Увеличить на 2
-            </button>
-            <button className='bg-gray-200 p-2' onClick={() => dispatch({ type: 'decrement', value: 4 })}>
-                Увеличить на 4
-            </button>
-        </div>
-    )
+  return (
+    <div>
+      <p>Значение: {count.firstCounter}</p>
+      <button
+        className="bg-gray-200 p-2"
+        onClick={() => dispatch({ type: "increment", value: 2 })}
+      >
+        Увеличить на 2
+      </button>
+      <button
+        className="bg-gray-200 p-2"
+        onClick={() => dispatch({ type: "decrement", value: 4 })}
+      >
+        Увеличить на 4
+      </button>
+    </div>
+  );
 }
 ```
 
 Или, мы можем использовать несколько useReducer.
 
 ```jsx
-import { useReducer } from 'react'
+import { useReducer } from "react";
 
 const initialState = 0;
 const reducer = (state, action) => {
-    switch (action) {
-        case 'increment':
-            return state + 1;
-        case 'decrement':
-            return state - 1;
-        default:
-            return state;
-    }
-}
+  switch (action) {
+    case "increment":
+      return state + 1;
+    case "decrement":
+      return state - 1;
+    default:
+      return state;
+  }
+};
 
 export default function main() {
-    const [count, dispatch] = useReducer(reducer, initialState);
-    const [count2, dispatch2] = useReducer(reducer, initialState);
+  const [count, dispatch] = useReducer(reducer, initialState);
+  const [count2, dispatch2] = useReducer(reducer, initialState);
 
-    return (
-        <div>
-            <p>Счетчик: {count}</p>
-            <button className="bg-gray-100 p-2 m-2"
-                onClick={() => dispatch('decrement')}>-</button>
-            <button className="bg-gray-100 p-2 m-2"
-                onClick={() => dispatch('increment')}>+</button>
+  return (
+    <div>
+      <p>Счетчик: {count}</p>
+      <button
+        className="bg-gray-100 p-2 m-2"
+        onClick={() => dispatch("decrement")}
+      >
+        -
+      </button>
+      <button
+        className="bg-gray-100 p-2 m-2"
+        onClick={() => dispatch("increment")}
+      >
+        +
+      </button>
 
-            <p>Счетчик 2: {count2}</p>
-            <button className="bg-gray-100 p-2 m-2"
-                onClick={() => dispatch2('increment')}>+</button>
-            <button className="bg-gray-100 p-2 m-2"
-                onClick={() => dispatch2('decrement')}>-</button>
-        </div>
-    )
+      <p>Счетчик 2: {count2}</p>
+      <button
+        className="bg-gray-100 p-2 m-2"
+        onClick={() => dispatch2("increment")}
+      >
+        +
+      </button>
+      <button
+        className="bg-gray-100 p-2 m-2"
+        onClick={() => dispatch2("decrement")}
+      >
+        -
+      </button>
+    </div>
+  );
 }
 ```
 
@@ -412,20 +444,17 @@ export default function ChildrenB() {
 Давайте посмотри на код и попытаемся понять поведение функций в React.
 
 ```jsx
-import React from 'react'
+import React from "react";
 
 export default function main() {
+  function Sum() {
+    return (a, b) => a + b;
+  }
+  const func1 = Sum();
+  const func2 = Sum();
+  console.log(func1 === func2);
 
-    function Sum() {
-        return (a, b) => a + b;
-    }
-    const func1 = Sum();
-    const func2 = Sum();
-    console.log(func1 === func2);
-
-    return (
-        <div>main</div>
-    )
+  return <div>main</div>;
 }
 ```
 
@@ -528,32 +557,31 @@ useCallback принимает в себя функцию и массив зав
 ```jsx
 // main.jsx
 
-import React, { useState, useCallback } from 'react'
-import ChildrenA from '../components/ChildrenA';
-import ChildrenB from '../components/ChildrenB';
-import ChildrenC from '../components/ChildrenC';
+import React, { useState, useCallback } from "react";
+import ChildrenA from "../components/ChildrenA";
+import ChildrenB from "../components/ChildrenB";
+import ChildrenC from "../components/ChildrenC";
 
 const main = () => {
-    const [state1, setState1] = useState(0);
-    const [state2, setState2] = useState(0);
+  const [state1, setState1] = useState(0);
+  const [state2, setState2] = useState(0);
 
+  const handleClickA = useCallback(() => {
+    setState1(state1 + 1);
+  }, [state1]);
 
-    const handleClickA = useCallback(() => {
-        setState1(state1 + 1);
-    }, [state1])
+  const handleClickB = useCallback(() => {
+    setState2(state2 + 1);
+  }, [state2]);
 
-    const handleClickB = useCallback(() => {
-        setState2(state2 + 1);
-    }, [state2])
-
-    return (
-        <div className='flex flex-col justify-center items-center'>
-            <ChildrenA value={state1} handleClick={handleClickA} />
-            <ChildrenB value={state2} handleClick={handleClickB} />
-            <ChildrenC />
-        </div>
-    )
-}
+  return (
+    <div className="flex flex-col justify-center items-center">
+      <ChildrenA value={state1} handleClick={handleClickA} />
+      <ChildrenB value={state2} handleClick={handleClickB} />
+      <ChildrenC />
+    </div>
+  );
+};
 
 export default React.memo(main);
 ```
@@ -569,26 +597,37 @@ export default React.memo(main);
 useCallback возвращает мемоизированную функцию, наравне с этим useMemo возвращает мемоизированное значение. Для примера, нам нужно найти факториал, и пересчитывать значение только тогда, когда значение изменится, а не при каждой перерисовке компонента, чтож давайте попробуем использовать useMemo.
 
 ```jsx
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo } from "react";
 
 function factorialOf(n) {
-    console.log('factorialOf(n) called!');
-    return n <= 0 ? 1 : n * factorialOf(n - 1);
+  console.log("factorialOf(n) called!");
+  return n <= 0 ? 1 : n * factorialOf(n - 1);
 }
 
 const main = () => {
-    const [number, setNumber] = useState(2)
-    const factorial = useMemo(() => factorialOf(number), [number])
-    const [count, setCount] = useState(0)
+  const [number, setNumber] = useState(2);
+  const factorial = useMemo(() => factorialOf(number), [number]);
+  const [count, setCount] = useState(0);
 
-    return (
-        <div className='flex flex-col justify-center items-center'>
-            {factorial}
-            <button className='bg-gray-200 p-2 m-2' onClick={() => setNumber(number + 1)}>+</button>
-            {count} <button className='bg-gray-200 p-2 m-2' onClick={() => setCount(count + 1)}>+</button>
-        </div>
-    )
-}
+  return (
+    <div className="flex flex-col justify-center items-center">
+      {factorial}
+      <button
+        className="bg-gray-200 p-2 m-2"
+        onClick={() => setNumber(number + 1)}
+      >
+        +
+      </button>
+      {count}{" "}
+      <button
+        className="bg-gray-200 p-2 m-2"
+        onClick={() => setCount(count + 1)}
+      >
+        +
+      </button>
+    </div>
+  );
+};
 
 export default main;
 ```
@@ -602,7 +641,7 @@ export default main;
 Давайте выведем useRef в консоль, и посмотрим, что он возвращает.
 
 ```jsx
-console.log(useRef(100))
+console.log(useRef(100));
 // выведится что-то типа 👉🏻 {current: 100}
 ```
 
@@ -614,37 +653,39 @@ useRef возвращает изменяемый ref объект, в котор
 import { useEffect, useState, useRef } from "react";
 
 const component = () => {
-    const obj1 = { hi: 100 };
-    const obj2 = useRef({ hi: 100 });
-    console.log(obj1 === obj2.current);
+  const obj1 = { hi: 100 };
+  const obj2 = useRef({ hi: 100 });
+  console.log(obj1 === obj2.current);
 
-    const [state, setState] = useState(() => {
-        return 1;
-    });
+  const [state, setState] = useState(() => {
+    return 1;
+  });
 
-    useEffect(() => {
-        console.log('obj1 changed | ', obj1);
-    }, [obj1])
+  useEffect(() => {
+    console.log("obj1 changed | ", obj1);
+  }, [obj1]);
 
-    useEffect(() => {
-        console.log('obj2 changed | ', obj2.current);
-    }, [obj2])
+  useEffect(() => {
+    console.log("obj2 changed | ", obj2.current);
+  }, [obj2]);
 
-
-    return (
-        <div onClick={() => {
-            setState((value) => {
-                return value + 1;
-            });
-        }} className="w-screen h-screen flex justify-center items-center text-4xl font-extralight">
-            {state}
-        </div>
-    )
-}
+  return (
+    <div
+      onClick={() => {
+        setState((value) => {
+          return value + 1;
+        });
+      }}
+      className="w-screen h-screen flex justify-center items-center text-4xl font-extralight"
+    >
+      {state}
+    </div>
+  );
+};
 
 export default component;
 ```
 
 ![](https://habrastorage.org/r/w1560/getpro/habr/upload_files/0f0/aea/bd9/0f0aeabd9dc5c7d884c7c363b85719a6.png)
 
-___
+---

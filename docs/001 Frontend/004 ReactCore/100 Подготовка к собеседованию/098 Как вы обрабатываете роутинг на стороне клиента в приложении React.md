@@ -1,14 +1,23 @@
 ---
+uid: mVoJfWHuL2drhaVRPSEjt
 title: Как вы обрабатываете роутинг на стороне клиента в приложении React?
-draft: false
 tags:
   - "#React"
   - "#react-router-dom"
   - BrowserRouter
   - Route
 info:
-  - https://reactdev.ru/libs/react-router/#_5
+  - "https://reactdev.ru/libs/react-router/#_5"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 98
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Существует несколько способов обработки маршрутизации на стороне клиента в приложении React. Одним из популярных способов является использование библиотеки `react-router-dom`, которая предоставляет компонент `<Router>` для обработки маршрутизации и набор компонентов `<Route>` для определения маршрутов в вашем приложении.
 
 Вот пример того, как вы можете использовать `react-router-dom` для обработки маршрутизации на стороне клиента в приложении React:
@@ -22,7 +31,7 @@ npm install react-router-dom
 2. Импортируйте компоненты `<Router>` и `<Route>` из `react-router-dom`.
 
 ```javascript
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import { BrowserRouter as Router, Route } from "react-router-dom";
 ```
 
 3. Оберните свое приложение компонентом `<Router>`.

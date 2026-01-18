@@ -1,14 +1,23 @@
 ---
+uid: YtnKrYmIyngIdlR-g5kgl
 title: Что такое `children` в props?
-draft: false
 tags:
   - "#React"
   - "#props"
   - "#children"
 info:
-  - https://codeburst.io/a-quick-intro-to-reacts-props-children-cb3d2fce4891
-  - https://stasonmars.ru/javascript/pogruzhaemsya-v-raboty-s-children-na-react/
+  - "https://codeburst.io/a-quick-intro-to-reacts-props-children-cb3d2fce4891"
+  - "https://stasonmars.ru/javascript/pogruzhaemsya-v-raboty-s-children-na-react/"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 23
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704173937.png|600]]
 
 В любом компоненте доступны `props.children`. Это контент между открывающим и закрывающим тегом компонента. Например:
@@ -21,7 +30,7 @@ info:
 
 ```jsx
 function Welcome(props) {
-  return <p>{props.children}</p>
+  return <p>{props.children}</p>;
 }
 ```
 
@@ -30,7 +39,7 @@ function Welcome(props) {
 ```jsx
 class Welcome extends React.Component {
   render() {
-    return <p>{this.props.children}</p>
+    return <p>{this.props.children}</p>;
   }
 }
 ```

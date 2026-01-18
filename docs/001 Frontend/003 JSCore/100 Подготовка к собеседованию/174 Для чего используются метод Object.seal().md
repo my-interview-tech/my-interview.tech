@@ -1,18 +1,27 @@
 ---
+uid: 7i8CsAnub4sBJkko3kCsj
 title: Для чего используются метод `Object.seal()`?
-draft: false
 tags:
   - "#JavaScript"
   - "#object"
   - "#Object-seal"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 174
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _Метод `Object.seal()` используется для запрета добавления новых свойств в объект и удаления существующих свойств._ Он также делает все существующие свойства объекта неизменяемыми, т.е. значения свойств могут быть изменены, но само свойство не может быть удалено или переопределено.
 
 Синтаксис метода `Object.seal()` выглядит следующим образом:
 
 ```javascript
-Object.seal(obj)
+Object.seal(obj);
 ```
 
 где `obj` - объект, который нужно запечатать.
@@ -23,15 +32,15 @@ Object.seal(obj)
 const person = {
   firstName: "John",
   lastName: "Doe",
-}
+};
 
-Object.seal(person)
+Object.seal(person);
 
-person.firstName = "Jane" // Разрешено
-person.age = 30 // Запрещено
-delete person.lastName // Запрещено
+person.firstName = "Jane"; // Разрешено
+person.age = 30; // Запрещено
+delete person.lastName; // Запрещено
 
-console.log(person) // { firstName: 'Jane', lastName: 'Doe' }
+console.log(person); // { firstName: 'Jane', lastName: 'Doe' }
 ```
 
 В этом примере мы создаем объект `person`, который имеет свойства `firstName` и `lastName`. Затем мы используем метод `Object.seal()` для запрета добавления новых свойств и удаления существующих свойств в объект `person`. Мы затем пытаемся изменить значение свойства `firstName`, что разрешено, но пытаемся добавить новое свойство `age` и удалить свойство `lastName`, что запрещено. Наконец, мы выводим объект `person` и видим, что значение свойства `firstName` было изменено, а свойства `age` и `lastName` не были добавлены или удалены.

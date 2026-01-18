@@ -1,18 +1,26 @@
 ---
+uid: mugwkbNrPFoEnwljOrRxt
 title: Архитектура `Module Federation`
-draft: false
 tags:
   - "#webpack"
   - "#module-federation"
   - "#microfrontend"
 info:
-  - https://habr.com/ru/companies/alfa/articles/668118/
+  - "https://habr.com/ru/companies/alfa/articles/668118/"
+draft: false
+technology: Архитектура Веб-приложений
+tools: []
+order: 9
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 #### Термины и определения
 
 Сначала терминология, чтобы мы были в одном контексте.
 
-**Host** (consumers) — это бандл, который первый инициализировался во время загрузки страницы. Это и есть наше корневое приложение, которое подтягивает другие части. 
+**Host** (consumers) — это бандл, который первый инициализировался во время загрузки страницы. Это и есть наше корневое приложение, которое подтягивает другие части.
 
 **Remote** (consumable) — другой бандл, чьи некоторые части может импортировать host. Host запрашивает у remote шареные компоненты.
 
@@ -31,9 +39,9 @@ info:
 ```json
 
 import action from './module';
- 
+
 const value = action();
- 
+
 export default value;
 ```
 
@@ -44,7 +52,7 @@ export default value;
 ```json
 __webpack_require__.r(__webpack_exports__);
 __webpack_require__.d(__webpack_exports__, { "default": () => (action) });
- 
+
 function action() {return 'value';};
 ```
 
@@ -55,17 +63,17 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.d(__webpack_exports__, {
        "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 });
- 
+
 var _module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/module.js\");
-         
+
 const value = (0,_module__WEBPACK_IMPORTED_MODULE_0__["default"])();
-         
+
 const __WEBPACK_DEFAULT_EXPORT__ = (value);
 ```
 
 Единственное, что нужно уяснить из приведенного примера — это то, что Webpack собирает все наши модули в некий массив **modules scope.**
 
-**Схема работы MF.** Теперь давайте взглянем на следующую схему работы MF. 
+**Схема работы MF.** Теперь давайте взглянем на следующую схему работы MF.
 
 - Слева желтым — host, то приложение которое будет получать общие модули.
 - Справа оранжевым — Remote контейнер, который раздаёт общие модули.
@@ -82,7 +90,6 @@ const __WEBPACK_DEFAULT_EXPORT__ = (value);
 Полезные ссылки. Подробнее узнать как работает WMF можно из расширенных гайдов:
 
 - [Отличная статья-объяснение как работает WMF](https://github.com/sokra/slides/blob/master/content/ModuleFederationWebpack5.md).
-    
 - Видео о том, как не грузить vendor code, который уже предоставлен другой Webpack-сборкой, например, React: «[A look at the source code and how it works](https://youtu.be/HDRIvks0yyk)»
 
 #### Демо
@@ -95,8 +102,6 @@ const __WEBPACK_DEFAULT_EXPORT__ = (value);
 
 Скачайте репозитории, установите зависимости, запустите оба сервера и посмотрите как они работают в связке. Экспериментируйте - отключите Remote приложение, посмотрите как будет работать Host, создайте свои общие компоненты.
 
-Сборку я намеренно упростил, чтобы понять принцип и не усложнять контекст. 
+Сборку я намеренно упростил, чтобы понять принцип и не усложнять контекст.
 
-
-____
-
+---

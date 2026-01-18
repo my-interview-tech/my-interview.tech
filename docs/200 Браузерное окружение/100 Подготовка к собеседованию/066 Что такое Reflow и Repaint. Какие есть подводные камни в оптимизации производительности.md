@@ -1,15 +1,25 @@
 ---
-title: Что такое Reflow и Repaint? Какие есть подводные камни в оптимизации производительности?
-draft: false
+uid: V5goJceN3LyqMqNEVozVP
+title: >-
+  Что такое Reflow и Repaint? Какие есть подводные камни в оптимизации
+  производительности?
 tags:
   - CSS
   - reflow
   - repaint
   - browser
 info:
-  - https://habrahabr.ru/post/273471/#repaints_and_reflows
-  - https://habr.com/ru/articles/224187/
+  - "https://habrahabr.ru/post/273471/#repaints_and_reflows"
+  - "https://habr.com/ru/articles/224187/"
+draft: false
+technology: Подготовка к собеседованию
+tools: []
+order: 66
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Reflow и repaint - это процессы, связанные с перерисовкой и обновлением элементов на веб-странице в браузере.
 
 **Repaint**

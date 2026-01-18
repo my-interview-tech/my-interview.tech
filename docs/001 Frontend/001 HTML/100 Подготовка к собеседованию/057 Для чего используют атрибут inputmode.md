@@ -1,10 +1,19 @@
 ---
+uid: 2IsT3FKUt7MV3jsiFLDwQ
 title: Для чего используют атрибут `inputmode`?
-draft: false
 tags:
   - "#HTML"
   - "#inputmode"
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 57
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704022206.png|600]]
 
 Атрибут `inputmode` используется для указания браузеру, какой тип ввода ожидается для текстовых полей формы.
@@ -32,7 +41,7 @@ tags:
 
 ```html
 <label for="phone">Телефон:</label>
-<input type="tel" id="phone" name="phone" inputmode="tel">
+<input type="tel" id="phone" name="phone" inputmode="tel" />
 ```
 
 Использование атрибута `inputmode` может помочь оптимизировать ввод текста и улучшить пользовательский опыт, особенно для пользователей, которые используют клавиатуру на другом языке или устройства с ограниченными возможностями ввода.

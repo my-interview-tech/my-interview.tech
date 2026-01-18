@@ -1,14 +1,25 @@
 ---
-title: Разница между feature detection, feature inference и анализом строки user-agent
-draft: false
+uid: 9hDGvH4GHdVfKtzXSQpmW
+title: >-
+  Разница между feature detection, feature inference и анализом строки
+  user-agent
 tags:
   - "#DOM"
   - "#feature-detection"
   - "#feature-inference"
   - "#userAgent"
   - "#browser"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 19
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230701220250.png|600]]
 
 Feature detection, feature inference и анализ строки user-agent - это три подхода для определения возможностей браузера в JavaScript.
@@ -20,7 +31,7 @@ _Feature detection_ - это подход, который использует �
 ```javascript
 if ("localStorage" in window) {
   // localStorage доступен в браузере
-  localStorage.setItem("key", "value")
+  localStorage.setItem("key", "value");
 } else {
   // localStorage не доступен в браузере
   // используем альтернативный способ хранения данных
@@ -49,7 +60,7 @@ _Анализ строки user-agent_ - это подход, который и�
 Пример использования анализа строки user-agent:
 
 ```javascript
-const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 if (isMobile) {
   // браузер работает на мобильном устройстве
 } else {

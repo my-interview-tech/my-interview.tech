@@ -1,12 +1,23 @@
 ---
-title: Можете ли вы объяснить разницу между отзывчивым (responsive) сайтом и сайтом, сделанным по принципу mobile-first?
-draft: false
+uid: yPqli5HZmuLfSM8mm6yve
+title: >-
+  Можете ли вы объяснить разницу между отзывчивым (responsive) сайтом и сайтом,
+  сделанным по принципу mobile-first?
 tags:
   - "#CSS"
   - "#mobile-first"
   - "#responsiveDesign"
-info:
+info: null
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 63
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704031807.png|600]]
 
 _Отзывчивая и mobile-first верстки_ служат для того, чтобы пользователь мог пользоваться сайтом с разных устройств. Верстка подстраивается под различные размеры экрана, разрешения, контекст использования, механизмы контроля и т.д.

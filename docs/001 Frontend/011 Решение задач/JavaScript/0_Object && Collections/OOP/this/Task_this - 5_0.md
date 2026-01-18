@@ -1,11 +1,20 @@
 ---
+uid: BG-xvm6qdeLhwO7py_Oj1
 title: Task_this - 5_0
-draft: false
 tags:
   - "#JavaScript"
   - "#this"
   - "#taskJS"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```js
 function foo(num) {
 	console.log('foo', num);
@@ -22,12 +31,12 @@ for (i = 0; i < 10; i++) {
 console.log(foo.count);. //
 ```
 
-**Ответ
+\*\*Ответ
 
 ```js
 
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

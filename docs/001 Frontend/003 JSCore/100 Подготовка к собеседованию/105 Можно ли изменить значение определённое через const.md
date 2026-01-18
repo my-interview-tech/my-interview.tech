@@ -1,18 +1,27 @@
 ---
+uid: RHlCUkNy6dlfC1YTrQ5R6
 title: Можно ли изменить значение определённое через `const`?
-draft: false
 tags:
   - "#JavaScript"
   - "#const"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 105
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Ключевое слово `const` используется для объявления переменных, значение которых не может быть изменено после первоначального присвоения. Попытка изменить значение переменной, объявленной через `const`, приведет к ошибке времени выполнения.
 
 Например, следующий код приведет к ошибке:
 
 ```javascript
-const x = 10
-x = 5 // TypeError: Assignment to constant variable.
+const x = 10;
+x = 5; // TypeError: Assignment to constant variable.
 ```
 
 Однако, если `const` используется для объявления объекта или массива, то содержимое объекта или массива может быть изменено, хотя сама переменная не может быть переназначена.
@@ -23,12 +32,12 @@ x = 5 // TypeError: Assignment to constant variable.
 const person = {
   name: "John",
   age: 30,
-}
+};
 
-person.age = 31 // Работает
-person.gender = "male" // Работает
+person.age = 31; // Работает
+person.gender = "male"; // Работает
 
-console.log(person) // { name: 'John', age: 31, gender: 'male' }
+console.log(person); // { name: 'John', age: 31, gender: 'male' }
 ```
 
 В этом примере, мы объявляем константу `person`, которая является объектом с двумя свойствами. Затем мы изменяем значение свойства `age` и добавляем новое свойство `gender`. Это работает, потому что мы не пытаемся переназначить переменную `person`, мы изменяем только ее содержимое.

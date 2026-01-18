@@ -1,14 +1,23 @@
 ---
+uid: q8xGOkqQS6TPYzQdokSvk
 title: Как вы укажите React работать в режиме Production и как это сделать?
-draft: false
 tags:
   - "#React"
   - "#DefinePlugin"
   - "#Production"
   - "#webpack"
 info:
-  - https://habr.com/ru/companies/simbirsoft/articles/668622/
+  - "https://habr.com/ru/companies/simbirsoft/articles/668622/"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 121
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Для того чтобы указать React работать в режиме Production, следует установить переменную окружения `NODE_ENV` в значение `production`. Это позволит React оптимизировать код и уменьшить размер итогового бандла приложения.
 
 В большинстве сборщиков модулей, таких как Webpack или Parcel, можно установить переменную окружения `NODE_ENV` с помощью конфигурации сборки. Например, в конфигурации Webpack можно добавить следующую строку:
@@ -16,7 +25,7 @@ info:
 ```jsx
 new webpack.DefinePlugin({
   "process.env.NODE_ENV": JSON.stringify("production"),
-})
+});
 ```
 
 В этом примере мы используем плагин `DefinePlugin`, который позволяет установить значения переменных окружения во время сборки. Мы устанавливаем переменную `process.env.NODE_ENV` в значение `'production'`, что указывает React работать в режиме Production.

@@ -1,15 +1,24 @@
 ---
+uid: lqDE0Vev6PsetXByQTfY4
 title: Что такое хук useDeferredValue() ?
-draft: false
 tags:
   - React
   - Hooks
   - useDeferredValue
   - React19
 info:
-  - https://react.dev/reference/react/useDeferredValue
-  - https://dev.to/fpaghar/usedeferredvalue-hook-29m9
+  - "https://react.dev/reference/react/useDeferredValue"
+  - "https://dev.to/fpaghar/usedeferredvalue-hook-29m9"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 88
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 `useDeferredValue` - это хук в React, предназначенный для оптимизации производительности приложений. Он позволяет отложить обновление определенного значения, что может быть полезно в ситуациях, когда вы хотите снизить нагрузку на рендеринг, особенно при работе с динамическими данными или вводами пользователя.
 
 Когда вы передаете значение в `useDeferredValue`, React откладывает обновление этого значения до тех пор, пока не будет выполнен другой рендеринг. Это позволяет React фокусироваться на более важных обновлениях, таких как ответ на действия пользователя, и откладывать менее критичные обновления.
@@ -17,15 +26,15 @@ info:
 Предположим, у вас есть компонент, который отображает список элементов, и вы хотите отложить обновление этого списка, чтобы не блокировать другие важные обновления, такие как анимации или взаимодействие с пользователем.
 
 ```jsx
-import React, { useState, useDeferredValue, useEffect } from 'react';
+import React, { useState, useDeferredValue, useEffect } from "react";
 
 function App() {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const deferredQuery = useDeferredValue(query);
 
   useEffect(() => {
     // Этот эффект будет выполнен только после того, как deferredQuery обновится
-    console.log('Deferred query:', deferredQuery);
+    console.log("Deferred query:", deferredQuery);
   }, [deferredQuery]);
 
   return (
@@ -65,14 +74,12 @@ export default App;
 Мы добавили опцию `initialValue` в `useDeferredValue`:
 
 ```javascript
-function Search({deferredValue}) {
+function Search({ deferredValue }) {
   // При первоначальном рендеринге значение будет ''.
   // Затем запланирован повторный рендеринг с deferredValue.
-  const value = useDeferredValue(deferredValue, '');
-  
-  return (
-    <Results query={value} />
-  );
+  const value = useDeferredValue(deferredValue, "");
+
+  return <Results query={value} />;
 }
 ```
 
@@ -80,6 +87,6 @@ function Search({deferredValue}) {
 
 Для получения дополнительной информации см. [`useDeferredValue`](https://reactjs.org/docs/hooks-reference.html#usedeferredvalue).
 
-___
+---
 
 [[004 ReactCore|Назад]]

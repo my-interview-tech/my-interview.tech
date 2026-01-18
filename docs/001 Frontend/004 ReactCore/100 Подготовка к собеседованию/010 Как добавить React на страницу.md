@@ -1,6 +1,6 @@
 ---
+uid: TYKfLROh-Q-6XT8FOsIcy
 title: Как добавить React на страницу?
-draft: false
 tags:
   - "#React"
   - "#create-react-app"
@@ -9,11 +9,20 @@ tags:
   - "#npm"
   - "#package-json"
 info:
-  - https://habr.com/ru/companies/plarium/articles/326520
+  - "https://habr.com/ru/companies/plarium/articles/326520"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 10
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Выбор метода зависит от потребностей. Если вы просто хотите добавить немного интерактивности на существующую страницу или хотите просто попробовать React тогда используйте первый метод подключения. Если вы собираетесь построить полноценное React приложение, то используйте `create-react-app`.
 
-**`create-react-app`
+\*\*`create-react-app`
 
 1. Для того, чтобы работать в React необходимо применить скрипт:
 
@@ -34,20 +43,20 @@ cd my-app
 4. Импортируем библиотеку React
 
 ```jsx
-import React, { Component } from "react"
+import React, { Component } from "react";
 ```
 
 5. Импортируем библиотеку react-dom
 
 ```jsx
-import { createRoot } from "react-dom/client"
+import { createRoot } from "react-dom/client";
 
-const root = createRoot(document.getElementById("root"))
+const root = createRoot(document.getElementById("root"));
 ```
 
 `createRoot` - корневой DOM-узел, т.к. через него мы управляем React содержимым.
 
-**`<script/>`
+\*\*`<script/>`
 
 **Шаг 1** Добавьте 3 тега в контейнер head на вашей странице:
 
@@ -73,21 +82,27 @@ const root = createRoot(document.getElementById("root"))
   <head>
     <meta charset="UTF-8" />
     <title>My first React app</title>
-    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   </head>
   <body>
     <div id="root"></div>
 
     <script type="text/babel">
-      ReactDOM.render(<h1>Hello world</h1>, document.querySelector("#root"))
+      ReactDOM.render(<h1>Hello world</h1>, document.querySelector("#root"));
     </script>
   </body>
 </html>
 ```
 
-**Что делает `npm run eject`?
+\*\*Что делает `npm run eject`?
 
 Если вы опытный пользователь и вас не устраивает стандартная конфигурация, можете сделать `eject`. В таком случае `create-react-app` используется как генератор шаблонного кода.
 

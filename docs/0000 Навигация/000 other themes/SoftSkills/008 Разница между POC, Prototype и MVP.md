@@ -1,13 +1,20 @@
 ---
-title: Разница между POC, Prototype и MVP
-draft: false
+uid: _zoieipvPhlIq7_gPOq0j
+title: "Разница между POC, Prototype и MVP"
 tags:
   - softskills
   - POC
   - Prototype
   - MVP
 info:
-  - https://youtu.be/nTE4qvSvxXY?t=607
+  - "https://youtu.be/nTE4qvSvxXY?t=607"
+draft: false
+technology: other themes
+tools: []
+order: 8
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
 
 ![[Pasted image 20230704170133.png|600]]

@@ -1,14 +1,25 @@
 ---
-title: После filter или map вновь созданный массив будет иметь одинаковую или отличную длину по сравнению со старым массивом
-draft: false
+uid: 0Es8V3PlhAzi60xnrBED-
+title: >-
+  После filter или map вновь созданный массив будет иметь одинаковую или
+  отличную длину по сравнению со старым массивом
 tags:
   - "#JavaScript"
   - "#array"
   - "#high-order-function"
   - "#filter"
   - "#map"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 99
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 После применения методов `filter()` и `map()` к массиву, создается новый массив, который может иметь разную длину по сравнению со старым массивом в зависимости от того, какие элементы были отфильтрованы или какие элементы были изменены.
 
 *Метод `filter()`* создает новый массив, содержащий только те элементы исходного массива, для которых функция-предикат возвращает `true`. Если функция-предикат не возвращает `true` для всех элементов исходного массива, то новый массив будет иметь меньшую длину, чем исходный массив. Если функция-предикат возвращает `true` для всех элементов исходного массива, то новый массив будет иметь такую же длину, как и исходный массив.
@@ -18,7 +29,7 @@ info:
 ```js
 const numbers = [1, 2, 3, 4, 5];
 
-const evenNumbers = numbers.filter(function(number) {
+const evenNumbers = numbers.filter(function (number) {
   return number % 2 === 0;
 });
 
@@ -35,7 +46,7 @@ console.log(evenNumbers.length); // 2
 ```js
 const numbers = [1, 2, 3, 4, 5];
 
-const doubledNumbers = numbers.map(function(number) {
+const doubledNumbers = numbers.map(function (number) {
   return number * 2;
 });
 

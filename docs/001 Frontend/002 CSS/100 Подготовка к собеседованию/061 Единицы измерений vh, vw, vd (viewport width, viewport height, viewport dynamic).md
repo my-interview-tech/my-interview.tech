@@ -1,14 +1,25 @@
 ---
-title: Единицы измерений vh, vw, vd (viewport width, viewport height, viewport dynamic)
-draft: false
+uid: 65UKRqJRpMlDc-iHgYPsJ
+title: >-
+  Единицы измерений vh, vw, vd (viewport width, viewport height, viewport
+  dynamic)
 tags:
   - "#CSS"
   - "#viewport"
   - "#vh"
   - "#vw"
   - "#vd"
-info:
+info: null
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 61
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 `vh`, `vw` и `vd` - это единицы измерения, используемые в CSS для определения размеров элементов на основе ширины и высоты видимой области браузера - viewport.
 
 - _`vh` (viewport height)_ определяет размер элемента в процентах от высоты viewport. Например, значение `50vh` означает, что элемент будет занимать 50% высоты viewport.

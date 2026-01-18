@@ -1,6 +1,6 @@
 ---
-title: Пользовательские ошибки, расширение Error
-draft: false
+uid: IseSTixJAFpBn7yxzlssK
+title: "Пользовательские ошибки, расширение Error"
 tags:
   - "#JavaScript"
   - "#error"
@@ -9,7 +9,16 @@ tags:
 info:
   - "[[0060 Методы try..catch|Методы try..catch]]"
   - "[[0050 Методы объектов|Методы объектов]]"
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 61
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ## Введение
 
 Когда что-то разрабатываем, то нам часто необходимы собственные классы ошибок для разных вещей, которые могут пойти не так в наших задачах. Для ошибок при работе с сетью может понадобиться `HttpError`, для операций с базой данных `DbError`, для поиска – `NotFoundError` и т.д.
@@ -37,61 +46,64 @@ JavaScript позволяет вызывать `throw` с любыми арг�
 Наш класс `ValidationError` должен наследовать от встроенного класса `Error`.
 
 Класс `Error` встроенный, вот его примерный код, просто чтобы мы понимали, что расширяем:
-~~~js
-// "Псевдокод" встроенного класса Error, определённого самим JavaScript 
 
-class Error {   
-	constructor(message) {     
-		this.message = message;     
-		this.name = "Error"; // (разные имена для разных встроенных классов ошибок)     
+```js
+// "Псевдокод" встроенного класса Error, определённого самим JavaScript
+
+class Error {
+	constructor(message) {
+		this.message = message;
+		this.name = "Error"; // (разные имена для разных встроенных классов ошибок)
 		this.stack = <стек вызовов>; // нестандартное свойство, но обычно поддерживается   } }`
-~~~
+```
 
 Теперь давайте унаследуем от него `ValidationError` и попробуем новый класс в действии:
-~~~js
-class ValidationError extends Error {_   
-	constructor(message) {     
-		super(message); // (1)     
-		this.name = "ValidationError"; // (2)   } }  
-		
-function test() {   
-	throw new ValidationError("Упс!"); }  
 
-try {   test(); 
-} catch(err) {   
-	alert(err.message); // Упс!   
-	alert(err.name); // ValidationError   
+```js
+class ValidationError extends Error {_
+	constructor(message) {
+		super(message); // (1)
+		this.name = "ValidationError"; // (2)   } }
+
+function test() {
+	throw new ValidationError("Упс!"); }
+
+try {   test();
+} catch(err) {
+	alert(err.message); // Упс!
+	alert(err.name); // ValidationError
 	alert(err.stack); // список вложенных вызовов с номерами строк для каждого }`
-~~~
+```
 
 Обратите внимание: в строке `(1)` вызываем родительский конструктор. JavaScript требует от нас вызова `super` в дочернем конструкторе, так что это обязательно. Родительский конструктор устанавливает свойство `message`.
 
 Родительский конструктор также устанавливает свойство `name` для `"Error"`, поэтому в строке `(2)` мы сбрасываем его на правильное значение.
 
 Попробуем использовать его в `readUser(json)`:
-~~~js
-class ValidationError extends Error {   
-	constructor(message) {     
-		super(message);     
-		this.name = "ValidationError";   } }  // Использование function 
-readUser(json) {   
-	let user = JSON.parse(json);    
-	if (!user.age) {     
-		throw new ValidationError("Нет поля: age");   }  
-	if (!user.name) {     
-		throw new ValidationError("Нет поля: name");   }    
-	return user; }  // Рабочий пример с try..catch  
-	
-try {   
-	let user = readUser('{ "age": 25 }'); 
-} catch (err) {   
+
+```js
+class ValidationError extends Error {
+	constructor(message) {
+		super(message);
+		this.name = "ValidationError";   } }  // Использование function
+readUser(json) {
+	let user = JSON.parse(json);
+	if (!user.age) {
+		throw new ValidationError("Нет поля: age");   }
+	if (!user.name) {
+		throw new ValidationError("Нет поля: name");   }
+	return user; }  // Рабочий пример с try..catch
+
+try {
+	let user = readUser('{ "age": 25 }');
+} catch (err) {
 	if (err instanceof ValidationError) {     _
-		alert("Некорректные данные: " + err.message); // Некорректные данные: Нет поля: name_   
-	} else if (err instanceof SyntaxError) { // (*)     
-		alert("JSON Ошибка Синтаксиса: " + err.message);   
-	} else {     
+		alert("Некорректные данные: " + err.message); // Некорректные данные: Нет поля: name_
+	} else if (err instanceof SyntaxError) { // (*)
+		alert("JSON Ошибка Синтаксиса: " + err.message);
+	} else {
 		throw err; // неизвестная ошибка, пробросить исключение (**)   } }`
-~~~
+```
 
 Блок `try..catch` в коде выше обрабатывает и нашу `ValidationError`, и встроенную `SyntaxError` из `JSON.parse`.
 
@@ -108,40 +120,41 @@ try {
 ## Дальнейшее наследование
 
 Класс `ValidationError` является слишком общим. Много что может пойти не так. Свойство может отсутствовать или иметь неверный формат (например, строка как значение возраста `age`). Поэтому для отсутствующих свойств сделаем более конкретный класс `PropertyRequiredError`. Он будет нести дополнительную информацию о свойстве, которое отсутствует.
-~~~js
-class ValidationError extends Error {   
-	constructor(message) {     
-		super(message);     
+
+```js
+class ValidationError extends Error {
+	constructor(message) {
+		super(message);
 		this.name = "ValidationError";   } }  _
-		
-class PropertyRequiredError extends ValidationError {   
-	constructor(property) {     
-		super("Нет свойства: " + property);     
-		this.name = "PropertyRequiredError";     
-		this.property = property;   } }_  // Применение  
-		
-	function readUser(json) {   
-		let user = JSON.parse(json);    
-		if (!user.age) {     
-			throw new PropertyRequiredError("age");   
-		}   if (!user.name) {     
-			throw new PropertyRequiredError("name");   }    
-		return user; }  // Рабочий пример с try..catch  
-		
-		try {   let user = readUser('{ "age": 25 }'); 
-		} catch (err) {   
-		
+
+class PropertyRequiredError extends ValidationError {
+	constructor(property) {
+		super("Нет свойства: " + property);
+		this.name = "PropertyRequiredError";
+		this.property = property;   } }_  // Применение
+
+	function readUser(json) {
+		let user = JSON.parse(json);
+		if (!user.age) {
+			throw new PropertyRequiredError("age");
+		}   if (!user.name) {
+			throw new PropertyRequiredError("name");   }
+		return user; }  // Рабочий пример с try..catch
+
+		try {   let user = readUser('{ "age": 25 }');
+		} catch (err) {
+
 		if (err instanceof ValidationError) {     _
-		
-		alert("Неверные данные: " + err.message); // Неверные данные: Нет свойства: name     
-		alert(err.name); // PropertyRequiredError     
-		alert(err.property); // name_   
-		
-		} else if (err instanceof SyntaxError) {     
-			alert("Ошибка синтаксиса JSON: " + err.message);   
-		} else {     
+
+		alert("Неверные данные: " + err.message); // Неверные данные: Нет свойства: name
+		alert(err.name); // PropertyRequiredError
+		alert(err.property); // name_
+
+		} else if (err instanceof SyntaxError) {
+			alert("Ошибка синтаксиса JSON: " + err.message);
+		} else {
 			throw err; // неизвестная ошибка, повторно выбросит исключение   } }`
-~~~
+```
 
 Новый класс `PropertyRequiredError` очень просто использовать: необходимо указать только имя свойства `new PropertyRequiredError(property)`. Сообщение для пользователя `message` генерируется конструктором.
 
@@ -150,20 +163,27 @@ class PropertyRequiredError extends ValidationError {
 Давайте назовём его `MyError`.
 
 Вот упрощённый код с `MyError` и другими пользовательскими классами ошибок:
-~~~js
-class MyError extends Error {   
-	constructor(message) {     
-		super(message);     _
-		this.name = this.constructor.name;_   } }  
-		
-class ValidationError extends MyError { }  
 
-class PropertyRequiredError extends ValidationError {   
-	constructor(property) {     
-		super("Нет свойства: " + property);     
-		this.property = property;   } }  // name корректное 
-		alert( new PropertyRequiredError("field").name ); // PropertyRequiredError`
-~~~
+```js
+class MyError extends Error {
+  constructor(message) {
+    super(message);
+    _;
+    this.name = this.constructor.name;
+    _;
+  }
+}
+
+class ValidationError extends MyError {}
+
+class PropertyRequiredError extends ValidationError {
+  constructor(property) {
+    super("Нет свойства: " + property);
+    this.property = property;
+  }
+} // name корректное
+alert(new PropertyRequiredError("field").name); // PropertyRequiredError`
+```
 
 Теперь пользовательские ошибки стали намного короче, особенно `ValidationError`, так как мы избавились от строки `"this.name = ..."` в конструкторе.
 
@@ -180,51 +200,52 @@ class PropertyRequiredError extends ValidationError {
 Итак, давайте создадим новый класс `ReadError` для представления таких ошибок. Если ошибка возникает внутри `readUser`, мы её перехватим и сгенерируем `ReadError`. Мы также сохраним ссылку на исходную ошибку в свойстве `cause`. Тогда внешний код должен будет только проверить наличие `ReadError`.
 
 Этот код определяет ошибку `ReadError` и демонстрирует её использование в `readUser`и `try..catch`:
-~~~js
-class ReadError extends Error {   
-	constructor(message, cause) {     
-		super(message);     
-		this.cause = cause;     
-		this.name = 'ReadError';   } }  
 
-class ValidationError extends Error { /*...*/ } 
+```js
+class ReadError extends Error {
+	constructor(message, cause) {
+		super(message);
+		this.cause = cause;
+		this.name = 'ReadError';   } }
 
-class PropertyRequiredError extends ValidationError { /* ... */ }  
+class ValidationError extends Error { /*...*/ }
 
-function validateUser(user) {   
-	if (!user.age) {     
-		throw new PropertyRequiredError("age");   }    
-	
-	if (!user.name) {     
-		throw new PropertyRequiredError("name");   } }  
-		
-function readUser(json) {   
-	let user;    
-	try {     
-		user = JSON.parse(json);   
+class PropertyRequiredError extends ValidationError { /* ... */ }
+
+function validateUser(user) {
+	if (!user.age) {
+		throw new PropertyRequiredError("age");   }
+
+	if (!user.name) {
+		throw new PropertyRequiredError("name");   } }
+
+function readUser(json) {
+	let user;
+	try {
+		user = JSON.parse(json);
 	} catch (err) {     _
-	
-	if (err instanceof SyntaxError) {       
-		throw new ReadError("Синтаксическая ошибка", err);     
-	} else {       
-		throw err;     }_   }    
-		try {     validateUser(user);   
+
+	if (err instanceof SyntaxError) {
+		throw new ReadError("Синтаксическая ошибка", err);
+	} else {
+		throw err;     }_   }
+		try {     validateUser(user);
 	} catch (err) {     _
-	
-	if (err instanceof ValidationError) {       
-		throw new ReadError("Ошибка валидации", err);     
-	} else {       
-		throw err;     }_   }  }  
-		
-	try {   
-		readUser('{bad json}'); 
-	} catch (e) {   
-	
+
+	if (err instanceof ValidationError) {
+		throw new ReadError("Ошибка валидации", err);
+	} else {
+		throw err;     }_   }  }
+
+	try {
+		readUser('{bad json}');
+	} catch (e) {
+
 	if (e instanceof ReadError) {     _
-		alert(e);     // Исходная ошибка: SyntaxError:Unexpected token b in JSON at position 1     
-		alert("Исходная ошибка: " + e.cause);_   
+		alert(e);     // Исходная ошибка: SyntaxError:Unexpected token b in JSON at position 1
+		alert("Исходная ошибка: " + e.cause);_
 	} else {     throw e;   } }`
-~~~
+```
 
 В приведённом выше коде `readUser` работает так, как описано – функция распознаёт синтаксические ошибки и ошибки валидации и выдаёт вместо них ошибки `ReadError` (неизвестные ошибки, как обычно, пробрасываются).
 
@@ -234,6 +255,6 @@ function readUser(json) {
 
 ## Итого
 
--   Мы можем наследовать свои классы ошибок от `Error` и других встроенных классов ошибок, но нужно позаботиться о свойстве `name` и не забыть вызвать `super`.
--   Мы можем использовать `instanceof` для проверки типа ошибок. Это также работает с наследованием. Но иногда у нас объект ошибки, возникшей в сторонней библиотеке, и нет простого способа получить класс. Тогда для проверки типа ошибки можно использовать свойство `name`.
--   Обёртывание исключений является распространённой техникой: функция ловит низкоуровневые исключения и создаёт одно «высокоуровневое» исключение вместо разных низкоуровневых. Иногда низкоуровневые исключения становятся свойствами этого объекта, как `err.cause` в примерах выше, но это не обязательно.
+- Мы можем наследовать свои классы ошибок от `Error` и других встроенных классов ошибок, но нужно позаботиться о свойстве `name` и не забыть вызвать `super`.
+- Мы можем использовать `instanceof` для проверки типа ошибок. Это также работает с наследованием. Но иногда у нас объект ошибки, возникшей в сторонней библиотеке, и нет простого способа получить класс. Тогда для проверки типа ошибки можно использовать свойство `name`.
+- Обёртывание исключений является распространённой техникой: функция ловит низкоуровневые исключения и создаёт одно «высокоуровневое» исключение вместо разных низкоуровневых. Иногда низкоуровневые исключения становятся свойствами этого объекта, как `err.cause` в примерах выше, но это не обязательно.

@@ -1,13 +1,21 @@
 ---
+uid: qYMnHauqBFH_zupMTiBAo
 title: Что такое Git Flow?
-draft: false
 tags:
   - "#git"
   - "#gitFlow"
 info:
-  - https://habr.com/ru/articles/705032/
-  - https://habr.com/ru/articles/522204/
+  - "https://habr.com/ru/articles/705032/"
+  - "https://habr.com/ru/articles/522204/"
+draft: false
+technology: Подготовка к собеседованию
+tools: []
+order: 14
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _Git Flow_ - это методология работы с Git-репозиториями, разработанная _Винсентом Дриессеном_, основателем компании nvie. Она предоставляет набор правил и рекомендаций для эффективной организации рабочего процесса на основе Git.
 
 _Методология `Git Flow` предполагает использование двух основных веток: `master` и `develop`. В ветке `master` хранятся только стабильные версии продукта, которые готовы к выпуску. В ветке `develop` хранится код, который находится в процессе разработки и тестирования._

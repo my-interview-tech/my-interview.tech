@@ -1,13 +1,25 @@
 ---
-title: Как вы можете реализовать пользовательские границы ошибок в проекте Next.js, чтобы корректно обрабатывать ошибки и предотвращать сбой всего приложения?
-draft: false
+uid: tnx44MFJqNqIGRtybTg--
+title: >-
+  Как вы можете реализовать пользовательские границы ошибок в проекте Next.js,
+  чтобы корректно обрабатывать ошибки и предотвращать сбой всего приложения?
 tags:
   - NextJS
   - ErrorBoundaries
   - getDerivedStateFromError
 info:
-  - https://nextjs.org/docs/pages/building-your-application/configuring/error-handling
+  - >-
+    https://nextjs.org/docs/pages/building-your-application/configuring/error-handling
+draft: false
+technology: Next.js
+specialty: Frontend
+tools: []
+order: 40
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Для реализации пользовательских границ ошибок в проекте Next.js, чтобы корректно обрабатывать ошибки и предотвращать сбой всего приложения, можно воспользоваться следующими шагами:
 
 1. Создание пользовательского компонента границы ошибок
@@ -15,7 +27,7 @@ info:
 Создайте классовый компонент, который расширяет `React.Component`. Реализуйте метод жизненного цикла `static getDerivedStateFromError(error)`, чтобы захватывать ошибки и обновлять состояние компонента. В методе `render()` отобразите резервный UI при возникновении ошибок, чтобы предотвратить сбой всего приложения.
 
 ```jsx
-import React from 'react';
+import React from "react";
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -57,6 +69,6 @@ class ErrorBoundary extends React.Component {
 
 Использование границ ошибок позволяет изолировать ошибки и предотвратить сбой всего приложения, обеспечивая более стабильный и устойчивый пользовательский опыт.
 
-___
+---
 
 [[006 Next.js|Назад]]

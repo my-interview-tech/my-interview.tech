@@ -1,6 +1,6 @@
 ---
+uid: LLnx91PBdloFWcb2bDdOh
 title: Сокращённое свойство flex
-draft: false
 tags:
   - "#CSS"
   - "#flex"
@@ -8,8 +8,17 @@ tags:
   - "#flex-shrink"
   - "#flex-basis"
 info:
-  - https://developer.mozilla.org/ru/docs/Learn/CSS/CSS_layout/Flexbox
+  - "https://developer.mozilla.org/ru/docs/Learn/CSS/CSS_layout/Flexbox"
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 73
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 **flex** это сокращённое свойство, в которым можно задать до трёх разных свойств:
 
 - Значение пропорции. Оно может быть установлено отдельно с помощью свойства **flex-grow**.

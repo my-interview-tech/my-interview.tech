@@ -1,12 +1,21 @@
 ---
+uid: VCa5egEyNeaLL0SAj330G
 title: Виды событий в JavaScript
-draft: false
 tags:
   - "#DOM"
   - "#event"
   - "#browser"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 8
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230701212455.png]]
 
 _События (events)_ - это действия, которые происходят в браузере, например, клик мыши, нажатие клавиши на клавиатуре, загрузка документа и т.д. Когда происходит событие, браузер создает объект события и передает его в обработчик событий (event handler), который обрабатывает это событие.

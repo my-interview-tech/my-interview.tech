@@ -1,12 +1,21 @@
 ---
+uid: e6vMFF3v2AyiQ6S3O_LCS
 title: Разница между `canvas` и `svg`?
-draft: false
 tags:
   - "#HTML"
   - "#canvas"
   - "#svg"
-info:
+info: null
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 38
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704020819.png|600]]
 
 `Canvas` и `SVG` - это два разных подхода к созданию графики на веб-страницах. Разница между ними заключается в том, как они создают и отображают графические элементы.

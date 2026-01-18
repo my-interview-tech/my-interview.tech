@@ -1,6 +1,6 @@
 ---
-title: Разница между `module.exports` и `exports`,
-draft: false
+uid: P2kOVrUpK_USQ2ybEb3Yg
+title: "Разница между `module.exports` и `exports`,"
 tags:
   - "#NodeJS"
   - "#exports"
@@ -9,7 +9,16 @@ info:
   - "[[1. Модули, введение|Модули, введение]]"
   - "[[2. Экспорт и импорт|Экспорт и импорт]]"
   - "[[3. Динамические импорты|Динамические импорты]]"
+draft: false
+technology: Node.js
+specialty: Backend
+tools: []
+order: 16
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704135909.png|600]]
 
 В Node.js существует два способа экспорта модуля: `module.exports` и `exports`. Оба этих способа позволяют экспортировать переменные и функции из модуля, но имеют некоторые отличия.

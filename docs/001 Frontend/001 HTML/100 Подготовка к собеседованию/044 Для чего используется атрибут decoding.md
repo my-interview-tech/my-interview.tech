@@ -1,12 +1,21 @@
 ---
+uid: dDY3UafyO3hwz5Qi-d36n
 title: Для чего используется атрибут `decoding`?
-draft: false
 tags:
   - "#HTML"
   - "#img"
   - "#decoding"
-info:
+info: null
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 44
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704021144.png|600]]
 
 Атрибут `decoding` используется для указания браузеру, как должно быть декодировано содержимое изображения в формате `<img>`.
@@ -23,7 +32,7 @@ info:
 Например, следующий код использует атрибут `decoding` для указания браузеру, что изображение должно быть декодировано асинхронно:
 
 ```html
-<img src="image.jpg" decoding="async" alt="Изображение">
+<img src="image.jpg" decoding="async" alt="Изображение" />
 ```
 
 В целом, использование атрибута `decoding` может помочь оптимизировать загрузку страницы и улучшить пользовательский опыт, особенно на медленных соединениях.

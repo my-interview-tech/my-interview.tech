@@ -1,11 +1,20 @@
 ---
+uid: lraVKQFxYvXeApnPh0LMY
 title: Карманная книга по TS. Часть 8. Модули
-draft: false
 tags:
   - TypeScript
 info:
-  - https://habr.com/ru/companies/macloud/articles/563722/
+  - "https://habr.com/ru/companies/macloud/articles/563722/"
+draft: false
+technology: TypeScript
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 # Определение модуля
 
 В `TS`, как и в `ECMAScript2015`, любой файл, содержащий `import` или `export` верхнего уровня (глобальный), считается модулем.
@@ -29,6 +38,7 @@ export {}
 # Модули в `TS`
 
 Существует 3 вещи, на которые следует обращать внимание при работе с модулями в `TS`:
+
 - Синтаксис: какой синтаксис я хочу использовать для импорта и экспорта сущностей?
 - Разрешение модулей: каковы отношения между названиями модулей (или их путями) и файлами на диске?
 - Результат: на что должен быть похож код модуля?
@@ -237,6 +247,7 @@ squareTwo
 # Настройки для результатов разрешения модулей
 
 Имеется две настройки, которые влияют на результирующий `JS-код`:
+
 - [`target`](https://www.typescriptlang.org/tsconfig#target) — определяет версию `JS`, в которую компилируется `TS-код`
 - [`module`](https://www.typescriptlang.org/tsconfig#module) — определяет, какой код используется для взаимодействия модулей между собой
 

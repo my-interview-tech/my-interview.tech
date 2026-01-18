@@ -1,12 +1,20 @@
 ---
+uid: yc6VQ4ucXTx2ywXEge3Zo
 title: Разница между host и domain?
-draft: false
 tags:
   - Host
   - domain
   - browser
-info:
+info: null
+draft: false
+technology: Подготовка к собеседованию
+tools: []
+order: 16
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703191830.png|600]]
 
 Host и domain - это два термина, которые используются в контексте сети Интернет. Они оба используются для идентификации узлов в сети, но имеют некоторые различия.

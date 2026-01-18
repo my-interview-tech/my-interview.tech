@@ -1,13 +1,21 @@
 ---
+uid: wkcBtnPAXcRXKHDdNBSxu
 title: Что такое Service Workers?
-draft: false
 tags:
   - serviceWorker
   - PWA
   - browser
 info:
-  - https://habr.com/ru/companies/2gis/articles/345552/
+  - "https://habr.com/ru/companies/2gis/articles/345552/"
+draft: false
+technology: Подготовка к собеседованию
+tools: []
+order: 45
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703192421.png|600]]
 
 _Service Workers_ - это скрипты, которые запускаются в фоновом режиме и могут обрабатывать и кэшировать запросы пользователя без необходимости подключения к серверу. Они позволяют создавать более быстрые и отзывчивые веб-приложения, которые могут работать даже в оффлайн-режиме.

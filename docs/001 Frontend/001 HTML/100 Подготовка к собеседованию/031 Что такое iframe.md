@@ -1,11 +1,20 @@
 ---
+uid: spst88r4hIs-IukDjje98
 title: Что такое `iframe`?
-draft: false
 tags:
   - "#HTML"
   - "#iframe"
-info:
+info: null
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 31
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704020257.png|600]]
 
 `iframe` - это HTML-элемент, который позволяет встраивать одну веб-страницу внутрь другой. `iframe` может содержать любой допустимый HTML-код, включая другие элементы `iframe`.

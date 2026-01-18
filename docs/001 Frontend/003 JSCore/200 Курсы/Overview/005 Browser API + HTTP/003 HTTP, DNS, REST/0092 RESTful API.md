@@ -1,12 +1,21 @@
 ---
+uid: PQgaIqzDE-RNCD02UTFR1
 title: RESTful API
-draft: false
 tags:
   - "#browser"
   - "#backend"
   - "#rest"
   - "#HTTP"
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 92
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 # RESTful API для фронтенд разработчика
 
 ![](https://ymatuhin.ru/assets/img/rest_api/restful.png)
@@ -15,11 +24,11 @@ tags:
 
 ## Что такое REST
 
-**REST (Representational state transfer)** — общие принципы организации взаимодействия приложения/сайта с сервером по `HTTP`. Сервер не запоминает состояние пользователя между запросами. В запросах передаётся информация, идентифицирующая пользователя (например _токен_) и параметры для выполнения операции.
+**REST (Representational state transfer)** — общие принципы организации взаимодействия приложения/сайта с сервером по `HTTP`. Сервер не запоминает состояние пользователя между запросами. В запросах передаётся информация, идентифицирующая пользователя (например *токен*) и параметры для выполнения операции.
 
 ## Разница между REST и RESTful
 
-**REST** — архитектурный стиль, а **RESTful** это сервис который следует этому стилю. Т.е если у вас на сервере _REST API_, а на клиенте вы делаете запросы к этому _API_, то у вас **RESTful** приложение/сайт.
+**REST** — архитектурный стиль, а **RESTful** это сервис который следует этому стилю. Т.е если у вас на сервере *REST API*, а на клиенте вы делаете запросы к этому *API*, то у вас **RESTful** приложение/сайт.
 
 ## Как это работает
 
@@ -56,7 +65,7 @@ tags:
 ##### Кратко
 
 Рефы дают возможность получить доступ к DOM-узлам или React-элементам, созданным (при рендеренге) в рендер-методе.
-Чтобы модифицировать потомка (React-компонент или DOM-элемент), необходимо заново отрендерить его с новыми пропсами. 
+Чтобы модифицировать потомка (React-компонент или DOM-элемент), необходимо заново отрендерить его с новыми пропсами.
 
 Ref используется при управлении фокусом, вызове анимаций или интеграции со сторонними библиотеками. Не рекомендуется злоупотреблять ref ами потому что state должен хранится на верхнем уровне иерархии.
 
@@ -88,9 +97,9 @@ const node = this.myRef.current;
 
 Ситуации, в которых использование рефов является оправданным:
 
--   Управление фокусом, выделение текста или воспроизведение медиа.
--   Императивный вызов анимаций.
--   Интеграция со сторонними DOM-библиотеками.
+- Управление фокусом, выделение текста или воспроизведение медиа.
+- Императивный вызов анимаций.
+- Интеграция со сторонними DOM-библиотеками.
 
 Избегайте использования рефов в ситуациях, когда задачу можно решить декларативным способом.
 
@@ -111,9 +120,11 @@ const node = this.myRef.current;
 class MyComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.myRef = React.createRef();  }
+    this.myRef = React.createRef();
+  }
   render() {
-    return <div ref={this.myRef} />;  }
+    return <div ref={this.myRef} />;
+  }
 }
 ```
 
@@ -127,9 +138,9 @@ const node = this.myRef.current;
 
 Значение рефа отличается в зависимости от типа узла:
 
--   Когда атрибут `ref` используется с HTML-элементом, свойство `current` созданного рефа в конструкторе с помощью `React.createRef()` получает соответствующий DOM-элемент.
--   Когда атрибут `ref` используется с классовым компонентом, свойство `current` объекта-рефа получает экземпляр смонтированного компонента.
--   **Нельзя использовать `ref` атрибут с функциональными компонентами**, потому что для них не создаётся экземпляров.
+- Когда атрибут `ref` используется с HTML-элементом, свойство `current` созданного рефа в конструкторе с помощью `React.createRef()` получает соответствующий DOM-элемент.
+- Когда атрибут `ref` используется с классовым компонентом, свойство `current` объекта-рефа получает экземпляр смонтированного компонента.
+- **Нельзя использовать `ref` атрибут с функциональными компонентами**, потому что для них не создаётся экземпляров.
 
 Представленные ниже примеры демонстрируют отличия в зависимости от типа узла.
 
@@ -142,22 +153,23 @@ class CustomTextInput extends React.Component {
   constructor(props) {
     super(props);
     // создадим реф в поле `textInput` для хранения DOM-элемента
-    this.textInput = React.createRef();    this.focusTextInput = this.focusTextInput.bind(this);
+    this.textInput = React.createRef();
+    this.focusTextInput = this.focusTextInput.bind(this);
   }
 
   focusTextInput() {
     // Установим фокус на текстовое поле с помощью чистого DOM API
     // Примечание: обращаемся к "current", чтобы получить DOM-узел
-    this.textInput.current.focus();  }
+    this.textInput.current.focus();
+  }
 
   render() {
     // описываем, что мы хотим связать реф <input>
     // с `textInput` созданным в конструкторе
     return (
       <div>
+        <input type="text" ref={this.textInput} />{" "}
         <input
-          type="text"
-          ref={this.textInput} />        <input
           type="button"
           value="Фокус на текстовом поле"
           onClick={this.focusTextInput}
@@ -178,14 +190,15 @@ React присвоит DOM-элемент свойству `current` при м
 class AutoFocusTextInput extends React.Component {
   constructor(props) {
     super(props);
-    this.textInput = React.createRef();  }
+    this.textInput = React.createRef();
+  }
 
   componentDidMount() {
-    this.textInput.current.focusTextInput();  }
+    this.textInput.current.focusTextInput();
+  }
 
   render() {
-    return (
-      <CustomTextInput ref={this.textInput} />    );
+    return <CustomTextInput ref={this.textInput} />;
   }
 }
 ```
@@ -193,7 +206,8 @@ class AutoFocusTextInput extends React.Component {
 Обратите внимание, что это сработает только в том случае, если `CustomTextInput` объявлен как классовый компонент:
 
 ```js
-class CustomTextInput extends React.Component {  // ...
+class CustomTextInput extends React.Component {
+  // ...
 }
 ```
 
@@ -202,17 +216,18 @@ class CustomTextInput extends React.Component {  // ...
 По умолчанию **нельзя использовать атрибут `ref` с функциональными компонентами**, потому что для них не создаётся экземпляров:
 
 ```js
-function MyFunctionComponent() {  return <input />;
+function MyFunctionComponent() {
+  return <input />;
 }
 
 class Parent extends React.Component {
   constructor(props) {
     super(props);
-    this.textInput = React.createRef();  }
+    this.textInput = React.createRef();
+  }
   render() {
     // Данный код *не будет* работать!
-    return (
-      <MyFunctionComponent ref={this.textInput} />    );
+    return <MyFunctionComponent ref={this.textInput} />;
   }
 }
 ```
@@ -225,13 +240,13 @@ class Parent extends React.Component {
 function CustomTextInput(props) {
   // textInput должна быть объявлена здесь, чтобы реф мог иметь к ней доступ  const textInput = useRef(null);
   function handleClick() {
-    textInput.current.focus();  }
+    textInput.current.focus();
+  }
 
   return (
     <div>
+      <input type="text" ref={textInput} />{" "}
       <input
-        type="text"
-        ref={textInput} />      <input
         type="button"
         value="Фокус на поле для ввода текста"
         onClick={handleClick}
@@ -300,16 +315,14 @@ React вызовет `ref` колбэк с DOM-элементом при мо
 function CustomTextInput(props) {
   return (
     <div>
-      <input ref={props.inputRef} />    </div>
+      <input ref={props.inputRef} />{" "}
+    </div>
   );
 }
 
 class Parent extends React.Component {
   render() {
-    return (
-      <CustomTextInput
-        inputRef={el => this.inputElement = el}      />
-    );
+    return <CustomTextInput inputRef={(el) => (this.inputElement = el)} />;
   }
 }
 ```
@@ -321,12 +334,9 @@ class Parent extends React.Component {
 Если вы уже работали с React ранее, возможно вы знакомы с более старым API, в котором атрибут `ref` является строкой, например`"textInput"`, а DOM-узел доступен в `this.refs.textInput`. Мы не советуем пользоваться таким решением, т. к. у строковых рефов есть [некоторые недостатки](https://github.com/facebook/react/pull/8333#issuecomment-271648615), они являются устаревшими и **будут удалены в одном из будущих релизов**.
 
 > Примечание
-> 
+>
 > Если вы используете `this.refs.textInput` для доступа к рефам в своих проектах, мы рекомендуем перейти к использованию [паттерна с колбэком](https://ru.reactjs.org/docs/refs-and-the-dom.html#callback-refs) или [`createRef` API](https://ru.reactjs.org/docs/refs-and-the-dom.html#creating-refs).
 
 ##### Предостережения насчёт колбэк-рефов
 
 Если `ref` колбэк определён как встроенная функция, колбэк будет вызван дважды во время обновлений: первый раз со значением `null`, а затем снова с DOM-элементом. Это связано с тем, что с каждым рендером создаётся новый экземпляр функции, поэтому React должен очистить старый реф и задать новый. Такого поведения можно избежать, если колбэк в `ref` будет определён с привязанным к классу контекстом, но, заметим, что это не будет играть роли в большинстве случаев.
-
-
-

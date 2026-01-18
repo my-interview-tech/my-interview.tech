@@ -1,12 +1,21 @@
 ---
+uid: LVPRY6rYVzUi298K0N_Wi
 title: Какие есть ограничения у `window.close()`?
-draft: false
 tags:
   - "#DOM"
   - "#window"
   - "#browser"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 34
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230702114256.png|600]]\
 
 Метод `window.close()` используется для закрытия текущего окна браузера или вкладки. Этот метод может быть полезен, например, при реализации функциональности выхода из приложения или закрытии всплывающего окна.

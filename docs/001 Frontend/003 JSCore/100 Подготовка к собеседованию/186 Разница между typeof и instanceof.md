@@ -1,12 +1,21 @@
 ---
+uid: N_WlPOnvqIfXYyyE2kFdx
 title: Разница между `typeof` и `instanceof`?
-draft: false
 tags:
   - "#JavaScript"
   - "#instanceof"
   - "#typeOf"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 186
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 `typeof` и `instanceof` - это два разных оператора в JavaScript, которые используются для определения типа данных.
 
 *Оператор `typeof`* возвращает строку, указывающую тип операнда. Он может быть использован для определения типа данных примитивных типов (например, строк, чисел, булевых значений) и определенных объектов (например, функций и массивов).
@@ -24,17 +33,17 @@ info:
 ```javascript
 class Person {
   constructor(firstName, lastName) {
-    this.firstName = firstName
-    this.lastName = lastName
+    this.firstName = firstName;
+    this.lastName = lastName;
   }
 }
 
-const person = new Person("John", "Doe")
+const person = new Person("John", "Doe");
 
-console.log(typeof person) // 'object'
-console.log(person instanceof Person) // true
-console.log(person instanceof Object) // true
-console.log(person instanceof Array) // false
+console.log(typeof person); // 'object'
+console.log(person instanceof Person); // true
+console.log(person instanceof Object); // true
+console.log(person instanceof Array); // false
 ```
 
 В этом примере мы создаем класс `Person` и объект `person` на его основе. Затем мы используем оператор `typeof`, чтобы определить тип данных объекта `person`. Мы также используем оператор `instanceof`, чтобы проверить, является ли объект `person` экземпляром класса `Person`, класса `Object` и класса `Array`.

@@ -1,16 +1,25 @@
 ---
+uid: ChJMlMVsuj1kLvgysmJP2
 title: Что такое Batching ?
-draft: false
 tags:
   - React
   - Hooks
   - useState
   - batching
 info:
-  - https://www.youtube.com/watch?v=bE4mXoNlovM
-  - https://medium.com/@shivamjjha/batching-in-react-af6c6ce83594
+  - "https://www.youtube.com/watch?v=bE4mXoNlovM"
+  - "https://medium.com/@shivamjjha/batching-in-react-af6c6ce83594"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 70
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
-_`setState` - асинхронная функция. Под капотом React объединяет все мутации состояний, благодаря чему код функционального компонента будет вызван 1 раз, это называется `batching`.
+
+\_`setState` - асинхронная функция. Под капотом React объединяет все мутации состояний, благодаря чему код функционального компонента будет вызван 1 раз, это называется `batching`.
 
 ```jsx
 function ExampleComponent() {
@@ -22,7 +31,6 @@ function ExampleComponent() {
 	setCount(count + 3);
 };
 ```
-
 
 ```jsx
 import React, { useState, FC } from "react";
@@ -62,26 +70,26 @@ export const ExampleFuncComponent: FC = () => {
 // Например count = 0
 const onClick0 = () => {
   // count + 1 = 0 + 1;
-  setCount(count + 1)
+  setCount(count + 1);
   // Здесь можем ожидать, что count уже 1, но т.к. вызов setState асинхронный
   // состояние еще не изменено, поэтому count по-прежнему 0
   // count + 1 = 0 + 1;
-  setCount(count + 1)
+  setCount(count + 1);
   // count + 1 = 0 + 1;
-  setCount(count + 1)
-}
+  setCount(count + 1);
+};
 ```
 
 Поэтому если новое состояние опирается на предыдущее состояние, используйте функцию:
 
 ```jsx
 const onClick1 = () => {
-  setCount((v) => v + 1)
-  setCount((v) => v + 1)
-  setCount((v) => v + 1)
-}
+  setCount((v) => v + 1);
+  setCount((v) => v + 1);
+  setCount((v) => v + 1);
+};
 ```
 
-___
+---
 
 [[004 ReactCore|Назад]]

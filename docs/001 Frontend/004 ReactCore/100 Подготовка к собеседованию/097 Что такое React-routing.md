@@ -1,6 +1,6 @@
 ---
+uid: hKYK_H5biR4HARa_WDXbR
 title: Что такое React-routing?
-draft: false
 tags:
   - "#React"
   - "#React-routing"
@@ -9,8 +9,17 @@ tags:
   - Route
   - Link
 info:
-  - https://habr.com/ru/articles/329996/
+  - "https://habr.com/ru/articles/329996/"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 97
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _React-routing (роутинг в React)_ - это процесс управления навигацией между страницами и компонентами в React-приложении. _Роутинг позволяет динамически изменять содержание страницы, не перезагружая всю страницу, а только обновляя её содержимое в соответствии с выбранным маршрутом._
 
 Роутинг обычно реализуется с помощью библиотеки `React Router`. Она предоставляет удобный API для определения маршрутов и управления навигацией в React-приложении.
@@ -25,11 +34,11 @@ _React-routing (роутинг в React)_ - это процесс управле
 Пример использования React Router:
 
 ```jsx
-import React from "react"
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom"
-import Home from "./components/Home"
-import About from "./components/About"
-import Contact from "./components/Contact"
+import React from "react";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
+import Contact from "./components/Contact";
 
 function App() {
   return (
@@ -61,10 +70,10 @@ function App() {
         </Switch>
       </div>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
 ```
 
 В этом примере используется React Router для создания маршрутизации между компонентами Home, About и Contact. `BrowserRouter` оборачивает всё приложение, а компоненты Route определяют, какой компонент должен быть отображен на странице в зависимости от текущего маршрута. Link используется для создания ссылок на различные маршруты в приложении.

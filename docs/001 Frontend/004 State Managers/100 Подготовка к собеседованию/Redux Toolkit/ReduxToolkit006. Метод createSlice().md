@@ -1,18 +1,27 @@
 ---
+uid: wGVeGwcYaknMY07XH_G2X
 title: Метод createSlice()
-draft: false
 tags:
   - React
   - redux-toolkit
   - createSlice
 info:
-  - https://habr.com/ru/companies/inobitec/articles/481288/
+  - "https://habr.com/ru/companies/inobitec/articles/481288/"
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 `createSlice()` автоматически генерирует типы и создателей операции на основе переданного названия редуктора:
 
 ```jsx
 const postsSlice = createSlice({
-  name: 'posts',
+  name: "posts",
   initialState: [],
   reducers: {
     createPost(state, action) {},
@@ -36,9 +45,7 @@ console.log(postsSlice);
 
 const { createPost } = postsSlice.actions;
 
-console.log(
-  createPost({ id: 123, title: 'Привет, народ!' })
-);
+console.log(createPost({ id: 123, title: "Привет, народ!" }));
 // { type : 'posts/createPost', payload : { id : 123, title : 'Привет, народ!' } }
 ```
 
@@ -48,7 +55,7 @@ console.log(
 
 ```jsx
 const postsSlice = createSlice({
-  name: 'posts',
+  name: "posts",
   initialState: [],
   reducers: {
     createPost(state, action) {},
@@ -60,15 +67,11 @@ const postsSlice = createSlice({
 // Извлекаем объект с создателями и редуктор
 const { actions, reducer } = postsSlice;
 // Извлекаем и экспортируем каждого создателя по названию
-export const {
-  createPost,
-  updatePost,
-  deletePost,
-} = actions;
+export const { createPost, updatePost, deletePost } = actions;
 // Экпортируем редуктор по умолчанию или по названию
 export default reducer;
 ```
 
-____
+---
 
 [[004 State Managers|Назад]]

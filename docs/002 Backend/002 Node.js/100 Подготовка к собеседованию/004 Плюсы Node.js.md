@@ -1,9 +1,18 @@
 ---
+uid: nIJ9b8f2XFqCqXaMKImlG
 title: Плюсы Node.js
-draft: false
 tags:
   - "#NodeJS"
+draft: false
+technology: Node.js
+specialty: Backend
+tools: []
+order: 4
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704134313.png|600]]
 
 Node.js имеет ряд преимуществ, которые делают его популярным инструментом для разработки серверных приложений. Ниже перечислены некоторые из главных плюсов Node.js:

@@ -1,12 +1,21 @@
 ---
+uid: kN3XTsQNbKYE3U19DRpUX
 title: Что такое same-origin policy в контексте JavaScript?
-draft: false
 tags:
   - "#SOP"
   - "#CORS"
   - "#browser"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 89
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703144453.png|600]]
 
 _Same-Origin Policy (`SOP`)_ - это политика безопасности, которая применяется в браузерах и ограничивает доступ JavaScript к ресурсам другого домена. Это означает, что скрипты, загруженные с одного домена, не могут получать доступ к ресурсам, загруженным с другого домена.

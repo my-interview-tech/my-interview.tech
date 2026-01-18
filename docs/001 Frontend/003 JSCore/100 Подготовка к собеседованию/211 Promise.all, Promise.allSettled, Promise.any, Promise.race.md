@@ -1,6 +1,6 @@
 ---
-title: Promise.all, Promise.allSettled, Promise.any, Promise.race
-draft: false
+uid: XhFsPPq5mVTiraHARH5yw
+title: "Promise.all, Promise.allSettled, Promise.any, Promise.race"
 tags:
   - "#JavaScript"
   - "#асинхронность"
@@ -9,8 +9,17 @@ tags:
   - "#promiseAllSettled"
   - "#promiseAny"
   - "#promiseRace"
-info:
+info: null
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 211
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ##### Разница между `Promise.all()`, `Promise.any()` и `Promise.race()`?
 
 ![Разница между `Promise.all()`, `Promise.any()` и `Promise.race()`?](https://youtu.be/XtQPrt8G0n8?t=782)
@@ -30,11 +39,11 @@ info:
 ```javascript
 Promise.all([promise1, promise2, promise3])
   .then(function (results) {
-    console.log(results)
+    console.log(results);
   })
   .catch(function (error) {
-    console.error(error)
-  })
+    console.error(error);
+  });
 ```
 
 ##### `Promise.allSettled()`
@@ -44,11 +53,11 @@ Promise.all([promise1, promise2, promise3])
 ```javascript
 Promise.allSettled([promise1, promise2, promise3])
   .then(function (results) {
-    console.log(results)
+    console.log(results);
   })
   .catch(function (error) {
-    console.error(error)
-  })
+    console.error(error);
+  });
 ```
 
 ##### `Promise.any()`
@@ -58,11 +67,11 @@ Promise.allSettled([promise1, promise2, promise3])
 ```javascript
 Promise.any([promise1, promise2, promise3])
   .then(function (result) {
-    console.log(result)
+    console.log(result);
   })
   .catch(function (error) {
-    console.error(error)
-  })
+    console.error(error);
+  });
 ```
 
 ##### `Promise.race()`
@@ -72,11 +81,11 @@ Promise.any([promise1, promise2, promise3])
 ```javascript
 Promise.race([promise1, promise2, promise3])
   .then(function (result) {
-    console.log(result)
+    console.log(result);
   })
   .catch(function (error) {
-    console.error(error)
-  })
+    console.error(error);
+  });
 ```
 
 ---

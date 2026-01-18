@@ -1,14 +1,22 @@
 ---
-title: Структура URL - path, query, string и fragment
-draft: false
+uid: HkonbNb_KitzhDRQWJbXZ
+title: "Структура URL - path, query, string и fragment"
 tags:
   - URL
   - HTTP-протокол
   - domain
   - browser
 info:
-  - https://habr.com/ru/post/232385/
+  - "https://habr.com/ru/post/232385/"
+draft: false
+technology: Подготовка к собеседованию
+tools: []
+order: 14
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _URL (Uniform Resource Locator)_ - это адрес ресурса в Интернете, такой как веб-страницы, изображения, видео и других файлов. URL состоит из трех основных компонентов: протокола, домена и пути. Кроме того, URL может содержать дополнительные компоненты, такие как query string и fragment.
 
 Структура URL:

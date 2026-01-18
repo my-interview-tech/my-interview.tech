@@ -1,12 +1,21 @@
 ---
+uid: cK4QNqreqe1FmxEfVCWx8
 title: Можно ли приложение на React встроить в другое приложение на React?
-draft: false
 tags:
   - "#React"
   - "#iframe"
   - "#composition"
-info:
+info: null
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 15
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Да, приложение на React можно встроить в другое приложение на React, это называется _компоновкой (composition) компонентов_.
 
 _Компоненты в React являются независимыми и могут быть использованы в других компонентах, что позволяет создавать многоразовые и переносимые элементы пользовательского интерфейса._
@@ -16,20 +25,20 @@ _Компоненты в React являются независимыми и мо
 Например, для встраивания приложения на React в другое приложение на React, можно создать компонент-обертку, который будет содержать тег `<iframe>` и передавать в него URL-адрес вложенного приложения:
 
 ```jsx
-import React from "react"
+import React from "react";
 
 const EmbeddedApp = ({ url }) => {
-  return <iframe src={url} />
-}
+  return <iframe src={url} />;
+};
 
-export default EmbeddedApp
+export default EmbeddedApp;
 ```
 
 Затем, этот компонент можно использовать в другом приложении на React, передавая ему URL-адрес встроенного приложения:
 
 ```jsx
-import React from "react"
-import EmbeddedApp from "./EmbeddedApp"
+import React from "react";
+import EmbeddedApp from "./EmbeddedApp";
 
 const MyApp = () => {
   return (
@@ -37,10 +46,10 @@ const MyApp = () => {
       <h1>My App</h1>
       <EmbeddedApp url="http://example.com" />
     </div>
-  )
-}
+  );
+};
 
-export default MyApp
+export default MyApp;
 ```
 
 В этом примере мы создаем компонент `MyApp`, который содержит компонент `EmbeddedApp` и передает ему URL-адрес встроенного приложения. Когда приложение будет запущено, компонент `EmbeddedApp` будет отображать встроенное приложение внутри `<iframe>` внутри `MyApp`.

@@ -1,12 +1,21 @@
 ---
+uid: r7bytTNb-XQVXS3gvRZs8
 title: Что такое ApplicationCache в HTML5?
-draft: false
 tags:
   - "#HTML"
   - "#ApplicationCache"
   - "#manifest"
-info:
+info: null
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 78
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704023313.png|600]]
 
 `*ApplicationCache*` - это _механизм кэширования_, который позволяет веб-приложениям _сохранять ресурсы на стороне клиента_, такие как HTML-страницы, изображения, стили CSS и скрипты JavaScript, _в локальном кэше браузера._ Это позволяет пользователям загружать веб-приложения быстрее и работать с ними в автономном режиме, без доступа к Интернету.

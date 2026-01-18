@@ -1,11 +1,20 @@
 ---
+uid: kxarCiwW_YQO7JugiBFR9
 title: Что такое stylelint?
-draft: false
 tags:
   - "#styleLint"
   - "#CSS"
-info:
+info: null
+draft: false
+technology: Настройка окружения
+specialty: Frontend
+tools: []
+order: 1
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704145846.png|600]]
 
 _Stylelint_ - это инструмент для проверки CSS кода на предмет соответствия заданным правилам и рекомендациям. Он позволяет автоматически проверять код на соответствие определенным стилям написания CSS и выдавать предупреждения или ошибки в случае нарушения этих правил.

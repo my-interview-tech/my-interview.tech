@@ -1,22 +1,33 @@
 ---
-title: Можете ли вы рассказать об отличиях между презентационным и контейнерным компонентами в React?
-draft: false
+uid: 2XP7gIXm1ssUeuVMR4VpI
+title: >-
+  Можете ли вы рассказать об отличиях между презентационным и контейнерным
+  компонентами в React?
 tags:
   - "#React"
   - Redux
   - presentation
   - container
-info:
+info: null
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _Презентационные компоненты обычно отвечают за отрисовку элементов пользовательского интерфейса на экране._ Они получают данные и обратные вызовы в качестве пропсов. Обычно они сосредоточены на рендеринге JSX и не знают о состоянии или действиях приложения.
 
 Вот пример презентационного компонента:
 
 ```javascript
-import React from "react"
+import React from "react";
 
 function Button(props) {
-  return <button>{props.label}</button>
+  return <button>{props.label}</button>;
 }
 ```
 
@@ -24,33 +35,37 @@ _Компоненты-контейнеры обычно отвечают за у
 Вот пример компонента-контейнера:
 
 ```javascript
-import React, { Component } from "react"
-import Button from "./Button"
+import React, { Component } from "react";
+import Button from "./Button";
 
 class Form extends Component {
   state = {
     name: "",
-  }
+  };
 
   handleChange = (event) => {
-    this.setState({ name: event.target.value })
-  }
+    this.setState({ name: event.target.value });
+  };
 
   handleSubmit = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     // отправка формы
-  }
+  };
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
           Name:
-          <input type="text" value={this.state.name} onChange={this.handleChange} />
+          <input
+            type="text"
+            value={this.state.name}
+            onChange={this.handleChange}
+          />
         </label>
         <Button label="Submit" />
       </form>
-    )
+    );
   }
 }
 ```
