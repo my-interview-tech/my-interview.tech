@@ -118,9 +118,9 @@ import PropTypes from "prop-types";
 const Todo = ({ onClick, completed, text }) => (
   <li
     onClick={onClick}
-    style={{
+    style={&#123;&#123;
       textDecoration: completed ? "line-through" : "none",
-    }}
+    &#125;&#125;}
   >
     {text}
   </li>

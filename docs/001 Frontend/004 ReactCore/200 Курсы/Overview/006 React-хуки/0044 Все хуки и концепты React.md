@@ -391,7 +391,7 @@ export default function main() {
     return (
         <div>
             <StateContext.Provider
-                value={{ countState: count, countDispatch: dispatch }}>
+                value={&#123;&#123; countState: count, countDispatch: dispatch &#125;&#125;}>
                 <ChildrenA />
             </StateContext.Provider>
         </div >
