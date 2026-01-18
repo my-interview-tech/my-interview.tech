@@ -3,7 +3,7 @@ uid: qSSSWgp-IPWC8nPm65avH
 title: Дополнительные библиотеки для работы с typescript - проектом
 tags:
   - TypeScript
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

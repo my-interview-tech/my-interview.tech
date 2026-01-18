@@ -3,6 +3,7 @@ uid: _R_Z5n5Sxf9UsTp5BQ7uq
 title: 002 Review - JSCore
 draft: false
 technology: other themes
+specialty: Frontend
 tools: []
 order: 2
 access: free

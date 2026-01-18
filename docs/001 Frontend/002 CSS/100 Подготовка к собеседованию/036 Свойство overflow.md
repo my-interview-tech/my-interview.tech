@@ -5,7 +5,7 @@ tags:
   - "#CSS"
   - "#CSS-свойство"
   - "#overflow"
-info: null
+info: []
 draft: false
 technology: CSS
 specialty: Frontend

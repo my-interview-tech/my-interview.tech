@@ -10,6 +10,7 @@ info:
   - "[[0090 Обзор протокола HTTP|Обзор протокола HTTP]]"
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 24
 access: free

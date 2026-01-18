@@ -4,9 +4,10 @@ title: Почему файлы bundle.js имеют разные хеши?
 tags:
   - "#webpack"
   - "#bundle"
-info: null
+info: []
 draft: false
 technology: Архитектура Веб-приложений
+specialty: Frontend
 tools: []
 order: 5
 access: free

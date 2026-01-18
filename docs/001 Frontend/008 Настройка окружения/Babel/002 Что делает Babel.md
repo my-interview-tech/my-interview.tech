@@ -3,7 +3,7 @@ uid: 1kxEKodR3ot7cLu80AIrw
 title: Что делает Babel?
 tags:
   - Babel
-info: null
+info: []
 draft: false
 technology: Настройка окружения
 specialty: Frontend

@@ -4,7 +4,7 @@ title: RTK Query
 tags:
   - RTK-Query
   - State-manager
-info: null
+info: []
 draft: false
 technology: State Managers
 specialty: Frontend

@@ -7,7 +7,7 @@ tags:
   - "#TypeScript"
   - "#internal-modules"
   - "#external-modules"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

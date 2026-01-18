@@ -4,7 +4,7 @@ title: Типы всплывающих окон в JavaScript?
 tags:
   - "#window"
   - "#browser"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

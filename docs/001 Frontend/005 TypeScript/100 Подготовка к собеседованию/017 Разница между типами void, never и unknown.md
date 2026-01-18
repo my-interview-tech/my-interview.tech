@@ -7,7 +7,7 @@ tags:
   - "#void"
   - "#never"
   - "#unknown"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

@@ -5,7 +5,7 @@ tags:
   - "#React"
   - "#React-router"
   - "#props"
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

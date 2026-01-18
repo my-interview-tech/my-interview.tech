@@ -4,7 +4,7 @@ title: React и Vue - что лучше и для каких задач?
 tags:
   - "#React"
   - Vue
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

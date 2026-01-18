@@ -4,7 +4,7 @@ title: В чем ключевое отличие между React и Angular?
 tags:
   - "#React"
   - Angular
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

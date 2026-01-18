@@ -1,5 +1,6 @@
 ---
 uid: l8cee1S94j8l9Bo5SYcf6
+title: WebCore2
 technology: HTML
 specialty: Frontend
 tools: []

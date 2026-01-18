@@ -4,7 +4,7 @@ title: Расскажите о свойстве `text-rendering`
 tags:
   - "#CSS"
   - "#text-rendering"
-info: null
+info: []
 draft: false
 technology: CSS
 specialty: Frontend

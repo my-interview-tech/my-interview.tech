@@ -7,7 +7,7 @@ tags:
   - "#call"
   - "#bind"
   - "#apply"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

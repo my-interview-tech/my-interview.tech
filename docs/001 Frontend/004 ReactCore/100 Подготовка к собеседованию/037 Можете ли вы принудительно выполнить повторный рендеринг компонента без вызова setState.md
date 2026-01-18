@@ -9,7 +9,7 @@ tags:
   - "#props"
   - "#state"
   - "#forceUpdate"
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

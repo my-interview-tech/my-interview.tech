@@ -4,7 +4,7 @@ title: Что такое модуль Cluster?
 tags:
   - "#NodeJS"
   - "#cluster"
-info: null
+info: []
 draft: false
 technology: Node.js
 specialty: Backend

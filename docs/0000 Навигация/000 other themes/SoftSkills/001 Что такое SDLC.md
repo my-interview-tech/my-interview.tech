@@ -10,6 +10,7 @@ info:
     https://www.youtube.com/watch?v=qg1GF7gsSNo&list=PLNkWIWHIRwMGlOBjDYTeqnNcuZ2cH1_7-&index=7
 draft: false
 technology: other themes
+specialty: Frontend
 tools: []
 order: 1
 access: free

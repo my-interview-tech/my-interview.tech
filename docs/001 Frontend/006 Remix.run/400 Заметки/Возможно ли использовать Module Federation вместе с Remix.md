@@ -9,7 +9,7 @@ tags:
   - bundle
   - webpack
   - remix-webpack
-info: null
+info: []
 draft: false
 technology: Remix.run
 specialty: Frontend

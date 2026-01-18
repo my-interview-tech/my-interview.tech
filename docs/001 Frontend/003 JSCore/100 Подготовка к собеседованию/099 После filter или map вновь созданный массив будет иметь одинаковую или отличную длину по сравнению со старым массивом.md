@@ -9,7 +9,7 @@ tags:
   - "#high-order-function"
   - "#filter"
   - "#map"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

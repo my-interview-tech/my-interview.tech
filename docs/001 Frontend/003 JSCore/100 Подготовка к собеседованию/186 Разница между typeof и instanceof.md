@@ -5,7 +5,7 @@ tags:
   - "#JavaScript"
   - "#instanceof"
   - "#typeOf"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

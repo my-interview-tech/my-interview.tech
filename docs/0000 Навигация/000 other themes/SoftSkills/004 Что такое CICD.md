@@ -18,6 +18,7 @@ info:
   - "https://habr.com/ru/articles/764568/"
 draft: false
 technology: other themes
+specialty: Frontend
 tools: []
 order: 4
 access: free

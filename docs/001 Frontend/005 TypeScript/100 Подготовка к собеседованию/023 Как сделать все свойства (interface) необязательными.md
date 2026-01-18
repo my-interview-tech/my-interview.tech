@@ -5,7 +5,7 @@ tags:
   - "#TypeScript"
   - "#interface"
   - "#partial"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

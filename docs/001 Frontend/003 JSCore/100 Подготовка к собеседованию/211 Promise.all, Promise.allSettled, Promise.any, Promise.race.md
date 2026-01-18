@@ -9,7 +9,7 @@ tags:
   - "#promiseAllSettled"
   - "#promiseAny"
   - "#promiseRace"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

@@ -4,7 +4,7 @@ title: Что такое утверждение типа (type assertion) в Typ
 tags:
   - "#TypeScript"
   - "#type-assertion"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

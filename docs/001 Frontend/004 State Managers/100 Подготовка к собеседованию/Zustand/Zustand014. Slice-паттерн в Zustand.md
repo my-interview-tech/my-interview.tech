@@ -6,7 +6,7 @@ tags:
   - Zustand
   - State-manager
   - slice
-info: null
+info: []
 draft: false
 technology: State Managers
 specialty: Frontend

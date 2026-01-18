@@ -5,7 +5,7 @@ tags:
   - "#HTML"
   - "#q"
   - "#blockquote"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

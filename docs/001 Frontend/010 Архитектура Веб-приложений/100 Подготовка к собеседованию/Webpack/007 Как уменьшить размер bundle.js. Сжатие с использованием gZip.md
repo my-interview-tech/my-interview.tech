@@ -7,9 +7,10 @@ tags:
   - "#production-bundle"
   - "#gZip"
   - "#Nginx"
-info: null
+info: []
 draft: false
 technology: Архитектура Веб-приложений
+specialty: Frontend
 tools: []
 order: 7
 access: free

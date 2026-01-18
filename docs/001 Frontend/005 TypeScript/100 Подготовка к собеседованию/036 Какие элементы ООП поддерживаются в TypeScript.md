@@ -11,7 +11,7 @@ tags:
   - "#access-modifiers"
   - "#polymorphism"
   - "#generic"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

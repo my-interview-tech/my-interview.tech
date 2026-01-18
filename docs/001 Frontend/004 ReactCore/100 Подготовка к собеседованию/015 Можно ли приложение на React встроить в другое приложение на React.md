@@ -5,7 +5,7 @@ tags:
   - "#React"
   - "#iframe"
   - "#composition"
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

@@ -6,6 +6,7 @@ tags:
   - GRASP
 draft: false
 technology: Подготовка к собеседованиям
+specialty: "Frontend,Backend"
 tools: []
 order: 24
 access: free

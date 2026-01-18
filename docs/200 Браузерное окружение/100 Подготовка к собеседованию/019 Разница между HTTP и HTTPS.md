@@ -13,6 +13,7 @@ info:
   - "https://habr.com/ru/articles/332294/"
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 19
 access: free

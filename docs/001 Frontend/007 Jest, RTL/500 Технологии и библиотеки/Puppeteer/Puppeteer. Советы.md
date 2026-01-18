@@ -4,7 +4,7 @@ title: Puppeteer. Советы
 tags:
   - "#pupperteer"
   - "#testing"
-info: null
+info: []
 draft: false
 technology: "Jest, RTL"
 specialty: Frontend

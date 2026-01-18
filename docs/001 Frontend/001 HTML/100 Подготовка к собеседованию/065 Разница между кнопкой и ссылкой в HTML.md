@@ -5,7 +5,7 @@ tags:
   - "#HTML"
   - "#button"
   - "#a"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

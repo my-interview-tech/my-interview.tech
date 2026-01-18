@@ -5,9 +5,10 @@ tags:
   - HMAC
   - hash
   - browser
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 52
 access: free

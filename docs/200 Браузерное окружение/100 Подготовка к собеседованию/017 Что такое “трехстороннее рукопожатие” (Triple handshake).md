@@ -4,9 +4,10 @@ title: Что такое “трехстороннее рукопожатие”
 tags:
   - TCP/IP
   - browser
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 17
 access: free

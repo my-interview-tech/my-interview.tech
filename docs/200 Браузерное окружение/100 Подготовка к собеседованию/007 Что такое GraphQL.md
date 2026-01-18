@@ -5,9 +5,10 @@ tags:
   - GraphQL
   - API
   - backend
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 7
 access: free

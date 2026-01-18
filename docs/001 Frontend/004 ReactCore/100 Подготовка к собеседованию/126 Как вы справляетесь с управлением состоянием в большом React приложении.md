@@ -4,7 +4,7 @@ title: Как вы справляетесь с управлением состо
 tags:
   - "#React"
   - "#Redux"
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

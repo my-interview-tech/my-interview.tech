@@ -6,6 +6,7 @@ tags:
   - browser
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 46
 access: free

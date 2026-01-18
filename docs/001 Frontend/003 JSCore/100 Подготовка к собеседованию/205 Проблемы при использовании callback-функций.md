@@ -6,7 +6,7 @@ tags:
   - "#асинхронность"
   - "#callback"
   - "#CallbackHell"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

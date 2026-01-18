@@ -4,7 +4,7 @@ title: Что такое атрибут `target`? Какие значения о
 tags:
   - "#HTML"
   - "#target"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

@@ -1,7 +1,7 @@
 ---
 uid: mW5gZmojLQlv9Od-51SaP
 title: ReactTask - useRef()
-tags: null
+tags: []
 draft: false
 technology: Решение задач
 specialty: Frontend

@@ -5,9 +5,10 @@ tags:
   - "#webpack"
   - "#tree-shaking"
   - bundle
-info: null
+info: []
 draft: false
 technology: Архитектура Веб-приложений
+specialty: Frontend
 tools: []
 order: 12
 access: free

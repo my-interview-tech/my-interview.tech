@@ -5,7 +5,7 @@ tags:
   - "#React"
   - "#shouldComponentUpdate"
   - "#useMemo"
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

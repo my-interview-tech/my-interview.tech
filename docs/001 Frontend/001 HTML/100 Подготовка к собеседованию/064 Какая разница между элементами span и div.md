@@ -5,7 +5,7 @@ tags:
   - "#HTML"
   - "#span"
   - "#div"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

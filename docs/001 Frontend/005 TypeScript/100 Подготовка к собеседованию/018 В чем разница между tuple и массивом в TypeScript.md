@@ -5,7 +5,7 @@ tags:
   - "#TypeScript"
   - "#tuple"
   - "#array"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

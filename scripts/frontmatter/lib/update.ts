@@ -11,7 +11,7 @@ import {
   loadCategoryMapping,
 } from "../config";
 
-import { FieldKey, FileIssue, formatIssues, orderFrontmatter, pickFields } from "../helpers";
+import { FieldKey, FileIssue, formatIssues, orderFrontmatter, pickFields, stripOrderPrefix } from "../helpers";
 import { DEFAULTS } from "../constants";
 
 type FrontmatterData = Record<string, unknown>;
@@ -44,6 +44,7 @@ type ApplyDefaultsOptions = {
   data: FrontmatterData;
   derived: ReturnType<typeof deriveFromPath>;
   specialty: string | undefined;
+  filename: string;
 }
 
 type ApplyDefaultsResult = {
@@ -61,11 +62,18 @@ type DefaultsValue = {
  * Значения берутся из пути файла (derived) или констант (DEFAULTS).
  * Пропускает поля, если значение undefined/null/пустая строка.
  */
-const applyDefaults = ({ data, derived, specialty }: ApplyDefaultsOptions): ApplyDefaultsResult => {
+const applyDefaults = ({ data, derived, specialty, filename }: ApplyDefaultsOptions): ApplyDefaultsResult => {
   const next: FrontmatterData = { ...data };
   let changed = false;
 
+  // Создаём title из имени файла без префикса и без расширения .md
+  const titleFromFilename = () => {
+    const nameWithoutExt = filename.replace(/\.md$/, '');
+    return stripOrderPrefix(nameWithoutExt);
+  };
+
   const DEFAULTS_VALUES: Array<DefaultsValue> = [
+    { field: "title", value: titleFromFilename },
     { field: "order", value: () => derived.order },
     { field: "technology", value: () => derived.technology },
     { field: "specialty", value: () => specialty },
@@ -109,9 +117,10 @@ export async function runUpdate(): Promise<void> {
     const relPath = path.relative(DOCS_DIR, file);
     const derived = deriveFromPath(relPath);
     const specialty = mapping[derived.technology];
+    const filename = path.basename(file);
 
     const { next, changed } = applyDefaults(
-      { data: parsed.data, derived, specialty },
+      { data: parsed.data, derived, specialty, filename },
     );
 
     const missing = buildMissingFields({ data: parsed.data, specialty });

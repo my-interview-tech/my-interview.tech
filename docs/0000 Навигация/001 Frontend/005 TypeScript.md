@@ -3,6 +3,7 @@ uid: GvKc-19jDI8n6J4cYIMI7
 title: 005 TypeScript
 draft: false
 technology: Frontend
+specialty: Frontend
 tools: []
 order: 5
 access: free

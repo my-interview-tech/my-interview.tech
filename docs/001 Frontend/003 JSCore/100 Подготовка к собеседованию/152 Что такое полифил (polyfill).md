@@ -4,7 +4,7 @@ title: Что такое полифил (polyfill)?
 tags:
   - "#JavaScript"
   - "#polyfill"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

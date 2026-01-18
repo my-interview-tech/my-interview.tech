@@ -6,7 +6,7 @@ tags:
   - "#display"
   - "#hidden"
   - "#доступность"
-info: null
+info: []
 draft: false
 technology: CSS
 specialty: Frontend

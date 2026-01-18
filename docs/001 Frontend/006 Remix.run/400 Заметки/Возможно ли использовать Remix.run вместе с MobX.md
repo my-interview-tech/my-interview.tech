@@ -5,7 +5,7 @@ tags:
   - React
   - Remix
   - MobX
-info: null
+info: []
 draft: false
 technology: Remix.run
 specialty: Frontend

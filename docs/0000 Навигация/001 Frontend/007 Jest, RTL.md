@@ -3,6 +3,7 @@ uid: pjjUWfFaxNJwMYZ3E83jK
 title: "007 Jest, React Testing Library"
 draft: false
 technology: Frontend
+specialty: Frontend
 tools: []
 order: 7
 access: free

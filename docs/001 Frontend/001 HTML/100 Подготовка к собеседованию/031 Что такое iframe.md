@@ -4,7 +4,7 @@ title: Что такое `iframe`?
 tags:
   - "#HTML"
   - "#iframe"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

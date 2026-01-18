@@ -3,6 +3,7 @@ uid: PoYscsyRk9WV2NAvfj1o4
 title: 006 Remix.run
 draft: true
 technology: Frontend
+specialty: Frontend
 tools: []
 order: 6
 access: free

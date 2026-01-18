@@ -3,6 +3,7 @@ uid: 2WPaLUBQtZkfUX1eFpg5V
 title: 003 Review - ReactCore
 draft: false
 technology: other themes
+specialty: Frontend
 tools: []
 order: 3
 access: free

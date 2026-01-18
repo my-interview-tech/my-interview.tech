@@ -4,9 +4,10 @@ title: "Если через консоль, примеру curl'oм, запро�
 tags:
   - CURL
   - browser
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 39
 access: free

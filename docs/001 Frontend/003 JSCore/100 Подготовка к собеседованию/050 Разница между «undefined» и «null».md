@@ -5,7 +5,7 @@ tags:
   - "#JavaScript"
   - "#null"
   - "#undefined"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

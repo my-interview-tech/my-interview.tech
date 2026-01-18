@@ -5,7 +5,7 @@ tags:
   - "#HTML"
   - "#reset"
   - "#normalize"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

@@ -4,7 +4,7 @@ title: Что такое символ (Symbol) в ES6?
 tags:
   - "#JavaScript"
   - "#symbol"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

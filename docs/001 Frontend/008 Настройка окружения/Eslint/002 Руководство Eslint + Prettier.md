@@ -6,7 +6,7 @@ tags:
   - "#ESLint"
   - "#Prettier"
   - "#npm"
-info: null
+info: []
 draft: false
 technology: Настройка окружения
 specialty: Frontend

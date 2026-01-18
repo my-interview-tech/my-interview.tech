@@ -8,7 +8,7 @@ tags:
   - Zustand
   - State-manager
   - DevTools
-info: null
+info: []
 draft: false
 technology: State Managers
 specialty: Frontend

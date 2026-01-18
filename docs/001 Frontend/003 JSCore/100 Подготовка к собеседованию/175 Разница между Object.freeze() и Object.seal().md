@@ -6,7 +6,7 @@ tags:
   - "#object"
   - "#Object-freeze"
   - "#Object-seal"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

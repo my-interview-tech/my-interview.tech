@@ -3,7 +3,7 @@ uid: WrSHTTDMUOIAPl3c4uTep
 title: Что такое HTML и для чего он используется?
 tags:
   - "#HTML"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

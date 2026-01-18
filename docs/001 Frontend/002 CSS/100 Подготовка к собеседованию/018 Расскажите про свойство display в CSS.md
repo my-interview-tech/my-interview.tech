@@ -4,7 +4,7 @@ title: Расскажите про свойство `display` в CSS
 tags:
   - "#CSS"
   - "#display"
-info: null
+info: []
 draft: false
 technology: CSS
 specialty: Frontend

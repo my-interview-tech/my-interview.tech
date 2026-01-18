@@ -9,7 +9,7 @@ tags:
   - "#vh"
   - "#vw"
   - "#vd"
-info: null
+info: []
 draft: false
 technology: CSS
 specialty: Frontend

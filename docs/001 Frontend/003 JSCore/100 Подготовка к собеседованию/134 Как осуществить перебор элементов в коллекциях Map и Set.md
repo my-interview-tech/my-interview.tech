@@ -7,7 +7,7 @@ tags:
   - "#set"
   - "#for-of"
   - "#forEach"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

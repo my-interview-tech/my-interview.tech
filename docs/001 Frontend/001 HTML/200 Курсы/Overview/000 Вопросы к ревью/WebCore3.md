@@ -1,5 +1,6 @@
 ---
 uid: B8ZbUnLEvrCeOCrGuT20B
+title: WebCore3
 technology: HTML
 specialty: Frontend
 tools: []

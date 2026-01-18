@@ -4,7 +4,7 @@ title: Для чего используется атрибут `pattern`?
 tags:
   - "#HTML"
   - "#pattern"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

@@ -8,7 +8,7 @@ tags:
   - BrowserRouter
   - Switch
   - Route
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

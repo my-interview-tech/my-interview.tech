@@ -6,7 +6,7 @@ tags:
   - "#constructor"
   - "#setState"
   - "#render"
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

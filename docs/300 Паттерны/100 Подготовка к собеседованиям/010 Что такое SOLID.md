@@ -12,6 +12,7 @@ info:
     https://www.youtube.com/watch?v=A6wEkG4B38E&list=PLNkWIWHIRwMGlOBjDYTeqnNcuZ2cH1_7-
 draft: false
 technology: Подготовка к собеседованиям
+specialty: "Frontend,Backend"
 tools: []
 order: 10
 access: free

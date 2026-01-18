@@ -5,7 +5,7 @@ tags:
   - "#JavaScript"
   - "#object"
   - "#host"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

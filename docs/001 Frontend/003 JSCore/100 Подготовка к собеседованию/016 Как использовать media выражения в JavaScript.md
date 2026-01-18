@@ -7,7 +7,7 @@ tags:
   - "#matchMedia"
   - "#browser"
   - "#media"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

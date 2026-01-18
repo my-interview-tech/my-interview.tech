@@ -4,7 +4,7 @@ title: Что такое (`interface`) в TypeScript?
 tags:
   - "#TypeScript"
   - "#interface"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

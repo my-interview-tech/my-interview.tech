@@ -4,7 +4,7 @@ title: Как вы обновляете объект состояния в React
 tags:
   - "#React"
   - "#setState"
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

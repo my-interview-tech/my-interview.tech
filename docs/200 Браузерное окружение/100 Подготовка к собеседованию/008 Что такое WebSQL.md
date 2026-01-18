@@ -5,9 +5,10 @@ tags:
   - WebSQL
   - API
   - SQL
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 8
 access: free

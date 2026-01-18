@@ -4,7 +4,7 @@ title: Как можно скрыть элемент разметки не ис�
 tags:
   - "#HTML"
   - "#hidden"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

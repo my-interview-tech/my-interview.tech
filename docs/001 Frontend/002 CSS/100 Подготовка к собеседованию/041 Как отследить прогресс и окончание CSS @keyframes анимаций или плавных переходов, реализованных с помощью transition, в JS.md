@@ -8,7 +8,7 @@ tags:
   - "#DOM"
   - "#animation"
   - "#transition"
-info: null
+info: []
 draft: false
 technology: CSS
 specialty: Frontend

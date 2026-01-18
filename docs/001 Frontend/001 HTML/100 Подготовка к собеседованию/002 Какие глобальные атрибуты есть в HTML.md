@@ -13,7 +13,7 @@ tags:
   - "#accesskey"
   - "#tabindex"
   - "#hidden"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

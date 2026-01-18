@@ -7,7 +7,7 @@ tags:
   - "#head"
   - "#title"
   - "#body"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

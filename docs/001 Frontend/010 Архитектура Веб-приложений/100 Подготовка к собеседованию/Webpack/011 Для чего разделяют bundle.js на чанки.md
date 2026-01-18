@@ -9,6 +9,7 @@ info:
   - "https://habr.com/ru/articles/595307/"
 draft: false
 technology: Архитектура Веб-приложений
+specialty: Frontend
 tools: []
 order: 11
 access: free

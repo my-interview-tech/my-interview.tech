@@ -5,7 +5,7 @@ tags:
   - "#HTML"
   - "#ShadowRoot"
   - "#ShadowDOM"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

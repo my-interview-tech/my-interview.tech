@@ -4,7 +4,7 @@ title: Для чего используют атрибут `novalidate`?
 tags:
   - "#HTML"
   - "#novalidate"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

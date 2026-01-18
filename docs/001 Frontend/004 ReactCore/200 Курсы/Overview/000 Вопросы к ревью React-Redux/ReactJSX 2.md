@@ -1,5 +1,6 @@
 ---
 uid: Vdu8MqqxS6Q4e9trOOlpN
+title: ReactJSX 2
 technology: ReactCore
 specialty: Frontend
 tools: []

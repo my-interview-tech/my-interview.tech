@@ -5,7 +5,7 @@ tags:
   - "#HTML"
   - "#img"
   - "#decoding"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

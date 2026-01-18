@@ -6,7 +6,7 @@ tags:
   - "#innerHTML"
   - "#outerHTML"
   - "#browser"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

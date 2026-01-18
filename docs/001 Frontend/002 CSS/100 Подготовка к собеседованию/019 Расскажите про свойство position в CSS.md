@@ -4,7 +4,7 @@ title: Расскажите про свойство `position` в CSS
 tags:
   - CSS
   - "#position"
-info: null
+info: []
 draft: false
 technology: CSS
 specialty: Frontend

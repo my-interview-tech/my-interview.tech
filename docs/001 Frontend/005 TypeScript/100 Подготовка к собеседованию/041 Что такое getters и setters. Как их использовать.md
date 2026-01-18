@@ -5,7 +5,7 @@ tags:
   - "#TypeScript"
   - "#getters"
   - "#setters"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

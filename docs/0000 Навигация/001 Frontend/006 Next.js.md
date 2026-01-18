@@ -3,6 +3,7 @@ uid: dDGMljqV0I56gnWqlMh07
 title: 006 Next.js
 draft: false
 technology: Frontend
+specialty: Frontend
 tools: []
 order: 6
 access: free

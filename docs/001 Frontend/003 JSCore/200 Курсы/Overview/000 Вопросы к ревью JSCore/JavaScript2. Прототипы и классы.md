@@ -1,5 +1,6 @@
 ---
 uid: DEL0atgsFOv47M8S-s9UQ
+title: JavaScript2. Прототипы и классы
 technology: JSCore
 specialty: Frontend
 tools: []

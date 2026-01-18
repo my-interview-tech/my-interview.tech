@@ -8,9 +8,10 @@ tags:
   - Ping
   - JSON
   - browser
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 11
 access: free

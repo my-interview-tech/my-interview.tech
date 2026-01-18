@@ -8,6 +8,7 @@ info:
   - "https://www.youtube.com/watch?v=_uZQtRyF6Eg"
 draft: false
 technology: Архитектура Веб-приложений
+specialty: Frontend
 tools: []
 order: 0
 access: free

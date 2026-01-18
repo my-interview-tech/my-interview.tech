@@ -11,6 +11,7 @@ info:
   - "[[003 Зависимости для разработки|Зависимости для разработки]]"
 draft: false
 technology: Архитектура Веб-приложений
+specialty: Frontend
 tools: []
 order: 6
 access: free

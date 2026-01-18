@@ -3,9 +3,10 @@ uid: P_UcRp8jfMXwJc16MAZUh
 title: Что такое Progressive Web Application (PWA)?
 tags:
   - PWA
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 60
 access: free

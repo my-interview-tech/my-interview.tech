@@ -6,7 +6,7 @@ tags:
   - "#px"
   - "#em"
   - "#rem"
-info: null
+info: []
 draft: false
 technology: CSS
 specialty: Frontend

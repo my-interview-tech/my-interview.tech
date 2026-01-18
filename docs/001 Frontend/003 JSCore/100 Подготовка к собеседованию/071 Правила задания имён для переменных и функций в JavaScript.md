@@ -3,7 +3,7 @@ uid: Ya-GMsTU7oDl5bVt180zD
 title: Правила задания имён для переменных и функций в JavaScript
 tags:
   - "#JavaScript"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

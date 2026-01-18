@@ -9,6 +9,7 @@ info:
   - "https://habr.com/ru/companies/alfa/articles/668118/"
 draft: false
 technology: Архитектура Веб-приложений
+specialty: Frontend
 tools: []
 order: 9
 access: free

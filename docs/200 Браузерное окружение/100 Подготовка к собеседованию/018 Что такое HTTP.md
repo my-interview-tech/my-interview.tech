@@ -10,6 +10,7 @@ info:
   - "https://habr.com/ru/companies/slurm/articles/575464/"
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 18
 access: free

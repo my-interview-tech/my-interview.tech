@@ -4,7 +4,7 @@ title: Что такое каррирование (Currying)?
 tags:
   - "#JavaScript"
   - "#currying"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

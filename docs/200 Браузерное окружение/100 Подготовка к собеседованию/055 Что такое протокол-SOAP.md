@@ -4,9 +4,10 @@ title: Что такое протокол-SOAP?
 tags:
   - SOAP
   - browser
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 55
 access: free

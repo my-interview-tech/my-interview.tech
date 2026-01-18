@@ -6,7 +6,7 @@ tags:
   - "#arrowFunction"
   - "#class"
   - "#bind"
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

@@ -7,6 +7,7 @@ info:
   - "[[004 Как начать работать с проектом|Как начать работать с проектом?]]"
 draft: false
 technology: Архитектура Веб-приложений
+specialty: Frontend
 tools: []
 order: 0
 access: free

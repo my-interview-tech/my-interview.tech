@@ -5,7 +5,7 @@ tags:
   - "#HTML"
   - "#article"
   - "#section"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

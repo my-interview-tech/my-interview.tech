@@ -9,6 +9,7 @@ info:
   - "https://youtu.be/DZjIcc6KdjE?t=767"
 draft: false
 technology: other themes
+specialty: Frontend
 tools: []
 order: 11
 access: free

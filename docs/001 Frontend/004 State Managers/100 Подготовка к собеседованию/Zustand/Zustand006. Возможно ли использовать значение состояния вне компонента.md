@@ -6,7 +6,7 @@ tags:
   - Zustand
   - State-manager
   - getState
-info: null
+info: []
 draft: false
 technology: State Managers
 specialty: Frontend

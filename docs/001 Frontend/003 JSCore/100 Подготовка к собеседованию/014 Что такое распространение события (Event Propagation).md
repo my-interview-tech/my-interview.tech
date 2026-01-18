@@ -10,7 +10,7 @@ tags:
   - "#target"
   - "#stopPropagation"
   - "#browser"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

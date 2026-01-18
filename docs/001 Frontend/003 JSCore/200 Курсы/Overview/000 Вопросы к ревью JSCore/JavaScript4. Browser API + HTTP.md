@@ -1,5 +1,6 @@
 ---
 uid: G14LjZK0ZgOcOZdkpXKAq
+title: JavaScript4. Browser API + HTTP
 technology: JSCore
 specialty: Frontend
 tools: []

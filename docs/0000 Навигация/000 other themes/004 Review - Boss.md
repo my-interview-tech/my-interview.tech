@@ -3,6 +3,7 @@ uid: g_zdiZu8LWrLyDbi72dWZ
 title: 004 Review - FinalBoss
 draft: false
 technology: other themes
+specialty: Frontend
 tools: []
 order: 4
 access: free

@@ -4,7 +4,7 @@ title: Плюсы и минусы асинхронного программир�
 tags:
   - "#JavaScript"
   - "#асинхронность"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

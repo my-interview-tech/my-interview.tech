@@ -9,7 +9,7 @@ tags:
   - Persist
   - sessionStorage
   - localStorage
-info: null
+info: []
 draft: false
 technology: State Managers
 specialty: Frontend

@@ -4,7 +4,7 @@ title: Для чего нужен атрибут `autocomplete`?
 tags:
   - "#HTML"
   - "#autocomplete"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

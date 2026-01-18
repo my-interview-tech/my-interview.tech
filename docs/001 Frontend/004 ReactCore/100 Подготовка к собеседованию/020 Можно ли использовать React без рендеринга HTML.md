@@ -4,7 +4,7 @@ title: Можно ли использовать React без рендеринг�
 tags:
   - "#React"
   - "#render"
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

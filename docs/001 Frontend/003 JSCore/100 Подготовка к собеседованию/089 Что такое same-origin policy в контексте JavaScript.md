@@ -5,7 +5,7 @@ tags:
   - "#SOP"
   - "#CORS"
   - "#browser"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

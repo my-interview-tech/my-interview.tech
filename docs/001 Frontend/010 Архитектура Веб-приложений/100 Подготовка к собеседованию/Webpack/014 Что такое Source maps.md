@@ -9,6 +9,7 @@ info:
   - "https://create-react-app.dev/docs/analyzing-the-bundle-size/"
 draft: false
 technology: Архитектура Веб-приложений
+specialty: Frontend
 tools: []
 order: 14
 access: free

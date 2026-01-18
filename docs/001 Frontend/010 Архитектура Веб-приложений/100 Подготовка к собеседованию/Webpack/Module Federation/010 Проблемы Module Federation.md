@@ -5,9 +5,10 @@ tags:
   - "#webpack"
   - "#module-federation"
   - "#microfrontend"
-info: null
+info: []
 draft: false
 technology: Архитектура Веб-приложений
+specialty: Frontend
 tools: []
 order: 10
 access: free

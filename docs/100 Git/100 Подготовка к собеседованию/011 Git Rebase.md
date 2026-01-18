@@ -13,6 +13,7 @@ info:
   - "https://selectel.ru/blog/tutorials/how-to-rebase-commits-and-branches/"
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 11
 access: free

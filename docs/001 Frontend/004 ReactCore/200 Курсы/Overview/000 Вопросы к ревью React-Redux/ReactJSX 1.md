@@ -1,5 +1,6 @@
 ---
 uid: Pvmzddb7Wyj6R_Ph5nwNO
+title: ReactJSX 1
 technology: ReactCore
 specialty: Frontend
 tools: []

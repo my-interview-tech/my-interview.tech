@@ -9,6 +9,7 @@ info:
   - "https://habr.com/ru/companies/2gis/articles/345552/"
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 45
 access: free

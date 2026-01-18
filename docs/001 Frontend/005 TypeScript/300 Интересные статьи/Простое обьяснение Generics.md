@@ -123,7 +123,7 @@ type Props = {
 class Programmer**<T>** {
 
    private languageName: string;
-   private languageInfo: **T**;constructor(lang: string) {
+   private languageinfo: []**T**;constructor(lang: string) {
       this.languageName = lang;
    }
    ...

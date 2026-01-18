@@ -8,6 +8,7 @@ tags:
   - CRUD
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 4
 access: free

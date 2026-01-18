@@ -8,6 +8,7 @@ info:
   - "https://habr.com/ru/companies/jugru/articles/342842/"
 draft: false
 technology: Архитектура Веб-приложений
+specialty: Frontend
 tools: []
 order: 4
 access: free

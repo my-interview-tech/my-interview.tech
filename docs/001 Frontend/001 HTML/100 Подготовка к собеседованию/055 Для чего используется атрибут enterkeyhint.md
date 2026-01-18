@@ -4,7 +4,7 @@ title: Для чего используется атрибут `enterkeyhint`?
 tags:
   - "#HTML"
   - "#enterkeyhint"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

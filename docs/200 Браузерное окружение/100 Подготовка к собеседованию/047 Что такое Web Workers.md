@@ -9,6 +9,7 @@ info:
   - "https://habr.com/ru/companies/ruvds/articles/348424/"
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 47
 access: free

@@ -6,7 +6,7 @@ tags:
   - "#high-order-function"
   - "#reduce"
   - "#array"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

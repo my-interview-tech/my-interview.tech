@@ -3,7 +3,7 @@ uid: bJ4ikAgCvZZ24M-PS3rvl
 title: Типы операторов в JavaScript
 tags:
   - "#JavaScript"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

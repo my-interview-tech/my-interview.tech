@@ -4,7 +4,7 @@ title: Что такое всплытие hoisting?
 tags:
   - "#JavaScript"
   - "#hoisting"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

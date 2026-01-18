@@ -8,7 +8,7 @@ tags:
   - URL
   - react-router-dom
   - useURLStorage
-info: null
+info: []
 draft: false
 technology: State Managers
 specialty: Frontend

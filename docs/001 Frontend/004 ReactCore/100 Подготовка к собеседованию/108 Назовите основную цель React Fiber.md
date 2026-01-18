@@ -6,7 +6,7 @@ tags:
   - "#fiber"
   - "#reconciliation"
   - "#VirtualDOM"
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

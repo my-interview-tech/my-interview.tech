@@ -31,7 +31,7 @@ const product = {
       price: 990,
     },
   ],
-  info: {
+  info: []{
     screen: {
       size: {
         width: 1920,
@@ -46,7 +46,7 @@ const product = {
 
 ```js
 const {
-  info: {
+  info: []{
     screen: {
       size: { width },
     },

@@ -4,9 +4,10 @@ title: Что такое OWASP Top 10?
 tags:
   - OWASP
   - browser
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 57
 access: free

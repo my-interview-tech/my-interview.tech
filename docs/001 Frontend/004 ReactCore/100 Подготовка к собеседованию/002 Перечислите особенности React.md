@@ -7,7 +7,7 @@ tags:
   - "#JSX"
   - "#VirtualDOM"
   - "#UDF"
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

@@ -7,7 +7,7 @@ tags:
   - State-manager
   - store
   - subscribe
-info: null
+info: []
 draft: false
 technology: State Managers
 specialty: Frontend

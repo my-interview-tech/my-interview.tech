@@ -7,7 +7,7 @@ tags:
   - "#img"
   - "#sourse"
   - "#srcset"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

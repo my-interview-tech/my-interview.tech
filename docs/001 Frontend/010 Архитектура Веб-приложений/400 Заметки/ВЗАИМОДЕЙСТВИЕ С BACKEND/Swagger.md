@@ -9,6 +9,7 @@ tags:
   - RESTful
 draft: false
 technology: Архитектура Веб-приложений
+specialty: Frontend
 tools: []
 order: 0
 access: free

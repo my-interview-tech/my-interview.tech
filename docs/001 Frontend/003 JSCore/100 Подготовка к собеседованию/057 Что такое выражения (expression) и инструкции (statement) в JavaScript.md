@@ -5,7 +5,7 @@ tags:
   - "#JavaScript"
   - "#expression"
   - "#statement"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

@@ -5,7 +5,7 @@ tags:
   - "#HTML"
   - "#output"
   - "#html-for"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

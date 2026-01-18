@@ -4,7 +4,7 @@ title: Что такое React Native?
 tags:
   - "#React"
   - ReactNative
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

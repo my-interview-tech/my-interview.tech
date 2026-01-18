@@ -6,7 +6,7 @@ tags:
   - "#метод"
   - "#static"
   - "#class"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

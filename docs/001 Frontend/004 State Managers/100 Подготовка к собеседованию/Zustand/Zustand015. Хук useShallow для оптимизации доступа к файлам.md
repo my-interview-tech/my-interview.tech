@@ -7,7 +7,7 @@ tags:
   - State-manager
   - useShallow
   - DevTools
-info: null
+info: []
 draft: false
 technology: State Managers
 specialty: Frontend

@@ -6,7 +6,7 @@ tags:
   - "#React-router"
   - useLocation
   - URLSearchParams
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

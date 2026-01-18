@@ -6,7 +6,7 @@ tags:
   - "#public"
   - "#private"
   - "#protected"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

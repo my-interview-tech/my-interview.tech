@@ -21,6 +21,7 @@ info:
   - "https://habr.com/ru/companies/ruvds/articles/460793/"
 draft: false
 technology: Архитектура Веб-приложений
+specialty: Frontend
 tools: []
 order: 1
 access: free

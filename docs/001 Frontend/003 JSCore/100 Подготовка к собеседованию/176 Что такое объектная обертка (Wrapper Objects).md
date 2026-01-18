@@ -4,7 +4,7 @@ title: Что такое объектная обертка (Wrapper Objects)?
 tags:
   - "#JavaScript"
   - "#wrapperObject"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

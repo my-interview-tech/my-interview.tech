@@ -4,7 +4,7 @@ title: Как в JavaScript создать объект?
 tags:
   - "#JavaScript"
   - "#object"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

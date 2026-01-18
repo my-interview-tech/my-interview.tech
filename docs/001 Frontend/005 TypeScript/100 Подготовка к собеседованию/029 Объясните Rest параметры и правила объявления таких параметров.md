@@ -4,7 +4,7 @@ title: Объясните Rest параметры и правила объявл
 tags:
   - "#TypeScript"
   - "#rest"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

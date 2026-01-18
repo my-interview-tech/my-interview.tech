@@ -5,7 +5,7 @@ tags:
   - "#JavaScript"
   - "#mathRandom"
   - "#number"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

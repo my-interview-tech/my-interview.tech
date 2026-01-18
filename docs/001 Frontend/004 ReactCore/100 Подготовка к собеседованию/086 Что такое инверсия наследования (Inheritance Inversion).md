@@ -5,7 +5,7 @@ tags:
   - "#React"
   - "#container"
   - "#presentation"
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

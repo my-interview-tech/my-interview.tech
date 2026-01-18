@@ -4,7 +4,7 @@ title: Назовите основные типы утечек памяти в J
 tags:
   - "#JavaScript"
   - "#memory-leaks"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

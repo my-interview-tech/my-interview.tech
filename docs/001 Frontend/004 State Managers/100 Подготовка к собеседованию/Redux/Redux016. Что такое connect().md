@@ -7,7 +7,7 @@ tags:
   - "#connect"
   - "#mapDispatchToProps"
   - "#mapStateToProps"
-info: null
+info: []
 draft: false
 technology: State Managers
 specialty: Frontend

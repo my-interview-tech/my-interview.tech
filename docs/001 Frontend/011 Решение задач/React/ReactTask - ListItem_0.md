@@ -6,7 +6,7 @@ tags:
   - "#reactTask"
   - "#object"
   - "#сбербанк"
-info: null
+info: []
 draft: false
 technology: Решение задач
 specialty: Frontend

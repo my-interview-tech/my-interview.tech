@@ -9,7 +9,7 @@ tags:
   - "#appendChild"
   - "#getElementById"
   - "#browser"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

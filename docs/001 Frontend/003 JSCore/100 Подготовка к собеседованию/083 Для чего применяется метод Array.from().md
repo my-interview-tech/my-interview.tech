@@ -5,7 +5,7 @@ tags:
   - "#JavaScript"
   - "#array"
   - "#arrayFrom"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

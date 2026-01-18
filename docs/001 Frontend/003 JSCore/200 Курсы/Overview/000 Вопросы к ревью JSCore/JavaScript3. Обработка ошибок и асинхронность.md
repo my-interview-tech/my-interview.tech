@@ -1,5 +1,6 @@
 ---
 uid: ye95L27VWfomrxwxgkOLp
+title: JavaScript3. Обработка ошибок и асинхронность
 technology: JSCore
 specialty: Frontend
 tools: []

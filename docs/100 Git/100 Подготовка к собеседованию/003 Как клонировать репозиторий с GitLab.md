@@ -12,6 +12,7 @@ info:
   - "[[Как настроить CORS]]"
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 3
 access: free

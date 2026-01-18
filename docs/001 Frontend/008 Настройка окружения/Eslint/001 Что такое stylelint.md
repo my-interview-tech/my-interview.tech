@@ -4,7 +4,7 @@ title: Что такое stylelint?
 tags:
   - "#styleLint"
   - "#CSS"
-info: null
+info: []
 draft: false
 technology: Настройка окружения
 specialty: Frontend

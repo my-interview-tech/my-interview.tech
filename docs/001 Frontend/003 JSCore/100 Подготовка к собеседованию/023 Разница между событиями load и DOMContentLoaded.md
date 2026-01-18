@@ -6,7 +6,7 @@ tags:
   - "#DOMContentLoaded"
   - load
   - browser
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

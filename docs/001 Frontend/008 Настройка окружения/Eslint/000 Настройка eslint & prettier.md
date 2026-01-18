@@ -4,7 +4,7 @@ title: Настройка eslint & prettier
 tags:
   - "#ESLint"
   - "#Prettier"
-info: null
+info: []
 draft: false
 technology: Настройка окружения
 specialty: Frontend

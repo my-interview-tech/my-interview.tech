@@ -4,9 +4,10 @@ title: Какие основные задачи выполняет Webpack пр�
 tags:
   - "#webpack"
   - "#bundle"
-info: null
+info: []
 draft: false
 technology: Архитектура Веб-приложений
+specialty: Frontend
 tools: []
 order: 2
 access: free

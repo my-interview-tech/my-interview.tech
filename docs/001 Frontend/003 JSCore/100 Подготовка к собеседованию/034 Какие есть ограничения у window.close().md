@@ -5,7 +5,7 @@ tags:
   - "#DOM"
   - "#window"
   - "#browser"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

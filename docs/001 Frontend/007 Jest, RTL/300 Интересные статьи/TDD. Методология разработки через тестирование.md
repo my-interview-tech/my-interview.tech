@@ -4,7 +4,7 @@ title: TDD. Методология разработки через тестир�
 tags:
   - "#TDD"
   - "#testing"
-info: null
+info: []
 draft: false
 technology: "Jest, RTL"
 specialty: Frontend

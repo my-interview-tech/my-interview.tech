@@ -4,7 +4,7 @@ title: Как выполнить действие с новым состояни
 tags:
   - "#React"
   - "#setState"
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

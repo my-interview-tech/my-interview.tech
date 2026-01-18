@@ -6,7 +6,7 @@ tags:
   - "#event"
   - "#event-delegation"
   - "#browser"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

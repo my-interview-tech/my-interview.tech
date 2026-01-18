@@ -4,7 +4,7 @@ title: Что такое WCAG?
 tags:
   - "#HTML"
   - "#WCAG"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

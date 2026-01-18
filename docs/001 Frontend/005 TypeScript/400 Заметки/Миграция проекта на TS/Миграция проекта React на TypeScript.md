@@ -4,7 +4,7 @@ title: Миграция проекта React на TypeScript
 tags:
   - React
   - "#TypeScript"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

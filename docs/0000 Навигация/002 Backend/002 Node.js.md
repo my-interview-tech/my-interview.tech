@@ -3,6 +3,7 @@ uid: 1V14M0qJTvv5jO0x5SbyA
 title: 002 Node.js
 draft: false
 technology: Backend
+specialty: Frontend
 tools: []
 order: 2
 access: free

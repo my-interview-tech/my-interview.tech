@@ -8,9 +8,10 @@ tags:
   - lazy-load
   - PRPL
   - browser
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 68
 access: free

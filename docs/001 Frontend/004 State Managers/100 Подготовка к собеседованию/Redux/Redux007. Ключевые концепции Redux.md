@@ -9,7 +9,7 @@ tags:
   - "#reducer"
   - "#selector"
   - "#Middleware"
-info: null
+info: []
 draft: false
 technology: State Managers
 specialty: Frontend

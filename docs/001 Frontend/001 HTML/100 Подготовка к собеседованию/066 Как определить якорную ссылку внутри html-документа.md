@@ -5,7 +5,7 @@ tags:
   - "#HTML"
   - "#anchor-link"
   - link
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

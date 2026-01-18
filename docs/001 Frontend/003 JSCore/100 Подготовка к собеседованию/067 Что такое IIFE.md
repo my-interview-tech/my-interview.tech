@@ -4,7 +4,7 @@ title: Что такое IIFE?
 tags:
   - "#JavaScript"
   - "#IIFE"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

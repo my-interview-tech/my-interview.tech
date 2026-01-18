@@ -4,7 +4,7 @@ title: Расскажите об операторе Optional Chaining?
 tags:
   - "#JavaScript"
   - "#optionalChaining"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

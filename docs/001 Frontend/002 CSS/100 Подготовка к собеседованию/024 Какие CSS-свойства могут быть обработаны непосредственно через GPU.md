@@ -3,7 +3,7 @@ uid: vVSmwtrw2V32ZLD8tAvve
 title: Какие CSS-свойства могут быть обработаны непосредственно через GPU?
 tags:
   - "#CSS"
-info: null
+info: []
 draft: false
 technology: CSS
 specialty: Frontend

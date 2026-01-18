@@ -11,6 +11,7 @@ info:
     query string; fragment?]]
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 13
 access: free

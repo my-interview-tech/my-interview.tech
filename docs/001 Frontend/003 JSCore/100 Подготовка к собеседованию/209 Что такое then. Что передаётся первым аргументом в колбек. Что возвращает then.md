@@ -8,7 +8,7 @@ tags:
   - "#асинхронность"
   - "#promise"
   - "#then"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

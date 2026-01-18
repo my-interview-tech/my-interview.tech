@@ -6,7 +6,7 @@ title: >-
 tags:
   - "#CSS"
   - "#translate"
-info: null
+info: []
 draft: false
 technology: CSS
 specialty: Frontend

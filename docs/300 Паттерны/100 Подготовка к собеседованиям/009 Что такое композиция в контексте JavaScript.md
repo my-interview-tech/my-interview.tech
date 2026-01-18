@@ -5,9 +5,10 @@ tags:
   - ООП
   - class
   - композиция
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованиям
+specialty: "Frontend,Backend"
 tools: []
 order: 9
 access: free

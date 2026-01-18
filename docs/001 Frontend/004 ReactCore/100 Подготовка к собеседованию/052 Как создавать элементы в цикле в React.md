@@ -4,7 +4,7 @@ title: Как создавать элементы в цикле в React?
 tags:
   - "#React"
   - "#element"
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

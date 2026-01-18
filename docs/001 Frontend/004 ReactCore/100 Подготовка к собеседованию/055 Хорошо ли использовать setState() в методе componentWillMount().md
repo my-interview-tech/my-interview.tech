@@ -6,7 +6,7 @@ tags:
   - "#setState"
   - "#compomemtWillMount"
   - "#componentDidMount"
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

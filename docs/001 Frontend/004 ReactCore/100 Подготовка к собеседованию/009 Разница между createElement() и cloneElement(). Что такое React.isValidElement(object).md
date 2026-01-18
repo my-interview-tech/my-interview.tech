@@ -8,7 +8,7 @@ tags:
   - "#createElement"
   - "#cloneElement"
   - "#isValidElement"
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

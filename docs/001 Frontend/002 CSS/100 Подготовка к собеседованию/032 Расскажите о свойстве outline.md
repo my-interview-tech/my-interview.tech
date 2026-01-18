@@ -4,7 +4,7 @@ title: Расскажите о свойстве `outline`
 tags:
   - "#CSS"
   - "#outline"
-info: null
+info: []
 draft: false
 technology: CSS
 specialty: Frontend

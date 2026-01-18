@@ -9,6 +9,7 @@ info:
   - "https://habr.com/ru/companies/selectel/articles/463915/"
 draft: false
 technology: Архитектура Веб-приложений
+specialty: Frontend
 tools: []
 order: 0
 access: free

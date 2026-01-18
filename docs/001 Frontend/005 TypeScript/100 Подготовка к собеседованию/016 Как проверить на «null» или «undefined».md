@@ -5,7 +5,7 @@ tags:
   - "#TypeScript"
   - "#null"
   - "#undefined"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

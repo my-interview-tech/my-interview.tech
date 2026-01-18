@@ -5,9 +5,10 @@ tags:
   - ООП
   - class
   - абстракция
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованиям
+specialty: "Frontend,Backend"
 tools: []
 order: 8
 access: free

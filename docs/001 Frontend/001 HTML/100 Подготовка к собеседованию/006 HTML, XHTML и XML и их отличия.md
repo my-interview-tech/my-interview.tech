@@ -6,7 +6,7 @@ tags:
   - "#XHTML"
   - "#XML"
   - "#SGML"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

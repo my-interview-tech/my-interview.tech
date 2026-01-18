@@ -3,7 +3,7 @@ uid: A7YBN7F_Mu9doT4tKmAu8
 title: Какие области видимости доступны в TypeScript?
 tags:
   - "#TypeScript"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

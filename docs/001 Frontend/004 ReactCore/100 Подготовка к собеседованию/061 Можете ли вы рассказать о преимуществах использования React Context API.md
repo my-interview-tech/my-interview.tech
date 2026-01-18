@@ -4,7 +4,7 @@ title: Можете ли вы рассказать о преимуществах
 tags:
   - "#React"
   - "#Context"
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

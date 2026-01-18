@@ -5,7 +5,7 @@ tags:
   - "#DOM"
   - "#URLSearchParams"
   - "#browser"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

@@ -8,7 +8,7 @@ tags:
   - "#overflow"
   - "#clearfix"
   - "#float"
-info: null
+info: []
 draft: false
 technology: CSS
 specialty: Frontend

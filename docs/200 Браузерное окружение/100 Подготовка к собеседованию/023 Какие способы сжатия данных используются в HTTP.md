@@ -10,6 +10,7 @@ tags:
 info: []
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 23
 access: free

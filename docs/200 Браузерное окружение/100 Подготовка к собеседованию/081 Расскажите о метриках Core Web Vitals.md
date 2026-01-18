@@ -7,9 +7,10 @@ tags:
   - FID
   - CLS
   - browser
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 81
 access: free

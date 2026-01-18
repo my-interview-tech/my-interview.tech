@@ -4,7 +4,7 @@ title: Что такое «опрос» (Polling)? Как его реализо�
 tags:
   - "#React"
   - "#polling"
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

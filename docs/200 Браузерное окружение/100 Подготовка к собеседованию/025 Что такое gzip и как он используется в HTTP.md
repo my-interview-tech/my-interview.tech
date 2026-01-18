@@ -6,9 +6,10 @@ tags:
   - gZip
   - browser
   - Nginx
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 25
 access: free

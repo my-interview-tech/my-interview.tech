@@ -5,7 +5,7 @@ tags:
   - "#TypeScript"
   - "#class"
   - "#mixins"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

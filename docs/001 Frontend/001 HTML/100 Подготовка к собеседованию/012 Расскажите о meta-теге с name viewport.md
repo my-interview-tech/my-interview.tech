@@ -5,7 +5,7 @@ tags:
   - "#HTML"
   - "#meta"
   - "#viewport"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

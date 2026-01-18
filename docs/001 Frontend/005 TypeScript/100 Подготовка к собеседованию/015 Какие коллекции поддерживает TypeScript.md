@@ -10,7 +10,7 @@ tags:
   - "#set"
   - "#WeakMap"
   - "#WeakSet"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

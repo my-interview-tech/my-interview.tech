@@ -4,7 +4,7 @@ title: Основные этапы проверок валидности HTML-д
 tags:
   - "#HTML"
   - "#валидность"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

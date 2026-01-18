@@ -4,7 +4,7 @@ title: Что такое CSS-атрибут (`attr`)?
 tags:
   - "#CSS"
   - "#attr"
-info: null
+info: []
 draft: false
 technology: CSS
 specialty: Frontend

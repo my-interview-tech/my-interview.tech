@@ -4,7 +4,7 @@ title: Что делает тип Omit?
 tags:
   - "#TypeScript"
   - "#omit"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

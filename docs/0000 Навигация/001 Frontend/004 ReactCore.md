@@ -3,6 +3,7 @@ uid: K9RgKwSm2nVxuscQn2f-o
 title: 004 React19
 draft: false
 technology: Frontend
+specialty: Frontend
 tools: []
 order: 4
 access: free

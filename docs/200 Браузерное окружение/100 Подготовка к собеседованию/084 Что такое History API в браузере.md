@@ -4,9 +4,10 @@ title: Что такое History API в браузере?
 tags:
   - history-API
   - browser
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 84
 access: free

@@ -1,7 +1,7 @@
 ---
 uid: RdPdIgAy-oi80Ax2RbMu6
 title: Как создавать высокопроизводительные CSS-анимации
-tags: null
+tags: []
 draft: false
 technology: JSCore
 specialty: Frontend

@@ -8,7 +8,7 @@ tags:
   - "#listener"
   - "#useCapture"
   - "#browser"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

@@ -5,7 +5,7 @@ tags:
   - "#JavaScript"
   - "#use-strict"
   - "#strict-mode"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

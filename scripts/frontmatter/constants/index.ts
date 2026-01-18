@@ -10,7 +10,7 @@ export const FIELD_DEFS = {
     technology: { required: true, type: "string", update: true },
     specialty: { required: true, type: "string", update: true },
     tools: { required: true, type: "array", update: true },
-    chapter: { required: true, type: "string", update: true },
+    chapter: { required: false, type: "string", update: true },
     order: { required: true, type: "number", update: true },
     access: { required: true, type: "string", update: true },
     created_at: { required: true, type: "string", update: true },

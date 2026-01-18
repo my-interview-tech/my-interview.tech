@@ -5,7 +5,7 @@ tags:
   - "#JSON"
   - "#XML"
   - "#browser"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

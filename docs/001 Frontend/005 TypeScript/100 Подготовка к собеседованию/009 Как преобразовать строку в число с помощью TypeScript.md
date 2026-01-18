@@ -3,7 +3,7 @@ uid: F8M_d_a3n_LNLw47QBXZI
 title: Как преобразовать строку в число с помощью TypeScript?
 tags:
   - "#TypeScript"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

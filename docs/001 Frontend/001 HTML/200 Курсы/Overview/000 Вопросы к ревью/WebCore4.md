@@ -1,5 +1,6 @@
 ---
 uid: DJYiAlMMTjfs_-ZzaAuJE
+title: WebCore4
 technology: HTML
 specialty: Frontend
 tools: []

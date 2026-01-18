@@ -7,9 +7,10 @@ tags:
   - IDE
   - "#VSCode"
   - "#webstorm"
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 6
 access: free

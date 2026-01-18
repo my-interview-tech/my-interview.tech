@@ -4,9 +4,10 @@ title: Является ли WebSQL частью спецификации HTML5?
 tags:
   - WebSQL
   - microService
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 9
 access: free

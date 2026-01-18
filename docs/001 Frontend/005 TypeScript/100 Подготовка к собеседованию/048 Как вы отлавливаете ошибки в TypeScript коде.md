@@ -3,7 +3,7 @@ uid: RIe7nAU0TodLgIIwNHlfC
 title: Как вы отлавливаете ошибки в TypeScript коде?
 tags:
   - "#TypeScript"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

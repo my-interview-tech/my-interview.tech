@@ -4,7 +4,7 @@ title: Для чего используется ключевое слово `cur
 tags:
   - "#CSS"
   - "#currentColor"
-info: null
+info: []
 draft: false
 technology: CSS
 specialty: Frontend

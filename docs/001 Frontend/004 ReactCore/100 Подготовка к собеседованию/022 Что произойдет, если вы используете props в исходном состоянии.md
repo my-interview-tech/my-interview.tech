@@ -4,7 +4,7 @@ title: "Что произойдет, если вы используете props 
 tags:
   - "#React"
   - "#props"
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

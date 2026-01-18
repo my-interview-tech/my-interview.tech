@@ -4,7 +4,7 @@ title: Redux Toolkit
 tags:
   - redux-toolkit
   - State-manager
-info: null
+info: []
 draft: false
 technology: State Managers
 specialty: Frontend

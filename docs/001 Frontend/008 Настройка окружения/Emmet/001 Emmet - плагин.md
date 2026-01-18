@@ -3,7 +3,7 @@ uid: 97aeRLMIwROXipq5WvfGt
 title: Emmet - плагин
 tags:
   - "#emmet"
-info: null
+info: []
 draft: false
 technology: Настройка окружения
 specialty: Frontend

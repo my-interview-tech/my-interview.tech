@@ -8,7 +8,7 @@ tags:
   - "#function"
   - "#Date"
   - "#RegExp"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

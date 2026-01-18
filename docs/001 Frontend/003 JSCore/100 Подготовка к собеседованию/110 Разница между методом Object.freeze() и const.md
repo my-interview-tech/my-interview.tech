@@ -6,7 +6,7 @@ tags:
   - "#const"
   - "#Object-freeze"
   - "#object"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

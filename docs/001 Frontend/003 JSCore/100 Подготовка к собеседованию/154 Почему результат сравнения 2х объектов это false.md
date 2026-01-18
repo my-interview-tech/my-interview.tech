@@ -6,7 +6,7 @@ tags:
   - "#object"
   - "#keys"
   - "#values"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

@@ -10,7 +10,7 @@ tags:
   - "#script"
   - "#style"
   - "#base"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

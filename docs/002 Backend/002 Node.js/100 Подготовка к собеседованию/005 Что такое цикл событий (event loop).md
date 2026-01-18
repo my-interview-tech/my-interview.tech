@@ -4,7 +4,7 @@ title: Что такое цикл событий (event loop)?
 tags:
   - "#NodeJS"
   - "#EventLoop"
-info: null
+info: []
 draft: false
 technology: Node.js
 specialty: Backend

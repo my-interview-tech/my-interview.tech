@@ -3,7 +3,7 @@ uid: UiOUq81tJxzEuB83Cg1wg
 title: Разница между `createReadStream` и `readFile`?
 tags:
   - "#NodeJS"
-info: null
+info: []
 draft: false
 technology: Node.js
 specialty: Backend

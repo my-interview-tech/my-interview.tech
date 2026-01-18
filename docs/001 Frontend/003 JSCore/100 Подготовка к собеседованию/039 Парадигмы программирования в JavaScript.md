@@ -5,7 +5,7 @@ tags:
   - "#JavaScript"
   - "#ООП"
   - "#ФП"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

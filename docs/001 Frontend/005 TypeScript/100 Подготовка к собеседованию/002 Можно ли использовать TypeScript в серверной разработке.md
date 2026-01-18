@@ -6,7 +6,7 @@ tags:
   - "#tsconfig"
   - "#build"
   - "#NodeJS"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

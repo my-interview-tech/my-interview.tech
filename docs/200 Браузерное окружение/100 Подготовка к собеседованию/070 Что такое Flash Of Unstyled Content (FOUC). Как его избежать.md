@@ -5,9 +5,10 @@ tags:
   - FOUC
   - CSS
   - browser
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 70
 access: free

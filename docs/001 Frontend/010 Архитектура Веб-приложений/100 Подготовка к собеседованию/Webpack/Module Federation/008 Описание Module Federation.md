@@ -4,9 +4,10 @@ title: Описание `Module Federation`
 tags:
   - "#webpack"
   - "#module-federation"
-info: null
+info: []
 draft: false
 technology: Архитектура Веб-приложений
+specialty: Frontend
 tools: []
 order: 8
 access: free

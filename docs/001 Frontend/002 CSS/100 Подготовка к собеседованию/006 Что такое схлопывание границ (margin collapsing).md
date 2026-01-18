@@ -5,7 +5,7 @@ tags:
   - "#CSS"
   - "#margin-collapsing"
   - "#margin"
-info: null
+info: []
 draft: false
 technology: CSS
 specialty: Frontend

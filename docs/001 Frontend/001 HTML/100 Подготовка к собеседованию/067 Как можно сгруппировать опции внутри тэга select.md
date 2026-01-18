@@ -5,7 +5,7 @@ tags:
   - "#HTML"
   - "#select"
   - "#optgroup"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

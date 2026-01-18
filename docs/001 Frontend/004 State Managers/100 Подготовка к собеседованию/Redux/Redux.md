@@ -4,7 +4,7 @@ title: Redux
 tags:
   - Redux
   - State-manager
-info: null
+info: []
 draft: false
 technology: State Managers
 specialty: Frontend

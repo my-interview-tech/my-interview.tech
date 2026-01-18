@@ -3,6 +3,7 @@ uid: hDRIR04oYBKvQGHrMaav9
 title: 001 Review - WebCore
 draft: false
 technology: other themes
+specialty: Frontend
 tools: []
 order: 1
 access: free

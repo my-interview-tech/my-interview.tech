@@ -4,7 +4,7 @@ title: Почему расширение нативных JavaScript-объек�
 tags:
   - "#JavaScript"
   - "#object"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

@@ -8,7 +8,7 @@ tags:
   - "#асинхронность"
   - "#CallbackHell"
   - "#memory-leaks"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

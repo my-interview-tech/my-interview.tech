@@ -4,7 +4,7 @@ title: Можно ли изменить значение определённо�
 tags:
   - "#JavaScript"
   - "#const"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

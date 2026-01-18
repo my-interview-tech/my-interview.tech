@@ -6,9 +6,10 @@ tags:
   - painting
   - compositing
   - browser
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 65
 access: free

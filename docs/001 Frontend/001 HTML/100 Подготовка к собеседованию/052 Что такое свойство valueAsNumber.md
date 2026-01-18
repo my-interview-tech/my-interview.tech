@@ -4,7 +4,7 @@ title: Что такое свойство `valueAsNumber`?
 tags:
   - "#HTML"
   - "#valueAsNumber"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

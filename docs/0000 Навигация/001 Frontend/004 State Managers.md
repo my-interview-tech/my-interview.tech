@@ -3,6 +3,7 @@ uid: lOIPFxmSopsgyE1xN9vDg
 title: 004 State Managers
 draft: false
 technology: Frontend
+specialty: Frontend
 tools: []
 order: 4
 access: free

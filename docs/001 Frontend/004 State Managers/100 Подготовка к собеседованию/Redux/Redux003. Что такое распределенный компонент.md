@@ -4,7 +4,7 @@ title: Что такое распределенный компонент?
 tags:
   - "#React"
   - "#distributed-component"
-info: null
+info: []
 draft: false
 technology: State Managers
 specialty: Frontend

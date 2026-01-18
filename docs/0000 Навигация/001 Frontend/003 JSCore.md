@@ -3,6 +3,7 @@ uid: 4VXo-3AaVpcxR8ZY47DvM
 title: 003 JavaScript
 draft: false
 technology: Frontend
+specialty: Frontend
 tools: []
 order: 3
 access: free

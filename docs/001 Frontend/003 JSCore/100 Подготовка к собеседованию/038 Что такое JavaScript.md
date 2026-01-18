@@ -3,7 +3,7 @@ uid: CsYGj5j76RbaOg679XHDv
 title: Что такое JavaScript?
 tags:
   - "#JavaScript"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

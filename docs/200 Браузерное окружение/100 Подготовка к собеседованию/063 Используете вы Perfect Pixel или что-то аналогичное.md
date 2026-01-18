@@ -3,9 +3,10 @@ uid: WoxCjxmiYzEr68PnS0Sox
 title: Используете вы Perfect Pixel или что-то аналогичное?
 tags:
   - PerfectPixel
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 63
 access: free

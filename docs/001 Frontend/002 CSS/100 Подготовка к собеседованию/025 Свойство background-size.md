@@ -4,7 +4,7 @@ title: Свойство background-size
 tags:
   - "#CSS"
   - "#background-size"
-info: null
+info: []
 draft: false
 technology: CSS
 specialty: Frontend

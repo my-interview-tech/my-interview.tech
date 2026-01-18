@@ -6,7 +6,7 @@ title: >-
 tags:
   - "#JavaScript"
   - "#this"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

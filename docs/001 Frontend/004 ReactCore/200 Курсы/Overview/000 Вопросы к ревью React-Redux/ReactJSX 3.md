@@ -1,5 +1,6 @@
 ---
 uid: MtLE-g4MhZRV01WN5vgeN
+title: ReactJSX 3
 technology: ReactCore
 specialty: Frontend
 tools: []

@@ -5,7 +5,7 @@ tags:
   - "#TypeScript"
   - "#ambient-declarations"
   - "#declare"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

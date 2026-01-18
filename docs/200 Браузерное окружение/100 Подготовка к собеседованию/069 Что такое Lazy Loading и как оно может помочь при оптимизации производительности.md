@@ -6,9 +6,10 @@ title: >-
 tags:
   - LazyLoading
   - browser
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 69
 access: free

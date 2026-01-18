@@ -10,6 +10,7 @@ info:
   - "https://www.sitepoint.com/vitejs-front-end-build-tool-introduction/"
 draft: false
 technology: Архитектура Веб-приложений
+specialty: Frontend
 tools: []
 order: 0
 access: free

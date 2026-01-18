@@ -5,7 +5,7 @@ tags:
   - "#JavaScript"
   - "#boxing"
   - "#unboxing"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

@@ -4,7 +4,7 @@ title: Для чего в TypeScript используют ключевое сл�
 tags:
   - "#TypeScript"
   - "#declare"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

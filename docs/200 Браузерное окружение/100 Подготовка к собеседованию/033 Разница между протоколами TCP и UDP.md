@@ -10,6 +10,7 @@ info:
   - "https://habr.com/ru/companies/oleg-bunin/articles/461829/"
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 33
 access: free

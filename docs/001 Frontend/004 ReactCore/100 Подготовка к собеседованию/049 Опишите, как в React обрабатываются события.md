@@ -5,7 +5,7 @@ tags:
   - "#React"
   - "#SyntheticEvent"
   - "#event"
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

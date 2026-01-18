@@ -5,7 +5,7 @@ tags:
   - React
   - Zustand
   - State-manager
-info: null
+info: []
 draft: false
 technology: State Managers
 specialty: Frontend

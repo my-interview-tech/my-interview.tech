@@ -9,6 +9,7 @@ info:
   - "https://webpack.js.org/"
 draft: false
 technology: Архитектура Веб-приложений
+specialty: Frontend
 tools: []
 order: 1
 access: free

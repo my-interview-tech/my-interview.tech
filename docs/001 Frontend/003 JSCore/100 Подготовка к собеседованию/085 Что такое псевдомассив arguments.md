@@ -4,7 +4,7 @@ title: Что такое псевдомассив `arguments`?
 tags:
   - "#JavaScript"
   - "#arguments"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

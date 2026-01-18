@@ -3,7 +3,7 @@ uid: pgLPyZwbYTT6esuhmLMn-
 title: Как TypeScript поддерживает необязательные и дефолтные параметры в функции?
 tags:
   - "#TypeScript"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

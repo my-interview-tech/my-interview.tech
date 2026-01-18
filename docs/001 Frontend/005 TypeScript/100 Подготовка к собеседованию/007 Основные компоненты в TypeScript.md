@@ -3,7 +3,7 @@ uid: brf7xDkMDxn_haKR-nCS7
 title: Основные компоненты в TypeScript
 tags:
   - "#TypeScript"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

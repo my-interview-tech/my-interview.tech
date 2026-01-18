@@ -4,9 +4,10 @@ title: Что такое protobuf и messagepack?
 tags:
   - Protobuf
   - MessagePack
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 85
 access: free

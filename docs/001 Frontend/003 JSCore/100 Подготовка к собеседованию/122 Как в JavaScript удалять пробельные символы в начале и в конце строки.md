@@ -7,7 +7,7 @@ tags:
   - "#trim"
   - "#trimStart"
   - "#trimEnd"
-info: null
+info: []
 technology: JSCore
 specialty: Frontend
 tools: []

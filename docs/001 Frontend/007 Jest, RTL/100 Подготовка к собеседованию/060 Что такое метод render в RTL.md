@@ -5,7 +5,7 @@ tags:
   - testing
   - Jest
   - react-testing-library
-info: null
+info: []
 draft: false
 technology: "Jest, RTL"
 specialty: Frontend

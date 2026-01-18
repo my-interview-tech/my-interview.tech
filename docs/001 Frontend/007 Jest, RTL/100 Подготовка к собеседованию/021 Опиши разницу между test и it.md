@@ -8,7 +8,7 @@ tags:
   - it
   - test
   - BDD
-info: null
+info: []
 draft: false
 technology: "Jest, RTL"
 specialty: Frontend

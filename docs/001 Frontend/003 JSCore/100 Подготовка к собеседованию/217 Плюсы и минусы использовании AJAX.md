@@ -4,7 +4,7 @@ title: Плюсы и минусы использовании AJAX
 tags:
   - "#JavaScript"
   - "#AJAX"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

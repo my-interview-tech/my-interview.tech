@@ -4,7 +4,7 @@ title: Чем отличается opacity 0 от opacity 0.00001?
 tags:
   - "#CSS"
   - "#opacity"
-info: null
+info: []
 draft: false
 technology: CSS
 specialty: Frontend

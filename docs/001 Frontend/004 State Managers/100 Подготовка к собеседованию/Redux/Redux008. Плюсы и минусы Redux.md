@@ -4,7 +4,7 @@ title: Плюсы и минусы Redux
 tags:
   - "#React"
   - "#Redux"
-info: null
+info: []
 draft: false
 technology: State Managers
 specialty: Frontend

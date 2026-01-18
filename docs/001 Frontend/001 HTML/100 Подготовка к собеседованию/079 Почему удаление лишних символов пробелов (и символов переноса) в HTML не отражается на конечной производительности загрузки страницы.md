@@ -5,7 +5,7 @@ title: >-
   отражается на конечной производительности загрузки страницы?
 tags:
   - "#HTML"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

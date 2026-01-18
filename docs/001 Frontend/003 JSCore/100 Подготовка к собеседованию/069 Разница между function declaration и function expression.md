@@ -5,7 +5,7 @@ tags:
   - "#JavaScript"
   - "#function-declaration"
   - "#function-expression"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

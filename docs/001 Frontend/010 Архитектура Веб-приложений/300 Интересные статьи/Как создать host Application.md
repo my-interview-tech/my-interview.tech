@@ -1,10 +1,11 @@
 ---
 uid: 86tHiMk5zfwoWvYPScPVN
 title: Как создать host Application?
-tags: null
-info: null
+tags: []
+info: []
 draft: false
 technology: Архитектура Веб-приложений
+specialty: Frontend
 tools: []
 order: 0
 access: free

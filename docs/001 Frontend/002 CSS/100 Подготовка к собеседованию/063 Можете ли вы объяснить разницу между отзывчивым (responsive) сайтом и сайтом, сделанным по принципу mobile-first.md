@@ -7,7 +7,7 @@ tags:
   - "#CSS"
   - "#mobile-first"
   - "#responsiveDesign"
-info: null
+info: []
 draft: false
 technology: CSS
 specialty: Frontend

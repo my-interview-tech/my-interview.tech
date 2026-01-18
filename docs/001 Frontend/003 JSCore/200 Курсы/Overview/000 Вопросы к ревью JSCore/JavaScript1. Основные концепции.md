@@ -1,5 +1,6 @@
 ---
 uid: IKp1eX_dfO5HbE1a0tlBv
+title: JavaScript1. Основные концепции
 technology: JSCore
 specialty: Frontend
 tools: []

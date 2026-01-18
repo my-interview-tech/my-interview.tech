@@ -7,7 +7,7 @@ tags:
   - "#em"
   - "#b"
   - "#i"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

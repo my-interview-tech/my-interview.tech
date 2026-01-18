@@ -10,6 +10,7 @@ info:
   - "https://habr.com/ru/post/232385/"
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 14
 access: free

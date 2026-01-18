@@ -7,7 +7,7 @@ tags:
   - test
   - expect
   - assertions
-info: null
+info: []
 draft: false
 technology: "Jest, RTL"
 specialty: Frontend

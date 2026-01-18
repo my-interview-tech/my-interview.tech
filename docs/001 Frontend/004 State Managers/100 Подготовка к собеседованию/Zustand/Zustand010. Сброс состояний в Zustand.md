@@ -8,7 +8,7 @@ tags:
   - State-manager
   - create
   - Set
-info: null
+info: []
 draft: false
 technology: State Managers
 specialty: Frontend

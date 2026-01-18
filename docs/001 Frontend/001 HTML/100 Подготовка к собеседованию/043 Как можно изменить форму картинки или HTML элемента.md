@@ -6,7 +6,7 @@ tags:
   - "#CSS"
   - "#img"
   - "#clip-path"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

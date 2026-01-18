@@ -10,9 +10,10 @@ tags:
   - LoD
   - SoC
   - SLA
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованиям
+specialty: "Frontend,Backend"
 tools: []
 order: 11
 access: free

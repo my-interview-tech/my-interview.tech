@@ -8,6 +8,7 @@ info:
   - "https://habr.com/ru/companies/skillfactory/articles/650499/"
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 49
 access: free

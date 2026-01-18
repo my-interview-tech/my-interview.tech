@@ -4,7 +4,7 @@ title: Что такое элемент `canvas`? И для чего он исп
 tags:
   - "#HTML"
   - "#canvas"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

@@ -6,7 +6,7 @@ tags:
   - "#constructor"
   - "#super"
   - "#props"
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

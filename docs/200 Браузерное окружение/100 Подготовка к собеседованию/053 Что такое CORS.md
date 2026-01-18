@@ -13,6 +13,7 @@ info:
   - "https://habr.com/ru/companies/macloud/articles/553826/"
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 53
 access: free

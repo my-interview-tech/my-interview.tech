@@ -5,7 +5,7 @@ tags:
   - "#HTML"
   - "#aria"
   - "#скринридер"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

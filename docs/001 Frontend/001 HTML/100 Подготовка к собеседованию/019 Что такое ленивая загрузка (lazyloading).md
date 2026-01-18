@@ -4,7 +4,7 @@ title: Что такое ленивая загрузка (lazyloading)?
 tags:
   - "#HTML"
   - "#LazyLoading"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

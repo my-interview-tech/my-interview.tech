@@ -6,7 +6,7 @@ tags:
   - "#Redux"
   - "#pure-function"
   - "#reducer"
-info: null
+info: []
 draft: false
 technology: State Managers
 specialty: Frontend

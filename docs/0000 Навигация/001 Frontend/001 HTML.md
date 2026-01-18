@@ -3,6 +3,7 @@ uid: 9l0_DlacNd9TybmyNZEf0
 title: 001 HTML5
 draft: false
 technology: Frontend
+specialty: Frontend
 tools: []
 order: 1
 access: free

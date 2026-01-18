@@ -4,7 +4,7 @@ title: "Что такое `NaN`? Как определить, что значе�
 tags:
   - "#JavaScript"
   - "#NaN"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

@@ -7,9 +7,10 @@ tags:
   - PUT
   - POST
   - browser
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 30
 access: free

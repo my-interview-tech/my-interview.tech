@@ -4,9 +4,10 @@ title: Что такое MVVM?
 tags:
   - design-pattern
   - MVVM
-info: null
+info: []
 draft: false
 technology: Подготовка к собеседованиям
+specialty: "Frontend,Backend"
 tools: []
 order: 20
 access: free

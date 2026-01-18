@@ -3,6 +3,7 @@ uid: zjhOmWdw2AaS2EZSdgMHY
 title: "011 Решение задач: JS, TS и React"
 draft: false
 technology: Frontend
+specialty: Frontend
 tools: []
 order: 11
 access: free

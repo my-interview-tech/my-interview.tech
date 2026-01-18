@@ -4,7 +4,7 @@ title: Расскажите о свойстве `scrollbar-gutter`
 tags:
   - "#CSS"
   - "#scrollbar-gutter"
-info: null
+info: []
 draft: false
 technology: CSS
 specialty: Frontend

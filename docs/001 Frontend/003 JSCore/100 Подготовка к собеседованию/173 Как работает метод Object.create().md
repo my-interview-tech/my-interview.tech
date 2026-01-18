@@ -6,7 +6,7 @@ tags:
   - "#object"
   - "#create"
   - "#proto"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

@@ -6,7 +6,7 @@ tags:
   - "#AJAX"
   - "#API"
   - "#componentDidMount"
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

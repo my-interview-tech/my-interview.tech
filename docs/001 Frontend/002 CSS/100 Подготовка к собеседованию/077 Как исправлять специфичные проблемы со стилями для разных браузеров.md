@@ -6,7 +6,7 @@ tags:
   - "#normalize"
   - "#reset"
   - "#autoprefixer"
-info: null
+info: []
 draft: false
 technology: CSS
 specialty: Frontend

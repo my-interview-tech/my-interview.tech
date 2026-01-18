@@ -3,7 +3,7 @@ uid: mmzLGnl_6BxIzVpOJw0uf
 title: Исправление ошибки WslRegisterDistribution в Ubuntu
 tags:
   - "#ubuntu"
-info: null
+info: []
 draft: false
 technology: Настройка окружения
 specialty: Frontend

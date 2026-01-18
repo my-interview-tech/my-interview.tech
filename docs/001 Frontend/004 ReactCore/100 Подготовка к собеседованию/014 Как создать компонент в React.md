@@ -4,7 +4,7 @@ title: Как создать компонент в React?
 tags:
   - "#React"
   - "#component"
-info: null
+info: []
 draft: false
 technology: ReactCore
 specialty: Frontend

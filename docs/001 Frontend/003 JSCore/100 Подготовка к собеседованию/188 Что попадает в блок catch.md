@@ -5,7 +5,7 @@ tags:
   - "#JavaScript"
   - "#try-catch"
   - "#catch"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

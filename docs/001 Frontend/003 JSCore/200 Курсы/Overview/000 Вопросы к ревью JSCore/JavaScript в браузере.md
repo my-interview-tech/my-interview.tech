@@ -1,5 +1,6 @@
 ---
 uid: jqDfud9xz6lZq8uQ-u8hh
+title: JavaScript в браузере
 technology: JSCore
 specialty: Frontend
 tools: []

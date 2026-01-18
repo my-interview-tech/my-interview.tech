@@ -4,7 +4,7 @@ title: Всё о Promise и об асинхронности
 tags:
   - "#JavaScript"
   - "#promise"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

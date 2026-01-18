@@ -14,6 +14,7 @@ info:
   - "https://youtu.be/F_4zQeNTNOU?si=M9qz-SXrkJ0VylyE"
 draft: true
 technology: Архитектура Веб-приложений
+specialty: Frontend
 tools: []
 order: 1
 access: free

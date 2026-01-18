@@ -7,7 +7,7 @@ tags:
   - "#TypeScript"
   - "#Triple-Slash-Directives"
   - "#tsconfig"
-info: null
+info: []
 draft: false
 technology: TypeScript
 specialty: Frontend

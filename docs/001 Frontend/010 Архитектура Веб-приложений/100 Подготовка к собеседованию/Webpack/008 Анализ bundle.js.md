@@ -7,9 +7,10 @@ tags:
   - "#chunk"
   - "#webpack-bundle-analyzer"
   - "#webpack-runtime-analyzer"
-info: null
+info: []
 draft: false
 technology: Архитектура Веб-приложений
+specialty: Frontend
 tools: []
 order: 8
 access: free

@@ -7,7 +7,7 @@ tags:
   - "#tr"
   - "#td"
   - "#th"
-info: null
+info: []
 draft: false
 technology: HTML
 specialty: Frontend

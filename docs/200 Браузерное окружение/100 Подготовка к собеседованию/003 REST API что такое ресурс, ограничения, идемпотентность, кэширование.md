@@ -11,6 +11,7 @@ info:
   - "[[0094 REST простыми словами|REST]]"
 draft: false
 technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
 tools: []
 order: 3
 access: free

@@ -6,7 +6,7 @@ tags:
   - "#chaining"
   - "#object"
   - "#this"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

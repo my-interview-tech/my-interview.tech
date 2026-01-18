@@ -5,7 +5,7 @@ tags:
   - "#JavaScript"
   - "#object"
   - "#Object-seal"
-info: null
+info: []
 draft: false
 technology: JSCore
 specialty: Frontend

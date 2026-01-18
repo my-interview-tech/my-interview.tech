@@ -25,12 +25,31 @@ export function deriveFromPath(relPath: string): DerivedValues {
   const segments = relPath.split(path.sep).filter(Boolean);
   const fileName = segments.at(-1) ?? "";
   const categoryRaw = segments[0] ?? "";
-  const technologyRaw = segments[1] ?? categoryRaw;
+  
+  // Определяем technology:
+  // Для файлов типа "100 Git\..." technology = category
+  // Для файлов типа "001 Frontend\003 JSCore\..." technology = segments[1]
+  const category = stripOrderPrefix(categoryRaw);
+  let technologyRaw: string;
+  
+  // Если категория начинается с цифр (100, 200, 300), то это уже technology
+  if (/^\d+/.test(categoryRaw) && segments.length >= 2) {
+    technologyRaw = categoryRaw;
+  } else {
+    technologyRaw = segments[1] ?? categoryRaw;
+  }
+  
   const chapterRaw = segments[2] ?? "";
 
+  // Убираем расширение .md из technology если это файл
+  let technology = stripOrderPrefix(technologyRaw);
+  if (technology.endsWith('.md')) {
+    technology = technology.slice(0, -3);
+  }
+
   return {
-    category: stripOrderPrefix(categoryRaw),
-    technology: stripOrderPrefix(technologyRaw),
+    category,
+    technology,
     chapter: stripOrderPrefix(chapterRaw),
     order: parseOrder(fileName),
   };
