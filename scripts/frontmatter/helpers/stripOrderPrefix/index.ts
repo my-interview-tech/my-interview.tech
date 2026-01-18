@@ -1,0 +1,1 @@
+export { stripOrderPrefix } from './stripOrderPrefix';
