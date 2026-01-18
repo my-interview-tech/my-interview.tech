@@ -1,12 +1,21 @@
 ---
+uid: A4m7STcysvCaoMO1lFAux
 title: Что такое метод render в RTL?
-draft: false
 tags:
   - testing
   - Jest
   - react-testing-library
-info:
+info: []
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 60
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 **`render`** — это основной метод в React Testing Library, который используется для рендеринга React-компонентов в тестовой среде. Он возвращает объект, содержащий методы для взаимодействия с отображенным компонентом, такие как поиск элементов, имитация событий и проверка состояния.
 
 Основные функции `render`:
@@ -19,7 +28,7 @@ info:
 Пример компонента:
 
 ```javascript
-import React from 'react';
+import React from "react";
 
 function Greeting({ name }) {
   return <div>Hello, {name}!</div>;
@@ -31,11 +40,11 @@ export default Greeting;
 Пример теста:
 
 ```javascript
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import Greeting from './Greeting';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import Greeting from "./Greeting";
 
-test('renders greeting with name', () => {
+test("renders greeting with name", () => {
   // Рендерим компонент с пропом name
   render(<Greeting name="World" />);
 
@@ -54,6 +63,6 @@ test('renders greeting with name', () => {
 3. **Поиск элемента**: Используйте `screen.getByText` для поиска элемента по тексту.
 4. **Проверка наличия элемента**: Используйте `expect` и методы Jest для проверки, что элемент присутствует в документе.
 
-____
+---
 
 [[007 Jest, RTL|Назад]]

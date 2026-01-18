@@ -1,12 +1,21 @@
 ---
+uid: Cvy08XgnBVL_n7KRje-tO
 title: Что такое `test runner` в Jest?
-draft: false
 tags:
   - testing
   - Jest
   - react-testing-library
   - test-runner
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 33
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 **Test runner** (средство запуска тестов) в Jest — это инструмент, который отвечает за выполнение наборов тестов и составление отчётов о результатах. Jest включает в себя встроенное средство запуска тестов, которое может запускать наборы тестов параллельно, обеспечивая более быстрое и эффективное тестирование.
 
 Основные функции `test runner` в Jest:
@@ -21,16 +30,15 @@ tags:
 Пример настройки `test runner` в Jest:
 
 ```javascript
-
 module.exports = {
   // Другие настройки Jest
-  testRunner: 'jest-circus/runner', // Использование другого средства запуска тестов
-  reporters: ['default', 'jest-junit'], // Использование дополнительных репортеров
-  testEnvironment: 'jsdom', // Установка тестовой среды
-  testMatch: ['**/__tests__/**/*.js?(x)', '**/?(*.)+(spec|test).js?(x)'], // Установка шаблонов для поиска тестов
-  testPathIgnorePatterns: ['/node_modules/'], // Игнорирование определенных путей
+  testRunner: "jest-circus/runner", // Использование другого средства запуска тестов
+  reporters: ["default", "jest-junit"], // Использование дополнительных репортеров
+  testEnvironment: "jsdom", // Установка тестовой среды
+  testMatch: ["**/__tests__/**/*.js?(x)", "**/?(*.)+(spec|test).js?(x)"], // Установка шаблонов для поиска тестов
+  testPathIgnorePatterns: ["/node_modules/"], // Игнорирование определенных путей
   collectCoverage: true, // Сбор покрытия кода
-  coverageReporters: ['json', 'html'], // Форматы отчётов о покрытии
+  coverageReporters: ["json", "html"], // Форматы отчётов о покрытии
 };
 ```
 
@@ -58,6 +66,6 @@ module.exports = {
 6. **`collectCoverage`**: Включает сбор покрытия кода.
 7. **`coverageReporters`**: Указывает форматы отчётов о покрытии.
 
-____
+---
 
 [[007 Jest, RTL|Назад]]

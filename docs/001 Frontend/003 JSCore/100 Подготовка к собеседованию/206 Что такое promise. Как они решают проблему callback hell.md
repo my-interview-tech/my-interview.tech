@@ -1,6 +1,6 @@
 ---
+uid: jVL8HerRC4kS6yXN0RpUo
 title: Что такое promise? Как они решают проблему callback hell?
-draft: false
 tags:
   - "#JavaScript"
   - "#promise"
@@ -9,7 +9,16 @@ tags:
 info:
   - "[[066 Цепочка Promise|Цепочка Promise]]"
   - "[[065 Promise|Promise]]"
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 206
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703131315.png|600]]
 
 _Promise (промис)_ - это объект, который представляет собой результат асинхронной операции и может иметь одно из трех состояний: _ожидание (pending), выполнено (fulfilled) или отклонено (rejected)._ Промисы предоставляют более удобный способ работы с асинхронным кодом, чем callback-функции, поскольку позволяют избежать callback hell.
@@ -23,11 +32,11 @@ loadDataFromServer()
   .then(processData)
   .then(saveResult)
   .then(() => {
-    console.log("All done!")
+    console.log("All done!");
   })
   .catch((error) => {
-    console.error("Error:", error)
-  })
+    console.error("Error:", error);
+  });
 ```
 
 Здесь функция `loadDataFromServer` возвращает промис, который затем передается в метод `then`. Метод `then` выполняет операцию и возвращает новый промис, который передается в следующий метод `then`. Если операция завершается неудачно, то промис переходит в состояние "отклонено" (rejected) и вызывается метод `catch`, который обрабатывает ошибку.

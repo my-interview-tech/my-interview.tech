@@ -1,6 +1,6 @@
 ---
+uid: uo2DzH18PZelELSYEJj9-
 title: Что такое fake в unit-test?
-draft: false
 tags:
   - "#testing"
   - "#unit-test"
@@ -9,8 +9,17 @@ tags:
   - unit-stub
   - unit-dummy
 info:
-  - https://blog.pragmatists.com/test-doubles-fakes-mocks-and-stubs-1a7491dfa3da
+  - "https://blog.pragmatists.com/test-doubles-fakes-mocks-and-stubs-1a7491dfa3da"
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 6
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 В unit-тестировании `Fake` (англ. "фейк") - это объект, который _имитирует поведение реального объекта, но не является точной его копией_, а создается специально для тестирования. Fake обычно используется, когда _необходимо создать объект, который зависит от других компонентов_, _которые еще не готовы или не доступны на момент тестирования_.
 
 `Fake` может имитировать различные объекты, такие как базы данных, файловые системы, сетевые соединения, а также другие объекты, которые сложно воссоздать в тестовой среде или которые могут повлиять на результаты тестирования.
@@ -32,7 +41,7 @@ const FakeUserService = {
       { id: 1, name: "John" },
       { id: 2, name: "Jane" },
     ];
-    
+
     return users.find((user) => user.id === id)?.name;
   },
 };
@@ -41,10 +50,10 @@ const FakeUserService = {
 Затем мы можем создать функциональный компонент `UserProfile`, который будет использовать этот Fake сервис.
 
 ```jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const UserProfile = ({ userId, userService }) => {
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
     const fetchUserName = async () => {
@@ -62,13 +71,13 @@ const UserProfile = ({ userId, userService }) => {
 Теперь мы можем протестировать компонент `UserProfile` с использованием Fake сервиса `FakeUserService`.
 
 ```jsx
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 
-test('renders user name correctly', () => {
+test("renders user name correctly", () => {
   render(<UserProfile userId={1} userService={FakeUserService} />);
   const userNameElement = screen.getByText(/User Name: John/i);
-  
+
   expect(userNameElement).toBeInTheDocument();
 });
 ```

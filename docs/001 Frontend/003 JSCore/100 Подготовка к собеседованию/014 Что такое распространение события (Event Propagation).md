@@ -1,6 +1,6 @@
 ---
+uid: ocYgV9Al9DDug-hIvZ3_K
 title: Что такое распространение события (Event Propagation)?
-draft: false
 tags:
   - "#DOM"
   - "#event"
@@ -10,8 +10,17 @@ tags:
   - "#target"
   - "#stopPropagation"
   - "#browser"
-info:
+info: []
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 14
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230701213819.png|600]]
 
 _Распространение события (Event propagation)_ - это механизм, который определяет, как событие будет распространяться по иерархии DOM-элементов в процессе его обработки.
@@ -29,20 +38,20 @@ _Распространение события (Event propagation)_ - это м�
 Вот пример, который демонстрирует распространение события и использование метода `stopPropagation()`:
 
 ```javascript
-const button = document.querySelector("button")
-const div = document.querySelector("div")
+const button = document.querySelector("button");
+const div = document.querySelector("div");
 
 function handleClick() {
-  console.log("Кнопка нажата")
+  console.log("Кнопка нажата");
 }
 
 function handleDivClick(event) {
-  console.log("Див кликнут")
-  event.stopPropagation() // Останавливаем распространение события
+  console.log("Див кликнут");
+  event.stopPropagation(); // Останавливаем распространение события
 }
 
-button.addEventListener("click", handleClick)
-div.addEventListener("click", handleDivClick)
+button.addEventListener("click", handleClick);
+div.addEventListener("click", handleDivClick);
 ```
 
 В этом примере при клике на кнопку сначала вызовется обработчик события для кнопки, а затем для родительского элемента div. Однако, из-за использования метода `stopPropagation()` в обработчике события для div, распространение события не будет продолжаться дальше по иерархии элементов.

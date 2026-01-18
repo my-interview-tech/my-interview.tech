@@ -1,11 +1,20 @@
 ---
+uid: "-fa0P-7ApmkbUnl3uJ5Cg"
 title: Task_currying - curry()_1
-draft: false
 tags:
   - "#JavaScript"
   - "#taskJS"
   - "#currying"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```js
 /*
 Описание: 
@@ -26,10 +35,10 @@ function multiply(a, b, c) {
 }
 
 console.log(curriedAdd(1)(2)(3)); // 6
-console.log(curriedMult(1)(2)(3)) // 6
+console.log(curriedMult(1)(2)(3)); // 6
 ```
 
-**Ответ
+\*\*Ответ
 
 ```js
 /*
@@ -51,12 +60,11 @@ function multiply(a, b, c) {
 }
 
 function curry(oper) {
-
   return function curried(...args) {
     if (args.length >= oper.length) {
       return oper(...args);
     } else {
-      return function(...args2) {
+      return function (...args2) {
         return curried(...args, ...args2);
       };
     }
@@ -64,10 +72,9 @@ function curry(oper) {
 }
 
 const curriedAdd = curry(add);
-const curriedMult = curry(multiply)
-
+const curriedMult = curry(multiply);
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

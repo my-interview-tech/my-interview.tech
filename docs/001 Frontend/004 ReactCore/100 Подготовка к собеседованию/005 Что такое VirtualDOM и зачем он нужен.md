@@ -1,17 +1,26 @@
 ---
+uid: eGqJdA7QlrCLdP4yRt0Pj
 title: Что такое VirtualDOM и зачем он нужен?
-draft: false
 tags:
   - "#React"
   - "#DOM"
   - "#VirtualDOM"
   - "#reactDOMServer"
 info:
-  - https://habr.com/ru/post/256965/
-  - https://habr.com/ru/companies/macloud/articles/558682/
-  - https://ru.legacy.reactjs.org/docs/faq-internals.html
-  - https://ru.legacy.reactjs.org/docs/rendering-elements.html
+  - "https://habr.com/ru/post/256965/"
+  - "https://habr.com/ru/companies/macloud/articles/558682/"
+  - "https://ru.legacy.reactjs.org/docs/faq-internals.html"
+  - "https://ru.legacy.reactjs.org/docs/rendering-elements.html"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 5
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704173636.png|600]]
 
 _`Virtual DOM` (виртуальное DOM)_ - это концепция, которая используется в React для улучшения производительности при работе с пользовательским интерфейсом. _Виртуальное DOM - это легковесное представление реальной DOM-структуры, которое хранится в памяти и обновляется только при необходимости._

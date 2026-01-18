@@ -1,13 +1,22 @@
 ---
+uid: MNh2H5OJCAy4iQ1oTgefu
 title: Что делает метод cleanup в RTL?
-draft: false
 tags:
   - testing
   - Jest
   - react-testing-library
   - render
   - cleanup
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 64
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 **`cleanup`** — это метод, предоставляемый React Testing Library, который используется для очистки после каждого теста. Он отключает все компоненты, которые были отрендерены с помощью `render`, и очищает все слушатели событий и таймеры, чтобы избежать утечек памяти и конфликтов между тестами.
 
 Основные функции `cleanup`:
@@ -19,7 +28,7 @@ tags:
 Пример использования `cleanup`:
 
 ```javascript
-import React from 'react';
+import React from "react";
 
 function MyComponent() {
   return <div>Hello, World!</div>;
@@ -29,14 +38,15 @@ export default MyComponent;
 ```
 
 Пример теста:
+
 ```javascript
-import React from 'react';
-import { render, screen, cleanup } from '@testing-library/react';
-import MyComponent from './MyComponent';
+import React from "react";
+import { render, screen, cleanup } from "@testing-library/react";
+import MyComponent from "./MyComponent";
 
 afterEach(cleanup);
 
-test('renders MyComponent', () => {
+test("renders MyComponent", () => {
   render(<MyComponent />);
   const element = screen.getByText(/Hello, World!/i);
   expect(element).toBeInTheDocument();
@@ -56,17 +66,17 @@ test('renders MyComponent', () => {
 Если вы используете `@testing-library/react`, `cleanup` автоматически вызывается после каждого теста, поэтому вам не нужно явно вызывать его в большинстве случаев. Однако, если вы хотите убедиться, что очистка происходит, вы можете использовать `afterEach(cleanup)`.
 
 ```javascript
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import MyComponent from './MyComponent';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import MyComponent from "./MyComponent";
 
-test('renders MyComponent', () => {
+test("renders MyComponent", () => {
   render(<MyComponent />);
   const element = screen.getByText(/Hello, World!/i);
   expect(element).toBeInTheDocument();
 });
 ```
 
-____
+---
 
 [[007 Jest, RTL|Назад]]

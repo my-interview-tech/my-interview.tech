@@ -1,12 +1,21 @@
 ---
+uid: hAP2dtKxDybdQDb_D9ArS
 title: Что попадает в блок catch?
-draft: false
 tags:
   - "#JavaScript"
   - "#try-catch"
   - "#catch"
-info:
+info: []
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 188
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Когда возникает ошибка, JavaScript генерирует объект, содержащий её детали.
 
 Затем этот объект передаётся как аргумент в блок `catch`:

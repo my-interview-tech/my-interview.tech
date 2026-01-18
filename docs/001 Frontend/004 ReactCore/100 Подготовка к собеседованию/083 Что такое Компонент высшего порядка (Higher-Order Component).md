@@ -1,14 +1,23 @@
 ---
+uid: 3rQuYUGAFm6Rv4WKR0MXQ
 title: Что такое Компонент высшего порядка (Higher-Order Component)?
-draft: false
 tags:
   - "#React"
   - "#HOC"
   - "#DRY"
 info:
-  - https://youtu.be/yvOXvZ8aEFo?t=637
+  - "https://youtu.be/yvOXvZ8aEFo?t=637"
   - "[[0045 Компоненты высшего порядка|Компоненты высшего порядка]]"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 83
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 [[0045 Компоненты высшего порядка|Компоненты высшего порядка]] реализует принцип `DRY`
 
 ![[Pasted image 20230704190430.png|600]]
@@ -23,20 +32,20 @@ _HOC позволяют повторно использовать общую л�
 function withData(WrappedComponent) {
   return class extends React.Component {
     constructor(props) {
-      super(props)
-      this.state = { data: [] }
+      super(props);
+      this.state = { data: [] };
     }
 
     componentDidMount() {
       fetchData().then((data) => {
-        this.setState({ data })
-      })
+        this.setState({ data });
+      });
     }
 
     render() {
-      return <WrappedComponent data={this.state.data} {...this.props} />
+      return <WrappedComponent data={this.state.data} {...this.props} />;
     }
-  }
+  };
 }
 ```
 

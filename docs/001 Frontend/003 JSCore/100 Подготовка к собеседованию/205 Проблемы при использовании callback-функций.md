@@ -1,13 +1,22 @@
 ---
+uid: ZK_BQmq2XPUToPMxk2dXN
 title: Проблемы при использовании callback-функций?
-draft: false
 tags:
   - "#JavaScript"
   - "#асинхронность"
   - "#callback"
   - "#CallbackHell"
-info:
+info: []
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 205
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703131132.png|600]]
 
 _Callback - это устаревшая технология._

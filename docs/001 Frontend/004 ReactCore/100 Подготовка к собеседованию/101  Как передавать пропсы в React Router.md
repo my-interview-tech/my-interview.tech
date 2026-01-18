@@ -1,12 +1,21 @@
 ---
+uid: mSd_2eREuGW8x8q3U4KqD
 title: Как передавать пропсы в React Router?
-draft: false
 tags:
   - "#React"
   - "#React-router"
   - "#props"
-info:
+info: []
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 101
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704215258.png|600]]
 
 В React Router можно передавать пропсы через _компоненты маршрутизации_.
@@ -16,28 +25,38 @@ info:
 1. Атрибут `component`:
 
 ```jsx
-import { Route } from "react-router-dom"
+import { Route } from "react-router-dom";
 
 function MyComponent(props) {
-  return <div>{props.text}</div>
+  return <div>{props.text}</div>;
 }
 
 function App() {
-  return <Route path="/my-route" component={() => <MyComponent text="Hello, World!" />} />
+  return (
+    <Route
+      path="/my-route"
+      component={() => <MyComponent text="Hello, World!" />}
+    />
+  );
 }
 ```
 
 2. Атрибут `render`:
 
 ```jsx
-import { Route } from "react-router-dom"
+import { Route } from "react-router-dom";
 
 function MyComponent(props) {
-  return <div>{props.text}</div>
+  return <div>{props.text}</div>;
 }
 
 function App() {
-  return <Route path="/my-route" render={() => <MyComponent text="Hello, World!" />} />
+  return (
+    <Route
+      path="/my-route"
+      render={() => <MyComponent text="Hello, World!" />}
+    />
+  );
 }
 ```
 
@@ -46,7 +65,7 @@ function App() {
 Если вы хотите передать дополнительные пропсы в компонент, вы можете использовать метод расширения объекта:
 
 ```jsx
-import { Route } from "react-router-dom"
+import { Route } from "react-router-dom";
 
 function MyComponent(props) {
   return (
@@ -54,7 +73,7 @@ function MyComponent(props) {
       <p>{props.text}</p>
       <p>{props.anotherProp}</p>
     </div>
-  )
+  );
 }
 
 function App() {
@@ -62,10 +81,14 @@ function App() {
     <Route
       path="/my-route"
       render={(routeProps) => (
-        <MyComponent text="Hello, World!" anotherProp="Another prop value" {...routeProps} />
+        <MyComponent
+          text="Hello, World!"
+          anotherProp="Another prop value"
+          {...routeProps}
+        />
       )}
     />
-  )
+  );
 }
 ```
 

@@ -1,11 +1,20 @@
 ---
+uid: 19Pcf5lO8I4iX_wnDgvhW
 title: Что такое модуль Cluster?
-draft: false
 tags:
   - "#NodeJS"
   - "#cluster"
-info:
+info: []
+draft: false
+technology: Node.js
+specialty: Backend
+tools: []
+order: 13
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704135515.png|600]]
 
 _Модуль Cluster_ - это модуль Node.js, который позволяет создавать многопроцессорные приложения в Node.js. Этот модуль позволяет запускать несколько процессов Node.js на одном или нескольких ядрах процессора, чтобы распределить нагрузку на приложение и повысить производительность.

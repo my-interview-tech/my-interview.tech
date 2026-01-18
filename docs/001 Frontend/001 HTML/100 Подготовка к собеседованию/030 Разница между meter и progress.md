@@ -1,12 +1,21 @@
 ---
+uid: rdB5GBC-bHSUrhMvA2Mzz
 title: Разница между `meter` и `progress`?
-draft: false
 tags:
   - "#HTML"
   - "#meter"
   - "#progress"
-info:
+info: []
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 30
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704020148.png|600]]
 
 Теги `meter` и `progress` используются для отображения информации на странице, которая связана с прогрессом, процессами и состояниями, но они имеют разные назначения и функциональность.

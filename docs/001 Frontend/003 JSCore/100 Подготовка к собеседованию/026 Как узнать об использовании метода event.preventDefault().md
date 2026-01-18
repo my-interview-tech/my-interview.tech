@@ -1,12 +1,21 @@
 ---
+uid: MSiYJLGtRkrHGJ6bAWzrz
 title: Как узнать об использовании метода `event.preventDefault()`
-draft: false
 tags:
   - "#DOM"
   - "#preventDefault"
   - "#browser"
-info:
+info: []
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 26
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230702110801.png|600]]
 
 Метод `event.preventDefault()` используется для предотвращения стандартного поведения браузера в ответ на событие.
@@ -19,9 +28,9 @@ info:
 
 ```javascript
 document.querySelector("a").addEventListener("click", function (event) {
-  event.preventDefault()
+  event.preventDefault();
   // ваш код
-})
+});
 ```
 
 В этом примере метод `event.preventDefault()` применяется к событию `click` ссылки, чтобы предотвратить ее стандартное поведение. Ваш собственный код будет выполняться после этого.

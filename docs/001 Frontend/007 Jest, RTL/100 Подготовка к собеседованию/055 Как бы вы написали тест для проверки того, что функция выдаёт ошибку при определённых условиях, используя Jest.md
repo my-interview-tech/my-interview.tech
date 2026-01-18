@@ -1,11 +1,22 @@
 ---
-title: Как бы вы написали тест для проверки того, что функция выдаёт ошибку при определённых условиях, используя Jest?
-draft: false
+uid: RBxFZjk7ThCVofjfcpB-I
+title: >-
+  Как бы вы написали тест для проверки того, что функция выдаёт ошибку при
+  определённых условиях, используя Jest?
 tags:
   - testing
   - Jest
   - toThrow
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 55
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Для тестирования того, что функция выбрасывает ошибку при определенных условиях, используя Jest, вы можете использовать метод `.toThrow()`. Вот как это работает:
 
 1. **Оберните вызов функции в другую функцию**: Это необходимо, потому что Jest должен выполнить функцию, чтобы поймать ошибку. Вы можете использовать стандартный синтаксис функции или синтаксис стрелочной функции.
@@ -18,8 +29,8 @@ tags:
 
 ```javascript
 function myFunction(type) {
-  if (typeof type !== 'string') {
-    throw new TypeError('Invalid type');
+  if (typeof type !== "string") {
+    throw new TypeError("Invalid type");
   }
   // Остальная логика функции
 }
@@ -28,9 +39,9 @@ function myFunction(type) {
 Теперь вы можете написать тест, чтобы убедиться, что эта функция действительно выбрасывает ошибку при передаче неверного типа:
 
 ```javascript
-test('throws on invalid type', () => {
+test("throws on invalid type", () => {
   const wrapperFunction = () => {
-    myFunction('invalidType');
+    myFunction("invalidType");
   };
   expect(wrapperFunction).toThrow(TypeError);
 });
@@ -44,20 +55,20 @@ test('throws on invalid type', () => {
 Проверка конкретного сообщения об ошибке:
 
 ```javascript
-test('throws on invalid type with specific message', () => {
+test("throws on invalid type with specific message", () => {
   const wrapperFunction = () => {
-    myFunction('invalidType');
+    myFunction("invalidType");
   };
-  expect(wrapperFunction).toThrow('Invalid type');
+  expect(wrapperFunction).toThrow("Invalid type");
 });
 ```
 
 Проверка выброса ошибки без указания типа:
 
 ```javascript
-test('throws on invalid type without specifying error type', () => {
+test("throws on invalid type without specifying error type", () => {
   const wrapperFunction = () => {
-    myFunction('invalidType');
+    myFunction("invalidType");
   };
   expect(wrapperFunction).toThrow();
 });
@@ -65,6 +76,6 @@ test('throws on invalid type without specifying error type', () => {
 
 Этот подход позволяет вам тестировать выброс ошибок в вашем коде, гарантируя, что ошибки выбрасываются и обрабатываются правильно при определенных условиях.
 
-____
+---
 
 [[007 Jest, RTL|Назад]]

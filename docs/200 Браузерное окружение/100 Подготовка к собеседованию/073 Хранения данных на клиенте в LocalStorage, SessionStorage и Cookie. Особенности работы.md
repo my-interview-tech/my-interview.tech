@@ -1,15 +1,26 @@
 ---
-title: Хранения данных на клиенте в LocalStorage, SessionStorage и Cookie?Особенности работы
-draft: false
+uid: ZI72VH5tb3S7pfIX11bSs
+title: >-
+  Хранения данных на клиенте в LocalStorage, SessionStorage и Cookie?Особенности
+  работы
 tags:
   - "#localStorage"
   - "#sessionStorage"
   - "#Cookie"
 info:
   - "[[0082 LocalStorage, sessionStorage|LocalStorage & sessionStorage]]"
-  - https://habr.com/ru/articles/732864/
-  - https://habr.com/ru/companies/ruvds/articles/415505/
+  - "https://habr.com/ru/articles/732864/"
+  - "https://habr.com/ru/companies/ruvds/articles/415505/"
+draft: false
+technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
+tools: []
+order: 73
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 LocalStorage, SessionStorage и Cookies - это три различных способа хранения данных на стороне клиента в веб-браузере. Каждый из них имеет свои особенности и применяется в разных случаях.
 
 1. _LocalStorage_ - это механизм _хранения данных в браузере, который позволяет сохранять данные между сеансами работы пользователя на сайте_. Данные сохраняются в виде пар ключ-значение и могут быть получены и изменены при последующих посещениях сайта. Данные в LocalStorage не имеют срока давности и сохраняются на диске даже после закрытия браузера.

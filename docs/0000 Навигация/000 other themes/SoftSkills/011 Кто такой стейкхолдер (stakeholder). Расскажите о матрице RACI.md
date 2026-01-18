@@ -1,12 +1,20 @@
 ---
+uid: HlKs91Si0n_tgl-U9Khhm
 title: Кто такой стейкхолдер (stakeholder)? Расскажите о матрице RACI?
-draft: false
 tags:
   - softskills
   - stakeholder
   - RACI
 info:
-  - https://youtu.be/DZjIcc6KdjE?t=767
+  - "https://youtu.be/DZjIcc6KdjE?t=767"
+draft: false
+technology: other themes
+specialty: Frontend
+tools: []
+order: 11
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
 
 ![[Pasted image 20230704170505.png|600]]

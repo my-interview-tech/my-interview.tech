@@ -1,11 +1,20 @@
 ---
+uid: h-xFMdaW89A8l5m3RL4G4
 title: Task_object -
-draft: false
 tags:
   - "#JavaScript"
   - "#taskJS"
   - "#object"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```js
 /**
  
@@ -28,18 +37,18 @@ cities - массив названий городов.
 */
 
 const data = {
-    Москва: { count: 100 },
-    Лондон: { count: 200 },
-    Лиссабон: { count: 300 },
-    Тверь: { count: 400 },
-    Загреб: { count: 500 },
-    Магадан: { count: 600 },
-    Астана: { count: 700 },
-    Новосибирск: { count: 800 }
+  Москва: { count: 100 },
+  Лондон: { count: 200 },
+  Лиссабон: { count: 300 },
+  Тверь: { count: 400 },
+  Загреб: { count: 500 },
+  Магадан: { count: 600 },
+  Астана: { count: 700 },
+  Новосибирск: { count: 800 },
 };
 ```
 
-**Ответ
+\*\*Ответ
 
 ```js
 const data = {
@@ -50,13 +59,13 @@ const data = {
   Загреб: { count: 500 },
   Магадан: { count: 600 },
   Астана: { count: 700 },
-  Новосибирск: { count: 800 }
+  Новосибирск: { count: 800 },
 };
 
 function countryData(data) {
   const result = [];
   const obj = {};
-  
+
   for (let key in data) {
     const char = key[0].toUpperCase();
     if (obj[char]) {
@@ -66,51 +75,47 @@ function countryData(data) {
       obj[char] = {
         key: char,
         totalCount: data[key].count,
-        cities: [key]
+        cities: [key],
       };
     }
   }
-  
+
   for (let key in obj) {
     obj[key].cities.sort();
     result.push(obj[key]);
   }
-  
-  
 }
-  
 
-console.log(countryData(data))
+console.log(countryData(data));
 ```
 
 ```js
 const transformCities = (data) => {
-    if (data?.length) {
-        return null
+  if (data?.length) {
+    return null;
+  }
+
+  const transformToArray = Object.entries(data);
+  const aloneCities = transformToArray.map((el) => {
+    return { key: el[0][0], count: el[1].count, city: [el[0]] };
+  });
+
+  const accArrOfCities = aloneCities.reduce((acc, { key, count, city }) => {
+    if (!acc[key]) {
+      acc[key] = { key, totalCount: 0, cities: [] };
     }
+    acc[key].totalCount += count;
+    acc[key].cities.push(...city);
 
-    const transformToArray = Object.entries(data)
-    const aloneCities = transformToArray.map((el) => {
-        return { key: el[0][0], count: el[1].count, city: [el[0]]
-    }})
-    
-    const accArrOfCities = aloneCities.reduce((acc, { key, count, city }) => {
-        if (!acc[key]) {
-            acc[key] = { key, totalCount: 0, cities: [] };
-        }
-        acc[key].totalCount += count;
-        acc[key].cities.push(...city);
+    return acc;
+  }, []);
 
-        return acc
-    }, [])
-
-
-
-    return Object.values(accArrOfCities).sort((a, b) => a.key.localeCompare(b.key))
-}
-
+  return Object.values(accArrOfCities).sort((a, b) =>
+    a.key.localeCompare(b.key),
+  );
+};
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

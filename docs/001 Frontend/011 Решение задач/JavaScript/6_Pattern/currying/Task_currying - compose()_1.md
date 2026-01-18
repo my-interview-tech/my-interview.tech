@@ -1,11 +1,20 @@
 ---
+uid: Z6Hxp1DcZT06-iesmaBPC
 title: Task_currying - compose()_1
-draft: false
 tags:
   - "#JavaScript"
   - "#taskJS"
   - "#currying"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```js
 /*
 Описание: 
@@ -26,18 +35,16 @@ const composed = compose(multed, added);
 console.log(composed(1)); // 8
 ```
 
-**Ответ
+\*\*Ответ
 
 ```js
-
 function compose(multOper, addOper) {
-  return function(...args) {
-    return multOper(addOper(...args))
-  }
+  return function (...args) {
+    return multOper(addOper(...args));
+  };
 }
-
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

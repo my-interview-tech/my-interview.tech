@@ -1,11 +1,20 @@
 ---
+uid: cOI2ypBkyv8dydsv_2g2y
 title: Что такое каррирование (Currying)?
-draft: false
 tags:
   - "#JavaScript"
   - "#currying"
-info:
+info: []
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 75
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230702143049.png|600]]
 
 ![[Pasted image 20230702143431.png|600]]
@@ -16,7 +25,7 @@ info:
 
 ```javascript
 function add(x, y) {
-  return x + y
+  return x + y;
 }
 ```
 
@@ -25,15 +34,15 @@ function add(x, y) {
 ```javascript
 function addCurried(x) {
   return function (y) {
-    return x + y
-  }
+    return x + y;
+  };
 }
 ```
 
 Теперь мы можем вызвать эту функцию таким образом:
 
 ```javascript
-addCurried(2)(3)
+addCurried(2)(3);
 ```
 
 Это вернет результат 5.

@@ -1,14 +1,23 @@
 ---
+uid: xp_aQ-jhb0aC_al1qXS3P
 title: Какова цель функции `getStaticPaths()` в Next.js?
-draft: false
 tags:
   - NextJS
   - getStaticPaths
   - getStaticProps
   - SSG
 info:
-  - https://nextjs.org/docs/pages/api-reference/functions/get-static-paths
+  - "https://nextjs.org/docs/pages/api-reference/functions/get-static-paths"
+draft: false
+technology: Next.js
+specialty: Frontend
+tools: []
+order: 13
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Функция `getStaticPaths` в Next.js используется для предварительного рендеринга страниц со статической генерацией (SSG) для динамических маршрутов. Она позволяет вам определить, какие пути должны быть предварительно отрендерены во время сборки.
 
 Основные цели и функции `getStaticPaths`:
@@ -68,6 +77,6 @@ export default function Item({ item }) {
 - `getStaticProps` используется для получения данных для каждого конкретного ID.
 - `fallback: false` указывает, что если путь не был предварительно отрендерен, Next.js должен вернуть 404 ошибку. Если установить `fallback: true` или `fallback: 'blocking'`, Next.js будет обрабатывать такие запросы динамически.
 
-____
+---
 
 [[006 Next.js|Назад]]

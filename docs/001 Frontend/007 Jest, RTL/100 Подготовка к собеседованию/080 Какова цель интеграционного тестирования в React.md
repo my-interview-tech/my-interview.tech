@@ -1,12 +1,23 @@
 ---
-title: Какова цель интеграционного тестирования? Как вы будете писать интеграционные тесты для приложения на React?
-draft: false
+uid: bHhZgWwSaCMYyn653cTo3
+title: >-
+  Какова цель интеграционного тестирования? Как вы будете писать интеграционные
+  тесты для приложения на React?
 tags:
   - testing
   - Jest
   - react-testing-library
   - integration-test
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 80
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Интеграционное тестирование (Integration Testing) направлено на проверку взаимодействия между различными компонентами системы. В контексте приложения на React, это означает тестирование взаимодействия между компонентами, модулями, API и другими внешними сервисами. Основные цели интеграционного тестирования:
 
 1. **Проверка взаимодействия**: Убедиться, что компоненты и модули работают вместе как единое целое.
@@ -26,10 +37,10 @@ React Testing Library позволяет тестировать компонен
 Компонент `Form.js`:
 
 ```javascript
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const Form = ({ onSubmit }) => {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -54,15 +65,15 @@ export default Form;
 Компонент `App.js`:
 
 ```javascript
-import React, { useState } from 'react';
-import Form from './Form';
+import React, { useState } from "react";
+import Form from "./Form";
 
 const App = () => {
-  const [result, setResult] = useState('');
+  const [result, setResult] = useState("");
 
   const handleSubmit = async (input) => {
-    const response = await fetch('https://api.example.com/submit', {
-      method: 'POST',
+    const response = await fetch("https://api.example.com/submit", {
+      method: "POST",
       body: JSON.stringify({ input }),
     });
     const data = await response.json();
@@ -83,31 +94,31 @@ export default App;
 Интеграционный тест `App.test.js`:
 
 ```javascript
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import App from './App';
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import App from "./App";
 
 // Имитация fetch
 global.fetch = jest.fn(() =>
   Promise.resolve({
-    json: () => Promise.resolve({ message: 'Success!' }),
-  })
+    json: () => Promise.resolve({ message: "Success!" }),
+  }),
 );
 
-test('submits form and displays result', async () => {
+test("submits form and displays result", async () => {
   render(<App />);
 
-  const input = screen.getByRole('textbox');
-  const submitButton = screen.getByRole('button', { name: /submit/i });
+  const input = screen.getByRole("textbox");
+  const submitButton = screen.getByRole("button", { name: /submit/i });
 
-  fireEvent.change(input, { target: { value: 'Test Input' } });
+  fireEvent.change(input, { target: { value: "Test Input" } });
   fireEvent.click(submitButton);
 
   await waitFor(() => {
-    expect(screen.getByTestId('result')).toHaveTextContent('Success!');
+    expect(screen.getByTestId("result")).toHaveTextContent("Success!");
   });
 });
 ```
 
-____
+---
 
 [[007 Jest, RTL|Назад]]

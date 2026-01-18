@@ -1,6 +1,6 @@
 ---
+uid: 7-ZFTPfjYjv7Pfm0zwCSs
 title: Карманная книга по TS. Часть 4. Подробнее о функциях
-draft: false
 tags:
   - TypeScript
   - "#type-expressions"
@@ -15,8 +15,17 @@ tags:
   - "#never"
   - "#rest"
 info:
-  - https://habr.com/ru/companies/macloud/articles/561470/
+  - "https://habr.com/ru/companies/macloud/articles/561470/"
+draft: false
+technology: TypeScript
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Функции — это основные строительные блоки любого приложения, будь то функции, импортируемые из другого модуля, или методы класса. В `TS` существует несколько способов описания того, как фукнции вызываются.
 
 ## Тип функции в форме выражения (function #type-expressions )
@@ -25,14 +34,14 @@ info:
 
 ```tsx
 function greeter(fn: (a: string) => void) {
- fn('Hello, World')
+  fn("Hello, World");
 }
 
 function printToConsole(s: string) {
- console.log(s)
+  console.log(s);
 }
 
-greeter(printToConsole)
+greeter(printToConsole);
 ```
 
 Выражение `(a: string) => void` означает "функция с одним параметром `a` типа `string`, которая ничего не возвращает". Как и в случае с определением функции, если тип параметра не указан, он будет иметь значение `any`.
@@ -41,9 +50,9 @@ _Обратите внимание_: название параметра явл�
 Разумеется, для типа функции можно использовать синоним:
 
 ```tsx
-type GreetFn = (a: string) => void
+type GreetFn = (a: string) => void;
 function greeter(fn: GreetFn) {
- // ...
+  // ...
 }
 ```
 
@@ -53,11 +62,11 @@ function greeter(fn: GreetFn) {
 
 ```tsx
 type DescFn = {
- description: string
- (someArg: number): boolean
-}
+  description: string;
+  (someArg: number): boolean;
+};
 function doSomething(fn: DescFn) {
- console.log(`Значением, возвращаемым ${fn.description} является ${fn(6)}`)
+  console.log(`Значением, возвращаемым ${fn.description} является ${fn(6)}`);
 }
 ```
 
@@ -69,10 +78,10 @@ _Обратите внимание_: данный синтаксис немно�
 
 ```tsx
 type SomeConstructor = {
- new (s: string): SomeObject
-}
+  new (s: string): SomeObject;
+};
 function fn(ctor: SomeConstructor) {
- return new ctor('Hello!')
+  return new ctor("Hello!");
 }
 ```
 
@@ -80,8 +89,8 @@ function fn(ctor: SomeConstructor) {
 
 ```tsx
 interface CallOrConstruct {
- new (s: string): Date
- (n?: number): number
+  new (s: string): Date;
+  (n?: number): number;
 }
 ```
 
@@ -91,7 +100,7 @@ interface CallOrConstruct {
 
 ```tsx
 function firstElement(arr: any[]) {
- return arr[0]
+  return arr[0];
 }
 ```
 
@@ -101,7 +110,7 @@ function firstElement(arr: any[]) {
 
 ```tsx
 function firstElement<Type>(arr: Type[]): Type {
- return arr[0]
+  return arr[0];
 }
 ```
 
@@ -109,9 +118,9 @@ function firstElement<Type>(arr: Type[]): Type {
 
 ```tsx
 // `s` имеет тип `string`
-const s = firstElement(['a', 'b', 'c'])
+const s = firstElement(["a", "b", "c"]);
 // `n` имеет тип `number`
-const n = firstElement([1, 2, 3])
+const n = firstElement([1, 2, 3]);
 ```
 
 ### Предположение типа ( #inference )
@@ -119,13 +128,16 @@ const n = firstElement([1, 2, 3])
 Мы можем использовать несколько параметров типа. Например, самописная версия функции `map` может выглядеть так:
 
 ```tsx
-function map<Input, Output>(arr: Input[], func: (arg: Input) => Output): Output[] {
- return arr.map(func)
+function map<Input, Output>(
+  arr: Input[],
+  func: (arg: Input) => Output,
+): Output[] {
+  return arr.map(func);
 }
 
 // Типом `n` является `string`,
 // а типом `parsed` - `number[]`
-const parsed = map(['1', '2', '3'], (n) => parseInt(n))
+const parsed = map(["1", "2", "3"], (n) => parseInt(n));
 ```
 
 _Обратите внимание_, что в приведенном примере `TS` может сделать вывод относительно типа `Input` на основе переданного `string[]`, а относительно типа `Output` на основе возвращаемого `number`.
@@ -138,19 +150,19 @@ _Обратите внимание_, что в приведенном приме
 
 ```tsx
 function longest<Type extends { length: number }>(a: Type, b: Type) {
- if (a.length >= b.length) {
-   return a
- } else {
-   return b
- }
+  if (a.length >= b.length) {
+    return a;
+  } else {
+    return b;
+  }
 }
 
 // Типом `longerArr` является `number[]`
-const longerArr = longest([1, 2], [1, 2, 3])
+const longerArr = longest([1, 2], [1, 2, 3]);
 // Типом `longerStr` является `string`
-const longerStr = longest('alice', 'bob')
+const longerStr = longest("alice", "bob");
 // Ошибка! У чисел нет свойства `length`
-const notOK = longest(10, 100)
+const notOK = longest(10, 100);
 // Argument of type 'number' is not assignable to parameter of type '{ length: number }'.
 // Аргумент типа 'number' не может быть присвоен параметру типа '{ length: number; }'
 ```
@@ -159,7 +171,7 @@ const notOK = longest(10, 100)
 
 Поскольку мы свели `Type` к `{ length: number }`, то получили доступ к свойству `length` параметров `a` и `b`. Без ограничения типа у нас бы не было такого доступа, потому что значения этих свойств могли бы иметь другой тип — без длины.
 
-Типы `longerArr` и `longerStr` были выведены на основе аргументов. _Запомните_, дженерики определяют связь между двумя и более значениями одного типа!
+Типы `longerArr` и `longerStr` были выведены на основе аргументов. *Запомните*, дженерики определяют связь между двумя и более значениями одного типа!
 
 Наконец, как мы и ожидали, вызов `longest(10, 100)` отклоняется, поскольку тип `number` не имеет свойства `length`.
 
@@ -169,14 +181,14 @@ const notOK = longest(10, 100)
 
 ```tsx
 function minLength<Type extends { length: number }>(
- obj: Type,
- min: number
+  obj: Type,
+  min: number,
 ): Type {
- if (obj.length >= min) {
-   return obj
- } else {
-   return { length: min }
- }
+  if (obj.length >= min) {
+    return obj;
+  } else {
+    return { length: min };
+  }
 }
 // Type '{ length: number; }' is not assignable to type 'Type'. '{ length: number; }' is assignable to the constraint of type 'Type', but 'Type' could be instantiated with a different subtype of constraint '{ length: number; }'.
 // Тип '{ length: number; }' не может быть присвоен типу 'Type'. '{ length: number; }' может присваиваться ограничению типа 'Type', но 'Type' может быть инстанцирован с другим подтипом ограничения '{ length: number; }'
@@ -186,10 +198,10 @@ function minLength<Type extends { length: number }>(
 
 ```tsx
 // `arr` получает значение `{ length: 6 }`
-const arr = minLength([1, 2, 3], 6)
+const arr = minLength([1, 2, 3], 6);
 // и ломает приложение, поскольку массивы
 // имеют метод `slice`, но не возвращаемый объект!
-console.log(arr.slice(0))
+console.log(arr.slice(0));
 ```
 
 ### Определение типа аргументов
@@ -198,21 +210,21 @@ console.log(arr.slice(0))
 
 ```tsx
 function combine<Type>(arr1: Type[], arr2: Type[]): Type[] {
- return arr1.concat(arr2)
+  return arr1.concat(arr2);
 }
 ```
 
 При обычном вызове данной функции с несовпадающими по типу массивами возникает ошибка:
 
 ```tsx
-const arr = combine([1, 2, 3], ['привет'])
+const arr = combine([1, 2, 3], ["привет"]);
 // Type 'string' is not assignable to type 'number'.
 ```
 
 Однако, мы можем вручную определить `Type`, и тогда все будет в порядке:
 
 ```tsx
-const arr = combine<string | number>([1, 2, 3], ['привет'])
+const arr = combine<string | number>([1, 2, 3], ["привет"]);
 ```
 
 ## Руководство по написанию хороших функций-дженериков
@@ -223,17 +235,17 @@ const arr = combine<string | number>([1, 2, 3], ['привет'])
 
 ```tsx
 function firstElement1<Type>(arr: Type[]) {
- return arr[0]
+  return arr[0];
 }
 
 function firstElement2<Type extends any[]>(arr: Type) {
- return arr[0]
+  return arr[0];
 }
 
 // a: number (хорошо)
-const a = fisrtElement1([1, 2, 3])
+const a = fisrtElement1([1, 2, 3]);
 // b: any (плохо)
-const b = fisrtElement2([1, 2, 3])
+const b = fisrtElement2([1, 2, 3]);
 ```
 
 Предполагаемым типом значения, возвращаемого функцией `firstElement1` является `Type`, а значения, возвращаемого функцией `firstElement2` — `any`. Это объясняется тем, что `TS` разрешает (resolve) выражение `arr[0]` с помощью ограничения типа вместо того, чтобы ждать разрешения элемента после вызова функции.
@@ -246,14 +258,14 @@ _Правило_: по-возможности, используйте парам
 
 ```tsx
 function filter1<Type>(arr: Type[], func: (arg: Type) => boolean): Type[] {
- return arr.filter(func)
+  return arr.filter(func);
 }
 
 function filter2<Type, Func extends (arg: Type) => boolean>(
- arr: Type[],
- func: Func
+  arr: Type[],
+  func: Func,
 ): Type[] {
- return arr.filter(func)
+  return arr.filter(func);
 }
 ```
 
@@ -267,17 +279,17 @@ _Правило_: всегда используйте минимальное к�
 
 ```tsx
 function greet<Str extends string>(s: Str) {
- console.log(`Привет, ${s}!`)
+  console.log(`Привет, ${s}!`);
 }
 
-greet('народ')
+greet("народ");
 ```
 
 Вот упрощенная версия данной функции:
 
 ```tsx
 function greet(s: string) {
- console.log(`Привет, ${s}!`)
+  console.log(`Привет, ${s}!`);
 }
 ```
 
@@ -291,8 +303,8 @@ _Правило_: если параметр типа появляется в с�
 
 ```tsx
 function fn(n: number) {
- console.log(n.toFixed()) // 0 аргументов
- console.log(n.toFixed(3)) // 1 аргумент
+  console.log(n.toFixed()); // 0 аргументов
+  console.log(n.toFixed(3)); // 1 аргумент
 }
 ```
 
@@ -300,10 +312,10 @@ function fn(n: number) {
 
 ```tsx
 function f(x?: number) {
- // ...
+  // ...
 }
-f() // OK
-f(10) // OK
+f(); // OK
+f(10); // OK
 ```
 
 Несмотря на то, что тип параметра определен как `number`, параметр `x` на самом деле имеет тип `number | undefined`, поскольку неопределенные параметры в `JS` получают значение `undefined`.
@@ -312,18 +324,18 @@ f(10) // OK
 
 ```tsx
 function f(x = 10) {
- // ...
+  // ...
 }
 ```
 
-Теперь в теле функции `f` параметр `x` будет иметь тип `number`, поскольку любой аргумент со значением `undefined` будет заменен на `10`. _Обратите внимание_: явная передача `undefined` означает "отсутствующий" аргумент.
+Теперь в теле функции `f` параметр `x` будет иметь тип `number`, поскольку любой аргумент со значением `undefined` будет заменен на `10`. *Обратите внимание*: явная передача `undefined` означает "отсутствующий" аргумент.
 
 ```tsx
-declare function f(x?: number): void
+declare function f(x?: number): void;
 // OK
-f()
-f(10)
-f(undefined)
+f();
+f(10);
+f(undefined);
 ```
 
 ### Опциональные параметры в функциях обратного вызова
@@ -332,26 +344,26 @@ f(undefined)
 
 ```tsx
 function myForEach(arr: any[], callback: (arg: any, index?: number) => void) {
- for (let i = 0; i < arr.length; i++) {
-   callback(arr[i], i)
- }
+  for (let i = 0; i < arr.length; i++) {
+    callback(arr[i], i);
+  }
 }
 ```
 
 Указав `index?`, мы хотим, чтобы оба этих вызова были легальными:
 
 ```tsx
-myForEach([1, 2, 3], (a) => console.log(a))
-myForEach([1, 2, 3], (a, i) => console.log(a, i))
+myForEach([1, 2, 3], (a) => console.log(a));
+myForEach([1, 2, 3], (a, i) => console.log(a, i));
 ```
 
-В действительности, это означает, что колбек _может быть вызван с одним аргументом_. Другими словами, определение функции говорит, что ее реализация может выглядеть так:
+В действительности, это означает, что колбек *может быть вызван с одним аргументом*. Другими словами, определение функции говорит, что ее реализация может выглядеть так:
 
 ```tsx
 function myForEach(arr: any[], callback: (arg: any, index?: number) => void) {
- for (let i = 0; i < arr.length; i++) {
-   callback(arr[i])
- }
+  for (let i = 0; i < arr.length; i++) {
+    callback(arr[i]);
+  }
 }
 ```
 
@@ -359,10 +371,10 @@ function myForEach(arr: any[], callback: (arg: any, index?: number) => void) {
 
 ```tsx
 myForEach([1, 2, 3], (a, i) => {
- console.log(i.toFixed())
- // Object is possibly 'undefined'.
- // Возможным значением объекта является 'undefined'
-})
+  console.log(i.toFixed());
+  // Object is possibly 'undefined'.
+  // Возможным значением объекта является 'undefined'
+});
 ```
 
 В `JS` при вызове функции с большим (ударение на первый слог) количеством аргументов, чем указано в определении фукнции, дополнительные параметры просто игнорируются. `TS` ведет себя аналогичным образом. Функции с меньшим количеством параметров (одного типа) могут заменять функции с большим количеством параметров.
@@ -376,18 +388,18 @@ _Правило_: при написании типа функции для ко�
 В `TS` такую функцию можно реализовать с помощью сигнатур перегрузки (overload signatures). Для этого перед телом функции указывается несколько ее сигнатур:
 
 ```tsx
-function makeDate(timestamp: number): Date
-function makeDate(d: number, m: number, y: number): Date
+function makeDate(timestamp: number): Date;
+function makeDate(d: number, m: number, y: number): Date;
 function makeDate(dOrTimestamp: number, m?: number, y?: number): Date {
- if (m !== undefined && y !== undefined) {
-   return new Date(y, m, dOrTimestamp)
- } else {
-   return new Date(dOrTimestamp)
- }
+  if (m !== undefined && y !== undefined) {
+    return new Date(y, m, dOrTimestamp);
+  } else {
+    return new Date(dOrTimestamp);
+  }
 }
-const d1 = makeDate(12345678)
-const d2 = makeDate(5, 5, 5)
-const d3 = makeDate(1, 3)
+const d1 = makeDate(12345678);
+const d2 = makeDate(5, 5, 5);
+const d3 = makeDate(1, 3);
 // No overload expects 2 arguments, but overloads do exist that expect either 1 or 3 arguments.
 // Нет перегрузки, принимающей 2 аргумента, но существуют перегрузки, ожидающие получения 1 или 3 аргумента
 ```
@@ -401,12 +413,12 @@ const d3 = makeDate(1, 3)
 Предположим, что у нас имеется такой код:
 
 ```tsx
-function fn(x: string): void
+function fn(x: string): void;
 function fn() {
- // ...
+  // ...
 }
 // Мы ожидаем, что функция может вызываться без аргументов
-fn()
+fn();
 // Expected 1 arguments, but got 0.
 // Ожидалось получение 1 аргумента, а получено 0
 ```
@@ -439,19 +451,19 @@ function fn(x: string | number) {
 Рассмотрим функцию, возвращающую длину строки или массива:
 
 ```tsx
-function len(s: string): number
-function len(arr: any[]): number
+function len(s: string): number;
+function len(arr: any[]): number;
 function len(x: any) {
- return x.length
+  return x.length;
 }
 ```
 
 На первый взгляд кажется, что все в порядке. Мы можем вызывать функцию со строками или массивами. Однако, мы не можем вызывать ее со значением, которое может быть либо строкой, либо массивом, поскольку `TS` ассоциирует вызов функции с одной из ее перегрузок:
 
 ```tsx
-len('') // OK
-len([0]) // OK
-len(Math.random() > 0.5 ? 'привет' : [0])
+len(""); // OK
+len([0]); // OK
+len(Math.random() > 0.5 ? "привет" : [0]);
 /*
 No overload matches this call.
  Overload 1 of 2, '(s: string): number', gave the following error.
@@ -476,7 +488,7 @@ No overload matches this call.
 
 ```tsx
 function len(x: any[] | string) {
- return x.length
+  return x.length;
 }
 ```
 
@@ -490,29 +502,29 @@ _Правило_: по-возможности используйте объед�
 
 ```tsx
 const user = {
- id: 123,
+  id: 123,
 
- admin: false,
- becomeAdmin: function() {
-   this.admin = true
- }
-}
+  admin: false,
+  becomeAdmin: function () {
+    this.admin = true;
+  },
+};
 ```
 
 `TS` "понимает", что значением `this` функции `user.becomeAdmin` является внешний объект `user`. В большинстве случаев этого достаточно, но порой нам требуется больше контроля над тем, что представляет собой `this`. Спецификация `JS` определяет, что мы не можем использовать `this` в качестве названия параметра. `TS` использует это синтаксическое пространство (syntax space), позволяя определять тип `this` в теле функции:
 
 ```tsx
-const db = getDB()
-const admins = db.filterUsers(function() {
- return this.admin
-})
+const db = getDB();
+const admins = db.filterUsers(function () {
+  return this.admin;
+});
 ```
 
 _Обратите внимание_: в данном случае мы не можем использовать стрелочную функцию.
 
 ```tsx
-const db = getDB()
-const admins = db.filterUsers(() => this.admin)
+const db = getDB();
+const admins = db.filterUsers(() => this.admin);
 // The containing arrow function captures the global value of 'this'. Element implicitly has an 'any' type because type 'typeof globalThis' has no index signature.
 // Стрелочная функция перехватывает глобальное значение 'this'. Неявным типом элемента является 'any', поскольку тип 'typeof globalThis' не имеет сигнатуры индекса
 ```
@@ -526,7 +538,7 @@ const admins = db.filterUsers(() => this.admin)
 ```tsx
 // Предполагаемым типом является `void`
 function noop() {
- return
+  return;
 }
 ```
 
@@ -548,12 +560,12 @@ _Обратите внимание_: в `JS` функции — это объ�
 
 ```tsx
 function f1(a: any) {
- a.b() // OK
+  a.b(); // OK
 }
 function f2(a: unknown) {
- a.b()
- // Object is of type 'unknown'.
- // Типом объекта является 'unknown'
+  a.b();
+  // Object is of type 'unknown'.
+  // Типом объекта является 'unknown'
 }
 ```
 
@@ -561,10 +573,10 @@ function f2(a: unknown) {
 
 ```tsx
 function safeParse(s: string): unknown {
- return JSON.parse(s)
+  return JSON.parse(s);
 }
 
-const obj = safeParse(someRandomString)
+const obj = safeParse(someRandomString);
 ```
 
 ### #never
@@ -573,7 +585,7 @@ const obj = safeParse(someRandomString)
 
 ```tsx
 function fail(msg: string): never {
- throw new Error(msg)
+  throw new Error(msg);
 }
 ```
 
@@ -583,13 +595,13 @@ function fail(msg: string): never {
 
 ```tsx
 function fn(x: string | number) {
- if (typeof x === 'string') {
-   // ...
- } else if (typeof x === 'number') {
-   // ...
- } else {
-   x // типом `x` является `never`!
- }
+  if (typeof x === "string") {
+    // ...
+  } else if (typeof x === "number") {
+    // ...
+  } else {
+    x; // типом `x` является `never`!
+  }
 }
 ```
 
@@ -599,7 +611,7 @@ function fn(x: string | number) {
 
 ```tsx
 function doSomething(f: Function) {
- f(1, 2, 3)
+  f(1, 2, 3);
 }
 ```
 
@@ -617,10 +629,10 @@ function doSomething(f: Function) {
 
 ```tsx
 function multiply(n: number, ...m: number[]) {
- return m.map((x) => n * x)
+  return m.map((x) => n * x);
 }
 // `a` получает значение [10, 20, 30, 40]
-const a = multiply(10, 1, 2, 3, 4)
+const a = multiply(10, 1, 2, 3, 4);
 ```
 
 В `TS` неявным типом таких параметров является `any[]`, а не `any`. Любая аннотация типа для них должна иметь вид `Array<T>` или `T[]`, или являться кортежем.
@@ -630,9 +642,9 @@ const a = multiply(10, 1, 2, 3, 4)
 Синтаксис [распространения (синонимы: расширение, распаковка) (spread syntax)](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Spread_syntax) позволяет передавать произвольное количество элементов массива. Например, метод массива `push` принимает любое количество аргументов:
 
 ```tsx
-const arr1 = [1, 2, 3]
-const arr2 = [4, 5, 6]
-arr1.push(...arr2)
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+arr1.push(...arr2);
 ```
 
 _Обратите внимание_: `TS` не считает массивы иммутабельными. Это может привести к неожиданному поведению:
@@ -640,8 +652,8 @@ _Обратите внимание_: `TS` не считает массивы �
 ```tsx
 // Предполагаемым типом `args` является `number[]` - массив с 0 или более чисел
 // а не конкретно с 2 числами
-const args = [8, 5]
-const angle = Math.atan2(...args)
+const args = [8, 5];
+const angle = Math.atan2(...args);
 // Expected 2 arguments, but got 0 or more.
 // Ожидалось получение 2 аргументов, а получено 0 или более
 ```
@@ -650,9 +662,9 @@ const angle = Math.atan2(...args)
 
 ```tsx
 // Предполагаемым типом является кортеж, состоящий из 2 элементов
-const args = [8, 5] as const
+const args = [8, 5] as const;
 // OK
-const angle = Math.atan2(...args)
+const angle = Math.atan2(...args);
 ```
 
 ## Деструктуризация параметров (parameter destructuring)
@@ -661,25 +673,25 @@ const angle = Math.atan2(...args)
 
 ```tsx
 function sum({ a, b, c }) {
- console.log(a + b + c)
+  console.log(a + b + c);
 }
-sum({ a: 10, b: 3, c: 9 })
+sum({ a: 10, b: 3, c: 9 });
 ```
 
 Аннотация типа для объекта указывается после деструктуризации:
 
 ```tsx
-function sum({ a, b, c }: { a: number, b: number, c: number }) {
- console.log(a + b + c)
+function sum({ a, b, c }: { a: number; b: number; c: number }) {
+  console.log(a + b + c);
 }
 ```
 
 Для краткости можно использовать именованный тип:
 
 ```tsx
-type ABC = { a: number, b: number, c: number }
+type ABC = { a: number; b: number; c: number };
 function sum({ a, b, c }: ABC) {
- console.log(a + b + c)
+  console.log(a + b + c);
 }
 ```
 
@@ -692,52 +704,50 @@ function sum({ a, b, c }: ABC) {
 Все приведенные ниже реализации типа `() => void` являются валидными:
 
 ```tsx
-type voidFn = () => void
+type voidFn = () => void;
 
 const f1: voidFn = () => {
- return true
-}
+  return true;
+};
 
-const f2: voidFn = () => true
+const f2: voidFn = () => true;
 
-const f3: voidFn = function() {
- return true
-}
+const f3: voidFn = function () {
+  return true;
+};
 ```
 
 Когда возвращаемое любой из этих функций значение присваивается переменной, она будет хранить тип `void`:
 
 ```tsx
-const v1 = f1()
+const v1 = f1();
 
-const v2 = f2()
+const v2 = f2();
 
-const v3 = f3()
+const v3 = f3();
 ```
 
 Поэтому следующий код является валидным, несмотря на то, что `Array.prototype.push` возвращает число, а `Array.prototype.forEach` ожидает получить функцию с типом возвращаемого значения `void`:
 
 ```tsx
-const src = [1, 2, 3]
-const dst = [0]
+const src = [1, 2, 3];
+const dst = [0];
 
-src.forEach((el) => dist.push(el))
+src.forEach((el) => dist.push(el));
 ```
 
 Существует один специальный случай, о котором следует помнить: когда литеральное определение функции имеет тип возвращаемого значения `void`, функция не должна ничего возвращать:
 
 ```tsx
 function f2(): void {
- // Ошибка
- return true
+  // Ошибка
+  return true;
 }
 
-const f3 = function(): void {
- // Ошибка
- return true
-}
+const f3 = function (): void {
+  // Ошибка
+  return true;
+};
 ```
-
-  
 
 ---

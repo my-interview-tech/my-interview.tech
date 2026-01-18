@@ -1,12 +1,21 @@
 ---
+uid: OnkGVDicrJiQyTez1x-fm
 title: Task_object - sumDimensions()_1
-draft: false
 tags:
   - "#JavaScript"
   - "#taskJS"
   - "#object"
   - "#сбербанк"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```js
 // Посчитать сумму по полю dimensions.width
 
@@ -30,27 +39,27 @@ const arr = [{
 }]
 ```
 
-**Ответ
+\*\*Ответ
 
 ```js
 function dimensionsWidth(arr) {
-    const res = [];
+  const res = [];
 
-    for (let name of arr) {
-        if (typeof name?.dimensions?.width == 'number') {
-            res.push(name.dimensions.width)
-        }
-    }
+  for (let name of arr) {
+    if (typeof name?.dimensions?.width == "number") {
+      res.push(name.dimensions.width);
+    }
+  }
 
-    return res.reduce((acc, el) => {
-        acc = acc + el
-        return acc
-    }, 0)
+  return res.reduce((acc, el) => {
+    acc = acc + el;
+    return acc;
+  }, 0);
 }
 
-console.log(dimensionsWidth(arr))
+console.log(dimensionsWidth(arr));
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

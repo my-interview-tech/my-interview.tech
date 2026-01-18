@@ -1,12 +1,21 @@
 ---
+uid: hKJ3kFpMKmH7WV92ejS-i
 title: Для чего используется псевдокласс `invalid`?
-draft: false
 tags:
   - "#CSS"
   - "#псевдокласс"
   - "#invalid"
-info:
+info: []
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 14
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704025938.png|600]]
 
 _Псевдокласс `:invalid`_ используется для выбора элементов формы, которые не прошли валидацию на стороне клиента (т.е. в браузере) при отправке формы.

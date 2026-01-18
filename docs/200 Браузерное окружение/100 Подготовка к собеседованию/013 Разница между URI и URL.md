@@ -1,13 +1,24 @@
 ---
+uid: IqfhtBQI7q8E6TvmzhNT9
 title: Разница между URI и URL
-draft: false
 tags:
   - URI
   - URL
   - browser
 info:
-  - "[[014 Структура URL - path; query string; fragment|Структура URL - path; query string; fragment?]]"
+  - >-
+    [[014 Структура URL - path; query string; fragment|Структура URL - path;
+    query string; fragment?]]
+draft: false
+technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
+tools: []
+order: 13
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703191940.png|600]]
 
 _URI_ (`Uniform Resource Identifier`) и _URL_ (`Uniform Resource Locator`) - это два термина, которые используются для идентификации ресурсов в сети Интернет. Они похожи друг на друга, но имеют некоторые различия.

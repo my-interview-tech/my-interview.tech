@@ -1,14 +1,23 @@
 ---
+uid: lLreR_bjSPS-xnuJURU2l
 title: Какова цель Jest CLI?
-draft: false
 tags:
   - testing
   - Jest
   - JestCLI
 info:
-  - https://jestjs.io/docs/cli
-  - https://www.youtube.com/watch?v=QMDFTfjMkgI
+  - "https://jestjs.io/docs/cli"
+  - "https://www.youtube.com/watch?v=QMDFTfjMkgI"
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 34
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Jest CLI — это интерфейс командной строки, предназначенный для упрощения и ускорения процесса тестирования в Jest. Он позволяет разработчикам:
 
 - **Запускать тесты**: Выполнять тесты с различными опциями, такими как режим наблюдения, параллельный запуск и запуск с покрытием кода.
@@ -19,6 +28,6 @@ Jest CLI — это интерфейс командной строки, пред
 
 Jest CLI обеспечивает эффективное управление и выполнение тестов Jest, делая процесс тестирования более удобным и гибким для разработчиков.
 
-____
+---
 
 [[007 Jest, RTL|Назад]]

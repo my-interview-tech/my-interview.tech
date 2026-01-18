@@ -1,13 +1,24 @@
 ---
-title: Какие вы знаете методы запрета обтекания clearing и в каких случаях они применяются?
-draft: false
+uid: JetsyhBOlIXcxEYOkPYXh
+title: >-
+  Какие вы знаете методы запрета обтекания clearing и в каких случаях они
+  применяются?
 tags:
   - "#CSS"
   - "#overflow"
   - "#clearfix"
   - "#float"
-info:
+info: []
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 43
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 1. **Clear** устанавливает, с какой стороны элемента запрещено его обтекание другими элементами.
    Если задано обтекание элемента с помощью свойства float, то clear отменяет его действие для указанных сторон.
 

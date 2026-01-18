@@ -1,6 +1,6 @@
 ---
+uid: emfqV4k3FJW621o5CiRfo
 title: Какие элементы ООП поддерживаются в TypeScript?
-draft: false
 tags:
   - "#TypeScript"
   - "#ООП"
@@ -11,11 +11,20 @@ tags:
   - "#access-modifiers"
   - "#polymorphism"
   - "#generic"
-info:
+info: []
+draft: false
+technology: TypeScript
+specialty: Frontend
+tools: []
+order: 36
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 TypeScript полностью поддерживает объектно-ориентированное программирование и включает в себя множество элементов ООП. Некоторые из основных элементов ООП, поддерживаемых в TypeScript, включают в себя:
 
-1.  *Классы* - классы в TypeScript используются для создания объектов, которые могут содержать свойства (переменные) и методы (функции). Классы в TypeScript могут быть абстрактными, наследуемыми, иметь интерфейсы и т.д.
+1.  _Классы_ - классы в TypeScript используются для создания объектов, которые могут содержать свойства (переменные) и методы (функции). Классы в TypeScript могут быть абстрактными, наследуемыми, иметь интерфейсы и т.д.
 
 ```tsx
 class Animal {
@@ -39,12 +48,12 @@ class Dog extends Animal {
   }
 
   bark() {
-    console.log('Woof! Woof!');
+    console.log("Woof! Woof!");
   }
 }
 
-const dog = new Dog('Buddy', 'Golden Retriever');
-dog.eat('meat'); // Output: 'Buddy is eating meat.'
+const dog = new Dog("Buddy", "Golden Retriever");
+dog.eat("meat"); // Output: 'Buddy is eating meat.'
 dog.bark(); // Output: 'Woof! Woof!'
 ```
 
@@ -71,11 +80,13 @@ class Student implements Person {
   }
 
   sayHello() {
-    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    console.log(
+      `Hello, my name is ${this.name} and I am ${this.age} years old.`,
+    );
   }
 }
 
-const student: Person = new Student('John', 20, '123456');
+const student: Person = new Student("John", 20, "123456");
 student.sayHello(); // Output: 'Hello, my name is John and I am 20 years old.'
 ```
 
@@ -94,7 +105,7 @@ abstract class Animal {
 
 class Dog extends Animal {
   makeSound() {
-    console.log('Woof! Woof!');
+    console.log("Woof! Woof!");
   }
 }
 
@@ -129,12 +140,12 @@ class Dog extends Animal {
   }
 
   bark() {
-    console.log('Woof! Woof!');
+    console.log("Woof! Woof!");
   }
 }
 
-const dog = new Dog('Buddy', 'Golden Retriever');
-dog.eat('meat'); // Output: 'Buddy is eating meat.'
+const dog = new Dog("Buddy", "Golden Retriever");
+dog.eat("meat"); // Output: 'Buddy is eating meat.'
 dog.bark(); // Output: 'Woof! Woof!'
 ```
 
@@ -171,13 +182,13 @@ class Dog extends Animal {
   }
 
   public play(fetch: boolean) {
-    console.log(`${this.name} is playing${fetch ? ' fetch' : ''}.`);
+    console.log(`${this.name} is playing${fetch ? " fetch" : ""}.`);
     this.walk(10);
   }
 }
 
-const dog = new Dog('Buddy', 2, 'Golden Retriever');
-dog.eat('meat'); // Output: 'Buddy is eating meat.'
+const dog = new Dog("Buddy", 2, "Golden Retriever");
+dog.eat("meat"); // Output: 'Buddy is eating meat.'
 dog.play(true); // Output: 'Buddy is playing fetch.' 'Buddy walked 10m.'
 ```
 
@@ -192,23 +203,23 @@ class Animal {
   }
 
   makeSound() {
-    console.log('Animal is making a sound.');
+    console.log("Animal is making a sound.");
   }
 }
 
 class Cat extends Animal {
   makeSound() {
-    console.log('Meow!');
+    console.log("Meow!");
   }
 }
 
 class Cow extends Animal {
   makeSound() {
-    console.log('Moo!');
+    console.log("Moo!");
   }
 }
 
-const animals: Animal[] = [new Cat('Fluffy'), new Cow('Betsy')];
+const animals: Animal[] = [new Cat("Fluffy"), new Cow("Betsy")];
 animals.forEach((animal) => animal.makeSound()); // Output: 'Meow!' 'Moo!'
 ```
 
@@ -216,22 +227,22 @@ animals.forEach((animal) => animal.makeSound()); // Output: 'Meow!' 'Moo!'
 
 7.  Обобщенные типы - обобщенные типы в TypeScript используются для создания функций и классов, которые могут работать с различными типами данных. Обобщенные типы позволяют создавать более гибкий и переиспользуемый код.
 
-~~~tsx
-function ...reverse<T>(items: T[]): T[] {  
-return items.reverse();  
+```tsx
+function ...reverse<T>(items: T[]): T[] {
+return items.reverse();
 }
 
-const numbers = [1, 2, 3, 4, 5];  
-const reversedNumbers = reverse(numbers);  
+const numbers = [1, 2, 3, 4, 5];
+const reversedNumbers = reverse(numbers);
 console.log(reversedNumbers); // Output: [5, 4, 3, 2, 1]
 
-const strings = ['one', 'two', 'three', 'four', 'five'];  
-const reversedStrings = reverse(strings);  
+const strings = ['one', 'two', 'three', 'four', 'five'];
+const reversedStrings = reverse(strings);
 console.log(reversedStrings); // Output: ['five', 'four', 'three', 'two', 'one']
-~~~
+```
 
 В этом примере функция `reverse()` принимает массив любого типа данных `T` и возвращает массив того же типа данных `T`. Функция может быть использована для переворачивания массивов чисел и строк. Обобщенные типы в TypeScript позволяют создавать более универсальный код, который может работать с различными типами данных.
 
-_____
+---
 
 [[005 TypeScript|Назад]]

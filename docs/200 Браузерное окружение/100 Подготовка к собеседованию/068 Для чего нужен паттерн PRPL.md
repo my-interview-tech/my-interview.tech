@@ -1,6 +1,6 @@
 ---
+uid: G7a59MmkRIM-YrhmTh31P
 title: Для чего нужен паттерн PRPL?
-draft: false
 tags:
   - push
   - render
@@ -8,8 +8,17 @@ tags:
   - lazy-load
   - PRPL
   - browser
-info:
+info: []
+draft: false
+technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
+tools: []
+order: 68
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703195056.png|600]]
 
 _PRPL_ - это паттерн, который используется для создания эффективных и быстрых веб-приложений. Он представляет собой аббревиатуру от слов Push, Render, Pre-Cache, Lazy-Load («Отправить», «Отобразить», «Предварительное кэширование», «Ленивая загрузка»).

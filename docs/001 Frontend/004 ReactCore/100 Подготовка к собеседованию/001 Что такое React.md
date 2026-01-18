@@ -1,6 +1,6 @@
 ---
+uid: Ph0VALkhGeHAzk502AiiD
 title: Что такое React?
-draft: false
 tags:
   - "#React"
   - "#DOM"
@@ -9,8 +9,17 @@ tags:
   - "#библиотека"
   - "#фреймворк"
 info:
-  - https://youtu.be/7TvS0iKR3_c?t=638
+  - "https://youtu.be/7TvS0iKR3_c?t=638"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 1
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 **React**
 
 **React** - _это библиотека JavaScript для создания пользовательских интерфейсов._ _React позволяет разработчикам создавать компоненты, которые могут быть переиспользованы в различных частях приложения, что облегчает разработку и поддержку кода._

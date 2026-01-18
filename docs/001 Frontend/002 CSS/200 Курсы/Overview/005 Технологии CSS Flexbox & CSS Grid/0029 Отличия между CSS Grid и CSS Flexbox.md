@@ -1,6 +1,6 @@
 ---
+uid: D51gqRf-O7CSLBQl4j2zE
 title: Отличия между CSS Grid и CSS Flexbox
-draft: false
 tags:
   - "#CSS"
   - "#grid"
@@ -8,7 +8,16 @@ tags:
 info:
   - "[[0026 Анатомия flexbox|Анатомия flexbox]]"
   - "[[0028 Гриды|Гриды]]"
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 29
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Основное **различие** между CSS **Grid** Layout и CSS Flexbox Layout в том, что :
 
 flex предназначен для позиционирования элементов в одном направлении, то есть, либо в строке, либо в колонке. Флекс - упр. содержанием

@@ -1,6 +1,6 @@
 ---
+uid: d-dXacM7shP3omiA-GB1Q
 title: Что такое Secure (безопасные) и HttpOnly cookies?
-draft: false
 tags:
   - "#HTML"
   - "#HTTPS"
@@ -10,8 +10,17 @@ tags:
   - "#Cookie"
   - "#browser"
 info:
-  - https://developer.mozilla.org/ru/docs/Web/HTTP/%D0%9A%D1%83%D0%BA%D0%B8
+  - "https://developer.mozilla.org/ru/docs/Web/HTTP/%D0%9A%D1%83%D0%BA%D0%B8"
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 77
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703193146.png|600]]
 
 Secure и HttpOnly - это два разных флага, которые могут быть установлены для cookies, чтобы обеспечить большую безопасность веб-приложений.

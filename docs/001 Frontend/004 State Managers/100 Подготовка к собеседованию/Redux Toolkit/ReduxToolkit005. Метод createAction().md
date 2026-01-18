@@ -1,20 +1,28 @@
 ---
+uid: 94GbrC25RTu9OuIWYRDJB
 title: Метод createAction()
-draft: false
 tags:
   - React
   - redux-toolkit
   - createAction
 info:
-  - https://habr.com/ru/companies/inobitec/articles/481288/
+  - "https://habr.com/ru/companies/inobitec/articles/481288/"
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Написание создателей операции вручную может быть утомительным. `Redux Toolkit` предоставляет функцию `createAction()`, которая генерирует создателя операции с указанным типом операции и преобразует переданные аргументы в поле `payload`:
 
 ```jsx
-const addTodo = createAction('ADD_TODO');
-addTodo({ text: 'Buy milk' });
+const addTodo = createAction("ADD_TODO");
+addTodo({ text: "Buy milk" });
 // { type : "ADD_TODO", payload : {text : "Buy milk"}} )
-
 ```
 
 `createAction()` также принимает аргумент-колбек `prepare`, позволяющий кастомизировать результирующее поле `payload` и добавлять поле `meta`, при необходимости.
@@ -26,7 +34,7 @@ addTodo({ text: 'Buy milk' });
 Во-вторых, тип операции также определяется как поле `type` создателя.
 
 ```jsx
-const actionCreator = createAction('SOME_ACTION_TYPE');
+const actionCreator = createAction("SOME_ACTION_TYPE");
 
 console.log(actionCreator.toString());
 // SOME_ACTION_TYPE
@@ -41,10 +49,7 @@ const reducer = createReducer({}, (builder) => {
 
   // Или вы можете указать поле `type`
   // В этому случае, при использовании TypeScript, тип операции предложен не будет
-  builder.addCase(
-    actionCreator.type,
-    (state, action) => {}
-  );
+  builder.addCase(actionCreator.type, (state, action) => {});
 });
 ```
 
@@ -53,7 +58,7 @@ const reducer = createReducer({}, (builder) => {
 К сожалению, неявного приведения к строке не происходит в инструкции `switch`. Приходится делать это вручную:
 
 ```jsx
-const actionCreator = createAction('SOME_ACTION_TYPE');
+const actionCreator = createAction("SOME_ACTION_TYPE");
 
 const reducer = (state = {}, action) => {
   switch (action.type) {
@@ -75,6 +80,6 @@ const reducer = (state = {}, action) => {
 
 При использовании `Redux Toolkit` с `TypeScript`, принимайте во внимание, что компилятор `TypeScript` может не осуществлять неявного преобразования в строку, когда создатель используется как ключ объекта. В этом случае также может потребоваться прямое указание типа создателя (`actionCreator as string`) или использование поля `type` в качестве ключа объекта.
 
-____
+---
 
 [[004 State Managers|Назад]]

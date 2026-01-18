@@ -1,14 +1,23 @@
 ---
+uid: SgdGz1UnnSGaFjy6j7Tjm
 title: Разница между mock и stub?
-draft: false
 tags:
   - "#testing"
   - "#unit-test"
   - "#unit-mock"
   - "#unit-stub"
 info:
-  - https://blog.pragmatists.com/test-doubles-fakes-mocks-and-stubs-1a7491dfa3da
+  - "https://blog.pragmatists.com/test-doubles-fakes-mocks-and-stubs-1a7491dfa3da"
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 10
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Оба подхода позволяют изолировать тестируемый объект от внешних зависимостей и контролировать его поведение в тестовых условиях. Однако у них есть некоторые различия.
 
 `unit-stub` - это объект, который _заменяет реальный объект, но не имитирует его полностью, а предоставляет только минимальный набор функций, необходимых для тестирования._ `Stub` может предоставлять фиктивные данные для тестирования, а также _имитировать поведение реального объекта._ Однако он не предоставляет полную функциональность реального объекта, а только те методы, которые необходимы для тестирования.

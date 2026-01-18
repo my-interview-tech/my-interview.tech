@@ -1,11 +1,20 @@
 ---
+uid: Gii_UOxWOD0OVAJtmTmZn
 title: Как вы обновляете объект состояния в React?
-draft: false
 tags:
   - "#React"
   - "#setState"
-info:
+info: []
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 32
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 В React мы можем обновлять объект состояния компонента с помощью метода `setState()`. _Когда мы обновляем объект состояния, мы должны создавать новый объект и передавать его в качестве аргумента методу `setState()`, а не изменять текущий объект состояния напрямую._
 
 Например, если у нас есть объект состояния, содержащий некоторые свойства, мы можем обновить его следующим образом:
@@ -13,13 +22,13 @@ info:
 ```jsx
 class MyComponent extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       user: {
         name: "John",
         age: 30,
       },
-    }
+    };
   }
 
   handleClick() {
@@ -30,8 +39,8 @@ class MyComponent extends React.Component {
     const newUser = {
       ...this.state.user,
       age: this.state.user.age + 1,
-    }
-    this.setState({ user: newUser })
+    };
+    this.setState({ user: newUser });
   }
 
   render() {
@@ -41,7 +50,7 @@ class MyComponent extends React.Component {
         <p>Age: {this.state.user.age}</p>
         <button onClick={() => this.handleClick()}>Add year</button>
       </div>
-    )
+    );
   }
 }
 ```
@@ -53,14 +62,14 @@ _Мы также можем использовать функцию обратн
 ```jsx
 class MyComponent extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       count: 0,
-    }
+    };
   }
 
   handleClick() {
-    this.setState((prevState) => ({ count: prevState.count + 1 }))
+    this.setState((prevState) => ({ count: prevState.count + 1 }));
   }
 
   render() {
@@ -69,7 +78,7 @@ class MyComponent extends React.Component {
         <p>Count: {this.state.count}</p>
         <button onClick={() => this.handleClick()}>Add</button>
       </div>
-    )
+    );
   }
 }
 ```

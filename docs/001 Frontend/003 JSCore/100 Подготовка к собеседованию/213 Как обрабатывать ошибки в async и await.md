@@ -1,25 +1,34 @@
 ---
+uid: n1aJP5ZF4A3V2W8ALpSw9
 title: Как обрабатывать ошибки в async и await?
-draft: false
 tags:
   - "#JavaScript"
   - "#асинхронность"
   - "#async"
   - "#await"
   - "#try-catch"
-info:
+info: []
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 213
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Обработка ошибок в `async/await` происходит с помощью конструкции `try-catch`. Если внутри функции, помеченной как `async`, происходит ошибка, то она будет выброшена в виде исключения. Для обработки ошибок можно использовать конструкцию `try-catch`, как в примере ниже:
 
 ```javascript
 async function getData() {
   try {
-    const response = await fetch("https://example.com/data")
-    const data = await response.json()
-    return data
+    const response = await fetch("https://example.com/data");
+    const data = await response.json();
+    return data;
   } catch (error) {
-    console.error(error)
-    return null
+    console.error(error);
+    return null;
   }
 }
 ```
@@ -31,14 +40,14 @@ async function getData() {
 ```javascript
 async function getData() {
   try {
-    const response = await fetch("https://example.com/data")
-    const data = await response.json()
-    return data
+    const response = await fetch("https://example.com/data");
+    const data = await response.json();
+    return data;
   } catch (error) {
-    console.error(error)
-    return null
+    console.error(error);
+    return null;
   } finally {
-    console.log("Request completed.")
+    console.log("Request completed.");
   }
 }
 ```

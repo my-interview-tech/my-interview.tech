@@ -1,13 +1,22 @@
 ---
+uid: 8QUbTUDrtW6xPEOx__iE4
 title: Task_object - sumTree()__1
-draft: false
 tags:
   - "#JavaScript"
   - "#taskJS"
   - "#object"
   - "#while"
   - "#unknownINC"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```JS
 // Написать функцию, которая суммирует все значения дерева. 12 + 24 +
 // 24 + 15 + 13 + 23 = 111 Делать рекурсией запрещено законом +
@@ -35,13 +44,13 @@ const tree = {
 };
 
 function sumTree(tree) {
-    
+
 }
 
 console.log(sumTree(tree));
 ```
 
-**Ответ
+\*\*Ответ
 
 ```js
 const funcFunc = (obj) => {
@@ -65,6 +74,6 @@ const funcFunc = (obj) => {
 };
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

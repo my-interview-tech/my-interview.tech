@@ -1,13 +1,22 @@
 ---
+uid: 3Cgt3ooS4yC0MBKCDCFmG
 title: Что такое useDispatch() и Redux-actions?
-draft: false
 tags:
   - "#React"
   - "#Redux"
   - "#actions"
 info:
-  - https://rajdee.gitbooks.io/redux-in-russian/content/docs/basics/Actions.html
+  - "https://rajdee.gitbooks.io/redux-in-russian/content/docs/basics/Actions.html"
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 **`useDispatch()`**
 
 _`Dispatch` - это метод объекта `Store`, который используется для отправки `actions` в `Store`. Dispatch вызывает `reducer`, который обновляет `state` приложения в соответствии с переданным `actions`._
@@ -17,25 +26,25 @@ _`Dispatch` - это метод объекта `Store`, который испо�
 Пример использования `useDispatch()`:
 
 ```jsx
-import { useDispatch } from "react-redux"
-import { addTodoActionCreator } from "./actions"
+import { useDispatch } from "react-redux";
+import { addTodoActionCreator } from "./actions";
 
 function TodoForm() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleFormSubmit = (e) => {
-    e.preventDefault()
-    const formData = new FormData(e.target)
-    const todoText = formData.get("todoText")
-    dispatch(addTodoActionCreator(todoText))
-  }
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const todoText = formData.get("todoText");
+    dispatch(addTodoActionCreator(todoText));
+  };
 
   return (
     <form onSubmit={handleFormSubmit}>
       <input type="text" name="todoText" />
       <button type="submit">Add Todo</button>
     </form>
-  )
+  );
 }
 ```
 
@@ -74,19 +83,19 @@ function addTodoActionCreator(id, text) {
 _Вы можете использовать функцию [`bindActionCreators()`](https://rajdee.gitbooks.io/redux-in-russian/content/docs/api/bindActionCreators.html) для автоматического привязывания большого количества генераторов экшенов к функции `dispatch()`._ _Созданные таким способом функции делают сразу два действия - создание `action` и отправка action в `dispatch()`._
 
 ```jsx
-import { bindActionCreators } from "redux"
-import { increment, decrement, reset } from "./actions"
+import { bindActionCreators } from "redux";
+import { increment, decrement, reset } from "./actions";
 
 // Получаем ссылку на функцию `dispatch` из Redux Store
 
 // Пример использования в функциональном компоненте с помощью хука useDispatch()
-import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux";
 
 const MyComponent = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   // Привязываем генераторы экшенов к функции dispatch
-  const actions = bindActionCreators({ increment, decrement, reset }, dispatch)
+  const actions = bindActionCreators({ increment, decrement, reset }, dispatch);
 
   // Теперь в объекте `actions` у нас есть функции, которые автоматически отправляют экшены в `dispatch()`
   // actions.increment() - отправляет экшен { type: 'INCREMENT' }
@@ -95,8 +104,8 @@ const MyComponent = () => {
 
   // ...
 
-  return <div>Компонент</div>
-}
+  return <div>Компонент</div>;
+};
 ```
 
 _`Action Creators` позволяют абстрагироваться от создания объекта Action и упрощают процесс управления состоянием. Они также могут использоваться для асинхронных операций, таких как получение данных из API, используя `middleware`, такой как `Redux Thunk` или `Redux Saga`_

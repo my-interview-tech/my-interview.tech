@@ -1,11 +1,20 @@
 ---
+uid: PoDqETQptNLxPHcKL_jiS
 title: Свойство background-size
-draft: false
 tags:
   - "#CSS"
   - "#background-size"
-info:
+info: []
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 25
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Свойство _background-size_ в CSS определяет размер фонового изображения элемента. Оно может принимать следующие значения:
 
 1. _auto_ - это значение по умолчанию. Фоновое изображение отображается в своем естественном размере.

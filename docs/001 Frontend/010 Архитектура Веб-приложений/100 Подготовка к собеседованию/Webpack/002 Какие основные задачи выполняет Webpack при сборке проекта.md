@@ -1,11 +1,20 @@
 ---
+uid: spYagNpv8Edws1eznEgC3
 title: Какие основные задачи выполняет Webpack при сборке проекта?
-draft: false
 tags:
   - "#webpack"
   - "#bundle"
-info:
+info: []
+draft: false
+technology: Архитектура Веб-приложений
+specialty: Frontend
+tools: []
+order: 2
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704145712.png|600]]
 
 Webpack выполняет следующие основные задачи при сборке проекта на JavaScript:

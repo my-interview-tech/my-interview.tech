@@ -1,6 +1,6 @@
 ---
+uid: VjAde1XPxcqzYnhB3Nvz2
 title: Что подразумевается под стилизованным JSX в Next.js?
-draft: false
 tags:
   - NextJS
   - styled-components
@@ -9,8 +9,17 @@ tags:
   - emotion
   - React
 info:
-  - https://nextjs.org/blog/styling-next-with-styled-jsx
+  - "https://nextjs.org/blog/styling-next-with-styled-jsx"
+draft: false
+technology: Next.js
+specialty: Frontend
+tools: []
+order: 36
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Стилизованный JSX в Next.js относится к использованию библиотеки Styled JSX, которая позволяет вам писать CSS непосредственно внутри ваших компонентов React. Этот подход, известный как `CSS-in-JS`, обеспечивает инкапсуляцию стилей, что означает, что стили, определенные в одном компоненте, не будут влиять на другие компоненты. Это упрощает управление стилями и позволяет легко добавлять, изменять и удалять стили, не затрагивая несвязанные части приложения.
 
 Пример использования Styled JSX в Next.js:
@@ -60,7 +69,7 @@ export default Home;
 
 ```jsx
 // Пример с styled-components
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Title = styled.h1`
   color: blue;
@@ -79,8 +88,8 @@ export default Home;
 
 ```jsx
 // Пример с emotion
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 
 const Title = styled.h1`
   color: blue;
@@ -99,6 +108,6 @@ export default Home;
 
 Эти примеры демонстрируют, как можно использовать различные библиотеки CSS-in-JS в Next.js для стилизации ваших компонентов.
 
-___
+---
 
 [[006 Next.js|Назад]]

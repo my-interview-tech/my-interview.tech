@@ -1,14 +1,26 @@
 ---
-title: Какая разница между типами предварительного рендеринга (SSR и SG), доступными в Next.js?
-draft: false
+uid: 0eYuyoSYJiitXotaKv4QB
+title: >-
+  Какая разница между типами предварительного рендеринга (SSR и SG), доступными
+  в Next.js?
 tags:
   - NextJS
   - SSR
   - SSG
 info:
-  - https://nextjs.org/learn-pages-router/seo/rendering-and-ranking/rendering-strategies
-  - https://www.geeksforgeeks.org/different-forms-of-pre-rendering-in-nextjs/
+  - >-
+    https://nextjs.org/learn-pages-router/seo/rendering-and-ranking/rendering-strategies
+  - "https://www.geeksforgeeks.org/different-forms-of-pre-rendering-in-nextjs/"
+draft: false
+technology: Next.js
+specialty: Frontend
+tools: []
+order: 5
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 В Next.js доступны два основных типа предварительного рендеринга: статическая генерация (Static Generation, SG) и рендеринг на стороне сервера (Server-Side Rendering, SSR). Вот сравнение этих двух методов:
 
 |                               | SSG                                                                                     | SSR                                                                                              |
@@ -24,6 +36,6 @@ info:
 
 Выбор между статической генерацией и рендерингом на стороне сервера зависит от конкретных требований вашего проекта. Статическая генерация подходит для контента, который не часто меняется и может быть предварительно сгенерирован, в то время как рендеринг на стороне сервера полезен для динамического контента, который требует актуальных данных при каждом запросе.
 
-___
+---
 
 [[006 Next.js|Назад]]

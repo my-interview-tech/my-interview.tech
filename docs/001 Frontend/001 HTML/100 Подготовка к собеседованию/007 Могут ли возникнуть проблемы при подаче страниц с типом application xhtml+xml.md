@@ -1,12 +1,21 @@
 ---
+uid: l1wPXPdxCoSr0xBtHhbjf
 title: Могут ли возникнуть проблемы при подаче страниц с типом application xhtml+xml?
-draft: false
 tags:
   - "#HTML"
   - "#MIME"
   - "#XHTML"
-info:
+info: []
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 7
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _Да_, могут возникнуть проблемы при подаче страниц с типом "application/xhtml+xml". Несмотря на то, что "application/xhtml+xml" является допустимым типом MIME для XHTML, его использование может приводить к некоторым проблемам в различных браузерах и приложениях.
 
 _Некоторые старые версии браузеров не поддерживают "application/xhtml+xml" и могут отображать страницу как бинарный файл вместо HTML-контента._ Это может привести к тому, что пользователи не смогут просмотреть страницу вообще.

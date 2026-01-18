@@ -1,13 +1,22 @@
 ---
+uid: SB__aRRctvmGngCuO3L5n
 title: Расскажите о `IntersectionObserver`?
-draft: false
 tags:
   - "#DOM"
   - "#IntersectionObserver"
   - "#API"
   - "#browser"
-info:
+info: []
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 32
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230702113811.png|600]]
 
 `IntersectionObserver` - это API, встроенное в браузер, которое позволяет отслеживать, когда элементы на веб-странице появляются или исчезают в области видимости пользователя. Он позволяет эффективно определять, какие элементы на странице находятся в пределах видимости, и реагировать на это.

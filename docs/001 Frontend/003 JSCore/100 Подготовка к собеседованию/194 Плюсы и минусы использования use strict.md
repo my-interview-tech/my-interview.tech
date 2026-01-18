@@ -1,12 +1,21 @@
 ---
+uid: YfWq4eNTaEybBJot8yE5a
 title: Плюсы и минусы использования `use strict`?
-draft: false
 tags:
   - "#JavaScript"
   - "#use-strict"
   - "#strict-mode"
-info:
+info: []
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 194
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703121343.png|600]]
 
 Использование директивы `"use strict"` в JavaScript имеет свои плюсы и минусы.

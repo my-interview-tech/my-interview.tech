@@ -1,19 +1,28 @@
 ---
+uid: ewwO6wT1z9WL6j5ScTmLs
 title: Базовое тестирование React-компонента
-draft: false
 tags:
   - testing
   - Jest
   - react-testing-library
 info:
-  - https://habr.com/ru/companies/timeweb/articles/670480/
+  - "https://habr.com/ru/companies/timeweb/articles/670480/"
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 74
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Для базового тестирования React-компонента с использованием Jest и React Testing Library (RTL) вам нужно:
 
 Пример компонента:
 
 ```javascript
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function Counter() {
   const [count, setCount] = useState(0);
@@ -32,32 +41,32 @@ export default Counter;
 Пример теста:
 
 ```javascript
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import Counter from './Counter';
+import React from "react";
+import { render, screen, fireEvent } from "@testing-library/react";
+import Counter from "./Counter";
 
-it('renders initial count and increments on button click', () => {
+it("renders initial count and increments on button click", () => {
   // Рендерим компонент
   render(<Counter />);
 
   // Находим элементы
-  const countElement = screen.getByTestId('count');
-  const incrementButton = screen.getByText('Increment');
+  const countElement = screen.getByTestId("count");
+  const incrementButton = screen.getByText("Increment");
 
   // Проверяем начальное состояние
-  expect(countElement).toHaveTextContent('0');
+  expect(countElement).toHaveTextContent("0");
 
   // Имитируем клик по кнопке
   fireEvent.click(incrementButton);
 
   // Проверяем, что счетчик увеличился
-  expect(countElement).toHaveTextContent('1');
+  expect(countElement).toHaveTextContent("1");
 
   // Имитируем еще один клик
   fireEvent.click(incrementButton);
 
   // Проверяем, что счетчик увеличился еще раз
-  expect(countElement).toHaveTextContent('2');
+  expect(countElement).toHaveTextContent("2");
 });
 ```
 
@@ -70,6 +79,6 @@ it('renders initial count and increments on button click', () => {
 5. **Имитация взаимодействия**: Используйте `fireEvent.click` для имитации клика по кнопке.
 6. **Проверка результатов**: Используйте `expect` для проверки, что компонент реагирует на взаимодействие правильно.
 
-____
+---
 
 [[007 Jest, RTL|Назад]]

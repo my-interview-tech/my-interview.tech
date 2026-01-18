@@ -1,13 +1,22 @@
 ---
+uid: 9FIsWhibUb0KZlinEW4vC
 title: Разница между методом `Object.freeze()` и `const`?
-draft: false
 tags:
   - "#JavaScript"
   - "#const"
   - "#Object-freeze"
   - "#object"
-info:
+info: []
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 110
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230702201527.png|600]]
 
 `Object.freeze()` и `const` - это два разных способа защиты данных в JavaScript, но они имеют существенные различия.
@@ -17,9 +26,9 @@ info:
 Пример использования `const`:
 
 ```javascript
-const arr = [1, 2, 3]
-arr.push(4) // допустимо
-arr = [4, 5, 6] // не допустимо
+const arr = [1, 2, 3];
+arr.push(4); // допустимо
+arr = [4, 5, 6]; // не допустимо
 ```
 
 `Object.freeze()` - это метод объекта в JavaScript, который используется для замораживания объекта, сделав его свойства неизменяемыми. Замороженный объект не может быть изменен, его свойства не могут быть добавлены, удалены или изменены.
@@ -27,10 +36,10 @@ arr = [4, 5, 6] // не допустимо
 Пример использования `Object.freeze()`:
 
 ```javascript
-const obj = { a: 1, b: 2, c: 3 }
-Object.freeze(obj)
-obj.a = 4 // не допустимо
-obj.d = 4 // не допустимо
+const obj = { a: 1, b: 2, c: 3 };
+Object.freeze(obj);
+obj.a = 4; // не допустимо
+obj.d = 4; // не допустимо
 ```
 
 В этом примере, мы объявляем объект `obj` и затем замораживаем его с помощью метода `Object.freeze()`. Попытки изменения значения свойства `a` или добавления нового свойства `d` будут неуспешными.

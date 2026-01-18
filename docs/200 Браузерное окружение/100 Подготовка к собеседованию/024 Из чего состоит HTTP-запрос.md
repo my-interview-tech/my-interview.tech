@@ -1,6 +1,6 @@
 ---
+uid: h-KI-laim_Eiuvfs1WlZM
 title: Из чего состоит `HTTP`-запрос?
-draft: false
 tags:
   - HTTP
   - HTTP-запрос
@@ -8,7 +8,16 @@ tags:
 info:
   - "[[0089 HTTP простым языком|HTTP]]"
   - "[[0090 Обзор протокола HTTP|Обзор протокола HTTP]]"
+draft: false
+technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
+tools: []
+order: 24
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703190730.png|600]]
 
 _HTTP-запрос_ состоит из трех основных частей: строки запроса (`request line`), заголовков запроса (`request headers`) и тела запроса (`request body`), который может отсутствовать в некоторых типах запросов.

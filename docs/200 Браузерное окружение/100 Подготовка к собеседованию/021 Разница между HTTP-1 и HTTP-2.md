@@ -1,6 +1,6 @@
 ---
+uid: 8IatZ6GD6z6ROdB4nWd9q
 title: Разница между `HTTP 1` и `HTTP 2` ?
-draft: false
 tags:
   - HTTP/1
   - HTTP/2
@@ -8,12 +8,21 @@ tags:
   - browser
   - HTTP
 info:
-  - https://habr.com/ru/articles/221427/
-  - https://habr.com/ru/companies/selectel/articles/278167/
+  - "https://habr.com/ru/articles/221427/"
+  - "https://habr.com/ru/companies/selectel/articles/278167/"
   - "[[0089 HTTP простым языком|HTTP]]"
-  - https://ru.hexlet.io/blog/posts/http-3-proshloe-nastoyaschee-i-buduschee
-  - https://habr.com/ru/companies/slurm/articles/575464/
+  - "https://ru.hexlet.io/blog/posts/http-3-proshloe-nastoyaschee-i-buduschee"
+  - "https://habr.com/ru/companies/slurm/articles/575464/"
+draft: false
+technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
+tools: []
+order: 21
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _HTTP/2_ – это версия протокола HTTP, которая была выпущена в 2015 году и заменила предыдущую версию - HTTP/1.1. Основные отличия между протоколами HTTP/2 и HTTP/1.1:
 
 1. _`Мультиплексирование`_: _`HTTP/2` позволяет использовать одно TCP-соединение для множества запросов и ответов одновременно, что устраняет необходимость в нескольких соединениях между клиентом и сервером, ускоряя передачу данных_.

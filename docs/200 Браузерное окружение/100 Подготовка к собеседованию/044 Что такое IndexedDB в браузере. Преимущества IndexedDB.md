@@ -1,13 +1,22 @@
 ---
+uid: zH5-ZxNRGpEUyF08G15PT
 title: Что такое IndexedDB в браузере? Преимущества IndexedDB
-draft: false
 tags:
   - IndexedDB
   - browser
 info:
-  - https://habr.com/ru/articles/213515/
-  - https://habr.com/ru/articles/569376/
+  - "https://habr.com/ru/articles/213515/"
+  - "https://habr.com/ru/articles/569376/"
+draft: false
+technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
+tools: []
+order: 44
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703192324.png|600]]
 
 _IndexedDB_ - это объектная база данных, которая предназначена для хранения больших объемов структурированных данных в браузере. Она позволяет сохранять данные локально на стороне клиента, что делает их доступными без необходимости обращения к серверу.

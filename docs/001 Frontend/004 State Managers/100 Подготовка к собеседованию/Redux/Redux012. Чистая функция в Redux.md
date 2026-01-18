@@ -1,13 +1,22 @@
 ---
+uid: aqrjNiUmnYDFyYyUQ7sLj
 title: Чистая функция в Redux?
-draft: false
 tags:
   - "#React"
   - "#Redux"
   - "#pure-function"
   - "#reducer"
-info:
+info: []
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _Чистая функция_ - это функция, которая не имеет побочных эффектов и всегда возвращает одинаковый результат для одинаковых входных данных.
 
 Чистые функции используются для описания reducer'ов - функций, которые принимают текущее состояние приложения и action, и возвращают новое состояние.
@@ -20,11 +29,11 @@ _`Reducer` должен быть чистой функцией, потому ч�
 function counterReducer(state = 0, action) {
   switch (action.type) {
     case "INCREMENT":
-      return state + 1
+      return state + 1;
     case "DECREMENT":
-      return state - 1
+      return state - 1;
     default:
-      return state
+      return state;
   }
 }
 ```

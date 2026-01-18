@@ -1,12 +1,21 @@
 ---
+uid: sCD2SrdHH894y57Ynn26e
 title: В чём разница между afterEach() и afterAll() в Jest?
-draft: false
 tags:
   - testing
   - Jest
   - afterEach
   - afterAll
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 45
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Основное различие между `afterEach` и `afterAll` в Jest заключается в частоте их выполнения:
 
 - **`afterEach`** выполняется **после каждого тестового сценария** и используется для очистки состояния, которое было задано функцией `beforeEach`.
@@ -17,6 +26,6 @@ tags:
 | `afterEach` | Каждым тестом     | Каждым тестом     |
 | `afterAll`  | Всеми тестами     | Всеми тестами     |
 
-____
+---
 
 [[007 Jest, RTL|Назад]]

@@ -1,11 +1,20 @@
 ---
+uid: o52jZtA4WedqZU8kSqKiz
 title: Почему расширение нативных JavaScript-объектов это плохая практика?
-draft: false
 tags:
   - "#JavaScript"
   - "#object"
-info:
+info: []
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 149
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703101854.png|600]]
 
 Расширение нативных JavaScript-объектов может быть плохой практикой по нескольким причинам:

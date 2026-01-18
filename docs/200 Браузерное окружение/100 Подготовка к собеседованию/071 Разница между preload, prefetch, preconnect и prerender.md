@@ -1,14 +1,23 @@
 ---
-title: Разница между `preload`, `prefetch`, `preconnect` и `prerender`
-draft: false
+uid: aBJ6ErylWFqvXr_Gjy863
+title: "Разница между `preload`, `prefetch`, `preconnect` и `prerender`"
 tags:
   - preload
   - prefetch
   - preconnect
   - prerender
   - browser
-info:
+info: []
+draft: false
+technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
+tools: []
+order: 71
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703194959.png|600]]
 
 `preload`, `prefetch`, `preconnect` и `prerender` - это все инструменты, которые позволяют улучшить производительность загрузки веб-страниц и ускорить время отклика страницы, но они имеют разные цели и применяются в разных ситуациях.

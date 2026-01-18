@@ -1,21 +1,30 @@
 ---
+uid: RUl2XoWBfdezOlfq7HdOM
 title: Что такое хук useOptimistic() ?
-draft: false
 tags:
   - React
   - Hooks
   - useOptimistic
   - React19
 info:
-  - https://react.dev/reference/react/useOptimistic
+  - "https://react.dev/reference/react/useOptimistic"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 94
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Другой распространенный шаблон UI при выполнении мутации данных — это оптимистичное отображение конечного состояния во время выполнения асинхронного запроса. В React 19 мы добавляем новый хук под названием `useOptimistic`, чтобы упростить это:
 
 ```javascript
 function ChangeName({ currentName, onUpdateName }) {
   const [optimisticName, setOptimisticName] = useOptimistic(currentName);
 
-  const submitAction = async formData => {
+  const submitAction = async (formData) => {
     const newName = formData.get("name");
     setOptimisticName(newName);
     const updatedName = await updateName(newName);
@@ -40,6 +49,6 @@ function ChangeName({ currentName, onUpdateName }) {
 
 Хук `useOptimistic` немедленно отобразит `optimisticName`, пока запрос `updateName` выполняется. Когда обновление завершится или произойдет ошибка, React автоматически вернется к значению `currentName`.
 
-___
+---
 
 [[004 ReactCore|Назад]]

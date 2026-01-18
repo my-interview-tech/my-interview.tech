@@ -1,10 +1,19 @@
 ---
+uid: P_UcRp8jfMXwJc16MAZUh
 title: Что такое Progressive Web Application (PWA)?
-draft: false
 tags:
   - PWA
-info:
+info: []
+draft: false
+technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
+tools: []
+order: 60
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703195404.png|600]]
 
 _Прогрессивные веб-приложения (`PWA`)_ - это _веб-приложения, которые используют современные веб-технологии для создания приложений_, которые выглядят и работают как нативные приложения, но запускаются и работают в браузере.

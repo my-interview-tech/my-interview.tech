@@ -1,15 +1,24 @@
 ---
+uid: y0oSL1yEt4ub-7Th_8fJY
 title: Что такое React Query
-draft: false
 tags:
   - "#React"
   - "#reactQuery"
   - "#useQuery"
 info:
-  - https://habr.com/ru/articles/557620/
-  - https://reactdev.ru/libs/react-query/
-  - https://habr.com/ru/articles/758360/
+  - "https://habr.com/ru/articles/557620/"
+  - "https://reactdev.ru/libs/react-query/"
+  - "https://habr.com/ru/articles/758360/"
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 **React Query** - библиотека для получения, кэширования, синхронизации и обновления "серверного" состояния в React-приложениях.
 
 ```bash
@@ -46,8 +55,8 @@ ReactDOM.render(
 Простой пример использования:
 
 ```jsx
-const queryCities = useQuery("cities", fetchCitiesFunc)
-const cities = queryCities.data || []
+const queryCities = useQuery("cities", fetchCitiesFunc);
+const cities = queryCities.data || [];
 ```
 
 Первый параметр `'cities'` это ключ строка, которая должна быть уникальной для каждого запроса. Второй - это функция, которая возвращает Promise, который резолвит данные или отдает ошибку. Также можно передать третьим параметром объект с настройками.

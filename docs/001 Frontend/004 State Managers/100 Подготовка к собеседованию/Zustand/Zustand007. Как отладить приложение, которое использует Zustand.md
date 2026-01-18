@@ -1,14 +1,25 @@
 ---
-title: Как отладить приложение, которое использует Zustand? Как использовать devTools?
-draft: false
+uid: zcgGyRzEJAvzaaInKtWRG
+title: >-
+  Как отладить приложение, которое использует Zustand? Как использовать
+  devTools?
 tags:
   - React
   - Zustand
   - State-manager
   - DevTools
-info:
+info: []
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
-Для отладки приложения с Zustand можно использовать Redux DevTools. 
+
+Для отладки приложения с Zustand можно использовать Redux DevTools.
 
 Пример:
 
@@ -39,6 +50,6 @@ function Counter() {
 
 Здесь `devtools` middleware позволяет использовать Redux DevTools для отладки состояния.
 
-___
+---
 
 [[004 State Managers|Назад]]

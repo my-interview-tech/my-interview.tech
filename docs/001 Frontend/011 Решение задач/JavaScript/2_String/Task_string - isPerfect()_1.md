@@ -1,11 +1,20 @@
 ---
+uid: _JZWca8fjW_LXj8Fn4d4A
 title: Task_string - isPerfect()_1
-draft: false
 tags:
   - "#JavaScript"
   - "#taskJS"
   - "#string"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```js
 /*
 Создайте функцию isPerfect(), которая принимает число и возвращает true, 
@@ -22,20 +31,20 @@ isPerfect(7); // false
 */
 
 const isPerfect = (num) => {
-    if(num < 0) return false
-    const arr = Object.keys(Array.from({length: num}));
-    const newArr = [];
-    
-    for(let i = 0; i < arr.length; i++) {
-        if(num > arr[i] && num % arr[i] === 0){
-            newArr.push(Number(arr[i]))
-        }
+  if (num < 0) return false;
+  const arr = Object.keys(Array.from({ length: num }));
+  const newArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (num > arr[i] && num % arr[i] === 0) {
+      newArr.push(Number(arr[i]));
     }
-    return newArr.reduce((acc, el) => {
-        acc += el
-        return acc
-    });
-}
+  }
+  return newArr.reduce((acc, el) => {
+    acc += el;
+    return acc;
+  });
+};
 
 console.log(isPerfect(6)); // true
 console.log(isPerfect(7)); // false
@@ -44,21 +53,21 @@ console.log(isPerfect(496)); // true
 ```
 
 ```js
-const isPerfect = (num) => { 
-	if (typeof num !== 'number') { 
-		return undefined; 
-	} 
-	
-	let sum = 0; 
-	
-	for (let i = 1; i < num; i++) { 
-		num % i === 0 ? sum += i : sum; 
-	} 
-	
-	return num === sum; 
+const isPerfect = (num) => {
+  if (typeof num !== "number") {
+    return undefined;
+  }
+
+  let sum = 0;
+
+  for (let i = 1; i < num; i++) {
+    num % i === 0 ? (sum += i) : sum;
+  }
+
+  return num === sum;
 };
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

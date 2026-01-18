@@ -1,12 +1,21 @@
 ---
+uid: Niv_XTMC5NNNtnukWMk07
 title: Расскажите о свойстве `pointer-events`
-draft: false
 tags:
   - "#CSS"
   - "#pointer-events"
 info:
-  - https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events
+  - "https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events"
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 31
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704030635.png|600]]
 
 _Свойство `pointer-events`_ позволяет контролировать, как элементы на странице реагируют на события указателя, такие как клики мыши, наведение курсора и т.д. Это свойство может быть установлено для любого элемента на странице, в том числе для ссылок, изображений, кнопок и других элементов форм.

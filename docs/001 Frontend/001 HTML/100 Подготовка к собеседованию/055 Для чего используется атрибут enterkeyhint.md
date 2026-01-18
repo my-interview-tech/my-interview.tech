@@ -1,11 +1,20 @@
 ---
+uid: 5_O2sjGHf5qfkFsKw2qqV
 title: Для чего используется атрибут `enterkeyhint`?
-draft: false
 tags:
   - "#HTML"
   - "#enterkeyhint"
-info:
+info: []
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 55
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704021934.png|600]]
 
 Атрибут `enterkeyhint` используется для указания браузеру, какой тип действия пользователь ожидает выполнить, когда он нажимает клавишу "Enter" в форме на веб-странице.
@@ -28,7 +37,7 @@ info:
 ```html
 <form>
   <label for="search">Поиск:</label>
-  <input type="text" id="search" name="search" enterkeyhint="search">
+  <input type="text" id="search" name="search" enterkeyhint="search" />
   <button type="submit">Искать</button>
 </form>
 ```

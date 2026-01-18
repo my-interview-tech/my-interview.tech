@@ -1,12 +1,21 @@
 ---
+uid: eH9Ssa-XUuwmlAKVF4Qpv
 title: Как работает `JSONP`?
-draft: false
 tags:
   - JSONP
   - SOP
   - browser
-info:
+info: []
+draft: false
+technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
+tools: []
+order: 40
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703191413.png|600]]
 
 _JSONP_ (`JSON with Padding`) - это технология, которая позволяет получать данные с удаленного сервера, который находится на другом домене, используя тег `<script>` в HTML документе.

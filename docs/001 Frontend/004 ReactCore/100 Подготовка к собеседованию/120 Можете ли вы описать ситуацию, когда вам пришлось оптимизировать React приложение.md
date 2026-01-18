@@ -1,6 +1,8 @@
 ---
-title: Можете ли вы описать ситуацию, когда вам пришлось оптимизировать React приложение?
-draft: false
+uid: Wnex6Nuyp_iV3ep2R3VxV
+title: >-
+  Можете ли вы описать ситуацию, когда вам пришлось оптимизировать React
+  приложение?
 tags:
   - "#React"
   - "#render"
@@ -9,7 +11,16 @@ tags:
   - "#useCallback"
   - "#lazy"
   - "#SSR"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 120
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Некоторые способы оптимизации производительности React приложения могут включать следующее:
 
 - Избегать ненужных повторных рендеров

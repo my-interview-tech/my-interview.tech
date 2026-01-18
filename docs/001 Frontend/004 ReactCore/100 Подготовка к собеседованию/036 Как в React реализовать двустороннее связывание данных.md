@@ -1,14 +1,23 @@
 ---
+uid: 3qEJXnZd8V6vIiKdypWvc
 title: Как в React реализовать двустороннее связывание данных?
-draft: false
 tags:
   - "#React"
   - "#onChange"
   - "#controlled"
   - "#SSOT"
 info:
-  - https://ru.legacy.reactjs.org/docs/forms.html#controlled-components
+  - "https://ru.legacy.reactjs.org/docs/forms.html#controlled-components"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 36
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _Двустороннее связывание данных (`Two-way Data Binding`)_ - это паттерн, который позволяет связывать изменения значения элемента пользовательского интерфейса (например, текстового поля) с соответствующим значением в состоянии компонента, и наоборот.
 
 В HTML элементы формы, такие как `<input>`, `<textarea>` и `<select>`, обычно сами управляют своим состоянием и обновляют его когда пользователь вводит данные. В React мутабельное состояние обычно содержится в свойстве компонентов `state` и обновляется только через вызов [`setState()`](https://ru.legacy.reactjs.org/docs/react-component.html#setstate)
@@ -24,22 +33,26 @@ _Управляемые компоненты_ - это компоненты, у 
 ```jsx
 class MyComponent extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { value: "" }
-    this.handleChange = this.handleChange.bind(this)
+    super(props);
+    this.state = { value: "" };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value })
+    this.setState({ value: event.target.value });
   }
 
   render() {
     return (
       <div>
-        <input type="text" value={this.state.value} onChange={this.handleChange} />
+        <input
+          type="text"
+          value={this.state.value}
+          onChange={this.handleChange}
+        />
         <p>Value: {this.state.value}</p>
       </div>
-    )
+    );
   }
 }
 ```

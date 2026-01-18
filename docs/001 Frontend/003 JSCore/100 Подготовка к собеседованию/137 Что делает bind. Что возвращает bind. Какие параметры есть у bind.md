@@ -1,13 +1,22 @@
 ---
+uid: 2v4Qi_zDs-2TohL5MBaVj
 title: Что делает bind? Что возвращает bind? Какие параметры есть у bind?
-draft: false
 tags:
   - "#JavaScript"
   - "#bind"
   - "#this"
 info:
   - "[[JavaScript2. Прототипы и классы|Прототипы и классы. Метод bind]]"
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 137
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 *Метод `bind()`* является одним из методов функции в JavaScript. Он _позволяет явно установить контекст выполнения функции, т.е. значение `this` внутри функции._
 
 Метод `bind()` создает новую функцию, которая будет иметь тот же код, что и исходная функция, но с жестко привязанным контекстом выполнения. Это означает, что при вызове новой функции `this` будет ссылаться на объект, переданный в качестве первого аргумента метода `bind()`. Если первый аргумент не передан, то `this` будет ссылаться на глобальный объект (в браузере это объект `window`).
@@ -21,17 +30,17 @@ const person = {
   firstName: "John",
   lastName: "Doe",
   getFullName: function () {
-    return this.firstName + " " + this.lastName
+    return this.firstName + " " + this.lastName;
   },
-}
+};
 
 const logFullName = function () {
-  console.log(this.getFullName())
-}
+  console.log(this.getFullName());
+};
 
-const boundLogFullName = logFullName.bind(person)
+const boundLogFullName = logFullName.bind(person);
 
-boundLogFullName() // 'John Doe'
+boundLogFullName(); // 'John Doe'
 ```
 
 В этом примере мы создаем объект `person`, который имеет свойства `firstName` и `lastName` и метод `getFullName()`, который возвращает полное имя. Затем мы создаем функцию `logFullName()`, которая вызывает метод `getFullName()` в контексте `this`. Мы затем используем метод `bind()` для привязки контекста функции `logFullName()` к объекту `person` и сохранения привязанной функции в переменной `boundLogFullName`. Мы вызываем `boundLogFullName()`, чтобы вывести полное имя объекта `person` в консоль.
@@ -40,12 +49,12 @@ boundLogFullName() // 'John Doe'
 
 ```javascript
 const addNumbers = function (a, b) {
-  return a + b
-}
+  return a + b;
+};
 
-const addFive = addNumbers.bind(null, 5)
+const addFive = addNumbers.bind(null, 5);
 
-console.log(addFive(10)) // 15
+console.log(addFive(10)); // 15
 ```
 
 В этом примере мы создаем функцию `addNumbers()`, которая принимает два аргумента и возвращает их сумму. Затем мы используем метод `bind()` для привязки контекста выполнения к `null` (глобальный объект) и установки первого аргумента функции в 5.

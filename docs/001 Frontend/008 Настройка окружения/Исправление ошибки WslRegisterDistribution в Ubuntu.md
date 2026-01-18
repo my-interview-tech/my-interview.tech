@@ -1,10 +1,19 @@
 ---
+uid: mmzLGnl_6BxIzVpOJw0uf
 title: Исправление ошибки WslRegisterDistribution в Ubuntu
-draft: false
 tags:
   - "#ubuntu"
-info:
+info: []
+draft: false
+technology: Настройка окружения
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 **Ошибка WslRegisterDistribution failed with error: 0x80370114** может возникать при установке Linux дистрибутива в Windows Subsystem for Linux (WSL). Эта ошибка обычно связана с проблемами взаимодействия между Windows и WSL.
 
 Для решения этой проблемы можно попробовать следующие шаги:

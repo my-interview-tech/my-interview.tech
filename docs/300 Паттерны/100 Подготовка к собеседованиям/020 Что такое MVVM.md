@@ -1,11 +1,20 @@
 ---
+uid: iz6-piAR9SOuDvzNhiDaB
 title: Что такое MVVM?
-draft: false
 tags:
   - design-pattern
   - MVVM
-info:
+info: []
+draft: false
+technology: Подготовка к собеседованиям
+specialty: "Frontend,Backend"
+tools: []
+order: 20
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703184950.png|600]]
 
 _MVVM_ (`Model-View-ViewModel`) - это шаблон проектирования, который является вариантом паттерна `MVC`. Он используется для разработки приложений, основанных на пользовательском интерфейсе, и предназначен для облегчения разделения логики приложения и пользовательского интерфейса.

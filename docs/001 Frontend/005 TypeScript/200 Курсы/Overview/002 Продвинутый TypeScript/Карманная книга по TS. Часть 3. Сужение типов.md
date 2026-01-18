@@ -1,6 +1,6 @@
 ---
+uid: No7cshXtnAEQDnyOAk2Gf
 title: Карманная книга по TS. Часть 3. Сужение типов
-draft: false
 tags:
   - TypeScript
   - "#type-guard"
@@ -10,15 +10,24 @@ tags:
   - "#assignments"
   - "#never"
 info:
-  - https://habr.com/ru/companies/macloud/articles/560594/
+  - "https://habr.com/ru/companies/macloud/articles/560594/"
+draft: false
+technology: TypeScript
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ## Продолжение
 
 Предположим, что у нас имеется функция под названием `padLeft`:
 
 ```tsx
 function padLeft(padding: number | string, input: string): string {
- throw new Error('Еще не реализовано!')
+  throw new Error("Еще не реализовано!");
 }
 ```
 
@@ -26,8 +35,8 @@ function padLeft(padding: number | string, input: string): string {
 
 ```tsx
 function padLeft(padding: number | string, input: string): string {
- return new Array(padding + 1).join(' ') + input
- // Operator '+' cannot be applied to types 'string | number' and 'number'. Оператор '+' не может быть применен к типам 'string | number'
+  return new Array(padding + 1).join(" ") + input;
+  // Operator '+' cannot be applied to types 'string | number' and 'number'. Оператор '+' не может быть применен к типам 'string | number'
 }
 ```
 
@@ -35,10 +44,10 @@ function padLeft(padding: number | string, input: string): string {
 
 ```tsx
 function padLeft(padding: number | string, input: string): string {
- if (typeof padding === 'number') {
-   return new Array(padding + 1).join(' ') + input
- }
- return padding + input
+  if (typeof padding === "number") {
+    return new Array(padding + 1).join(" ") + input;
+  }
+  return padding + input;
 }
 ```
 
@@ -46,12 +55,12 @@ function padLeft(padding: number | string, input: string): string {
 
 ```tsx
 function padLeft(padding: number | string, input: string) {
- if (typeof padding === "number") {
-   return new Array(padding + 1).join(" ") + input;
-                   // (parameter) padding: number
- }
- return padding + input;
-       // (parameter) padding: string
+  if (typeof padding === "number") {
+    return new Array(padding + 1).join(" ") + input;
+    // (parameter) padding: number
+  }
+  return padding + input;
+  // (parameter) padding: string
 }
 ```
 
@@ -60,6 +69,7 @@ function padLeft(padding: number | string, input: string) {
 ## Защитник типа #typeof
 
 Оператор `typeof` возвращает одну из следующих строк:
+
 - "string"
 - "number"
 - "bigint"
@@ -73,16 +83,16 @@ function padLeft(padding: number | string, input: string) {
 
 ```tsx
 function printAll(strs: string | string[] | null) {
- if (typeof strs === "object") {
-   for (const s of strs) {
-     // Object is possibly 'null'. Потенциальным значением объекта является 'null'
-     console.log(s);
-   }
- } else if (typeof strs === "string") {
-   console.log(strs);
- } else {
-   // ...
- }
+  if (typeof strs === "object") {
+    for (const s of strs) {
+      // Object is possibly 'null'. Потенциальным значением объекта является 'null'
+      console.log(s);
+    }
+  } else if (typeof strs === "string") {
+    console.log(strs);
+  } else {
+    // ...
+  }
 }
 ```
 
@@ -96,14 +106,15 @@ function printAll(strs: string | string[] | null) {
 
 ```tsx
 function getUsersOnlineMessage(numUsersOnline: number) {
- if (numUsersOnline) {
-   return `В сети находится ${numUsersOnline} человек!`;
- }
- return "Здесь никого нет :(";
+  if (numUsersOnline) {
+    return `В сети находится ${numUsersOnline} человек!`;
+  }
+  return "Здесь никого нет :(";
 }
 ```
 
 В `JS` конструкции типа `if` преобразуют условия в логические значения и выбирают ветку (с кодом для выполнения) в зависимости от результата (`true` или `false`). Значения
+
 - 0
 - NaN
 - "" (пустая строка)
@@ -115,21 +126,21 @@ function getUsersOnlineMessage(numUsersOnline: number) {
 
 ```tsx
 // оба варианта возвращают `true`
-Boolean('hello')
-!!'world'
+Boolean("hello");
+!!"world";
 ```
 
 Данная техника широко применяется для исключения значений `null` и `undefined`. Применим ее к нашей функции `printAll`:
 
 ```tsx
 function printAll(strs: string | string[] | null) {
- if (strs && typeof strs === "object") {
-   for (const s of strs) {
-     console.log(s);
-   }
- } else if (typeof strs === "string") {
-   console.log(strs);
- }
+  if (strs && typeof strs === "object") {
+    for (const s of strs) {
+      console.log(s);
+    }
+  } else if (typeof strs === "string") {
+    console.log(strs);
+  }
 }
 ```
 
@@ -144,18 +155,18 @@ _Обратите внимание_, что проверка примитиво�
 
 ```tsx
 function printAll(strs: string | string[] | null) {
- // !!!
- //  НЕ НАДО ТАК ДЕЛАТЬ
- // !!!
- if (strs) {
-   if (typeof strs === "object") {
-     for (const s of strs) {
-       console.log(s);
-     }
-   } else if (typeof strs === "string") {
-     console.log(strs);
-   }
- }
+  // !!!
+  //  НЕ НАДО ТАК ДЕЛАТЬ
+  // !!!
+  if (strs) {
+    if (typeof strs === "object") {
+      for (const s of strs) {
+        console.log(s);
+      }
+    } else if (typeof strs === "string") {
+      console.log(strs);
+    }
+  }
 }
 ```
 
@@ -165,14 +176,14 @@ function printAll(strs: string | string[] | null) {
 
 ```tsx
 function multiplyAll(
- values: number[] | undefined,
- factor: number
+  values: number[] | undefined,
+  factor: number,
 ): number[] | undefined {
- if (!values) {
-   return values
- } else {
-   return values.map((x) => x * factor)
- }
+  if (!values) {
+    return values;
+  } else {
+    return values.map((x) => x * factor);
+  }
 }
 ```
 
@@ -182,18 +193,18 @@ function multiplyAll(
 
 ```tsx
 function example(x: string | number, y: string | boolean) {
- if (x === y) {
-   // Теперь мы можем вызывать любой строковый метод
-   x.toUpperCase()
-   // (method) String.toUpperCase(): string
-   y.toLowerCase()
-   // (method) String.toLowerCase(): string
- } else {
-   console.log(x)
-           // (parameter) x: string | number
-   console.log(y)
-           // (parameter) y: string | boolean
- }
+  if (x === y) {
+    // Теперь мы можем вызывать любой строковый метод
+    x.toUpperCase();
+    // (method) String.toUpperCase(): string
+    y.toLowerCase();
+    // (method) String.toLowerCase(): string
+  } else {
+    console.log(x);
+    // (parameter) x: string | number
+    console.log(y);
+    // (parameter) y: string | boolean
+  }
 }
 ```
 
@@ -203,36 +214,36 @@ function example(x: string | number, y: string | boolean) {
 
 ```tsx
 function printAll(strs: string | string[] | null) {
- if (strs !== null) {
-   if (typeof strs === "object") {
-     for (const s of strs) {
-                   // (parameter) strs: string[]
-       console.log(s);
-     }
-   } else if (typeof strs === "string") {
-     console.log(strs);
-               // (parameter) strs: string
-   }
- }
+  if (strs !== null) {
+    if (typeof strs === "object") {
+      for (const s of strs) {
+        // (parameter) strs: string[]
+        console.log(s);
+      }
+    } else if (typeof strs === "string") {
+      console.log(strs);
+      // (parameter) strs: string
+    }
+  }
 }
 ```
 
-Операторы абстрактного равенства (== и !=) также могут использоваться для сужения типов, в некоторых случаях их использование даже более эффективно, чем использование операторов строгого равенства (=== и !== ). Например, выражение  ==  null проверяет на равенство не только с null, но и с undefined. Аналогично выражение == undefined проверяет на равенство не только с undefined, но и с null.
+Операторы абстрактного равенства (== и !=) также могут использоваться для сужения типов, в некоторых случаях их использование даже более эффективно, чем использование операторов строгого равенства (=== и !== ). Например, выражение  == null проверяет на равенство не только с null, но и с undefined. Аналогично выражение == undefined проверяет на равенство не только с undefined, но и с null.
 
-  ```tsx
+```tsx
 interface Container {
- value: number | null | undefined;
+  value: number | null | undefined;
 }
 
 function multiplyValue(container: Container, factor: number) {
- // Удаляем 'null' и 'undefined' из типа
- if (container.value != null) {
-   console.log(container.value);
-               // (property) Container.value: number
+  // Удаляем 'null' и 'undefined' из типа
+  if (container.value != null) {
+    console.log(container.value);
+    // (property) Container.value: number
 
-   // Теперь мы можем безопасно умножать 'container.value'
-   container.value *= factor;
- }
+    // Теперь мы можем безопасно умножать 'container.value'
+    container.value *= factor;
+  }
 }
 ```
 
@@ -247,11 +258,11 @@ type Fish = { swim: () => void };
 type Bird = { fly: () => void };
 
 function move(animal: Fish | Bird) {
- if ("swim" in animal) {
-   return animal.swim();
- }
+  if ("swim" in animal) {
+    return animal.swim();
+  }
 
- return animal.fly();
+  return animal.fly();
 }
 ```
 
@@ -260,16 +271,16 @@ function move(animal: Fish | Bird) {
 ```tsx
 type Fish = { swim: () => void };
 type Bird = { fly: () => void };
-type Human = {  swim?: () => void, fly?: () => void };
+type Human = { swim?: () => void; fly?: () => void };
 
 function move(animal: Fish | Bird | Human) {
- if ("swim" in animal) {
-   animal
-   // (parameter) animal: Fish | Human
- } else {
-   animal
-   // (parameter) animal: Bird | Human
- }
+  if ("swim" in animal) {
+    animal;
+    // (parameter) animal: Fish | Human
+  } else {
+    animal;
+    // (parameter) animal: Bird | Human
+  }
 }
 ```
 
@@ -279,13 +290,13 @@ function move(animal: Fish | Bird | Human) {
 
 ```tsx
 function logValue(x: Date | string) {
- if (x instanceof Date) {
-   console.log(x.toUTCString());
-             // (parameter) x: Date
- } else {
-   console.log(x.toUpperCase());
-             // (parameter) x: string
- }
+  if (x instanceof Date) {
+    console.log(x.toUTCString());
+    // (parameter) x: Date
+  } else {
+    console.log(x.toUpperCase());
+    // (parameter) x: string
+  }
 }
 ```
 
@@ -295,17 +306,17 @@ function logValue(x: Date | string) {
 
 ```tsx
 let x = Math.random() < 0.5 ? 10 : "hello world!";
- // let x: string | number
+// let x: string | number
 
 x = 1;
 
 console.log(x);
-         // let x: number
+// let x: number
 
 x = "goodbye!";
 
 console.log(x);
-         // let x: string
+// let x: string
 ```
 
 Данные присвоения являются валидными, поскольку типом, определенным для `x`, является `string | number`. Однако, если мы попытаемся присвоить `x` логическое значение, то получим ошибку:
@@ -315,7 +326,7 @@ x = true;
 // Type 'boolean' is not assignable to type 'string | number'.
 
 console.log(x);
-         // let x: string | number
+// let x: string | number
 ```
 
 ## Анализ потока управления
@@ -324,35 +335,35 @@ console.log(x);
 
 ```tsx
 function example() {
- let x: string | number | boolean;
+  let x: string | number | boolean;
 
- x = Math.random() < 0.5;
+  x = Math.random() < 0.5;
 
- console.log(x);
-           // let x: boolean
+  console.log(x);
+  // let x: boolean
 
- if (Math.random() < 0.5) {
-   x = "hello";
-   console.log(x);
-             // let x: string
- } else {
-   x = 100;
-   console.log(x);
-             // let x: number
- }
+  if (Math.random() < 0.5) {
+    x = "hello";
+    console.log(x);
+    // let x: string
+  } else {
+    x = 100;
+    console.log(x);
+    // let x: number
+  }
 
- return x;
-     // let x: string | number
+  return x;
+  // let x: string | number
 }
 ```
 
 ## Использование предикатов типа ( #type-predicates )
 
-Иногда мы хотим иметь более прямой контроль над тем, как изменяются типы. Для определения пользовательского защитника типа необходимо определить функцию, возвращаемым значением которой является [предикат](https://habr.com/ru/post/310172/#:~:text=%D0%9F%D1%80%D0%B5%D0%B4%D0%B8%D0%BA%D0%B0%D1%82%20%E2%80%94%20%D1%8D%D1%82%D0%BE%20%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F%2C%20%D0%BA%D0%BE%D1%82%D0%BE%D1%80%D0%B0%D1%8F%20%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D1%82,(callback)%20%D0%B4%D0%BB%D1%8F%20%D1%84%D0%B8%D0%BB%D1%8C%D1%82%D1%80%D0%B0%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0.) типа:
+Иногда мы хотим иметь более прямой контроль над тем, как изменяются типы. Для определения пользовательского защитника типа необходимо определить функцию, возвращаемым значением которой является [предикат](<https://habr.com/ru/post/310172/#:~:text=%D0%9F%D1%80%D0%B5%D0%B4%D0%B8%D0%BA%D0%B0%D1%82%20%E2%80%94%20%D1%8D%D1%82%D0%BE%20%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F%2C%20%D0%BA%D0%BE%D1%82%D0%BE%D1%80%D0%B0%D1%8F%20%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D1%82,(callback)%20%D0%B4%D0%BB%D1%8F%20%D1%84%D0%B8%D0%BB%D1%8C%D1%82%D1%80%D0%B0%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0.>) типа:
 
 ```tsx
 function isFish(pet: Fish | Bird): pet is Fish {
- return (pet as Fish).swim !== undefined
+  return (pet as Fish).swim !== undefined;
 }
 ```
 
@@ -361,12 +372,12 @@ function isFish(pet: Fish | Bird): pet is Fish {
 При вызове `isFish` с любой переменной, `TS` "сузит" эту переменную до указанного типа, разумеется, при условии, что оригинальный тип совместим с указанным.
 
 ```tsx
-const pet = getSmallPet()
+const pet = getSmallPet();
 
 if (isFish(pet)) {
- pet.swim()
+  pet.swim();
 } else {
- pet.fly()
+  pet.fly();
 }
 ```
 
@@ -375,16 +386,16 @@ _Обратите внимание_: `TS` знает не только то, �
 Мы можем использовать защитника `isFish` для фильтрации массива `Fish | Bird` и получения массива `Fish`:
 
 ```tsx
-const zoo: (Fish | Bird)[] = [getSmallPet(), getSmallPet(), getSmallPet()]
-const underWater1: Fish[] = zoo.filter(isFish)
+const zoo: (Fish | Bird)[] = [getSmallPet(), getSmallPet(), getSmallPet()];
+const underWater1: Fish[] = zoo.filter(isFish);
 // или
-const underWater2: Fish[] = zoo.filter(isFish) as Fish[]
+const underWater2: Fish[] = zoo.filter(isFish) as Fish[];
 
 // В более сложных случаях, может потребоваться повторное использование предиката
 const underWater3: Fish[] = zoo.filter((pet): pet is Fish => {
- if (pet.name === 'sharkey') return false
- return isFish(pet)
-})
+  if (pet.name === "sharkey") return false;
+  return isFish(pet);
+});
 ```
 
 ## Исключающие объединения ( #discriminated-unions)
@@ -393,9 +404,9 @@ const underWater3: Fish[] = zoo.filter((pet): pet is Fish => {
 
 ```tsx
 interface Shape {
- kind: 'circle' | 'square'
- radius?: number
- sideLength: number
+  kind: "circle" | "square";
+  radius?: number;
+  sideLength: number;
 }
 ```
 
@@ -403,11 +414,11 @@ interface Shape {
 
 ```tsx
 function handleShape(shape: Shape) {
- // Упс!
- if (shape.kind === 'rect') {
-   // This condition will always return 'false' since the types '"circle" | "square"' and '"rect"' have no overlap. Данное условие всегда возвращает `false`, поскольку типы '"circle" | "square"' и '"rect"' не пересекаются
-   // ...
- }
+  // Упс!
+  if (shape.kind === "rect") {
+    // This condition will always return 'false' since the types '"circle" | "square"' and '"rect"' have no overlap. Данное условие всегда возвращает `false`, поскольку типы '"circle" | "square"' и '"rect"' не пересекаются
+    // ...
+  }
 }
 ```
 
@@ -415,8 +426,8 @@ function handleShape(shape: Shape) {
 
 ```tsx
 function getArea(shape: Shape) {
- return Math.PI * shape.radius ** 2;
- // Object is possibly 'undefined'. Потенциальным значением объекта является 'undefined'
+  return Math.PI * shape.radius ** 2;
+  // Object is possibly 'undefined'. Потенциальным значением объекта является 'undefined'
 }
 ```
 
@@ -424,10 +435,10 @@ function getArea(shape: Shape) {
 
 ```tsx
 function getArea(shape: Shape) {
- if (shape.kind === "circle") {
-   return Math.PI * shape.radius ** 2;
-   // Object is possibly 'undefined'.
- }
+  if (shape.kind === "circle") {
+    return Math.PI * shape.radius ** 2;
+    // Object is possibly 'undefined'.
+  }
 }
 ```
 
@@ -435,9 +446,9 @@ function getArea(shape: Shape) {
 
 ```tsx
 function getArea(shape: Shape) {
- if (shape.kind === "circle") {
-   return Math.PI * shape.radius! ** 2;
- }
+  if (shape.kind === "circle") {
+    return Math.PI * shape.radius! ** 2;
+  }
 }
 ```
 
@@ -445,13 +456,13 @@ function getArea(shape: Shape) {
 
 ```tsx
 interface Circle {
- kind: "circle";
- radius: number;
+  kind: "circle";
+  radius: number;
 }
 
 interface Square {
- kind: "square";
- sideLength: number;
+  kind: "square";
+  sideLength: number;
 }
 
 type Shape = Circle | Square;
@@ -463,8 +474,8 @@ type Shape = Circle | Square;
 
 ```tsx
 function getArea(shape: Shape) {
- return Math.PI * shape.radius ** 2;
- // Property 'radius' does not exist on type 'Shape'. Property 'radius' does not exist on type 'Square'.
+  return Math.PI * shape.radius ** 2;
+  // Property 'radius' does not exist on type 'Shape'. Property 'radius' does not exist on type 'Square'.
 }
 ```
 
@@ -472,10 +483,10 @@ function getArea(shape: Shape) {
 
 ```tsx
 function getArea(shape: Shape) {
- if (shape.kind === "circle") {
-   return Math.PI * shape.radius ** 2;
-                   // (parameter) shape: Circle
- }
+  if (shape.kind === "circle") {
+    return Math.PI * shape.radius ** 2;
+    // (parameter) shape: Circle
+  }
 }
 ```
 
@@ -487,14 +498,14 @@ function getArea(shape: Shape) {
 
 ```tsx
 function getArea(shape: Shape) {
- switch (shape.kind) {
-   case "circle":
-     return Math.PI * shape.radius ** 2;
-                     // (parameter) shape: Circle
-   case "square":
-     return shape.sideLength ** 2;
-           // (parameter) shape: Square
- }
+  switch (shape.kind) {
+    case "circle":
+      return Math.PI * shape.radius ** 2;
+    // (parameter) shape: Circle
+    case "square":
+      return shape.sideLength ** 2;
+    // (parameter) shape: Square
+  }
 }
 ```
 
@@ -510,15 +521,15 @@ function getArea(shape: Shape) {
 
 ```tsx
 function getArea(shape: Shape) {
- switch (shape.kind) {
-   case "circle":
-     return Math.PI * shape.radius ** 2;
-   case "square":
-     return shape.sideLength ** 2;
-   default:
-     const _exhaustiveCheck: never = shape;
-     return _exhaustiveCheck;
- }
+  switch (shape.kind) {
+    case "circle":
+      return Math.PI * shape.radius ** 2;
+    case "square":
+      return shape.sideLength ** 2;
+    default:
+      const _exhaustiveCheck: never = shape;
+      return _exhaustiveCheck;
+  }
 }
 ```
 
@@ -526,22 +537,22 @@ function getArea(shape: Shape) {
 
 ```tsx
 interface Triangle {
- kind: "triangle";
- sideLength: number;
+  kind: "triangle";
+  sideLength: number;
 }
 
 type Shape = Circle | Square | Triangle;
 
 function getArea(shape: Shape) {
- switch (shape.kind) {
-   case "circle":
-     return Math.PI * shape.radius ** 2;
-   case "square":
-     return shape.sideLength ** 2;
-   default:
-     const _exhaustiveCheck: never = shape;
-     // Type 'Triangle' is not assignable to type 'never'.
-     return _exhaustiveCheck;
- }
+  switch (shape.kind) {
+    case "circle":
+      return Math.PI * shape.radius ** 2;
+    case "square":
+      return shape.sideLength ** 2;
+    default:
+      const _exhaustiveCheck: never = shape;
+      // Type 'Triangle' is not assignable to type 'never'.
+      return _exhaustiveCheck;
+  }
 }
 ```

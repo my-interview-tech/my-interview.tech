@@ -1,14 +1,23 @@
 ---
-title: Для чего используются тэги `tr`, `th`, `td`?
-draft: false
+uid: 2AkpQVw3nQP6ou6Y5NIsp
+title: "Для чего используются тэги `tr`, `th`, `td`?"
 tags:
   - "#HTML"
   - "#table"
   - "#tr"
   - "#td"
   - "#th"
-info:
+info: []
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 49
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704021430.png|600]]
 
 Тэги `tr`, `th` и `td` используются для создания таблиц на веб-страницах.

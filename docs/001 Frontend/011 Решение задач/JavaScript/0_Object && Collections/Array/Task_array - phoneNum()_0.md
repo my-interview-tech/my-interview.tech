@@ -1,13 +1,22 @@
 ---
+uid: 4S4RGKPAjc545QAU4ZIu0
 title: Task_array - phoneNum()_0
-draft: false
 tags:
   - "#JavaScript"
   - "#taskJS"
   - "#array"
   - "#инфовотч"
   - "#Яндекс"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```js
 // Нужно написать функцию
 // На вход поступает массив чисел. Числа больше либо равны 0 и не повторяются.
@@ -22,13 +31,13 @@ tags:
 // Возвращаемый результат: '0, 2, 4-6, 8-9'
 
 function phoneNum(arr) {
-	// Ваш код здесь
+  // Ваш код здесь
 }
 
-console.log(phoneNum([9, 0, 6, 8, 2, 5, 4])) // '0, 2, 4-6, 8-9'
+console.log(phoneNum([9, 0, 6, 8, 2, 5, 4])); // '0, 2, 4-6, 8-9'
 ```
 
-**Ответ
+\*\*Ответ
 
 ```js
 const testFunc = (nums) => {
@@ -63,6 +72,6 @@ const testFunc = (nums) => {
 console.log(testFunc([9, 0, 6, 8, 2, 5, 4]));
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

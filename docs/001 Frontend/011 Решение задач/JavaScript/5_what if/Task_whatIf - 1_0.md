@@ -1,29 +1,37 @@
 ---
+uid: DP7AF34yE0Q1CzRjdYbYH
 title: Task_whatIf - 1_0
-draft: false
 tags:
   - "#JavaScript"
   - "#taskJS"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```js
-const оbj = { a: 1 }; 
+const оbj = { a: 1 };
 
-function sum(o) { 
-	o.a = 4; 
-	console.log(o); 
-} 
+function sum(o) {
+  o.a = 4;
+  console.log(o);
+}
 
-sum(obj); 
+sum(obj);
 console.log(obj);
 ```
 
-
-**Ответ
+\*\*Ответ
 
 ```js
 
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

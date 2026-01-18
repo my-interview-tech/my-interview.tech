@@ -1,13 +1,22 @@
 ---
+uid: _et3RzJqKzw3gJNKx6_Y7
 title: Разница между DOM и VirtualDOM?
-draft: false
 tags:
   - "#React"
   - "#DOM"
   - "#VirtualDOM"
 info:
-  - https://dev.to/codeslinger/the-difference-between-dom-and-virtual-dom-52o1
+  - "https://dev.to/codeslinger/the-difference-between-dom-and-virtual-dom-52o1"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 16
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _DOM (`Document Object Model`)_ - это стандарт для представления HTML документов в виде дерева объектов, который может быть _динамически_ изменён с помощью JavaScript без необходимости обновления всей страницы.
 
 Главная проблема DOM — он никогда не был рассчитан для создания динамического пользовательского интерфейса _`UI`_ . Мы можем работать с ним, используя JavaScript и библиотеки наподобие jQuery, но их использование не решает проблем с производительностью.

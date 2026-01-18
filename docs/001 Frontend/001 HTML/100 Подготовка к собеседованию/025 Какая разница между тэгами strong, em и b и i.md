@@ -1,14 +1,23 @@
 ---
-title: Какая разница между тэгами `strong, em` и `b и i`?
-draft: false
+uid: Mzg9y40L4YfQ1gVKto-zh
+title: "Какая разница между тэгами `strong, em` и `b и i`?"
 tags:
   - "#HTML"
   - "#strong"
   - "#em"
   - "#b"
   - "#i"
-info:
+info: []
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 25
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704015900.png|600]]
 
 Теги `strong` и `em` используются для выделения текста с точки зрения его важности или эмфазиса.

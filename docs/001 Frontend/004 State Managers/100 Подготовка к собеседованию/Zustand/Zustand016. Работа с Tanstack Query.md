@@ -1,16 +1,26 @@
 ---
+uid: M47fBLKXDxi4Jnk7HbuhF
 title: Работа с Tanstack Query
-draft: false
 tags:
   - React
   - Zustand
   - TanstackQuery
   - reactQuery
-info:
+info: []
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Интеграция Tanstack Query (React Query) и Zustand предназначена для эффективного управления запросами к API и состоянием приложения в React-приложении.
 
 Преимущества совместного использования:
+
 - **Tanstack Query:** Управление запросами к API, кеширование, повторные запросы, пагинация.
 - **Zustand:** Управление локальным состоянием приложения, упрощение работы с состоянием.
 
@@ -38,7 +48,7 @@ ReactDOM.render(
 
 ```typescript
 // store.ts
-import create from 'zustand';
+import create from "zustand";
 
 type CoffeeState = {
   coffeeList: any[];
@@ -151,6 +161,7 @@ export default AddCoffeeForm;
 ```
 
 Основные моменты:
+
 - **Установка зависимостей:** Установка `@tanstack/react-query` и `zustand`.
 - **Настройка QueryClientProvider:** Обертка приложения в `QueryClientProvider`.
 - **Создание Zustand Store:** Создание хранилища для управления состоянием.
@@ -159,6 +170,6 @@ export default AddCoffeeForm;
 
 Совместное использование Tanstack Query и Zustand позволяет эффективно управлять запросами к API и состоянием приложения, улучшая производительность и упрощая код.
 
-___
+---
 
 [[004 State Managers|Назад]]

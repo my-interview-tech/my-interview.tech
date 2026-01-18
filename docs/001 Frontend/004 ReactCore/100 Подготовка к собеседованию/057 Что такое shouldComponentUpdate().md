@@ -1,18 +1,27 @@
 ---
+uid: yGLPYBGx9uZF6Qoo6NGjs
 title: Что такое shouldComponentUpdate()?
-draft: false
 tags:
   - "#React"
   - "#Lifecycle"
   - "#shouldComponentUpdate"
   - "#componentDidUpdate"
 info:
-  - https://ru.react.js.org/docs/react-component.html
+  - "https://ru.react.js.org/docs/react-component.html"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 57
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _shouldComponentUpdate()_ - это метод жизненного цикла компонента, который позволяет оптимизировать производительность приложения, предотвращая лишнюю перерисовку компонента, когда это не требуется.
 
 ```jsx
-shouldComponentUpdate(nextProps, nextState)
+shouldComponentUpdate(nextProps, nextState);
 ```
 
 _Метод `shouldComponentUpdate()` принимает два параметра - новые свойства (`props`) и новое состояние (`state`) компонента. Он должен вернуть true или false, в зависимости от того, нужно ли обновлять компонент._
@@ -26,9 +35,9 @@ class MyComponent extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     // Если список не изменился, то не нужно обновлять компонент
     if (this.props.list === nextProps.list && this.state === nextState) {
-      return false
+      return false;
     }
-    return true
+    return true;
   }
 
   render() {
@@ -38,7 +47,7 @@ class MyComponent extends React.Component {
           <li key={item.id}>{item.text}</li>
         ))}
       </ul>
-    )
+    );
   }
 }
 ```

@@ -1,13 +1,22 @@
 ---
+uid: Tb5Jw2_T25Rj_KI5YzeGB
 title: Можно ли использовать CSS grid и flexbox вместе?
-draft: false
 tags:
   - "#CSS"
   - "#normalize"
   - "#reset"
   - "#autoprefixer"
-info:
+info: []
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 45
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Да, можно использовать CSS Grid и Flexbox вместе. Обе технологии предназначены для организации контента на веб-страницах, но имеют различные сильные стороны и могут использоваться в зависимости от конкретных потребностей. Использование обеих технологий может помочь создать более сложные и гибкие макеты.
 
 Система сеток на основе **CSS Grid** обеспечивает более сложные и гибкие макеты, чем Flexbox.
@@ -42,7 +51,8 @@ HTML-разметка может выглядеть так:
   grid-template-columns: 1fr 2fr;
 }
 
-.column1, .column2 {
+.column1,
+.column2 {
   display: flex;
   flex-direction: column;
   justify-content: center;

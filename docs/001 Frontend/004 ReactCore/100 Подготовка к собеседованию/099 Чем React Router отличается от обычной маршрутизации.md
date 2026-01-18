@@ -1,12 +1,21 @@
 ---
+uid: mFdhzUs0a_tnU1ENZbnl2
 title: Чем React Router отличается от обычной маршрутизации?
-draft: false
 tags:
   - "#React"
   - "#React-router"
 info:
-  - https://ru.hexlet.io/blog/posts/react-router-v6
+  - "https://ru.hexlet.io/blog/posts/react-router-v6"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 99
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704194441.png|600]]
 
 _React Router_ отличается от обычной маршрутизации тем, что он предоставляет возможность управлять навигацией между страницами и компонентами в React-приложении без перезагрузки всей страницы.

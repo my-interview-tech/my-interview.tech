@@ -1,48 +1,57 @@
 ---
+uid: jY5cLzRlCF477Pt2Obn4d
 title: Обобщенные и универсальные типы (generics)
-draft: true
 tags:
   - TypeScript
   - "#generic"
 info:
   - "[[Простое обьяснение Generics]]"
+draft: true
+technology: TypeScript
+specialty: Frontend
+tools: []
+order: 16
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![](https://www.youtube.com/watch?v=Q5YPUIFqijQ)
 
 ![](https://www.youtube.com/watch?v=_oilipTMJ5Y)
 
-В документации TypeScript приводится следующее определение: " #generic  — это возможность создавать компоненты, работающие не только с одним, а с несколькими типами данных".
+В документации TypeScript приводится следующее определение: " #generic — это возможность создавать компоненты, работающие не только с одним, а с несколькими типами данных".
 
 **Дженерики и типы соотносятся друг с другом, как значения и аргументы функции. Это такой способ сообщить компонентам (функциям, классам или интерфейсам), какой тип необходимо использовать при их вызове так же, как во время вызова мы сообщаем функции, какие значения использовать в качестве аргументов**
 
 Лучше всего разобрать это на примере дженерика тождественной функции. Тождественная функция — это функция, возвращающая значение переданного в неё аргумента. В JavaScript она будет выглядеть следующим образом:
 
 ```tsx
-function identity (value) { 
-	return value; 
-} 
+function identity(value) {
+  return value;
+}
 
-console.log(identity(1)) // 1
+console.log(identity(1)); // 1
 ```
 
 Сделаем так, чтобы она работала с числами:
 
 ```tsx
-function identity (value: Number) : Number { 
-	return value; 
-} 
+function identity(value: Number): Number {
+  return value;
+}
 
-console.log(identity(1)) // 1
+console.log(identity(1)); // 1
 ```
 
 Отлично, мы добавили в определение тождественной функции тип, но хотелось бы, чтобы она была более гибкой и срабатывала для значений любого типа, а не только для чисел. Именно для этого и нужны дженерики. Они позволяют функции принимать значения любого типа данных на входе и, в зависимости от них, преобразовывать саму функцию.
 
 ```tsx
-function identity <T>(value: T) : T { 
-	return value; 
-} 
+function identity<T>(value: T): T {
+  return value;
+}
 
-console.log(identity<Number>(1)) // 1
+console.log(identity<Number>(1)); // 1
 ```
 
 Ох уж этот странный синтаксис `<T>`! Отставить панику. Мы всего лишь передаём тип, который хотим использовать для конкретного вызова функции.
@@ -68,29 +77,30 @@ console.log(identity<Number>(1)) // 1
 Вам уже известно, что дженерики — это всего лишь способ передать типы в компонент. Только что вы видели, как они работают с функциями, и у меня хорошие новости: с классами и интерфейсами они работают точно таким же образом. В этом случае указание типов следует после имени интерфейса или класса.
 
 Посмотрите на пример и попробуйте разобраться сами. Надеюсь, у вас получилось.
-~~~tsx
-interface GenericInterface<U> { 
-	value: U getIdentity: () => U 
-} 
 
-class IdentityClass<T> implements GenericInterface<T> { 
-	value: T constructor(value: T) { 
-		this.value = value 
-	} 
-	
-	getIdentity () : T { 
-		return this.value 
-	} 
-} 
+```tsx
+interface GenericInterface<U> {
+	value: U getIdentity: () => U
+}
 
-const myNumberClass = new IdentityClass<Number>(1) 
+class IdentityClass<T> implements GenericInterface<T> {
+	value: T constructor(value: T) {
+		this.value = value
+	}
 
-console.log(myNumberClass.getIdentity()) // 1 
+	getIdentity () : T {
+		return this.value
+	}
+}
 
-const myStringClass = new IdentityClass<string>("Hello!") 
+const myNumberClass = new IdentityClass<Number>(1)
+
+console.log(myNumberClass.getIdentity()) // 1
+
+const myStringClass = new IdentityClass<string>("Hello!")
 
 console.log(myStringClass.getIdentity()) // Hello!
-~~~
+```
 
 Если код сразу не понятен, попробуйте отследить значения `type` сверху вниз вплоть до вызовов функции. Порядок действий следующий:
 
@@ -105,37 +115,38 @@ console.log(myStringClass.getIdentity()) // Hello!
 
 Рассмотрим классический пример наследования. Допустим, у нас есть класс `Car`, являющийся основой классов `Truck` и `Vespa`. Пропишем служебную функцию `washCar`, принимающую обобщённый экземпляр `Car` и возвращающую его же.
 
-  ```tsx
-class Car { 
-	label: string = 'Generic Car' 
-	numWheels: Number = 4 
-	horn() { 
-		return "beep beep!" 
-	} 
-} 
+```tsx
+class Car {
+	label: string = 'Generic Car'
+	numWheels: Number = 4
+	horn() {
+		return "beep beep!"
+	}
+}
 
-class Truck extends Car { 
-	label = 'Truck' numWheels = 18 
-} 
+class Truck extends Car {
+	label = 'Truck' numWheels = 18
+}
 
-class Vespa extends Car { 
-	label = 'Vespa' numWheels = 2 
-} 
+class Vespa extends Car {
+	label = 'Vespa' numWheels = 2
+}
 
-function washCar <T extends Car> (car: T) : T { 
-	console.log(`Received a ${car.label} in the car wash.`) 
-	console.log(`Cleaning all ${car.numWheels} tires.`) 
-	console.log('Beeping horn -', car.horn()) 
-	console.log('Returning your car now') 
-	
-	return car 
-} 
+function washCar <T extends Car> (car: T) : T {
+	console.log(`Received a ${car.label} in the car wash.`)
+	console.log(`Cleaning all ${car.numWheels} tires.`)
+	console.log('Beeping horn -', car.horn())
+	console.log('Returning your car now')
 
-const myVespa = new Vespa() 
-washCar<Vespa>(myVespa) 
-const myTruck = new Truck() 
+	return car
+}
+
+const myVespa = new Vespa()
+washCar<Vespa>(myVespa)
+const myTruck = new Truck()
 washCar<Truck>(myTruck)
 ```
+
 Сообщая функции `washCar`, что `T extends Car`, мы обозначаем, какие функции и свойства можем использовать внутри этой функции. Дженерик также позволяет возвращать данные указанного типа вместо обычного `Car`.
 
 Результатом выполнения данного кода будет:
@@ -159,4 +170,4 @@ Returning your car now
 
 [TypeScript: Generics](https://www.typescriptlang.org/docs/handbook/generics.html)
 
-_____
+---

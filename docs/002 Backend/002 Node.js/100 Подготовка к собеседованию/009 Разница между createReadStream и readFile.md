@@ -1,9 +1,17 @@
 ---
+uid: UiOUq81tJxzEuB83Cg1wg
 title: Разница между `createReadStream` и `readFile`?
-draft: false
 tags:
   - "#NodeJS"
-info:
+info: []
+draft: false
+technology: Node.js
+specialty: Backend
+tools: []
+order: 9
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
 
 ![[Pasted image 20230704135053.png|600]]

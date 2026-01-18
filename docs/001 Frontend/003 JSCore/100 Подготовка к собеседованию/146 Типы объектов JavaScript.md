@@ -1,6 +1,6 @@
 ---
+uid: bUNviPYkEJHYRrxw-t7cX
 title: Типы объектов JavaScript
-draft: false
 tags:
   - "#JavaScript"
   - "#object"
@@ -8,8 +8,17 @@ tags:
   - "#function"
   - "#Date"
   - "#RegExp"
-info:
+info: []
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 146
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703101434.png|600]]
 
 В JavaScript существует несколько типов объектов. Они могут быть разделены на две категории: примитивные и составные.

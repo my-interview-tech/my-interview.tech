@@ -1,14 +1,23 @@
 ---
+uid: hHWRZMiMvyc4fh6tsk1JX
 title: Что такое Core Web Vitals? Какие основные метрики туда входят?
-draft: false
 tags:
   - webWitals
   - LCP
   - FID
   - CLS
   - browser
-info:
+info: []
+draft: false
+technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
+tools: []
+order: 80
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703194924.png|600]]
 
 _Core Web Vitals_ - это набор метрик производительности веб-страниц, которые используются Google для оценки качества пользовательского опыта. Эти метрики оценивают три основных аспекта производительности веб-страниц: скорость загрузки, интерактивность и стабильность контента.

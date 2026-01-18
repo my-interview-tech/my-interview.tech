@@ -1,19 +1,28 @@
 ---
+uid: 4FYltcP4bKgk_JsnPVphz
 title: Разница между «undefined» и «null»
-draft: false
 tags:
   - "#JavaScript"
   - "#null"
   - "#undefined"
-info:
+info: []
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 50
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 В JavaScript `null` и `undefined` - это два разных значения, которые обозначают отсутствие значения. Они могут использоваться в разных ситуациях и имеют некоторые различия.
 
 `undefined` - это значение, которое получает переменная, если ей не было присвоено никакого значения. Например:
 
 ```javascript
-let example
-console.log(example) // undefined
+let example;
+console.log(example); // undefined
 ```
 
 В этом примере, переменная `example` была объявлена, но ей не было присвоено значение, поэтому ее значение равно `undefined`.
@@ -21,8 +30,8 @@ console.log(example) // undefined
 `null` - это значение, которое может быть присвоено переменной явно, для обозначения отсутствия значения. Например:
 
 ```javascript
-let example = null
-console.log(example) // null
+let example = null;
+console.log(example); // null
 ```
 
 В этом примере, переменной `example` было присвоено значение `null`, которое обозначает отсутствие значения.

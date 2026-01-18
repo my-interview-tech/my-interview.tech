@@ -1,12 +1,21 @@
 ---
+uid: r_rwkO0D1KEQu16koDfMW
 title: Как можно сгруппировать опции внутри тэга `select`?
-draft: false
 tags:
   - "#HTML"
   - "#select"
   - "#optgroup"
-info:
+info: []
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 67
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704022703.png|600]]
 
 Опции внутри тега `select` можно сгруппировать, используя тег `optgroup`. Этот тег позволяет создавать группы опций, которые могут быть связаны общей характеристикой.

@@ -1,6 +1,8 @@
 ---
-title: Что такое DOCTYPE и для чего он используется? Сколько разновидностей вы можете назвать?
-draft: false
+uid: fU2rRnnV4RQ1ZaddpKCnh
+title: >-
+  Что такое DOCTYPE и для чего он используется? Сколько разновидностей вы можете
+  назвать?
 tags:
   - "#HTML"
   - "#DOCTYPE"
@@ -8,11 +10,20 @@ tags:
   - "#XHTML"
   - "#W3C"
 info:
-  - https://habrahabr.ru/post/71364/
+  - "https://habrahabr.ru/post/71364/"
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 5
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```html
-  <!-- doctype for HTML5 -->
-  <!DOCTYPE html>
+<!-- doctype for HTML5 -->
+<!doctype html>
 ```
 
 Если разобрать его по частям, то получается DOC (сокращение от слова document) + TYPE (с английского «тип»). Ключевое слово _DOCTYPE в файле HTML — это декларация типа документа._ Так браузер узнает, на каком языке и с какими технологиями он был создан. Если не укажете DOCTYPE, то ваша страница может отображаться некорректно.

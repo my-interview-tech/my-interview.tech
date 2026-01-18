@@ -1,14 +1,23 @@
 ---
-title: Как Jest изолирует каждый тест от других? Почему это важно?
-draft: false
+uid: GA0ZuoEBoDKfLe32wZefQ
+title: "Как Jest изолирует каждый тест от других?\_Почему это важно?"
 tags:
   - testing
   - Jest
 info:
-  - https://dev.to/dvddpl/jest-testing-like-a-pro-tips-and-tricks-4o6f
-  - https://habr.com/ru/companies/otus/articles/788004/
-  - https://kentcdodds.com/blog/test-isolation-with-react
+  - "https://dev.to/dvddpl/jest-testing-like-a-pro-tips-and-tricks-4o6f"
+  - "https://habr.com/ru/companies/otus/articles/788004/"
+  - "https://kentcdodds.com/blog/test-isolation-with-react"
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 40
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Jest изолирует каждый тест, запуская их в отдельных средах, используя отдельный процесс Node.js для каждого файла тестов. Эта изоляция достигается через механизм "песочницы" (sandboxing), где каждый файл тестов работает в своем собственном глобальном состоянии.
 
 Этот подход важен по нескольким причинам:
@@ -17,6 +26,6 @@ Jest изолирует каждый тест, запуская их в отде
 2. **Предсказуемость результатов**: Предотвращение общего состояния между тестами исключает возможность непредсказуемых результатов, ложных положительных или отрицательных результатов.
 3. **Повышение производительности**: Изоляция позволяет тестам выполняться параллельно без риска столкновения, что повышает общую производительность тестирования.
 
-____
+---
 
 [[007 Jest, RTL|Назад]]

@@ -1,11 +1,20 @@
 ---
+uid: cjI9-CFLbYYMYw2lsFCcY
 title: Расскажите про свойство `display` в CSS
-draft: false
 tags:
   - "#CSS"
   - "#display"
-info:
+info: []
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 18
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704030110.png|600]]
 
 *Свойство `display`* в CSS определяет, как элемент должен быть показан на странице. Оно позволяет управлять тем, как элемент отображается в потоке документа, каков его размер и каким образом он реагирует на другие элементы на странице.

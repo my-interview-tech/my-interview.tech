@@ -1,12 +1,21 @@
 ---
+uid: uAyGZOVG_m4eXhxNobh4A
 title: В чем разница между "describe()" и "it()"?
-draft: false
 tags:
   - testing
   - Jest
   - describe
   - it
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 20
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Для блоков тестов describe() необходима поддержка единых/полных названий, чтобы при прогоне теста была возможность быстро понять, отреагировать и разобраться в объекте тестирования. Алгоритм при формировании названия:
 
 Вид теста - Unit, Integration
@@ -17,14 +26,14 @@ tags:
 
 ```javascript
 // BAD
-describe('Группа тестов cleanObjectKeys', () => {
-  it('Должна вернуть', () => {})
-})
- 
+describe("Группа тестов cleanObjectKeys", () => {
+  it("Должна вернуть", () => {});
+});
+
 // GOOD
-describe('Unit/utility/function/cleanObjectKeys', () => {
-  it('Должна вернуть', () => {})
-})
+describe("Unit/utility/function/cleanObjectKeys", () => {
+  it("Должна вернуть", () => {});
+});
 ```
 
 | **Характеристика** | **`describe()`**                                                               | **`it()`**                                                               |
@@ -38,44 +47,44 @@ describe('Unit/utility/function/cleanObjectKeys', () => {
 Пояснение:
 
 1. **`describe()`**:
-    - **Группировка тестов**: Используется для объединения связанных тестовых сценариев в группы.
-    - **Вложенность**: Может содержать другие блоки `describe` и `it`, что позволяет создавать иерархические структуры тестов.
-    - **Хуки**: Может содержать хуки для настройки и завершения работы, такие как `beforeAll`, `afterAll`, `beforeEach`, `afterEach`.
-    - **Пример**: Группировка тестов для функции `sum`.
+
+   - **Группировка тестов**: Используется для объединения связанных тестовых сценариев в группы.
+   - **Вложенность**: Может содержать другие блоки `describe` и `it`, что позволяет создавать иерархические структуры тестов.
+   - **Хуки**: Может содержать хуки для настройки и завершения работы, такие как `beforeAll`, `afterAll`, `beforeEach`, `afterEach`.
+   - **Пример**: Группировка тестов для функции `sum`.
 
 2. **`it()`**:
-    - **Индивидуальный тест**: Используется для определения отдельного тестового сценария с одним утверждением.
-    - **Одиночный блок**: Не может содержать другие блоки `describe` или `it`.
-    - **Без хуков**: Не может содержать хуки.
-    - **Пример**: Тест для проверки, что `sum(2, 2)` возвращает `4`.
-
+   - **Индивидуальный тест**: Используется для определения отдельного тестового сценария с одним утверждением.
+   - **Одиночный блок**: Не может содержать другие блоки `describe` или `it`.
+   - **Без хуков**: Не может содержать хуки.
+   - **Пример**: Тест для проверки, что `sum(2, 2)` возвращает `4`.
 
 Пример использования `describe()` и `it()`:
 
 ```javascript
-describe('math operations', () => {
-  describe('sum function', () => {
-    it('adds 2 + 2 to equal 4', () => {
+describe("math operations", () => {
+  describe("sum function", () => {
+    it("adds 2 + 2 to equal 4", () => {
       expect(sum(2, 2)).toBe(4);
     });
 
-    it('adds 0 + 0 to equal 0', () => {
+    it("adds 0 + 0 to equal 0", () => {
       expect(sum(0, 0)).toBe(0);
     });
   });
 
-  describe('subtraction function', () => {
-    it('subtracts 2 - 2 to equal 0', () => {
+  describe("subtraction function", () => {
+    it("subtracts 2 - 2 to equal 0", () => {
       expect(subtract(2, 2)).toBe(0);
     });
 
-    it('subtracts 0 - 0 to equal 0', () => {
+    it("subtracts 0 - 0 to equal 0", () => {
       expect(subtract(0, 0)).toBe(0);
     });
   });
 });
 ```
 
-____
+---
 
 [[007 Jest, RTL|Назад]]

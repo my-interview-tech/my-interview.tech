@@ -1,6 +1,6 @@
 ---
+uid: iQksbqfTHQMzx8uPGKKrU
 title: Как работать с формами в React?
-draft: false
 tags:
   - "#React"
   - "#state"
@@ -10,27 +10,36 @@ tags:
   - react-hook-form
 info:
   - "[[0025 Работа с формами|Работа с формами в React]]"
-  - https://habr.com/ru/articles/746806/
-  - https://habr.com/ru/companies/timeweb/articles/722108/
+  - "https://habr.com/ru/articles/746806/"
+  - "https://habr.com/ru/companies/timeweb/articles/722108/"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Работа с формами включает в себя _управление состоянием формы и обработку введенных данных._ Вот простой пример, демонстрирующий как работать с формами в React:
 
 ```jsx
 class MyForm extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { username: "", password: "" }
+    super(props);
+    this.state = { username: "", password: "" };
   }
 
   handleChange(event) {
-    const { name, value } = event.target
-    this.setState({ [name]: value })
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
 
   handleSubmit(event) {
-    event.preventDefault()
-    console.log("Username:", this.state.username)
-    console.log("Password:", this.state.password)
+    event.preventDefault();
+    console.log("Username:", this.state.username);
+    console.log("Password:", this.state.password);
     // отправка данных формы на сервер
   }
 
@@ -57,7 +66,7 @@ class MyForm extends React.Component {
         </label>
         <button type="submit">Submit</button>
       </form>
-    )
+    );
   }
 }
 ```

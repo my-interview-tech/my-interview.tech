@@ -1,13 +1,22 @@
 ---
+uid: XrmjlyKSQ6CehWA8vWxZT
 title: Разница между HTMLCollection и NodeList?
-draft: false
 tags:
   - "#DOM"
   - "#HTMLCollection"
   - "#NodeList"
   - "#browser"
-info:
+info: []
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 3
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230701215529.png|600]]
 
 HTMLCollection и NodeList - это два объекта, которые представляют коллекции элементов на веб-странице в JavaScript. Однако, есть некоторые различия между ними.
@@ -22,16 +31,16 @@ _Основное отличие_ между HTMLCollection и NodeList закл
 
 ```javascript
 // Получение всех элементов с тегом "div" в HTMLCollection
-const divs = document.getElementsByTagName("div")
-console.log(divs.length) // выводит количество элементов в коллекции
-console.log(divs.item(0)) // выводит первый элемент в коллекции
+const divs = document.getElementsByTagName("div");
+console.log(divs.length); // выводит количество элементов в коллекции
+console.log(divs.item(0)); // выводит первый элемент в коллекции
 
 // Получение всех элементов с тегом "div" в NodeList
-const divNodes = document.querySelectorAll("div")
-console.log(divNodes.length) // выводит количество элементов в коллекции
+const divNodes = document.querySelectorAll("div");
+console.log(divNodes.length); // выводит количество элементов в коллекции
 divNodes.forEach(function (element) {
-  console.log(element) // выводит каждый элемент в коллекции
-})
+  console.log(element); // выводит каждый элемент в коллекции
+});
 ```
 
 В этом примере мы используем метод `getElementsByTagName()` для получения всех элементов с тегом "div" в HTMLCollection, и метод `querySelectorAll()` для получения всех элементов с тегом "div" в NodeList. Затем мы используем методы и свойства HTMLCollection и NodeList для доступа к элементам коллекции.

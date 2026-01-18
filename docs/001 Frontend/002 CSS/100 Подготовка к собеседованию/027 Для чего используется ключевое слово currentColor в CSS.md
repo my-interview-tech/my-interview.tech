@@ -1,11 +1,20 @@
 ---
+uid: _OhX-abG2ZoggIFYp7t-c
 title: Для чего используется ключевое слово `currentColor` в CSS?
-draft: false
 tags:
   - "#CSS"
   - "#currentColor"
-info:
+info: []
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 27
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704030512.png|600]]
 
 *Ключевое слово `currentColor`* в CSS используется для определения значения цвета, которое совпадает с текущим значением свойства `color` родительского элемента.

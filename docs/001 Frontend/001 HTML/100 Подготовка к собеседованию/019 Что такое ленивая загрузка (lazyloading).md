@@ -1,11 +1,20 @@
 ---
+uid: pr9d5fWc9yQFVxdI8S7Cd
 title: Что такое ленивая загрузка (lazyloading)?
-draft: false
 tags:
   - "#HTML"
   - "#LazyLoading"
-info:
+info: []
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 19
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _Lazy loading_ – это метод оптимизации скорости загрузки медиафайлов, некритичных для отображения страницы или взаимодействия с пользователями.
 
 При «отложенной загрузке» изображения не будут загружаться, пока не понадобятся посетителю.

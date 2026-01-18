@@ -1,6 +1,8 @@
 ---
-title: Как можно протестировать функцию на основе таймера, например setTimeout или setInterval, с помощью Jest?
-draft: false
+uid: l6BdvgvGFF-x7Cg4mLGuc
+title: >-
+  Как можно протестировать функцию на основе таймера, например setTimeout или
+  setInterval, с помощью Jest?
 tags:
   - testing
   - Jest
@@ -8,7 +10,16 @@ tags:
   - useFakeTimers
   - runAllTimers
   - setInterval
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 53
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Jest предоставляет утилиты для тестирования функций на основе таймера, таких как `setTimeout` или `setInterval`. Для этого используется функция `jest.useFakeTimers()`, которая заменяет нативные функции таймера на имитации, контролируемые Jest.
 
 Тестирование `setTimeout`:
@@ -23,7 +34,7 @@ Jest предоставляет утилиты для тестирования �
 ```javascript
 function delayedGreeting(callback) {
   setTimeout(() => {
-    callback('Hello, world!');
+    callback("Hello, world!");
   }, 1000);
 }
 ```
@@ -31,7 +42,7 @@ function delayedGreeting(callback) {
 Теперь вы можете написать тест для этой функции:
 
 ```javascript
-test('delayedGreeting calls callback after 1 second', () => {
+test("delayedGreeting calls callback after 1 second", () => {
   jest.useFakeTimers();
 
   const callback = jest.fn();
@@ -44,7 +55,7 @@ test('delayedGreeting calls callback after 1 second', () => {
   jest.runAllTimers();
 
   // Теперь таймер выполнен, и обратный вызов должен быть вызван
-  expect(callback).toHaveBeenCalledWith('Hello, world!');
+  expect(callback).toHaveBeenCalledWith("Hello, world!");
 });
 ```
 
@@ -57,7 +68,7 @@ test('delayedGreeting calls callback after 1 second', () => {
 ```javascript
 function periodicGreeting(callback) {
   setInterval(() => {
-    callback('Hello, world!');
+    callback("Hello, world!");
   }, 1000);
 }
 ```
@@ -65,7 +76,7 @@ function periodicGreeting(callback) {
 Теперь вы можете написать тест для этой функции:
 
 ```javascript
-test('periodicGreeting calls callback every second', () => {
+test("periodicGreeting calls callback every second", () => {
   jest.useFakeTimers();
 
   const callback = jest.fn();
@@ -78,7 +89,7 @@ test('periodicGreeting calls callback every second', () => {
   jest.advanceTimersByTime(1000);
 
   // Теперь таймер выполнен, и обратный вызов должен быть вызван
-  expect(callback).toHaveBeenCalledWith('Hello, world!');
+  expect(callback).toHaveBeenCalledWith("Hello, world!");
 
   // Продвигаем время еще на 1 секунду
   jest.advanceTimersByTime(1000);
@@ -97,6 +108,6 @@ test('periodicGreeting calls callback every second', () => {
 
 Этот подход позволяет вам тестировать функции на основе таймера, гарантируя, что они работают правильно и вызывают обратные вызовы в нужные моменты времени.
 
-____
+---
 
 [[007 Jest, RTL|Назад]]

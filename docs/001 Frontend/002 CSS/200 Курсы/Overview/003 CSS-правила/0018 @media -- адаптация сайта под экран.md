@@ -1,6 +1,6 @@
 ---
+uid: "-nit-C40DinXfum8f0nXE"
 title: "@media -- адаптация сайта под экран"
-draft: false
 tags:
   - "#CSS"
   - "#CSS-правило"
@@ -12,7 +12,16 @@ tags:
   - "#JavaScript"
 info:
   - "[[0011 Адаптивный дизайн сайта|Адаптивный дизайн сайта]]"
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 18
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ## Что такое медиа-запросы
 
 #media (media queries) – это правила CSS, которые позволяют управлять стилями элементов в зависимости от значений технических параметров устройств. Иными словами, это конструкции, которые позволяют определять на основании некоторых условий какие стили необходимо использовать на веб-странице, а какие нет.
@@ -21,7 +30,7 @@ info:
 
 ![Поддержка браузерами CSS3 медиа-запросов (media queries)](https://itchief.ru/assets/images/385/caniuse-css3-media-queries.png)
 
-Поддержка медиа-запросов в браузере IE8 осуществляется посредством подключения к странице скрипта  #respond «respond.js»:
+Поддержка медиа-запросов в браузере IE8 осуществляется посредством подключения к странице скрипта #respond «respond.js»:
 
 ```html
 <!-- Respond.js для IE8 (media queries) -->
@@ -38,7 +47,7 @@ info:
 Подключение метатега #viewport к странице осуществляется так:
 
 ```html
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 ```
 
 ## Синтаксис
@@ -67,10 +76,10 @@ info:
 
 В @media можно указывать определённые типы устройств:
 
--   `all` – для всех;
--   `print` – для принтеров и в режиме предварительного просмотра страницы перед печатью;
--   `screen` – для устройств с экранами;
--   `speech` – для программ чтения с экрана.
+- `all` – для всех;
+- `print` – для принтеров и в режиме предварительного просмотра страницы перед печатью;
+- `screen` – для устройств с экранами;
+- `speech` – для программ чтения с экрана.
 
 Например, этот @media только для экранов:
 
@@ -188,11 +197,15 @@ info:
 
 ```css
 @media (orientation: landscape) {
-  .cover { background: url(bg-l.png) no-repeat; }
+  .cover {
+    background: url(bg-l.png) no-repeat;
+  }
 }
 
 @media (orientation: portrait) {
-  .cover { background: url(bg-p.png) no-repeat; }
+  .cover {
+    background: url(bg-p.png) no-repeat;
+  }
 }
 ```
 
@@ -254,8 +267,16 @@ p {
 При подключении таблицы стилей можно с помощью атрибута `media` установить медиа-запросы и тем самым определить условия, когда они должны использоваться.
 
 ```html
-<link rel="stylesheet" media="screen and (max-width: 991.98px)" href="/assets/mobile.css">
-<link rel="stylesheet" media="screen and (min-width: 992px)" href="/assets/desktop.css">
+<link
+  rel="stylesheet"
+  media="screen and (max-width: 991.98px)"
+  href="/assets/mobile.css"
+/>
+<link
+  rel="stylesheet"
+  media="screen and (min-width: 992px)"
+  href="/assets/desktop.css"
+/>
 ```
 
 Кроме `<link>`, их также можно использовать в `@import`:
@@ -275,7 +296,7 @@ p {
 
 /* Устроства с маленьким экраном (планшеты, 768px и выше) */
 @media (min-width: 768px) {
-/* Стили для устройств с шириной viewport, находящейся в диапазоне 768px - 991px */
+  /* Стили для устройств с шириной viewport, находящейся в диапазоне 768px - 991px */
 }
 
 /* Устройства со средним экраном (ноутбуки и компьютеры, 992px и выше) */
@@ -294,16 +315,16 @@ p {
 Для того чтобы media запросы можно было применять в какой угодной последовательности, их необходимо расширить включив в них дополнительно выражение `max-width`. Это заставит их работать только в указанном диапазоне.
 
 @media (max-width: 767px) {
-  /* стили для xs-устройств */
+/_ стили для xs-устройств _/
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  /* стили для sm-устройств */
+/_ стили для sm-устройств _/
 }
 @media (min-width: 991px) and (max-width: 1199px) {
-  /* стили для md-устройств */
+/_ стили для md-устройств _/
 }
 @media (min-width: 1200px) {
-  /* стили для lg-устройств */
+/_ стили для lg-устройств _/
 }
 
 ### Медиа-запросы для Bootstrap 4
@@ -390,7 +411,7 @@ p {
 ```js
 // например, проверим, соответствует ли указанный медиа-запрос (screen and (max-width: 543px)) устройству
 // результат проверки можно получить с помощью свойства matches (true или false)
-if (window.matchMedia('screen and (max-width: 543px)').matches) {
+if (window.matchMedia("screen and (max-width: 543px)").matches) {
   // ... действия, если устройство отвечает медиа-запросу
 } else {
   // ... действия, если устройство не соответствует значениям медиа-запроса
@@ -404,7 +425,7 @@ if (window.matchMedia('screen and (max-width: 543px)').matches) {
 ![Поддержка браузерами метода matchMedia (JavaScript)](https://itchief.ru/assets/images/385/caniuse-match-media.png)
 
 ```js
-if (Modernizr.mq('(max-width: 767px)')) {
+if (Modernizr.mq("(max-width: 767px)")) {
   // ... действия, если устройство соответствует указанному медиа-условию
 } else {
   // ... действия, если устройство не отвечает заданному медиа-условию

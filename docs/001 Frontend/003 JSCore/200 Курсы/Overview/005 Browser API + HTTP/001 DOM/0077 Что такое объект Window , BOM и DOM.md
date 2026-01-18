@@ -1,6 +1,6 @@
 ---
-title: Что такое объект Window , BOM и DOM?
-draft: false
+uid: L78zRIzeI_-SNx3Hz-l-g
+title: "Что такое объект Window , BOM и DOM?"
 tags:
   - window
   - BOM
@@ -8,7 +8,16 @@ tags:
   - JavaScript
 info:
   - "[[0072 Браузерное окружение|Браузерное окружение]]"
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 77
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Все объекты JS работают в определенной среде она называется браузерное #окружение
 
 ###### Window
@@ -28,14 +37,14 @@ info:
 
 ```javascript
 function sayHi() {
-  alert("Hello")
+  alert("Hello");
 } // глобальные функции доступны как методы глобального объекта: window.sayHi();`
 ```
 
 А здесь мы используем `window` как объект окна браузера, чтобы узнать его высоту:
 
 ```javascript
-alert(window.innerHeight) // внутренняя высота окна браузера`
+alert(window.innerHeight); // внутренняя высота окна браузера`
 ```
 
 ###### DOM

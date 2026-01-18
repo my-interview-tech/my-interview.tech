@@ -91,7 +91,7 @@ export const BuildArgv = {
     default: "",
     describe: "A URL override for the websocket connection if you are not developing on localhost",
   },
-  bundleInfo: {
+  bundleinfo: []{
     boolean: true,
     default: false,
     describe: "show detailed bundle information",

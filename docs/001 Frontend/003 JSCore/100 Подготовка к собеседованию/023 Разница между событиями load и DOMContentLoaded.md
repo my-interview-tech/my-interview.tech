@@ -1,13 +1,22 @@
 ---
+uid: p5KIkbIq3p5cu0clAgmAt
 title: Разница между событиями `load` и `DOMContentLoaded`
-draft: false
 tags:
   - "#DOM"
   - "#DOMContentLoaded"
   - load
   - browser
-info:
+info: []
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 23
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230701221551.png]]
 
 `load` и `DOMContentLoaded` - это два разных события в JavaScript, которые происходят в разное время при загрузке веб-страницы.
@@ -18,9 +27,9 @@ info:
 
 ```javascript
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOM fully loaded and parsed")
+  console.log("DOM fully loaded and parsed");
   // дополнительный код для обработки страницы после загрузки DOM
-})
+});
 ```
 
 `load` - это событие, которое происходит, когда браузер полностью загрузил HTML-документ и все связанные с ним внешние ресурсы (такие как изображения, стили и скрипты). Это событие происходит позже, чем событие `DOMContentLoaded`, и обычно используется для выполнения дополнительных действий на странице, которые зависят от загрузки внешних ресурсов.
@@ -29,9 +38,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 ```javascript
 window.addEventListener("load", function () {
-  console.log("All assets are loaded")
+  console.log("All assets are loaded");
   // дополнительный код для обработки страницы после загрузки всех ресурсов
-})
+});
 ```
 
 В этом примере мы используем метод `addEventListener()` для добавления обработчика события `load` на объект `window`. Затем мы используем `console.log()` для вывода сообщения в консоль после загрузки всех ресурсов на странице.

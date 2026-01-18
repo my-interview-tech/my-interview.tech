@@ -1,12 +1,21 @@
 ---
+uid: HA_F9b6ZlTaSNd1eKIRQl
 title: Что такое плавающие элементы (floats)? Как они работают?
-draft: false
 tags:
   - "#CSS"
   - "#floats"
 info:
-  - https://habrahabr.ru/post/273471/
+  - "https://habrahabr.ru/post/273471/"
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 42
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704031307.png|600]]
 
 _Плавающие элементы (floats)_ используются для выравнивания элементов внутри родительского контейнера. Они позволяют элементам "плавать" внутри контейнера, оставаясь при этом в потоке документа, и выравниваться с другими элементами на странице.

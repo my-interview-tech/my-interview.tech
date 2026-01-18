@@ -1,14 +1,23 @@
 ---
+uid: 5LnwrHtj3wu99uIS7T1YF
 title: Что такое CSS Grid?
-draft: false
 tags:
   - "#CSS"
   - "#grid"
 info:
-  - https://habrahabr.ru/post/273471/#display
-  - https://habrahabr.ru/post/325760/
-  - https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Grid_Layout
+  - "https://habrahabr.ru/post/273471/#display"
+  - "https://habrahabr.ru/post/325760/"
+  - "https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Grid_Layout"
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 52
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _CSS Grid_ - это технология CSS, которая предоставляет средства для создания мощных и гибких систем сеток на веб-страницах. С помощью CSS Grid можно создавать сложные макеты, в которых элементы могут быть размещены в произвольных ячейках и даже перекрываться. CSS Grid был введен в CSS3 и является одним из наиболее мощных и гибких методов организации контента на веб-страницах.
 
 Основная идея CSS Grid заключается в создании сетки из строк и колонок, которые определяют области, в которых может располагаться контент. С помощью CSS Grid можно задавать ширину и высоту ячеек, а также их расположение на странице. Это позволяет создавать сложные макеты, которые могут быть адаптированы к различным размерам экранов и устройств.

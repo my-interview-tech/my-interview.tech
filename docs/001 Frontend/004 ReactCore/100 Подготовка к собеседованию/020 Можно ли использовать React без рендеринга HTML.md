@@ -1,11 +1,20 @@
 ---
+uid: yvLuTy-Fau7R2E4L5TMIg
 title: Можно ли использовать React без рендеринга HTML?
-draft: false
 tags:
   - "#React"
   - "#render"
-info:
+info: []
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 20
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Это возможно. Ниже приведены возможные варианты:
 
 ```js

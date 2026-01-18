@@ -1,15 +1,24 @@
 ---
+uid: 0NGwd5y0BMOxxVEZERteW
 title: Разница между Reset.css и Normalize.css
-draft: false
 tags:
   - "#CSS"
   - "#reset"
   - "#normalize"
 info:
-  - https://habr.com/ru/articles/45296/
-  - https://habr.com/ru/companies/htmlacademy/articles/342052/
-  - https://andy-bell.co.uk/a-more-modern-css-reset/
+  - "https://habr.com/ru/articles/45296/"
+  - "https://habr.com/ru/companies/htmlacademy/articles/342052/"
+  - "https://andy-bell.co.uk/a-more-modern-css-reset/"
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 54
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _Reset.css_ и _Normalize.css_ - это две различные CSS-библиотеки, которые используются для нормализации стилей веб-страницы. Однако, у них есть некоторые различия в том, как они работают.
 
 **Reset.css** - это CSS-библиотека, которая устанавливает нулевые значения для всех стилей HTML-элементов на странице. Это позволяет создавать стили с чистого листа, не завися от настроек по умолчанию браузера. Однако, Reset.css может привести к тому, что элементы страницы будут выглядеть по-разному в разных браузерах, что может потребовать дополнительного времени на разработку и тестирование.

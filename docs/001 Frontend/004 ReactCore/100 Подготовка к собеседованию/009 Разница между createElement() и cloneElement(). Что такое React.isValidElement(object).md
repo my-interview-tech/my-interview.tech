@@ -1,13 +1,24 @@
 ---
-title: Разница между `createElement()` и `cloneElement()`? Что такое `React.isValidElement(object)`?
-draft: false
+uid: UyssD8OKpdtMj2GDQVQAU
+title: >-
+  Разница между `createElement()` и `cloneElement()`? Что такое
+  `React.isValidElement(object)`?
 tags:
   - "#React"
   - "#createElement"
   - "#cloneElement"
   - "#isValidElement"
-info:
+info: []
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 9
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 `createElement()` и `cloneElement()` - это два метода, используемые в React для создания элементов (elements) и клонирования элементов соответственно. Они имеют некоторые различия в своей работе.
 
 ##### **`createElement()`**
@@ -15,7 +26,7 @@ info:
 `createElement()` - это метод, который _создает новый элемент React с указанным типом, свойствами и дочерними элементами._ Все элементы, созданные с помощью `createElement()`, являются неизменяемыми `immutable`, что означает, что после создания элемента его свойства и дочерние элементы не могут быть изменены.
 
 ```jsx
-const element = createElement(type, props, ...children)
+const element = createElement(type, props, ...children);
 ```
 
 - `type`: Аргумент `type` должен быть допустимым типом компонента React. Например, это может быть строка имени тега (например, `'div'` или `'span'`) или компонент React (функция, класс или специальный компонент типа [`Fragment`](https://reactdev.ru/reference/Fragment/)).
@@ -27,7 +38,11 @@ const element = createElement(type, props, ...children)
 Например, чтобы создать элемент `div` с классом `my-class` и текстом `Hello, world!`, мы можем использовать метод `createElement()` следующим образом:
 
 ```jsx
-const element = React.createElement("div", { className: "my-class" }, "Hello, world!")
+const element = React.createElement(
+  "div",
+  { className: "my-class" },
+  "Hello, world!",
+);
 ```
 
 ##### **`cloneElement()`**
@@ -35,26 +50,28 @@ const element = React.createElement("div", { className: "my-class" }, "Hello, wo
 `cloneElement()` - это метод, который _клонирует существующий элемент React и возвращает новый элемент с обновленными свойствами и/или дочерними элементами._ Клонированный элемент может быть изменен, так как он не является неизменяемым, как элементы, созданные с помощью `createElement()`.
 
 ```jsx
-const clonedElement = cloneElement(element, props, ...children)
+const clonedElement = cloneElement(element, props, ...children);
 ```
 
 Например, чтобы клонировать элемент `element` и добавить ему новый класс `new-class`, мы можем использовать метод `cloneElement()` следующим образом:
 
 ```jsx
-const newElement = React.cloneElement(element, { className: "new-class" })
+const newElement = React.cloneElement(element, { className: "new-class" });
 ```
 
 Здесь мы передаем `element` и новый объект свойств `{ className: 'new-class' }` в `cloneElement()`, который возвращает новый элемент с обновленным классом.
 
-**Для чего используется `cloneElement()` ?
+\*\*Для чего используется `cloneElement()` ?
 
 Чтобы переопределить пропсы некоторого реактивного элемента, передайте его в `cloneElement` с пропсами, которые вы хотите переопределить:
 
 ```jsx
-import { cloneElement } from "react"
+import { cloneElement } from "react";
 
 // ...
-const clonedElement = cloneElement(<Row title="Cabbage" />, { isHighlighted: true })
+const clonedElement = cloneElement(<Row title="Cabbage" />, {
+  isHighlighted: true,
+});
 ```
 
 Здесь результирующим клонированным элементом будет `<Row title="Cabbage" isHighlighted={true} />`.

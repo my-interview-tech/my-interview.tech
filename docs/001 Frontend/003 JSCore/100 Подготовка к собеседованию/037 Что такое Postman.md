@@ -1,6 +1,6 @@
 ---
+uid: SOTbuDNkookGG45tkox2P
 title: Что такое Postman?
-draft: false
 tags:
   - Postman
   - API
@@ -11,9 +11,18 @@ tags:
   - PUT
   - DELETE
 info:
-  - https://habr.com/ru/companies/simbirsoft/articles/755382/
-  - https://habr.com/ru/companies/otus/articles/740884/
+  - "https://habr.com/ru/companies/simbirsoft/articles/755382/"
+  - "https://habr.com/ru/companies/otus/articles/740884/"
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 37
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _Postman_ - это _инструмент для тестирования и отладки API_, который позволяет разработчикам отправлять HTTP-запросы и просматривать ответы на них. Это удобный инструмент, который помогает разработчикам создавать, тестировать и документировать API.
 
 Postman предоставляет графический интерфейс пользователя (GUI), который позволяет легко создавать различные типы запросов, такие как GET, POST, PUT, DELETE и другие. Пользователи могут настраивать заголовки, параметры и тела запроса, а также отправлять запросы с различными параметрами.

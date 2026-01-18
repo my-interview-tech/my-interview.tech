@@ -1,10 +1,19 @@
 ---
+uid: isqhzNmOv7GRiZFvleEj4
 title: Что такое REPL в Node.js?
-draft: false
 tags:
   - "#NodeJS"
   - "#REPL"
+draft: false
+technology: Node.js
+specialty: Backend
+tools: []
+order: 10
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704135201.png|600]]
 
 _REPL_ - это сокращение от "Read-Eval-Print Loop", что означает цикл чтения, выполнения и вывода. В Node.js REPL - это интерактивная среда командной строки, которая позволяет пользователю вводить команды JavaScript, которые могут быть немедленно выполнены и выведены результаты в консоль.

@@ -1,6 +1,6 @@
 ---
+uid: 5X8pBQqe_FnraErkweXUf
 title: Что такое CORS?
-draft: false
 tags:
   - CORS
   - SOP
@@ -9,9 +9,18 @@ tags:
 info:
   - "[[Как настроить CORS]]"
   - "[[004 Как начать работать с проектом|Как начать работать с проектом?]]"
-  - https://habr.com/ru/companies/otus/articles/706908/
-  - https://habr.com/ru/companies/macloud/articles/553826/
+  - "https://habr.com/ru/companies/otus/articles/706908/"
+  - "https://habr.com/ru/companies/macloud/articles/553826/"
+draft: false
+technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
+tools: []
+order: 53
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703193501.png|600]]
 
 #### Что такое `CORS`?

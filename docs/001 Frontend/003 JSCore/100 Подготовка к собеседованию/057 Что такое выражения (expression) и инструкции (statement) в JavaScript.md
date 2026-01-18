@@ -1,12 +1,21 @@
 ---
+uid: DaCI7PmCTi9eDkDdnZaen
 title: Что такое выражения (expression) и инструкции (statement) в JavaScript?
-draft: false
 tags:
   - "#JavaScript"
   - "#expression"
   - "#statement"
-info:
+info: []
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 57
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230702124821.png|600]]
 
 _Выражение (expression)_ - это фрагмент кода, который вычисляется в значение. Оно может быть составлено из переменных, операторов и вызовов функций. Выражения могут быть использованы в разных контекстах, например, в качестве аргументов функций, в операторах присваивания, в условных выражениях и т.д.
@@ -14,10 +23,10 @@ _Выражение (expression)_ - это фрагмент кода, котор
 Например, следующий код содержит несколько выражений:
 
 ```javascript
-const x = 5
-const y = 10
-const z = x + y
-console.log(z) // 15
+const x = 5;
+const y = 10;
+const z = x + y;
+console.log(z); // 15
 ```
 
 В этом примере, `x + y` является выражением, которое вычисляется в значение 15. Выражение также может быть присвоено переменной (в данном случае, `z`), чтобы сохранить результат.
@@ -27,17 +36,17 @@ console.log(z) // 15
 Например, следующий код содержит несколько инструкций:
 
 ```javascript
-const x = 5
-const y = 10
-let z
+const x = 5;
+const y = 10;
+let z;
 
 if (x < y) {
-  z = "x is less than y"
+  z = "x is less than y";
 } else {
-  z = "x is greater than or equal to y"
+  z = "x is greater than or equal to y";
 }
 
-console.log(z) // "x is less than y"
+console.log(z); // "x is less than y"
 ```
 
 В этом примере, блок `if...else` является инструкцией, которая выполняет разные действия в зависимости от того, является ли `x` меньше `y`. Инструкция также может использовать выражения в своём теле, чтобы выполнить более сложные действия.

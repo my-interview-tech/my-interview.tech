@@ -1,10 +1,19 @@
 ---
+uid: Ry73FHkym0mAiqObdJQOB
 title: Типы `input` элементов в HTML
-draft: false
 tags:
   - "#HTML"
   - "#input"
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 51
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704021617.png|600]]
 
 Элемент `input` в HTML является одним из наиболее используемых элементов формы, который позволяет пользователю вводить данные в форму. В зависимости от значения атрибута `type`, элемент `input` может использоваться для различных целей и иметь различные свойства.

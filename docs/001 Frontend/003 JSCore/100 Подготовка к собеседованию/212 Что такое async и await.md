@@ -1,6 +1,6 @@
 ---
+uid: Faa-Smld7xkcQTUTDR6PS
 title: Что такое async и await?
-draft: false
 tags:
   - "#JavaScript"
   - "#асинхронность"
@@ -9,13 +9,25 @@ tags:
   - "#await"
   - "#try-catch"
 info:
-  - https://habr.com/ru/companies/yandex/articles/718084/
+  - "https://habr.com/ru/companies/yandex/articles/718084/"
   - "[[068 async... await|async & await]]"
-  - "[[069 Полное понимание синхронного и асинхронного JavaScript с async await|Полное понимание синхронного и асинхронного JavaScript с Async Await]]"
+  - >-
+    [[069 Полное понимание синхронного и асинхронного JavaScript с async
+    await|Полное понимание синхронного и асинхронного JavaScript с Async Await]]
   - "[[070 Асинхронщина в JS под капотом|Асинхронщина в JS под капотом]]"
-  - https://habr.com/ru/companies/ruvds/articles/759772/
-  - https://kanby.medium.com/почему-использовать-return-await-плохая-идея-e87b70015f0c#:~:text=Потому%20что%3A,Promise%20закончится%20resolve%20или%20reject%20
+  - "https://habr.com/ru/companies/ruvds/articles/759772/"
+  - >-
+    https://kanby.medium.com/почему-использовать-return-await-плохая-идея-e87b70015f0c#:~:text=Потому%20что%3A,Promise%20закончится%20resolve%20или%20reject%20
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 212
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703132537.png|600]]
 
 ##### Основное об `Async/await`
@@ -24,9 +36,9 @@ info:
 
 ```javascript
 async function getData() {
-  const response = await fetch("https://example.com/data")
-  const data = await response.json()
-  return data
+  const response = await fetch("https://example.com/data");
+  const data = await response.json();
+  return data;
 }
 ```
 
@@ -34,9 +46,9 @@ async function getData() {
 
 ```javascript
 async function getData() {
-  const response = await fetch("https://example.com/data")
-  const data = await response.json()
-  return data
+  const response = await fetch("https://example.com/data");
+  const data = await response.json();
+  return data;
 }
 ```
 
@@ -99,8 +111,8 @@ function run(fn, ...args) {
 Верхнеуровневый await (top level await) позволяет использовать этот оператор за пределами асинхронных функций:
 
 ```js
-const connection = await dbConnector()
-const jQuery = await import("http://cdn.com/jquery")
+const connection = await dbConnector();
+const jQuery = await import("http://cdn.com/jquery");
 ```
 
 _Но его можно использовать только либо внутри ES6-модулей, либо в DevTools. Такое ограничение связано с тем, что `await` — это синтаксический сахар, который работает через модули. _
@@ -109,14 +121,14 @@ _Но его можно использовать только либо внут�
 
 ```js
 // module.mjs
-const value = await Promise.resolve("^_^")
+const value = await Promise.resolve("^_^");
 
-export { value }
+export { value };
 
 // main.mjs
-import { value } from "./module.mjs"
+import { value } from "./module.mjs";
 
-console.log(value) // ^_^
+console.log(value); // ^_^
 ```
 
 Ни внутри модуля, ни внутри основной программы нет асинхронных функций, но при этом они необходимы для работы await. Как же тогда работает этот код?
@@ -125,20 +137,19 @@ console.log(value) // ^_^
 
 ```js
 // module.mjs
-export let value
+export let value;
 export const promise = (async () => {
-  value = await Promise.resolve("^_^")
-})()
+  value = await Promise.resolve("^_^");
+})();
 
-export { value, promise }
+export { value, promise };
 
 // main.mjs
-import { value, promise } from "./module.mjs"
-
-;(async () => {
-  await promise
-  console.log(value) // ^_^
-})()
+import { value, promise } from "./module.mjs";
+(async () => {
+  await promise;
+  console.log(value); // ^_^
+})();
 ```
 
 Никакой магии. Просто синтаксический сахар.

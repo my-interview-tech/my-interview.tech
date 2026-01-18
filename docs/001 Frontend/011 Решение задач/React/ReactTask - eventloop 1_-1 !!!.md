@@ -1,12 +1,21 @@
 ---
+uid: N0se2p_CcboRjKM5-1vPC
 title: ReactTask - eventloop 1_-1 !!!
-draft: false
 tags:
   - "#React"
   - "#reactTask"
   - "#EventLoop"
   - "#datagileINC"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```JSX
 import React from 'react'
 
@@ -39,6 +48,6 @@ const App = () => {
 export default App
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

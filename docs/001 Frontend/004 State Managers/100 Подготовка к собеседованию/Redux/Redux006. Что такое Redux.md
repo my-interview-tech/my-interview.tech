@@ -1,6 +1,6 @@
 ---
+uid: aEZEWC7Ml9M6yxXLjtQch
 title: Что такое Redux?
-draft: false
 tags:
   - "#React"
   - "#Redux"
@@ -8,11 +8,21 @@ tags:
   - "#action"
   - "#reducer"
 info:
-  - https://habr.com/ru/articles/498860/
-  - https://habr.com/ru/articles/269831/
-  - https://habr.com/ru/companies/vk/articles/303456/
-  - https://rajdee.gitbooks.io/redux-in-russian/content/docs/basics/DataFlow.html
+  - "https://habr.com/ru/articles/498860/"
+  - "https://habr.com/ru/articles/269831/"
+  - "https://habr.com/ru/companies/vk/articles/303456/"
+  - >-
+    https://rajdee.gitbooks.io/redux-in-russian/content/docs/basics/DataFlow.html
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704192112.png|]]
 
 _Redux_ - это библиотека для управления состоянием.
@@ -39,7 +49,7 @@ _В React рендеринг, действия ( actions) , логика ( reduc
 Для использование `store` в компоненте вам необходимо передавать его в пропсы:
 
 ```jsx
-ReactDOM.render(<Main store={store} />, document.getElementById("root"))
+ReactDOM.render(<Main store={store} />, document.getElementById("root"));
 ```
 
 И после использовать в компоненте: `this.props.state`. Для этого `react-redux` предоставляет метод `Provider`:
@@ -50,7 +60,7 @@ ReactDOM.render(
     <Main />
   </Provider>,
   document.getElementById("root"),
-)
+);
 ```
 
 Таким образом метод `connect` сможет использовать `store`. В противном случае вы получите ошибку: `Error: Could not find «store» in the context of «Connect(Main)». Either wrap the root component in a , or pass a custom React context provider to and the corresponding React context consumer to Connect(Main) in connect options.  `

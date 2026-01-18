@@ -1,13 +1,22 @@
 ---
+uid: eiR2uzZYtEiWJyqAI-z0d
 title: Как работает механизм прототипов в JavaScript?
-draft: false
 tags:
   - "#JavaScript"
   - "#proto"
   - "#prototype"
 info:
   - "[[0055 Прототипы, наследования|Прототипы и наследование]]"
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 166
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703112654.png|600]]
 
 _Механизм прототипов_ - это способ, с помощью которого объекты могут наследовать свойства и методы других объектов. В JavaScript каждый объект имеет свойство `__proto__`, которое указывает на его прототип - объект, из которого он наследует свойства и методы.
@@ -20,20 +29,20 @@ _Механизм прототипов_ - это способ, с помощью
 var human = {
   species: "Homo sapiens",
   walk: function () {
-    console.log("Walking...")
+    console.log("Walking...");
   },
-}
+};
 
 var person = {
   name: "John",
-}
+};
 
-person.__proto__ = human
+person.__proto__ = human;
 
-console.log(person.name) // 'John'
-console.log(person.species) // 'Homo sapiens'
+console.log(person.name); // 'John'
+console.log(person.species); // 'Homo sapiens'
 
-person.walk() // 'Walking...'
+person.walk(); // 'Walking...'
 ```
 
 В этом примере объект `human` содержит свойство `species` и метод `walk()`, а объект `person` наследует эти свойства и методы через свойство `__proto__`. Мы можем обращаться к свойствам и методам объекта `human` через объект `person`, как будто они были определены непосредственно в объекте `person`.

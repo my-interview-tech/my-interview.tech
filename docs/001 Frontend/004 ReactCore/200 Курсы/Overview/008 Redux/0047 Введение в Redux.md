@@ -1,6 +1,6 @@
 ---
+uid: M9CRPHdwaU4raCoC-B9bq
 title: Введение в Redux
-draft: false
 tags:
   - "#React"
   - "#Redux"
@@ -8,16 +8,24 @@ tags:
   - "#state"
   - "#store"
   - "#actions"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 47
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
-![Введение в Redux](https://www.youtube.com/watch?v=Wc7HT_nDOd8)
 
+![Введение в Redux](https://www.youtube.com/watch?v=Wc7HT_nDOd8)
 
 Redux решает проблему управления состоянием в приложении
 Redux предлагает хранить state в одном "глобальном" объекте.
 
 Функция Reducer обновляет глобальный state в ответ на Actions (действия). Объект Store координирует обновления.
 
-_____
+---
 
 ![[Pasted image 20230424203458.png]]
 
@@ -69,14 +77,14 @@ console.log(store.getState())
 
 ```jsx
 store.dispatch({
-  type: 'COMPLETE_TODO',
-  index: 1
-})
+  type: "COMPLETE_TODO",
+  index: 1,
+});
 
 store.dispatch({
-  type: 'SET_VISIBILITY_FILTER',
-  filter: 'SHOW_COMPLETED'
-})
+  type: "SET_VISIBILITY_FILTER",
+  filter: "SHOW_COMPLETED",
+});
 ```
 
 ### Мутации написаны, как чистые функции
@@ -86,44 +94,44 @@ store.dispatch({
 **Редюсеры** — это просто чистые функции, которые берут предыдущее состояние и экшен и возвращают новое состояние. Не забывайте возвращать новый объект состояния вместо того, чтобы изменять предыдущее. Вы можете начать с одного редюсера, но в дальнейшем, когда ваше приложение разрастется, вы можете разделить его на более маленькие редюсеры, которые управляют отдельными частями дерева состояния. Поскольку редюсеры — это просто функции, вы можете контролировать порядок, в котором они вызываются, отправлять дополнительные данные или даже писать переиспользуемые редюсеры для общих задач, например, для пагинации.
 
 ```jsx
-function visibilityFilter(state = 'SHOW_ALL', action) {
+function visibilityFilter(state = "SHOW_ALL", action) {
   switch (action.type) {
-    case 'SET_VISIBILITY_FILTER':
-      return action.filter
+    case "SET_VISIBILITY_FILTER":
+      return action.filter;
     default:
-      return state
+      return state;
   }
 }
 
 function todos(state = [], action) {
   switch (action.type) {
-    case 'ADD_TODO':
+    case "ADD_TODO":
       return [
         ...state,
         {
           text: action.text,
-          completed: false
-        }
-      ]
-    case 'COMPLETE_TODO':
+          completed: false,
+        },
+      ];
+    case "COMPLETE_TODO":
       return state.map((todo, index) => {
         if (index === action.index) {
           return Object.assign({}, todo, {
-            completed: true
-          })
+            completed: true,
+          });
         }
-        return todo
-      })
+        return todo;
+      });
     default:
-      return state
+      return state;
   }
 }
 
-import { combineReducers, createStore } from 'redux'
-let reducer = combineReducers({ visibilityFilter, todos })
-let store = createStore(reducer)
+import { combineReducers, createStore } from "redux";
+let reducer = combineReducers({ visibilityFilter, todos });
+let store = createStore(reducer);
 ```
 
 Вот и все! Теперь вы знаете все о Redux.
 
-___
+---

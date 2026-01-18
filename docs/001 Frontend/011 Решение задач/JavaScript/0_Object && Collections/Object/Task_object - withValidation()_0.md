@@ -1,11 +1,20 @@
 ---
+uid: 3drif0tlo4KBkww_3QkXA
 title: Task_object - withValidation()_0
-draft: false
 tags:
   - "#JavaScript"
   - "#taskJS"
   - "#object"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```js
 // Реализовать функцию навешивающую валидацию на объект
 
@@ -21,11 +30,11 @@ function withValidation(obj, rules) {}
 const person = {};
 
 const personWithValidation = withValidation(person, {
-    name: {
-        validator: (value) => typeof value === "string",
-        message: "Имя должно быть строкой",
-    },
-    age: (value) => value >= 18,
+  name: {
+    validator: (value) => typeof value === "string",
+    message: "Имя должно быть строкой",
+  },
+  age: (value) => value >= 18,
 });
 
 console.log(123);
@@ -43,12 +52,12 @@ personWithValidation.name = "Foo bar"; // Успешно устанвливае�
 console.log(personWithValidation);
 ```
 
-**Ответ
+\*\*Ответ
 
 ```js
 
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

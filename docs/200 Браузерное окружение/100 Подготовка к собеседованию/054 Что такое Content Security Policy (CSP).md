@@ -1,13 +1,22 @@
 ---
+uid: _vSrxKnXeqNtBhj8YFyU6
 title: Что такое Content Security Policy (CSP) ?
-draft: false
 tags:
   - CSP
   - XSS
   - HTTP-заголовок
   - browser
-info:
+info: []
+draft: false
+technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
+tools: []
+order: 54
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703193350.png|600]]
 
 _Content Security Policy (`CSP`)_ - это механизм безопасности, который _позволяет контролировать и ограничивать ресурсы, которые могут быть загружены на веб-страницу. CSP позволяет уменьшить риски нарушения безопасности, связанные с межсайтовыми скриптами (`XSS`), выполнением несанкционированного кода (Code Injection) и другими атаками, которые могут быть осуществлены через веб-страницу._

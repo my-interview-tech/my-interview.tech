@@ -1,35 +1,44 @@
 ---
+uid: Jo7hBRZSduVxpu4iUoXjv
 title: Что такое __proto__ ?
-draft: false
 tags:
   - "#JavaScript"
   - "#object"
   - "#prototype"
   - "#proto"
 info:
-  - https://learn.javascript.ru/prototype-methods
-  - https://www.youtube.com/watch?v=b55hiUlhAzI
+  - "https://learn.javascript.ru/prototype-methods"
+  - "https://www.youtube.com/watch?v=b55hiUlhAzI"
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ##### Введение
 
 `__proto__` и `prototype` - это свойства объекта.
 
 ```js
-let a = { value: 18 }
+let a = { value: 18 };
 
 let b = {
   age: a,
-}
+};
 
-let c = a
+let c = a;
 
-console.log(a === b.age) // true
-console.log(a === c) // true
+console.log(a === b.age); // true
+console.log(a === c); // true
 
-b.age.value = 21
+b.age.value = 21;
 
-console.log(a.value === 21) // true
-console.log(c.value === 21) // true
+console.log(a.value === 21); // true
+console.log(c.value === 21); // true
 ```
 
 Известно, что `console.log({} != {})` так как они имеют разные ссылки.
@@ -77,29 +86,29 @@ console.log( count.__proto__ === ??? ) // (10)
 Например:
 
 ```js
-let man = {} // man.__proto__
-let users = [] // users.__proto__
-let age = 18 // age.__proto__
-let youtube = "ttt" // youtube.__proto__
+let man = {}; // man.__proto__
+let users = []; // users.__proto__
+let age = 18; // age.__proto__
+let youtube = "ttt"; // youtube.__proto__
 function subscribe() {} // subscribe.__proto__
-let liked = function () {} // liked.__proto__
-let clicked = () => {} // clicked.__proto__
+let liked = function () {}; // liked.__proto__
+let clicked = () => {}; // clicked.__proto__
 class YouTubeChanell {} // YouTubeChanell.__proto__
-let isItTrue = true // isItTrue.__proto__
+let isItTrue = true; // isItTrue.__proto__
 ```
 
 При этом разные `__proto__` разных по `типу` объектов - совершенно независимые разные объекты. У одинаковых по `типу` объектов - они равны, то есть - это один и тот же объект.
 
 ```js
-let man = {}
-let man2 = {}
-console.log(man.__proto__ === man2.__proto__) // true
+let man = {};
+let man2 = {};
+console.log(man.__proto__ === man2.__proto__); // true
 
-let users = []
-let cars = []
-console.log(users.__proto__ === cars.__proto__) // true
+let users = [];
+let cars = [];
+console.log(users.__proto__ === cars.__proto__); // true
 
-console.log(users.__proto__ === man2.__proto__) // false
+console.log(users.__proto__ === man2.__proto__); // false
 
 // и так далее
 ```
@@ -107,20 +116,20 @@ console.log(users.__proto__ === man2.__proto__) // false
 Известно, что все типы данных в JS - это объекты и под капотом они имеют следующий вид:
 
 ```js
-let promise = new Promise(() => {}) // new Promise(...)
-let man = {} // new Object(...)
-let users = [] // new Array(...)
-let age = 18 // new Number(...)
-let youtube = "ttt" // new String(...)
+let promise = new Promise(() => {}); // new Promise(...)
+let man = {}; // new Object(...)
+let users = []; // new Array(...)
+let age = 18; // new Number(...)
+let youtube = "ttt"; // new String(...)
 
 function subscribe() {} // new Function(...)
-let liked = function () {} // new Function(...)
-let clicked = () => {} // new Function(...)
+let liked = function () {}; // new Function(...)
+let clicked = () => {}; // new Function(...)
 class YouTubeChanell {} // new Function(...)
 
-let chanell = new YouTubeChanell() // new YouTubeChanell
+let chanell = new YouTubeChanell(); // new YouTubeChanell
 
-let isItTrue = true // new Boolean(...)
+let isItTrue = true; // new Boolean(...)
 ```
 
 Таким образом,
@@ -144,22 +153,22 @@ function arr() {} // prototype есть
 class InterSection {} // prototype есть
 
 const Component = (props) => {
-  return `<h1>I need HELP</h1>`
-} // prototype нет
+  return `<h1>I need HELP</h1>`;
+}; // prototype нет
 ```
 
 ```js
-let promise = new Promise(() => {}) // promise.__proto__ === Promise.prototype
-let man = {} // man.__proto__ === Object.prototype
-let users = [] // users.__proto__ === Array.prototype
-let age = 18 // age.__proto__ === Number.prototype
-let youtube = "ttt" // youtube.__proto__ === String.prototype
+let promise = new Promise(() => {}); // promise.__proto__ === Promise.prototype
+let man = {}; // man.__proto__ === Object.prototype
+let users = []; // users.__proto__ === Array.prototype
+let age = 18; // age.__proto__ === Number.prototype
+let youtube = "ttt"; // youtube.__proto__ === String.prototype
 function subscribe() {} // subscribe.__proto__ === Function.prototype
-let liked = function () {} // liked.__proto__ === Function.prototype
-let clicked = () => {} // clicked.__proto__ === Function.prototype
+let liked = function () {}; // liked.__proto__ === Function.prototype
+let clicked = () => {}; // clicked.__proto__ === Function.prototype
 class YouTubeChanell {} // YouTubeChanell.__proto__ === Function.prototype
-let chanel1 = new YouTubeChanell() // chanel1.__proto__ === YouTubeChanell.prototype
-let isItTrue = true // isItTrue.__proto__ === Boolean.prototype
+let chanel1 = new YouTubeChanell(); // chanel1.__proto__ === YouTubeChanell.prototype
+let isItTrue = true; // isItTrue.__proto__ === Boolean.prototype
 ```
 
 Зачем классу нужен объект `prototype` и зачем классам, созданным с помощью этого класса, свойство `__proto__` , которое ссылается на этот объект `prototype` ?
@@ -169,8 +178,8 @@ let isItTrue = true // isItTrue.__proto__ === Boolean.prototype
 Как правило, речь идёт именно о методах:
 
 ```js
-let derName = { name: "Vadim" }
-derName.toString()
+let derName = { name: "Vadim" };
+derName.toString();
 
 // derName.__proto__ => Object.prototype = { toString(){}}
 // Если свойства/метода toString() нет в derName, то мы ищем его в prototype в объекте класса с помощью которого он был создан

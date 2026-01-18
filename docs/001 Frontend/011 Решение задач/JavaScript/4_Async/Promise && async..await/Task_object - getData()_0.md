@@ -1,135 +1,144 @@
 ---
+uid: fcRXKBxLLghts0ex-lAAb
 title: Task_object - getData()_0
-draft: false
 tags:
   - "#JavaScript"
   - "#taskJS"
   - "#async"
   - "#тензор"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
-```html
-   <div class="wrapper"></div>
 
-   <div class="item item--template">
-      <span class="name"></span>
-      <div class="books"></div>
-   </div>
+```html
+<div class="wrapper"></div>
+
+<div class="item item--template">
+  <span class="name"></span>
+  <div class="books"></div>
+</div>
 ```
 
 ```css
 .item--template {
-   display: none;
+  display: none;
 }
 
 .item {
-   margin-bottom: 12px;
+  margin-bottom: 12px;
 }
 
 .name {
-   font-weight: bold;
+  font-weight: bold;
 }
 
 .books {
-   display: flex;
-   flex-direction: column;
-   padding-left: 8px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 8px;
 }
 ```
 
 ```js
 const users = [
-   {
-      name: 'Никита',
-      books: [12, 35, 68, 90, 146]
-   },
-   {
-      name: 'Арслан',
-      books: [135, 24, 79]
-   },
-   {
-      name: 'Александр',
-      books: [12, 24, 35, 46, 57, 68, 79, 113, 68, 124, 135, 146, 90, 68]
-   },
-   {
-      name: 'Андрей',
-      books: [79, 12, 24, 46, 68, 79, 124, 135]
-   },
-   {
-      name: 'Сергей',
-      books: [79, 113, 124, 124, 135]
-   }
+  {
+    name: "Никита",
+    books: [12, 35, 68, 90, 146],
+  },
+  {
+    name: "Арслан",
+    books: [135, 24, 79],
+  },
+  {
+    name: "Александр",
+    books: [12, 24, 35, 46, 57, 68, 79, 113, 68, 124, 135, 146, 90, 68],
+  },
+  {
+    name: "Андрей",
+    books: [79, 12, 24, 46, 68, 79, 124, 135],
+  },
+  {
+    name: "Сергей",
+    books: [79, 113, 124, 124, 135],
+  },
 ];
 
 const books = [
-   {
-      id: 12,
-      name: 'Сборник сочинений',
-      author: 'Иосиф Бродский'
-   },
-   {
-      id: 24,
-      name: 'Превращение',
-      author: 'Франц Кафка'
-   },
-   {
-      id: 35,
-      name: 'Empire V',
-      author: 'Виктор Пелевин'
-   },
-   {
-      id: 46,
-      name: 'Террор',
-      author: 'Дэн Симмонс'
-   },
-   {
-      id: 57,
-      name: 'Рутина',
-      author: 'Евгений Алёхин'
-   },
-   {
-      id: 68,
-      name: 'Симулякры и симуляция',
-      author: 'Жан Бодрийяр'
-   },
-   {
-      id: 79,
-      name: 'Дюна',
-      author: 'Френк Герберт'
-   },
-   {
-      id: 113,
-      name: 'Улитка на сколне',
-      author: 'Аркадий и Борис Стругацкие'
-   },
-   {
-      id: 124,
-      name: 'Ночной дозор',
-      author: 'Сергей Лукьяненко'
-   },
-   {
-      id: 135,
-      name: 'Тошнота',
-      author: 'Жан Поль Сартр'
-   },
-   {
-      id: 146,
-      name: '1984',
-      author: 'Джордж Оруэлл'
-   },
-   {
-      id: 90,
-      name: '451 градус по Фарингейту',
-      author: 'Рей Брэдберри'
-   }
+  {
+    id: 12,
+    name: "Сборник сочинений",
+    author: "Иосиф Бродский",
+  },
+  {
+    id: 24,
+    name: "Превращение",
+    author: "Франц Кафка",
+  },
+  {
+    id: 35,
+    name: "Empire V",
+    author: "Виктор Пелевин",
+  },
+  {
+    id: 46,
+    name: "Террор",
+    author: "Дэн Симмонс",
+  },
+  {
+    id: 57,
+    name: "Рутина",
+    author: "Евгений Алёхин",
+  },
+  {
+    id: 68,
+    name: "Симулякры и симуляция",
+    author: "Жан Бодрийяр",
+  },
+  {
+    id: 79,
+    name: "Дюна",
+    author: "Френк Герберт",
+  },
+  {
+    id: 113,
+    name: "Улитка на сколне",
+    author: "Аркадий и Борис Стругацкие",
+  },
+  {
+    id: 124,
+    name: "Ночной дозор",
+    author: "Сергей Лукьяненко",
+  },
+  {
+    id: 135,
+    name: "Тошнота",
+    author: "Жан Поль Сартр",
+  },
+  {
+    id: 146,
+    name: "1984",
+    author: "Джордж Оруэлл",
+  },
+  {
+    id: 90,
+    name: "451 градус по Фарингейту",
+    author: "Рей Брэдберри",
+  },
 ];
 
 function getData(data) {
-   let resolver = null;
-   const promise = new Promise((resolve) => resolver = resolve);
+  let resolver = null;
+  const promise = new Promise((resolve) => (resolver = resolve));
 
-   setTimeout(() => resolver(data), 400);
+  setTimeout(() => resolver(data), 400);
 
-   return promise;
+  return promise;
 }
 
 const getUsers = () => getData(users);
@@ -155,91 +164,90 @@ const getBooks = () => getData(books);
 // пример вызова функции
 // у данных должна быть такая же структура
 injectData([
-   {
-      name: 'Андрей',
-      books: [
-         {
-            id: 12,
-            name: 'Сборник сочинений',
-            author: 'Иосиф Бродский'
-         },
-         {
-            id: 79,
-            name: 'Дюна',
-            author: 'Френк Герберт'
-         },
-         {
-            id: 146,
-            name: '1984',
-            author: 'Джордж Оруэлл'
-         }
-      ]
-   },
-   {
-      name: 'Никита',
-      books: [
-         {
-            id: 46,
-            name: 'Террор',
-            author: 'Дэн Симмонс'
-         }
-      ]
-   },
-   {
-      name: 'Сергей',
-      books: [
-         {
-            id: 12,
-            name: 'Сборник сочинений',
-            author: 'Иосиф Бродский'
-         },
-         {
-            id: 24,
-            name: 'Превращение',
-            author: 'Франц Кафка'
-         }
-      ]
-   }
+  {
+    name: "Андрей",
+    books: [
+      {
+        id: 12,
+        name: "Сборник сочинений",
+        author: "Иосиф Бродский",
+      },
+      {
+        id: 79,
+        name: "Дюна",
+        author: "Френк Герберт",
+      },
+      {
+        id: 146,
+        name: "1984",
+        author: "Джордж Оруэлл",
+      },
+    ],
+  },
+  {
+    name: "Никита",
+    books: [
+      {
+        id: 46,
+        name: "Террор",
+        author: "Дэн Симмонс",
+      },
+    ],
+  },
+  {
+    name: "Сергей",
+    books: [
+      {
+        id: 12,
+        name: "Сборник сочинений",
+        author: "Иосиф Бродский",
+      },
+      {
+        id: 24,
+        name: "Превращение",
+        author: "Франц Кафка",
+      },
+    ],
+  },
 ]);
 
 // _______________________________________
 
 function injectData(data) {
-   const template = document.querySelector('.item--template');
-   const bookElem = document.createElement('span');
-   const main = document.querySelector('.wrapper');
-   const preparedData = [];
+  const template = document.querySelector(".item--template");
+  const bookElem = document.createElement("span");
+  const main = document.querySelector(".wrapper");
+  const preparedData = [];
 
-   bookElem.classList.add('book');
+  bookElem.classList.add("book");
 
-   let cloned;
-   let booksWrapper;
-   let clonedBookElem;
+  let cloned;
+  let booksWrapper;
+  let clonedBookElem;
 
-   data.forEach((userData) => {
-      cloned = template.cloneNode(true);
-      cloned.classList.remove('item--template');
+  data.forEach((userData) => {
+    cloned = template.cloneNode(true);
+    cloned.classList.remove("item--template");
 
-      cloned.querySelector('.name').innerText = `пользователь: ${userData.name}`;
-      booksWrapper = cloned.querySelector('.books');
+    cloned.querySelector(".name").innerText = `пользователь: ${userData.name}`;
+    booksWrapper = cloned.querySelector(".books");
 
-      userData.books.forEach((book) => {
-         clonedBookElem = bookElem.cloneNode(true);
-         clonedBookElem.innerText = `автор: ${book.author}, название: ${book.name}`;
+    userData.books.forEach((book) => {
+      clonedBookElem = bookElem.cloneNode(true);
+      clonedBookElem.innerText = `автор: ${book.author}, название: ${book.name}`;
 
-         booksWrapper.appendChild(clonedBookElem);
-      });
+      booksWrapper.appendChild(clonedBookElem);
+    });
 
-      preparedData.push(cloned);
-   });
+    preparedData.push(cloned);
+  });
 
-   main.append(...preparedData);
+  main.append(...preparedData);
 }
 
 //_______________________________________
-
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

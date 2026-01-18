@@ -1,12 +1,21 @@
 ---
+uid: P2fh1anAaPAYKLtO3r6yX
 title: ReactTask - Timer 2_1
-draft: false
 tags:
   - "#React"
   - "#reactTask"
   - "#unknownINC"
   - "#itOne"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 [Условие:](https://codesandbox.io/s/silent-worker-ssd8ly?file=/src/index.js:109-123)
 
 ```jsx
@@ -25,10 +34,7 @@ function TimerContainer() {
   return (
     <div className="App">
       <div>
-        <Timer
-          isStarted={isTimerStarted}
-          onStop={stopTimer}
-        />
+        <Timer isStarted={isTimerStarted} onStop={stopTimer} />
       </div>
       <button onClick={startTimer}>Start</button>
       <button onClick={stopTimer}>Stop</button>
@@ -73,6 +79,6 @@ const root = createRoot(rootElement);
 root.render(<TimerContainer />);
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

@@ -1,13 +1,22 @@
 ---
+uid: yGKpG9Hkljq8VDIJB0TbI
 title: В чём разница box-sizing content-box от border-box?
-draft: false
 tags:
   - "#CSS"
   - "#box-sizing"
   - "#border-box"
 info:
-  - https://habr.com/ru/articles/149441/
+  - "https://habr.com/ru/articles/149441/"
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 28
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 *`box-sizing`* в CSS это свойство, которое _определяет как размеры элемента должны быть вычислены, включая или исключая границы и отступы._
 
 Значение `content-box` является _значением по умолчанию_ и означает, что размеры элемента вычисляются только на основе его содержимого (`width` и `height` не включают границы и отступы). Если, например, у элемента есть ширина и высота `100px`, а у него также есть границы и отступы, то размер элемента будет больше, чем `100px`, так как границы и отступы будут добавлены к нему.

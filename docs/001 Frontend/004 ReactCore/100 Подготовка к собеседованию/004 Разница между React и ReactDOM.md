@@ -1,6 +1,6 @@
 ---
+uid: EvjnJ0hYP4n_p5ox7q3BV
 title: Разница между `React` и `ReactDOM`
-draft: false
 tags:
   - "#React"
   - "#ReactDOM"
@@ -9,50 +9,114 @@ tags:
   - "#JSX"
   - "#XSS"
 info:
-  - https://ittutoria.net/reactdom-render-is-no-longer-supported-in-react-18-use-createroot-instead/
+  - >-
+    https://ittutoria.net/reactdom-render-is-no-longer-supported-in-react-18-use-createroot-instead/
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 4
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 `React` и `ReactDOM` - это две разные библиотеки, которые используются в React-приложениях. Но обычно импортируются обе библиотеки, чтобы использовать их функциональности вместе.
 
 **React** - _это библиотека JavaScript для создания пользовательских интерфейсов._
 
 ```js
 const React = {
-    Children: {
-        map: function() { /* ... */ },
-        forEach: function() { /* ... */ },
-        count: function() { /* ... */ },
-        toArray: function() { /* ... */ },
-        only: function() { /* ... */ }
+  Children: {
+    map: function () {
+      /* ... */
     },
-    Component: function Component(props, context, updater) { /* ... */ },
-    Fragment: Symbol('react.fragment'),
-    Profiler: Symbol('react.profiler'),
-    PureComponent: function PureComponent(props, context, updater) { /* ... */ },
-    StrictMode: Symbol('react.strict_mode'),
-    Suspense: Symbol('react.suspense'),
-    cloneElement: function cloneElementWithValidation(element, props, children) { /* ... */ },
-    createContext: function createContext(defaultValue, calculateChangedBits) { /* ... */ },
-    createElement: function createElementWithValidation(type, props, children) { /* ... */ },
-    createFactory: function createFactoryWithValidation(type) { /* ... */ },
-    createRef: function createRef() { /* ... */ },
-    forwardRef: function forwardRef(render) { /* ... */ },
-    isValidElement: function isValidElement(object) { /* ... */ },
-    lazy: function lazy(ctor) { /* ... */ },
-    memo: function memo(type, compare) { /* ... */ },
-    useCallback: function useCallback(callback, deps) { /* ... */ },
-    useContext: function useContext(context, unstable_observedBits) { /* ... */ },
-    useDebugValue: function useDebugValue(value, formatterFn) { /* ... */ },
-    useEffect: function useEffect(create, deps) { /* ... */ },
-    useImperativeHandle: function useImperativeHandle(ref, create, deps) { /* ... */ },
-    useLayoutEffect: function useLayoutEffect(create, deps) { /* ... */ },
-    useMemo: function useMemo(create, deps) { /* ... */ },
-    useReducer: function useReducer(reducer, initialArg, init) { /* ... */ },
-    useRef: function useRef(initialValue) { /* ... */ },
-    useState: function useState(initialState) { /* ... */ },
-    version: "17.0.2",
-    __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: {
-        ReactCurrentDispatcher: { /* ... */ }
-    }
+    forEach: function () {
+      /* ... */
+    },
+    count: function () {
+      /* ... */
+    },
+    toArray: function () {
+      /* ... */
+    },
+    only: function () {
+      /* ... */
+    },
+  },
+  Component: function Component(props, context, updater) {
+    /* ... */
+  },
+  Fragment: Symbol("react.fragment"),
+  Profiler: Symbol("react.profiler"),
+  PureComponent: function PureComponent(props, context, updater) {
+    /* ... */
+  },
+  StrictMode: Symbol("react.strict_mode"),
+  Suspense: Symbol("react.suspense"),
+  cloneElement: function cloneElementWithValidation(element, props, children) {
+    /* ... */
+  },
+  createContext: function createContext(defaultValue, calculateChangedBits) {
+    /* ... */
+  },
+  createElement: function createElementWithValidation(type, props, children) {
+    /* ... */
+  },
+  createFactory: function createFactoryWithValidation(type) {
+    /* ... */
+  },
+  createRef: function createRef() {
+    /* ... */
+  },
+  forwardRef: function forwardRef(render) {
+    /* ... */
+  },
+  isValidElement: function isValidElement(object) {
+    /* ... */
+  },
+  lazy: function lazy(ctor) {
+    /* ... */
+  },
+  memo: function memo(type, compare) {
+    /* ... */
+  },
+  useCallback: function useCallback(callback, deps) {
+    /* ... */
+  },
+  useContext: function useContext(context, unstable_observedBits) {
+    /* ... */
+  },
+  useDebugValue: function useDebugValue(value, formatterFn) {
+    /* ... */
+  },
+  useEffect: function useEffect(create, deps) {
+    /* ... */
+  },
+  useImperativeHandle: function useImperativeHandle(ref, create, deps) {
+    /* ... */
+  },
+  useLayoutEffect: function useLayoutEffect(create, deps) {
+    /* ... */
+  },
+  useMemo: function useMemo(create, deps) {
+    /* ... */
+  },
+  useReducer: function useReducer(reducer, initialArg, init) {
+    /* ... */
+  },
+  useRef: function useRef(initialValue) {
+    /* ... */
+  },
+  useState: function useState(initialState) {
+    /* ... */
+  },
+  version: "17.0.2",
+  __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: {
+    ReactCurrentDispatcher: {
+      /* ... */
+    },
+  },
 };
 ```
 
@@ -60,19 +124,42 @@ const React = {
 
 ```js
 const ReactDOM = {
-    createPortal: function createPortal(children, container) { /* ... */ },
-    findDOMNode: function findDOMNode(componentOrElement) { /* ... */ },
-    flushSync: function flushSync(fn, a) { /* ... */ },
-    hydrate: function hydrate(element, container, callback) { /* ... */ },
-    render: function render(element, container, callback) { /* ... */ },
-    unmountComponentAtNode: function unmountComponentAtNode(container) { /* ... */ },
-    unstable_batchedUpdates: function batchedUpdates(fn, a) { /* ... */ },
-    unstable_createPortal: function unstable_createPortal(children, container) { /* ... */ },
-    unstable_renderSubtreeIntoContainer: function renderSubtreeIntoContainer(parentComponent, element, container, callback) { /* ... */ },
-    version: "17.0.2",
-    __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: {
-        Events: [] // Пример внутренних данных
-    }
+  createPortal: function createPortal(children, container) {
+    /* ... */
+  },
+  findDOMNode: function findDOMNode(componentOrElement) {
+    /* ... */
+  },
+  flushSync: function flushSync(fn, a) {
+    /* ... */
+  },
+  hydrate: function hydrate(element, container, callback) {
+    /* ... */
+  },
+  render: function render(element, container, callback) {
+    /* ... */
+  },
+  unmountComponentAtNode: function unmountComponentAtNode(container) {
+    /* ... */
+  },
+  unstable_batchedUpdates: function batchedUpdates(fn, a) {
+    /* ... */
+  },
+  unstable_createPortal: function unstable_createPortal(children, container) {
+    /* ... */
+  },
+  unstable_renderSubtreeIntoContainer: function renderSubtreeIntoContainer(
+    parentComponent,
+    element,
+    container,
+    callback,
+  ) {
+    /* ... */
+  },
+  version: "17.0.2",
+  __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: {
+    Events: [], // Пример внутренних данных
+  },
 };
 ```
 

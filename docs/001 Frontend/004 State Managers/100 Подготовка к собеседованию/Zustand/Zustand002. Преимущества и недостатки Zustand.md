@@ -1,11 +1,19 @@
 ---
+uid: 0Wh_NjqqGGSquq7DMN3FF
 title: Преимущества и недостатки Zustand
-draft: false
 tags:
   - React
   - Zustand
   - State-manager
-info:
+info: []
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
 
 **Преимущества:**
@@ -20,6 +28,6 @@ info:
 - По сравнению с Redux, имеет меньше встроенных инструментов.
 - Менее популярна, чем Redux.
 
-___
+---
 
 [[004 State Managers|Назад]]

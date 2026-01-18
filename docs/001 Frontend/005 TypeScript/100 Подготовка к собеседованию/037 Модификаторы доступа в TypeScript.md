@@ -1,13 +1,22 @@
 ---
+uid: kBkmUr1yjZOhJHStrk2dE
 title: Модификаторы доступа в TypeScript
-draft: false
 tags:
   - "#TypeScript"
   - "#public"
   - "#private"
   - "#protected"
-info:
+info: []
+draft: false
+technology: TypeScript
+specialty: Frontend
+tools: []
+order: 37
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Модификаторы доступа в TypeScript используются для ограничения доступа к свойствам и методам классов. TypeScript поддерживает три типа модификаторов доступа: `public`, `private` и `protected`.
 
 1.  `public` - модификатор `public` означает, что свойство или метод доступен из любого места в коде, включая внутри класса, из других классов и извне класса.
@@ -96,6 +105,6 @@ student.study(); // Output: 'John is studying.'
 
 В этом примере свойства `name` и `age` имеют модификатор доступа `protected`, что означает, что они могут быть доступны внутри класса и его наследников. В классе `Student` мы можем получить доступ к свойствам `name` и `age`, так как `Student` наследует от класса `Person`. Свойство `studentId` имеет модификатор доступа `private`, что означает, что оно доступно только внутри класса `Student`. Метод `sayHello()` также доступен в классе `Student`, так как `Student` наследует его от класса `Person`. Метод `study()` является методом только класса `Student` и не доступен в классе `Person`.
 
-_____
+---
 
 [[005 TypeScript|Назад]]

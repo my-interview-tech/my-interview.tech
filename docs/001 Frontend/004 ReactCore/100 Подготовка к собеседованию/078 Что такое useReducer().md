@@ -1,21 +1,30 @@
 ---
+uid: VzjFQkOxn1c5Cjtbun-lj
 title: Что такое `useReducer()`?
-draft: false
 tags:
   - "#React"
   - "#Hooks"
   - useReducer
 info:
-  - https://react.dev/reference/react/useReducer
-  - https://habr.com/ru/companies/otus/articles/752824/
-  - https://dev.to/oluwatrillions/react-series-usereducer-1eh4
+  - "https://react.dev/reference/react/useReducer"
+  - "https://habr.com/ru/companies/otus/articles/752824/"
+  - "https://dev.to/oluwatrillions/react-series-usereducer-1eh4"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 78
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _Редуктор (`reducer`) - это функция, которая принимает текущее состояние и действие (`action`), и возвращает новое состояние._ В React, редуктор может использоваться для управления сложным состоянием компонента, которое может включать в себя несколько свойств.
 
 Хук `useReducer()` имеет синтаксис следующего вида:
 
 ```jsx
-const [state, dispatch] = useReducer(reducer, initialState)
+const [state, dispatch] = useReducer(reducer, initialState);
 ```
 
 Здесь:
@@ -31,13 +40,13 @@ const [state, dispatch] = useReducer(reducer, initialState)
 
 ```jsx
 const dispatch = (action) => {
-  reducer(state, action)
-}
+  reducer(state, action);
+};
 ```
 
 Другими словами, вся логика описанная внутри `reducer`, будет выполнена при вызове `dispatch`, а единственный аргумент, который принимает `dispatch` и будет `action`.
 
-**Как не обновлять компонент при вызове dispatch. В react 18 не работает!
+\*\*Как не обновлять компонент при вызове dispatch. В react 18 не работает!
 
 Бывают ситуации, когда при определенных условиях обновлять компонент не надо. Эту логику можно обработать в редукторе (reducer), но есть нюансы.
 
@@ -58,23 +67,23 @@ const reducer = (state, action) => {
 Вот пример кода, который демонстрирует, как использовать `useReducer()` для управления состоянием компонента:
 
 ```jsx
-import { useReducer } from "react"
+import { useReducer } from "react";
 
 function MyComponent() {
-  const initialState = { count: 0 }
+  const initialState = { count: 0 };
 
   function reducer(state, action) {
     switch (action.type) {
       case "increment":
-        return { count: state.count + 1 }
+        return { count: state.count + 1 };
       case "decrement":
-        return { count: state.count - 1 }
+        return { count: state.count - 1 };
       default:
-        throw new Error()
+        throw new Error();
     }
   }
 
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <div>
@@ -82,7 +91,7 @@ function MyComponent() {
       <button onClick={() => dispatch({ type: "increment" })}>+</button>
       <button onClick={() => dispatch({ type: "decrement" })}>-</button>
     </div>
-  )
+  );
 }
 ```
 

@@ -1,0 +1,180 @@
+# =============================================================================
+# КОНФИГУРАЦИЯ МАППИНГА ТЕХНОЛОГИЙ
+# =============================================================================
+#
+# Этот файл определяет как технологии (папки с документацией) 
+# соотносятся с основными специальностями в базе данных.
+#
+# НАЗНАЧЕНИЕ:
+# - Автоматическая категоризация документов при сканировании
+# - Определение приоритетов для сортировки
+# - Добавление описаний для подкатегорий
+# - Поддержка документов в нескольких категориях
+#
+# СТРУКТУРА ФАЙЛА:
+# Технология:
+#   specialty: ОсновнаяСпециальность или Frontend,Backend для нескольких
+#   priority: число (меньше = выше приоритет)
+#   description: Описание технологии
+#
+# ПОДДЕРЖИВАЕМЫЕ КАТЕГОРИИ:
+# - Frontend: Веб-разработка, UI/UX, браузерные технологии
+# - Backend: Серверная разработка, API, базы данных
+#
+# =============================================================================
+
+# =============================================================================
+# СПЕЦИАЛЬНЫЕ ФАЙЛЫ
+# =============================================================================
+
+index.md:
+  specialty: Frontend
+  priority: 0
+  description: Главная страница
+
+Настройки:
+  specialty: Frontend
+  priority: 0
+  description: Настройки проекта
+
+Навигация:
+  specialty: Frontend
+  priority: 0
+  description: Навигация по сайту
+
+other themes:
+  specialty: Frontend
+  priority: 0
+  description: Другие темы
+
+SoftSkills:
+  specialty: Frontend,Backend
+  priority: 0
+  description: Soft Skills
+
+Frontend:
+  specialty: Frontend
+  priority: 0
+  description: Frontend разработка
+
+Backend:
+  specialty: Backend
+  priority: 0
+  description: Backend разработка
+
+# =============================================================================
+# FRONTEND ТЕХНОЛОГИИ
+# =============================================================================
+
+HTML:
+  specialty: Frontend
+  priority: 1
+  description: Язык разметки гипертекста
+
+CSS:
+  specialty: Frontend
+  priority: 2
+  description: Каскадные таблицы стилей
+
+JSCore:
+  specialty: Frontend
+  priority: 3
+  description: Основы JavaScript
+
+State Managers:
+  specialty: Frontend
+  priority: 4
+  description: Управление состоянием в React приложениях
+
+ReactCore:
+  specialty: Frontend
+  priority: 5
+  description: Основы React
+
+TypeScript:
+  specialty: Frontend
+  priority: 6
+  description: Типизированный JavaScript
+
+Next.js:
+  specialty: Frontend
+  priority: 7
+  description: React фреймворк
+
+Remix.run:
+  specialty: Frontend
+  priority: 8
+  description: Full stack React фреймворк
+
+Jest, RTL:
+  specialty: Frontend
+  priority: 9
+  description: Тестирование React приложений
+
+Настройка окружения:
+  specialty: Frontend
+  priority: 10
+  description: Настройка окружения разработки
+
+Контекстные веб-приложения:
+  specialty: Frontend
+  priority: 11
+  description: Контекстные веб-приложения
+
+Архитектура Веб-приложений:
+  specialty: Frontend
+  priority: 12
+  description: Архитектура и инфраструктура веб-приложений
+
+Решение задач:
+  specialty: Frontend
+  priority: 13
+  description: Практические задачи
+
+Рабочие заметки:
+  specialty: Frontend
+  priority: 14
+  description: Рабочие заметки
+
+Разные заметки:
+  specialty: Frontend
+  priority: 15
+  description: Различные заметки
+
+# =============================================================================
+# BACKEND ТЕХНОЛОГИИ
+# =============================================================================
+
+Java:
+  specialty: Backend
+  priority: 1
+  description: Серверный язык программирования
+
+Node.js:
+  specialty: Backend
+  priority: 2
+  description: JavaScript runtime для сервера
+
+# =============================================================================
+# УНИВЕРСАЛЬНЫЕ ТЕХНОЛОГИИ (Frontend + Backend)
+# =============================================================================
+
+Git:
+  specialty: Frontend,Backend
+  priority: 1
+  description: Система контроля версий
+
+Браузерное окружение:
+  specialty: Frontend,Backend
+  priority: 2
+  description: Браузерное окружение и Web APIs
+
+Паттерны:
+  specialty: Frontend,Backend
+  priority: 3
+  description: Паттерны программирования и архитектуры
+
+INFOSEC:
+  specialty: Frontend,Backend
+  priority: 4
+  description: Информационная безопасность

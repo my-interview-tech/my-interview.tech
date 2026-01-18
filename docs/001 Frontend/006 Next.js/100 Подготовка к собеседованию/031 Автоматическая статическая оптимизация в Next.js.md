@@ -1,14 +1,24 @@
 ---
+uid: "-T9sPhx-Juu3fUTKtP7iv"
 title: Автоматическая статическая оптимизация в Next.js
-draft: false
 tags:
   - NextJS
   - getStaticProps
   - getServerSideProps
 info:
-  - https://nextjs.org/docs/pages/building-your-application/rendering/automatic-static-optimization
-  - https://www.geeksforgeeks.org/next-js-automatic-static-optimization/
+  - >-
+    https://nextjs.org/docs/pages/building-your-application/rendering/automatic-static-optimization
+  - "https://www.geeksforgeeks.org/next-js-automatic-static-optimization/"
+draft: false
+technology: Next.js
+specialty: Frontend
+tools: []
+order: 31
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Автоматическая статическая оптимизация — это мощная функция, которая позволяет автоматически преобразовывать страницы в статический HTML, если они не запрашивают данные из внешних источников. Это устраняет необходимость в рендеринге на стороне сервера во время выполнения для страниц, которые полагаются только на данные на стороне клиента.
 
 Как это работает
@@ -26,8 +36,8 @@ info:
 
 - **Кэш на стороне клиента**: Поскольку отдельные пользователи могут получать кэшированные статические страницы, данные на стороне клиента могут устаревать. Техники, такие как инкрементальная статическая регенерация (ISR), обеспечивают лучшие гарантии свежести, обновляя страницы через заданные интервалы.
 - **Зависимости от данных**: Страницы, зависящие от свежих внешних данных, нуждаются в рендеринге на стороне сервера или гибридном рендеринге. В противном случае они рискуют обслуживать устаревший контент.
-   
-Пример кода: 
+
+Пример кода:
 
 Использование `getStaticProps` и `getServerSideProps`
 
@@ -56,6 +66,6 @@ function Product({ product }) {
 
 Этот пример демонстрирует, как можно использовать `getStaticProps` для статической оптимизации страницы, что позволяет Next.js генерировать статический HTML во время сборки. Если требуется реальное время данных, можно использовать `getServerSideProps` для рендеринга страницы на стороне сервера при каждом запросе.
 
-___
+---
 
 [[006 Next.js|Назад]]

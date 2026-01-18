@@ -1,12 +1,21 @@
 ---
+uid: Kbm6VSkklRWNMlD-5pjWg
 title: Что такое инверсия наследования (Inheritance Inversion)?
-draft: false
 tags:
   - "#React"
   - "#container"
   - "#presentation"
-info:
+info: []
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 86
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _Инверсия наследования (Inheritance Inversion)_ - это паттерн проектирования, который используется в React для разделения логики компонента от его рендеринга. Вместо того, чтобы наследовать поведение компонента от базового класса, мы создаем компонент, который принимает функцию, которая определяет, как компонент должен быть отображен.
 
 Этот паттерн позволяет создавать более гибкие и переиспользуемые компоненты, которые могут быть адаптированы к различным сценариям использования.
@@ -21,14 +30,14 @@ _Инверсия наследования (Inheritance Inversion)_ - это п�
 ```jsx
 class UserListContainer extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { users: [] }
+    super(props);
+    this.state = { users: [] };
   }
 
   componentDidMount() {
     fetch("/api/users")
       .then((response) => response.json())
-      .then((users) => this.setState({ users }))
+      .then((users) => this.setState({ users }));
   }
 
   handleDeleteUser(userId) {
@@ -36,7 +45,12 @@ class UserListContainer extends React.Component {
   }
 
   render() {
-    return <UserListPresentation users={this.state.users} onDeleteUser={this.handleDeleteUser} />
+    return (
+      <UserListPresentation
+        users={this.state.users}
+        onDeleteUser={this.handleDeleteUser}
+      />
+    );
   }
 }
 
@@ -45,11 +59,12 @@ function UserListPresentation(props) {
     <ul>
       {props.users.map((user) => (
         <li key={user.id}>
-          {user.name} <button onClick={() => props.onDeleteUser(user.id)}>Delete</button>
+          {user.name}{" "}
+          <button onClick={() => props.onDeleteUser(user.id)}>Delete</button>
         </li>
       ))}
     </ul>
-  )
+  );
 }
 ```
 

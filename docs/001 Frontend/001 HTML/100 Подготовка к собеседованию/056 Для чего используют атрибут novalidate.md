@@ -1,11 +1,20 @@
 ---
+uid: kBYABjfiwNiW_fFa4tJUt
 title: Для чего используют атрибут `novalidate`?
-draft: false
 tags:
   - "#HTML"
   - "#novalidate"
-info:
+info: []
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 56
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704022133.png|600]]
 
 Атрибут `novalidate` используется для отключения стандартной валидации формы браузером при ее отправке.
@@ -19,11 +28,11 @@ info:
 ```html
 <form action="/submit" method="post" novalidate>
   <label for="name">Имя:</label>
-  <input type="text" id="name" name="name" required>
-  <br>
+  <input type="text" id="name" name="name" required />
+  <br />
   <label for="email">Email:</label>
-  <input type="email" id="email" name="email" required>
-  <br>
+  <input type="email" id="email" name="email" required />
+  <br />
   <button type="submit">Отправить</button>
 </form>
 ```

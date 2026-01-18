@@ -1,12 +1,21 @@
 ---
-title: Разница между Long-Polling, Websockets и Server-Sent Events
-draft: false
+uid: HJbxB5UTPss0LPSMV4bfi
+title: "Разница между Long-Polling, Websockets и Server-Sent Events"
 tags:
   - Long-Polling
   - webSocket
   - SSE
-info:
+info: []
+draft: false
+technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
+tools: []
+order: 36
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703191342.png|600]]
 
 _Long-Polling, WebSockets и Server-Sent Events (SSE)_ - это три разных метода для обновления содержимого веб-страницы без необходимости перезагрузки страницы. Каждый из них имеет свои особенности и применяется в зависимости от потребностей приложения.

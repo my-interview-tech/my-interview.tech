@@ -1,11 +1,20 @@
 ---
+uid: LMGc41lTn9DIg8oVI6vVX
 title: Что такое CSS-атрибут (`attr`)?
-draft: false
 tags:
   - "#CSS"
   - "#attr"
-info:
+info: []
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 38
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704030933.png|600]]
 
 _CSS-атрибут (`attr`)_ - это функция CSS, которая позволяет использовать значения атрибутов HTML-элементов в CSS-правилах. Она используется для динамического задания значений свойств CSS на основе значений атрибутов HTML.

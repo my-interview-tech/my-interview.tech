@@ -1,12 +1,21 @@
 ---
+uid: VXe5dLutbGX5M0zAaJdJZ
 title: Разница между function declaration и function expression?
-draft: false
 tags:
   - "#JavaScript"
   - "#function-declaration"
   - "#function-expression"
-info:
+info: []
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 69
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230702141055.png|600]]
 
 В JavaScript существует два способа создания функций: с помощью _объявления функции (function declaration)_ и с помощью _выражения функции (function expression)_.
@@ -17,14 +26,14 @@ info:
 
 ```javascript
 function add(a, b) {
-  return a + b
+  return a + b;
 }
 ```
 
 Эта функция может быть вызвана в любой части кода, даже до ее определения:
 
 ```javascript
-console.log(add(2, 3)) // Выводит 5
+console.log(add(2, 3)); // Выводит 5
 ```
 
 2. _Выражение функции (function expression):_
@@ -33,14 +42,14 @@ console.log(add(2, 3)) // Выводит 5
 
 ```javascript
 var add = function (a, b) {
-  return a + b
-}
+  return a + b;
+};
 ```
 
 В этом примере функция называется "add" и определяется как анонимная функция, которая присваивается переменной "add". Эта функция не может быть вызвана до ее определения:
 
 ```javascript
-console.log(add(2, 3)) // Ошибка: add is not a function
+console.log(add(2, 3)); // Ошибка: add is not a function
 ```
 
 Разница между объявлением функции и выражением функции заключается в том, что объявление функции создает функцию, которая может быть вызвана в любой части кода до ее определения, а выражение функции создает функцию, которая может быть вызвана только после ее определения. Объявление функции обычно используется для создания функций, которые используются во всем коде, а выражение функции обычно используется для создания функций, которые используются только в определенном месте кода или в качестве значения переменной.

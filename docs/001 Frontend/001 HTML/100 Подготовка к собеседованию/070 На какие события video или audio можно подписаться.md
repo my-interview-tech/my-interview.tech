@@ -1,12 +1,21 @@
 ---
+uid: vQy-RYQeEFJloC6Kn8ko7
 title: На какие события video или audio можно подписаться?
-draft: false
 tags:
   - "#HTML"
   - "#video"
   - "#audio"
-info:
+info: []
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 70
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 HTML5 видео и аудио элементы (теги `<video>` и `<audio>`) поддерживают ряд событий, на которые можно подписаться при помощи JavaScript. Некоторые из наиболее часто используемых событий:
 
 1. `play` - событие, которое возникает, когда пользователь начинает воспроизведение медиа-контента;
@@ -21,7 +30,7 @@ HTML5 видео и аудио элементы (теги `<video>` и `<audi
 
 ```js
 const myVideo = document.getElementById("my-video");
-myVideo.addEventListener("play", function() {
+myVideo.addEventListener("play", function () {
   console.log("Воспроизведение начато");
 });
 ```

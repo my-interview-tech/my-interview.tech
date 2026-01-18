@@ -1,13 +1,22 @@
 ---
+uid: _tzPbLfh3VGFU81AtTojK
 title: setState - обновление элемента
-draft: false
 tags:
   - "#React"
   - "#setState"
 info:
-  - https://ru.reactjs.org/docs/state-and-lifecycle.html
-  - https://ru.reactjs.org/docs/lifting-state-up.html
+  - "https://ru.reactjs.org/docs/state-and-lifecycle.html"
+  - "https://ru.reactjs.org/docs/lifting-state-up.html"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 24
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 // oldObj нельзя изменять
 `oldObj = oldArr[idx];`
 
@@ -15,11 +24,12 @@ info:
 `newObj = {... oldObj , prop: newValue };`
 
 ```jsx
-newArr = [... oldArr.slice(0, idx)]
-newObj = [...oldArr.slice(idx +1)];
+newArr = [...oldArr.slice(0, idx)];
+newObj = [...oldArr.slice(idx + 1)];
 ```
 
-_____
+---
+
 ## Введение
 
 Часто несколько компонентов должны отражать одни и те же изменяющиеся данные. Мы рекомендуем поднимать общее состояние до ближайшего общего предка. Давайте посмотрим, как это работает.
@@ -31,10 +41,10 @@ _____
 ```jsx
 function BoilingVerdict(props) {
   if (props.celsius >= 100) {
-    return <p>Вода закипит.</p>;  
-    }
-  return <p>Вода не закипит.</p>;
+    return <p>Вода закипит.</p>;
   }
+  return <p>Вода не закипит.</p>;
+}
 ```
 
 Затем мы создадим компонент `Calculator`. Он рендерит `<input>` для ввода температуры и сохраняет её значение в `this.state.temperature`.
@@ -46,25 +56,22 @@ class Calculator extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.state = {temperature: ''};  
-    }
+    this.state = { temperature: "" };
+  }
 
   handleChange(e) {
-    this.setState({temperature: e.target.value});  
-    }
+    this.setState({ temperature: e.target.value });
+  }
 
   render() {
-    const temperature = this.state.temperature;    
-    
+    const temperature = this.state.temperature;
+
     return (
       <fieldset>
         <legend>Введите температуру в градусах Цельсия:</legend>
-        <input          
-	        value={temperature}          
-	        onChange={this.handleChange} />        
-	    <BoilingVerdict          
-		    celsius={parseFloat(temperature)} />      
-        </fieldset>
+        <input value={temperature} onChange={this.handleChange} />
+        <BoilingVerdict celsius={parseFloat(temperature)} />
+      </fieldset>
     );
   }
 }
@@ -77,26 +84,25 @@ class Calculator extends React.Component {
 Мы можем начать с извлечения компонента `TemperatureInput` из `Calculator`. Добавим в него новый проп `scale`, значением которого может быть либо `"c"` или `"f"`:
 
 ```jsx
-const scaleNames = {  c: 'Цельсия',  f: 'Фаренгейта'};
+const scaleNames = { c: "Цельсия", f: "Фаренгейта" };
 class TemperatureInput extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.state = {temperature: ''};
+    this.state = { temperature: "" };
   }
 
   handleChange(e) {
-    this.setState({temperature: e.target.value});
+    this.setState({ temperature: e.target.value });
   }
 
   render() {
     const temperature = this.state.temperature;
-    const scale = this.props.scale;    
+    const scale = this.props.scale;
     return (
       <fieldset>
-        <legend>Введите температуру в градусах {scaleNames[scale]}:</legend>        
-        <input value={temperature}
-               onChange={this.handleChange} />
+        <legend>Введите температуру в градусах {scaleNames[scale]}:</legend>
+        <input value={temperature} onChange={this.handleChange} />
       </fieldset>
     );
   }
@@ -110,9 +116,9 @@ class Calculator extends React.Component {
   render() {
     return (
       <div>
-        <TemperatureInput scale="c" />        
-        <TemperatureInput scale="f" />      
-    </div>
+        <TemperatureInput scale="c" />
+        <TemperatureInput scale="f" />
+      </div>
     );
   }
 }
@@ -128,11 +134,11 @@ class Calculator extends React.Component {
 
 ```jsx
 function toCelsius(fahrenheit) {
-  return (fahrenheit - 32) * 5 / 9;
+  return ((fahrenheit - 32) * 5) / 9;
 }
 
 function toFahrenheit(celsius) {
-  return (celsius * 9 / 5) + 32;
+  return (celsius * 9) / 5 + 32;
 }
 ```
 
@@ -144,7 +150,7 @@ function toFahrenheit(celsius) {
 function tryConvert(temperature, convert) {
   const input = parseFloat(temperature);
   if (Number.isNaN(input)) {
-    return '';
+    return "";
   }
   const output = convert(input);
   const rounded = Math.round(output * 1000) / 1000;
@@ -163,11 +169,11 @@ class TemperatureInput extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.state = {temperature: ''};  
+    this.state = {temperature: ''};
     }
 
   handleChange(e) {
-    this.setState({temperature: e.target.value});  
+    this.setState({temperature: e.target.value});
     }
 
   render() {
@@ -217,15 +223,16 @@ class TemperatureInput extends React.Component {
   }
 
   handleChange(e) {
-    this.props.onTemperatureChange(e.target.value);  }
+    this.props.onTemperatureChange(e.target.value);
+  }
 
   render() {
-    const temperature = this.props.temperature;    const scale = this.props.scale;
+    const temperature = this.props.temperature;
+    const scale = this.props.scale;
     return (
       <fieldset>
         <legend>Введите градусы по шкале {scaleNames[scale]}:</legend>
-        <input value={temperature}
-               onChange={this.handleChange} />
+        <input value={temperature} onChange={this.handleChange} />
       </fieldset>
     );
   }
@@ -264,24 +271,38 @@ class Calculator extends React.Component {
     super(props);
     this.handleCelsiusChange = this.handleCelsiusChange.bind(this);
     this.handleFahrenheitChange = this.handleFahrenheitChange.bind(this);
-    this.state = {temperature: '', scale: 'c'};  }
+    this.state = { temperature: "", scale: "c" };
+  }
 
   handleCelsiusChange(temperature) {
-    this.setState({scale: 'c', temperature});  }
+    this.setState({ scale: "c", temperature });
+  }
 
   handleFahrenheitChange(temperature) {
-    this.setState({scale: 'f', temperature});  }
+    this.setState({ scale: "f", temperature });
+  }
 
   render() {
-    const scale = this.state.scale;    const temperature = this.state.temperature;    const celsius = scale === 'f' ? tryConvert(temperature, toCelsius) : temperature;    const fahrenheit = scale === 'c' ? tryConvert(temperature, toFahrenheit) : temperature;
+    const scale = this.state.scale;
+    const temperature = this.state.temperature;
+    const celsius =
+      scale === "f" ? tryConvert(temperature, toCelsius) : temperature;
+    const fahrenheit =
+      scale === "c" ? tryConvert(temperature, toFahrenheit) : temperature;
     return (
       <div>
         <TemperatureInput
           scale="c"
-          temperature={celsius}          onTemperatureChange={this.handleCelsiusChange} />        <TemperatureInput
+          temperature={celsius}
+          onTemperatureChange={this.handleCelsiusChange}
+        />{" "}
+        <TemperatureInput
           scale="f"
-          temperature={fahrenheit}          onTemperatureChange={this.handleFahrenheitChange} />        <BoilingVerdict
-          celsius={parseFloat(celsius)} />      </div>
+          temperature={fahrenheit}
+          onTemperatureChange={this.handleFahrenheitChange}
+        />{" "}
+        <BoilingVerdict celsius={parseFloat(celsius)} />{" "}
+      </div>
     );
   }
 }
@@ -291,14 +312,14 @@ class Calculator extends React.Component {
 
 Давайте посмотрим, что происходит, когда вы редактируете поле ввода:
 
--   React вызывает функцию, указанную в `onChange` на DOM-элементе `<input>`. В нашем случае это метод `handleChange()` компонента `TemperatureInput`.
--   Метод `handleChange()` в компоненте `TemperatureInput` вызывает `this.props.onTemperatureChange()` с новым требуемым значением. Его пропсы, включая `onTemperatureChange`, были предоставлены его родительским компонентом — `Calculator`.
--   Когда `Calculator` рендерился ранее, он указал, что `onTemperatureChange` в компоненте `TemperatureInput` по шкале Цельсия — это метод `handleCelsiusChange` в компоненте `Calculator`, а `onTemperatureChange` компонента `TemperatureInput` по шкале Фаренгейта — это метод `handleFahrenheitChange` в компоненте `Calculator`. Поэтому один из этих двух методов `Calculator` вызывается в зависимости от того, какое поле ввода редактируется.
--   Внутри этих методов компонент `Calculator` указывает React сделать повторный рендер себя, используя вызов `this.setState()` со значением нового поля ввода и текущей шкалой.
--   React вызывает метод `render()` компонента `Calculator`, чтобы узнать, как должен выглядеть UI. Значения обоих полей ввода пересчитываются исходя из текущей температуры и шкалы. В этом методе выполняется конвертация температуры.
--   React вызывает методы `render()` конкретных компонентов `TemperatureInput` с их новыми пропсами, переданными компонентом `Calculator`. Он узнает, как должен выглядеть UI.
--   React вызывает метод `render()` компонента `Boiling Verdict`, передавая температуру в градусах Цельсия как проп.
--   React DOM обновляет DOM, чтобы привести его в соответствие с нужными нам значениями в полях ввода. Отредактированное нами только что поле ввода получает его текущее значение, а другое поле ввода обновляется конвертированным значением температуры.
+- React вызывает функцию, указанную в `onChange` на DOM-элементе `<input>`. В нашем случае это метод `handleChange()` компонента `TemperatureInput`.
+- Метод `handleChange()` в компоненте `TemperatureInput` вызывает `this.props.onTemperatureChange()` с новым требуемым значением. Его пропсы, включая `onTemperatureChange`, были предоставлены его родительским компонентом — `Calculator`.
+- Когда `Calculator` рендерился ранее, он указал, что `onTemperatureChange` в компоненте `TemperatureInput` по шкале Цельсия — это метод `handleCelsiusChange` в компоненте `Calculator`, а `onTemperatureChange` компонента `TemperatureInput` по шкале Фаренгейта — это метод `handleFahrenheitChange` в компоненте `Calculator`. Поэтому один из этих двух методов `Calculator` вызывается в зависимости от того, какое поле ввода редактируется.
+- Внутри этих методов компонент `Calculator` указывает React сделать повторный рендер себя, используя вызов `this.setState()` со значением нового поля ввода и текущей шкалой.
+- React вызывает метод `render()` компонента `Calculator`, чтобы узнать, как должен выглядеть UI. Значения обоих полей ввода пересчитываются исходя из текущей температуры и шкалы. В этом методе выполняется конвертация температуры.
+- React вызывает методы `render()` конкретных компонентов `TemperatureInput` с их новыми пропсами, переданными компонентом `Calculator`. Он узнает, как должен выглядеть UI.
+- React вызывает метод `render()` компонента `Boiling Verdict`, передавая температуру в градусах Цельсия как проп.
+- React DOM обновляет DOM, чтобы привести его в соответствие с нужными нам значениями в полях ввода. Отредактированное нами только что поле ввода получает его текущее значение, а другое поле ввода обновляется конвертированным значением температуры.
 
 Каждое обновление проходит через одни и те же шаги, поэтому поля ввода остаются синхронизированными.
 
@@ -314,4 +335,4 @@ class Calculator extends React.Component {
 
 ![Мониторинг состояния в React DevTools](https://ru.reactjs.org/ef94afc3447d75cdc245c77efb0d63be/react-devtools-state.gif)
 
-___
+---

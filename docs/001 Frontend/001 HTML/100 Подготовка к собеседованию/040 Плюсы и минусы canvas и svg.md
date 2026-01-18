@@ -1,12 +1,21 @@
 ---
+uid: hFbULXOed4RoUspjUIKVP
 title: Плюсы и минусы `canvas` и `svg`?
-draft: false
 tags:
   - "#HTML"
   - "#canvas"
   - "#svg"
-info:
+info: []
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 40
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704020921.png|600]]
 
 Вот некоторые плюсы и минусы использования `canvas` и `SVG`:

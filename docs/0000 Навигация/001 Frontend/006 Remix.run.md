@@ -1,17 +1,25 @@
 ---
+uid: PoYscsyRk9WV2NAvfj1o4
 title: 006 Remix.run
 draft: true
+technology: Frontend
+specialty: Frontend
+tools: []
+order: 6
+access: free
+created_at: "2025-02-03T01:48:15+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
 
 # Вопросы
 
-* [Remix.run - Официальная документация](https://remix.run)
-* [GitHub проекта](https://github.com/remix-run/remix)
+- [Remix.run - Официальная документация](https://remix.run)
+- [GitHub проекта](https://github.com/remix-run/remix)
 
 https://habr.com/ru/companies/timeweb/articles/717156/
 https://habr.com/ru/companies/timeweb/articles/720642/
-___
 
+---
 
 ### **1. Введение в Remix.run**
 
@@ -164,6 +172,3 @@ ___
 - [[Как обработать ошибку 404 через json в loader|Как обработать ошибку 404 через json в loader?]]
 
 ### **18. Общие вопросы**
-
-
-

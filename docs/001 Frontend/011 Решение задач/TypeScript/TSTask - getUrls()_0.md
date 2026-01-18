@@ -1,12 +1,21 @@
 ---
+uid: UTNWkFpzpm8oncNr9-WqR
 title: TSTask - getUrls()_0
-draft: false
 tags:
   - "#TypeScript"
   - "#tsTask"
   - "#promise"
   - "#SignalINC"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```TS
 /**
 Необходимо реализовать функцию, которая опросит урлы и вернет массив ответов
@@ -30,13 +39,13 @@ const urlsToFetch = Array(30)
   .map((fn, index) => fn(index));
 ```
 
-**Ответ
+\*\*Ответ
 
 ```ts
 /** Решение задачи                */
 const paralellUploading = (
   urls: string[],
-  parallelLimit: number
+  parallelLimit: number,
 ): Promise<ResponseDataType[]> => {
   throw new Error("notImplemented");
 };
@@ -45,7 +54,6 @@ const responsArr = paralellUploading(urlsToFetch, 3);
 console.log(responsArr);
 ```
 
-
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

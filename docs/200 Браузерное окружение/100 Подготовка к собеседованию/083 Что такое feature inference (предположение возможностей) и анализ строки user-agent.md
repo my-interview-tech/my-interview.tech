@@ -1,11 +1,22 @@
 ---
-title: Что такое feature inference (предположение возможностей) и анализ строки user-agent?
-draft: false
+uid: uwnaVKsEEJmMl6UibII7X
+title: >-
+  Что такое feature inference (предположение возможностей) и анализ строки
+  user-agent?
 tags:
   - feature-inference
   - browser
-info:
+info: []
+draft: false
+technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
+tools: []
+order: 83
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _Feature inference_ - это подход в веб-разработке, основанный на **предположении возможностей браузера** на основе имеющихся данных, таких как наличие определенных функций и свойств в объекте окна (window object) или других объектах JavaScript.
 
 Например, если разработчик знает, что большинство современных браузеров поддерживают определенный метод JavaScript, то он может использовать его, даже если не проверил его наличие через feature detection. Такой подход называется feature inference, или предположением возможностей.

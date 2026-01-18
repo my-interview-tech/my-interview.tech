@@ -1,17 +1,26 @@
 ---
+uid: 5z_CX0u6VHgBOZ46jNEm2
 title: Что такое `ReactDOMServer`?
-draft: false
 tags:
   - "#React"
   - "#reactDOMServer"
   - "#SSR"
 info:
-  - https://habr.com/ru/articles/551948/
-  - https://www.youtube.com/watch?v=p0hogFeLk40
+  - "https://habr.com/ru/articles/551948/"
+  - "https://www.youtube.com/watch?v=p0hogFeLk40"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 17
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704173433.png|600]]
 
-**`ReactDOMServer`
+\*\*`ReactDOMServer`
 
 `ReactDOMServer` - это _объект, который предоставляет инструменты для рендеринга React-компонентов на серверной стороне._ Он используется для создания статических HTML-страниц, которые могут быть отправлены клиенту для отображения.
 
@@ -20,7 +29,7 @@ info:
 - `renderToString()`: метод, который используется для рендеринга React-компонентов в HTML-строку. Он возвращает строку, содержащую HTML-разметку, которая соответствует виртуальному DOM, созданному React-компонентом.
 - `renderToStaticMarkup()`: метод, который используется для рендеринга React-компонентов в статическую HTML-разметку. Он возвращает строку, содержащую элементы HTML без обработки событий и атрибутов, которые не поддерживаются на стороне сервера.
 
-**`Server-side rendering`
+\*\*`Server-side rendering`
 
 **Server Side Rendering (`SSR`)** означает, что ваше приложение будет отображаться на стороне сервера, а уже отрендеренный HTML будет отправлен на клиент. Это отличается от того, что обычно происходит в Single Page Applications (`SPA`), где все рендерится на стороне клиента (Client Side Rendering).
 

@@ -1,12 +1,21 @@
 ---
+uid: wA4GwWx8R1Uj1-DvixMrg
 title: Что такое бандл (bundle)?
-draft: false
 tags:
   - "#webpack"
   - "#bundle"
 info:
-  - https://habr.com/ru/companies/jugru/articles/342842/
+  - "https://habr.com/ru/companies/jugru/articles/342842/"
+draft: false
+technology: Архитектура Веб-приложений
+specialty: Frontend
+tools: []
+order: 4
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704145355.png|]]
 
 _Бандл (англ. `bundle`)_ - это файл или набор файлов, содержащих в себе все необходимые компоненты, библиотеки и ресурсы для запуска приложения или веб-страницы. _Бандл создается путем объединения различных файлов в один файл, чтобы уменьшить количество запросов, необходимых для загрузки компонентов приложения._

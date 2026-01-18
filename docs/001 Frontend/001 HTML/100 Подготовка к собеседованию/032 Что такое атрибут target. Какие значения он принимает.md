@@ -1,11 +1,20 @@
 ---
+uid: hxaimgJhxs2Xdyh8Uaoh1
 title: Что такое атрибут `target`? Какие значения он принимает?
-draft: false
 tags:
   - "#HTML"
   - "#target"
-info:
+info: []
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 32
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704020327.png|600]]
 
 Атрибут `target` в HTML используется для указания, в каком окне или фрейме должен быть открыт документ, связанный с ссылкой или формой.

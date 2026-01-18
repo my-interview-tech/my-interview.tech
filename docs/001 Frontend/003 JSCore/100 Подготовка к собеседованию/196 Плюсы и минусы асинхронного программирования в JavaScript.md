@@ -1,11 +1,20 @@
 ---
+uid: w9Z2sTCP3VkVLMPIi2I1o
 title: Плюсы и минусы асинхронного программирования в JavaScript?
-draft: false
 tags:
   - "#JavaScript"
   - "#асинхронность"
-info:
+info: []
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 196
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703123634.png|600]]
 
 Асинхронное программирование в JavaScript имеет свои плюсы и минусы.

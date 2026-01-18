@@ -1,13 +1,22 @@
 ---
+uid: Mzt6M0-7FR3gE6ObrtRbV
 title: Можно ли в JavaScript реализовать абстрактный класс и как это сделать?
-draft: false
 tags:
   - ООП
   - class
   - абстракция
-info:
+info: []
+draft: false
+technology: Подготовка к собеседованиям
+specialty: "Frontend,Backend"
+tools: []
+order: 8
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
-В JavaScript есть несколько способов реализации *абстрактных классов*. Один из таких способов - использование *функций-конструкторов и прототипов*.
+
+В JavaScript есть несколько способов реализации _абстрактных классов_. Один из таких способов - использование _функций-конструкторов и прототипов_.
 
 Вот пример реализации абстрактного класса в JavaScript:
 
@@ -18,7 +27,7 @@ function AbstractClass() {
   }
 }
 
-AbstractClass.prototype.abstractMethod = function() {
+AbstractClass.prototype.abstractMethod = function () {
   throw new Error("Method 'abstractMethod' must be implemented");
 };
 ```
@@ -35,7 +44,7 @@ function ConcreteClass() {
 ConcreteClass.prototype = Object.create(AbstractClass.prototype);
 ConcreteClass.prototype.constructor = ConcreteClass;
 
-ConcreteClass.prototype.abstractMethod = function() {
+ConcreteClass.prototype.abstractMethod = function () {
   // implementation
 };
 ```
@@ -44,6 +53,6 @@ ConcreteClass.prototype.abstractMethod = function() {
 
 Таким образом, используя функции-конструкторы и прототипы, можно реализовать абстрактные классы в JavaScript. Однако, важно помнить, что это не является настоящим абстрактным классом, так как JavaScript не имеет встроенной поддержки для этого. Вместо этого мы используем соглашения и паттерны для достижения того же эффекта.
 
-___
+---
 
 [[200 Браузерное окружение|Назад]]

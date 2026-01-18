@@ -1,13 +1,22 @@
 ---
+uid: ZHuo2kVoZjbejD5WaJiyY
 title: Расскажите о свойстве `text-decoration-skip-ink`
-draft: false
 tags:
   - "#CSS"
   - "#text-decoration-skip-ink"
   - "#text-decoration"
 info:
-  - https://doka.guide/css/text-decoration-skip-ink/
+  - "https://doka.guide/css/text-decoration-skip-ink/"
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 30
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704030608.png|600]]
 
 _Свойство `text-decoration-skip-ink`_ используется для управления тем, как подчеркивание или зачеркивание текста должно обходить метрики букв и символов, что может улучшить читабельность текста.

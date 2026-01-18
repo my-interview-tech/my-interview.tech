@@ -1,11 +1,20 @@
 ---
+uid: 8pB6zYdwsXaMO7PtjRb5F
 title: Что такое WCAG?
-draft: false
 tags:
   - "#HTML"
   - "#WCAG"
-info:
+info: []
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 81
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704125026.png|600]]
 
 _WCAG (Web Content Accessibility Guidelines)_ - это набор рекомендаций и стандартов, разработанных консорциумом W3C, которые помогают создавать веб-сайты и веб-приложения, которые доступны и понятны для людей с различными ограничениями восприятия, такими как слабовидящие, незрячие, глухие, слабослышащие и т.д.

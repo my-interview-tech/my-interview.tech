@@ -1,13 +1,22 @@
 ---
+uid: JeAgSC9cf80szEhEjnFb1
 title: Тестирование с помощью Vitest
-draft: false
 tags:
   - "#testing"
   - "#vitest"
   - "#viteJS"
 info:
-  - https://habr.com/ru/articles/664350/
+  - "https://habr.com/ru/articles/664350/"
+draft: false
+technology: "Jest, RTL"
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ## Вступление
 
 Vitest — это новая среда тестирования на базе viteJS. Он все еще находится в разработке, и некоторые функции могут быть еще не готовы, но это хорошая альтернатива, которую можно попробовать и изучить.
@@ -41,22 +50,18 @@ npm i -D vitest jsdom
 Это должно выглядеть следующим образом:
 
 ```tsx
-import { defineConfig } from 'vite'
-import { svelte } from '@sveltejs/vite-plugin-svelte'
+import { defineConfig } from "vite";
+import { svelte } from "@sveltejs/vite-plugin-svelte";
 
 export default defineConfig({
-  plugins: [
-    svelte({ hot: !process.env.VITEST }),
-  ],
-})
+  plugins: [svelte({ hot: !process.env.VITEST })],
+});
 ```
 
 Я использую переменную env VITEST, чтобы разделить окружение тестов и разработки, но если ваша конфигурация слишком отличается, вы можете использовать другой файл конфигурации для тестов. Есть несколько вариантов сделать это.
 
 - Создайте файл конфигурации с именем vitest.config.ts: он будет иметь приоритет при запуске тестов.
-    
 - Использование флага --config: используйте его как `npx vitest --config <path_to_file>`
-    
 
 ## Написание тестов
 
@@ -103,36 +108,35 @@ export default defineConfig({
 Чтобы написать наш первый набор тестов, давайте создадим файл с именем Counter.spec.ts рядом с нашим компонентом.
 
 ```tsx
-
 // @vitest-environment jsdom
-import { tick } from 'svelte';
-import { describe, expect, it } from 'vitest';
-import Counter from './Counter.svelte';
+import { tick } from "svelte";
+import { describe, expect, it } from "vitest";
+import Counter from "./Counter.svelte";
 
-describe('Counter component', function () {
-  it('creates an instance', function () {
-    const host = document.createElement('div');
+describe("Counter component", function () {
+  it("creates an instance", function () {
+    const host = document.createElement("div");
     document.body.appendChild(host);
     const instance = new Counter({ target: host });
     expect(instance).toBeTruthy();
   });
 
-  it('renders', function () {
-    const host = document.createElement('div');
+  it("renders", function () {
+    const host = document.createElement("div");
     document.body.appendChild(host);
     new Counter({ target: host });
-    expect(host.innerHTML).toContain('Clicks: 0');
+    expect(host.innerHTML).toContain("Clicks: 0");
   });
 
-  it('updates count when clicking a button', async function () {
-    const host = document.createElement('div');
+  it("updates count when clicking a button", async function () {
+    const host = document.createElement("div");
     document.body.appendChild(host);
     new Counter({ target: host });
-    expect(host.innerHTML).toContain('Clicks: 0');
-    const btn = host.getElementsByTagName('button')[0];
+    expect(host.innerHTML).toContain("Clicks: 0");
+    const btn = host.getElementsByTagName("button")[0];
     btn.click();
     await tick();
-    expect(host.innerHTML).toContain('Clicks: 1');
+    expect(host.innerHTML).toContain("Clicks: 1");
   });
 });
 ```
@@ -140,20 +144,19 @@ describe('Counter component', function () {
 Добавление строки комментария `@vitest-environment jsdom` вверху файла позволит нам мокать DOM API для всех тестов в файле. Этого можно избежать в каждом файле с помощью файла конфигурации. Мы также можем удостовериться, что мы импортируем `describe`, `it`, `expect` глобально. Делаем это тоже через конфигурационный файл. Также нам нужно сделать типы доступными, добавив типы `vitest/globals` в ваш файл tsconfig.json (вы можете пропустить это, если не используете TypeScript).
 
 ```tsx
-import { defineConfig } from 'vite'
-import { svelte } from '@sveltejs/vite-plugin-svelte'
+import { defineConfig } from "vite";
+import { svelte } from "@sveltejs/vite-plugin-svelte";
 
 export default defineConfig({
   plugins: [svelte({ hot: !process.env.VITEST })],
   test: {
     globals: true,
-    environment: 'jsdom',
+    environment: "jsdom",
   },
 });
 ```
 
 ```json
-
 {
   "extends": "@tsconfig/svelte/tsconfig.json",
   "compilerOptions": {
@@ -164,7 +167,7 @@ export default defineConfig({
     "baseUrl": ".",
     "allowJs": true,
     "checkJs": true,
-	/**
+    /**
      *Add the next line if using globals
      */
     "types": ["vitest/globals"]
@@ -176,10 +179,10 @@ export default defineConfig({
 Теперь нашим тестовым файлам не нужно импортировать глобальные переменные, и мы можем удалить настройку среды jsdom.
 
 ```tsx
-import { tick } from 'svelte';
-import Counter from './Counter.svelte';
+import { tick } from "svelte";
+import Counter from "./Counter.svelte";
 
-describe('Counter component', function () {
+describe("Counter component", function () {
   // tests are the same
 });
 ```
@@ -189,34 +192,26 @@ describe('Counter component', function () {
 Есть четыре команды для запуска из cli:
 
 - `dev`: запустить vitest в режиме разработки
-    
 - `related`: запускает тесты для списка исходных файлов
-    
 - `run`: запустить тесты один раз
-    
 - `watch`: режим по умолчанию, такой же, как при запуске vitest. Наблюдает за изменениями, а затем повторно запускает тесты.
-    
 
 ### Модификаторы тестов
 
 Существуют модификаторы для тестов, которые изменят способ выполнения ваших тестов.
 
 - .only сосредоточится на одном или нескольких тестах, пропустив остальные
-    
 - .skip пропустит указанный тест
-    
 - .todo пометит тест, которq будtn реализован позже
-    
 - .concurrently будет запускать непрерывные тесты, помеченные как concurrent параллельно. Этот модификатор можно комбинировать с предыдущими. Например: `it.concurrently.todo("сделать что-то асинхронное")`
-    
 
 ## Assertions
 
 Vitest поставляется с assertions, совместимыми с chai и jest
 
 ```tsx
-expect(true).toBeTruthy() //ok
-expect(1).toBe(Math.sqrt(4)) // false
+expect(true).toBeTruthy(); //ok
+expect(1).toBe(Math.sqrt(4)); // false
 ```
 
 Список доступных assertions см. в [документации по API](https://vitest.dev/api/#expect).
@@ -238,18 +233,18 @@ npx vitest --coverage
 Папка coverage будет создана в корне проекта. Вы можете указать желаемый тип вывода в файле конфигурации.
 
 ```tsx
-import { defineConfig } from 'vite';
-import { svelte } from '@sveltejs/vite-plugin-svelte';
+import { defineConfig } from "vite";
+import { svelte } from "@sveltejs/vite-plugin-svelte";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [svelte({ hot: !process.env.VITEST })],
   test: {
     globals: true,
-    environment: 'jsdom',
-    coverage:{
-      reporter:['text', 'json', 'html'] // change this property to the desired output
-    }
+    environment: "jsdom",
+    coverage: {
+      reporter: ["text", "json", "html"], // change this property to the desired output
+    },
   },
 });
 ```
@@ -277,20 +272,20 @@ Vitest поставляется со многими другими функци�
 Если вы работаете над небольшим проектом или только начинаете его, вам может потребоваться адаптировать файл конфигурации, и на этом все. Если вы используете мокинг функции, Vitest использует TinySpy, а для фальшивых таймеров — @sinonjs/fake-timers. Проверьте совместимость. Кроме того, не забудьте импортировать {vi} из vitest, если вы будете его использовать. Еще одна вещь, которую вам может понадобиться настроить, — это установочный файл. Например, чтобы использовать сопоставители jest-dom, мы можем создать установочный файл.
 
 ```tsx
-import '@testing-library/jest-dom'
+import "@testing-library/jest-dom";
 ```
 
 и объявим его в нашем конфигурационном файле.
 
 ```tsx
 export default defineConfig(({ mode }) => ({
-    // ...
-	test: {
-		globals: true,
-		environment: 'jsdom',
-		setupFiles: ['<PATH_TO_SETUP_FILE>']
-	}
-}))
+  // ...
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: ["<PATH_TO_SETUP_FILE>"],
+  },
+}));
 ```
 
 [Вот](https://github.com/vuejs/vitepress/commit/17aaaf0180972b71d0a5369c95a48209e9cbaa01) пример миграции [VitePress](https://vitepress.vuejs.org/) на Vitest. (Есть некоторые изменения в ts-config, но вы можете увидеть, где добавлен vitest, и файл vitest.config.ts)

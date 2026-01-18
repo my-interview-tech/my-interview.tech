@@ -1,13 +1,22 @@
 ---
-title: Что такое фрагмент (`Fragment`)? Почему фрагмент лучше, чем `div`?
-draft: false
+uid: Y_yXMKhcDNx_OUCRr9ZP4
+title: "Что такое фрагмент (`Fragment`)? Почему фрагмент лучше, чем `div`?"
 tags:
   - "#React"
   - "#Fragment"
   - "#div"
 info:
-  - https://ru.legacy.reactjs.org/docs/fragments.html
+  - "https://ru.legacy.reactjs.org/docs/fragments.html"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 39
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 `Fragment <></>` - это компонент React, который позволяет группировать элементы и компоненты без необходимости создания лишних DOM-узлов. _Фрагменты позволяют возвращать несколько элементов из компонента без обертки в общий элемент, такой как `div`._
 
 До появления фрагментов в React, если компонент должен был вернуть несколько элементов, необходимо было обернуть их в общий элемент, например, `div`. Это могло создавать проблемы, если общий элемент не соответствовал требованиям верстки или необходим был более глубокий уровень вложенности.
@@ -25,7 +34,7 @@ class MyComponent extends React.Component {
         <p>Second element</p>
         <p>Third element</p>
       </div>
-    )
+    );
   }
 }
 ```
@@ -43,7 +52,7 @@ class MyComponent extends React.Component {
         <p>Second element</p>
         <p>Third element</p>
       </React.Fragment>
-    )
+    );
   }
 }
 ```

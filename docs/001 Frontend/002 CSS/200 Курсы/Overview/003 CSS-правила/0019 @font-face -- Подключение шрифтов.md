@@ -1,6 +1,6 @@
 ---
+uid: 1IxEENzHf1DTS50L-__XT
 title: "@font-face -- Подключение шрифтов"
-draft: false
 tags:
   - "#HTML"
   - "#CSS"
@@ -8,8 +8,17 @@ tags:
   - "#font"
   - "#font-face"
 info:
-  - https://fonts.google.com/
+  - "https://fonts.google.com/"
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 19
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ## Введение
 
 @fontface указать шрифты для отображения текста на веб-страницах, которые могут быть загружены либо с удалённого сервера, либо с компьютера пользователя.
@@ -24,16 +33,18 @@ info:
 
 ## Использование локального и загружаемого шрифта
 
-Распространённым случаем является одновременное использование url() и local(), чтобы использовать #локальный-шрифт, если он доступен, или иначе скачать копию шрифта. 
+Распространённым случаем является одновременное использование url() и local(), чтобы использовать #локальный-шрифт, если он доступен, или иначе скачать копию шрифта.
 
 Это правило может использоваться не только на верхнем уровне CSS, но и внутри любого @-правила (en-US).
-~~~css
+
+```css
 @font-face {
- font-family: "Open Sans";
- src: url("/fonts/OpenSans-Regular-webfont.woff2") format("woff2"),
-        url("/fonts/OpenSans-Regular-webfont.woff") format("woff");
+   font-family: "Open Sans";
+   src:
+    url("/fonts/OpenSans-Regular-webfont.woff2") format("woff2"),
+            url("/fonts/OpenSans-Regular-webfont.woff") format("woff");
 }
-~~~
+```
 
 ## Подключение шрифта в head-документа
 
@@ -45,7 +56,6 @@ info:
 
 3. Также с помощью функции local можно добавить возможность перед загрузкой шрифта с сервера проверить, установлен ли он на компьютере пользователя. Если да, запроса к серверу за шрифтом не будет — при #рендеринг используется локальная версия
 
-
 ## Подключение шрифтов с помощью Google Fonts
 
 Есть простой и удобный способ подключить нестандартный шрифт — использовать [Google Fonts](https://fonts.google.com/). Это бесплатный сервис, с помощью которого можно подключать шрифты, но не хранить их на своём сервере. Чтобы им воспользоваться, необходимо выбрать шрифт и добавить одно или несколько нужных начертаний, а затем вставить в head ссылку, которую сгенерирует Google Fonts во вкладке Embed.
@@ -54,10 +64,10 @@ info:
 
 Этого достаточно, чтобы шрифт подключился. Теперь его можно использовать в свойстве font-family без каких-либо дополнительных действий.
 
-~~~css
-body{  font-family: "Roboto", "Arial", sans-serif;  
+```css
+body{  font-family: "Roboto", "Arial", sans-serif;
 }
-~~~
+```
 
 ## Подключение шрифтов с помощью @font-face
 
@@ -71,14 +81,15 @@ body{  font-family: "Roboto", "Arial", sans-serif;
 3.  Начертания: жирное, курсивное и так далее. Для каждого начертания нужно отдельное правило @font-face.
 
 Базовый вариант правила:
-~~~css
-@font-face{  font-family: "Roboto";  font-style: normal;  font-weight: 400;  /* Браузер сначала попробует найти шрифт локально */src: local("Roboto"),  
-       /* Если не получилось, загрузит woff2 */       url("/fonts/roboto.woff2") format("woff2"),  
-       /* Если браузер не поддерживает woff2, загрузит woff */       url("/fonts/roboto.woff") format("woff");  
+
+```css
+@font-face{  font-family: "Roboto";  font-style: normal;  font-weight: 400;  /* Браузер сначала попробует найти шрифт локально */src: local("Roboto"),
+       /* Если не получилось, загрузит woff2 */       url("/fonts/roboto.woff2") format("woff2"),
+       /* Если браузер не поддерживает woff2, загрузит woff */       url("/fonts/roboto.woff") format("woff");
 
 
-/* Теперь можно использовать шрифт */body{  font-family: "Roboto", "Arial", sans-serif;  
+/* Теперь можно использовать шрифт */body{  font-family: "Roboto", "Arial", sans-serif;
 }
-~~~
+```
 
 Для улучшения производительности правило @font-face лучше всего прописывать в самом начале CSS-файла. Так браузер сможет раньше начать обработку шрифта.

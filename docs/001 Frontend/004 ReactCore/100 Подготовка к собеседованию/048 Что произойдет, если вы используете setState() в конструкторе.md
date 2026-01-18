@@ -1,13 +1,22 @@
 ---
-title: Что произойдет, если вы используете setState() в конструкторе?
-draft: false
+uid: TVr3epPvenos5NOIlmWs-
+title: "Что произойдет, если вы используете setState() в конструкторе?"
 tags:
   - "#React"
   - "#constructor"
   - "#setState"
   - "#render"
-info:
+info: []
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 48
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Использование `setState()` в конструкторе компонента в React может привести к нежелательным последствиям и ошибкам в работе приложения.
 
 _Конструктор компонента выполняется только один раз при создании компонента, поэтому любые вызовы `setState()` в конструкторе выполнятся до того, как компонент будет отрисован на экране. Это может привести к тому, что компонент будет отрисован с неправильным состоянием, так как состояние еще не было обновлено._
@@ -19,13 +28,13 @@ _Конструктор компонента выполняется только
 ```jsx
 class MyComponent extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { count: 0 }
+    super(props);
+    this.state = { count: 0 };
     // не вызывайте setState() в конструкторе
   }
 
   handleClick() {
-    this.setState({ count: this.state.count + 1 })
+    this.setState({ count: this.state.count + 1 });
   }
 
   render() {
@@ -34,7 +43,7 @@ class MyComponent extends React.Component {
         <p>Count: {this.state.count}</p>
         <button onClick={this.handleClick.bind(this)}>Increment</button>
       </div>
-    )
+    );
   }
 }
 ```

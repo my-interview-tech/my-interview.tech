@@ -1,11 +1,20 @@
 ---
+uid: eQ-fKc6_1huTODQz4CRtx
 title: Расскажите о свойстве `outline`
-draft: false
 tags:
   - "#CSS"
   - "#outline"
-info:
+info: []
+draft: false
+technology: CSS
+specialty: Frontend
+tools: []
+order: 32
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704030700.png|600]]
 
 *Свойство `outline`* в CSS позволяет добавлять контур вокруг элемента на странице. Обычно он используется для создания визуального выделения элемента при фокусировке или наведении на него курсора.

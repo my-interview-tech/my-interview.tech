@@ -1,22 +1,31 @@
 ---
+uid: 6SKxNOfCzgNloUne1fH0y
 title: Что такое RTK Query?
-draft: false
 tags:
   - React
   - RTK-Query
   - redux-toolkit
 info:
-  - https://redux-toolkit.js.org/tutorials/rtk-query
-  - https://habr.com/ru/companies/alfa/articles/705640/
-  - https://habr.com/ru/companies/domrf/articles/736336/
+  - "https://redux-toolkit.js.org/tutorials/rtk-query"
+  - "https://habr.com/ru/companies/alfa/articles/705640/"
+  - "https://habr.com/ru/companies/domrf/articles/736336/"
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
-**Введение
+
+\*\*Введение
 
 **RTK Query** — это мощный инструмент для получения и кэширования данных. _Он предназначен для упрощения распространенных случаев загрузки данных в веб-приложении, избавляя от необходимости вручную писать логику загрузки и кэширования данных._
 
 `RTK Query` — это дополнительный аддон, включенный в пакет `Redux Toolkit`, и его функциональность построена поверх других API в Redux Toolkit.
 
-**Особенности `RTK Query`
+\*\*Особенности `RTK Query`
 
 - Под капотом RTK Query использует `createSlice` и `createAsyncThunk`, которые предоставляет API Redux Toolkit.
 - В RTQ Query взаимодействие с API задается с помощью endpoint, которые определены в момент инициализации API (метод `createApi`, о котором пойдет речь ниже);
@@ -24,13 +33,13 @@ info:
 - RTK Query поддерживает кэширование из коробки.
 - Позволяет решить проблему дедубликации запросов, например, если два компонента на одной странице совершают один и тот же запрос к API, выполнен будет лишь один запрос.
 
-**Недостатки `RTK Query`
+\*\*Недостатки `RTK Query`
 
 - В реальном проекте может быть несколько файлов с различными блоками API, и в этом случае возникает вопрос, как связать всё вместе.
 - Проблема решается тем, что все действия по загрузке, мутированию обновлению кэша, инвалидации в RTQ Query могут быть вызваны с использованием dispatch из любого места приложения.
 - Система тегов непроста и не так прозрачна, как у альтернатив.
 
-**`RTK Query` на практике
+\*\*`RTK Query` на практике
 
 Начнем с создания с так называемого `“API Slice”`, в котором определим базовый URL сервера и эндпоинты, с которым нужно будет взаимодействовать.
 
@@ -41,7 +50,7 @@ info:
 3. `endPoints`. Это набор взаимодействий с API. Существует два вида endpoint: query и mutation
 
 ```jsx
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const starWarsApi = createApi({
   reducerPath: "starWars",
@@ -49,7 +58,7 @@ export const starWarsApi = createApi({
   endpoints: (builder) => ({
     // Define endpoints here
   }),
-})
+});
 ```
 
 Как было указано выше, существует два вида endpoint: `query` и `mutation`. Зададим два query endpoint’а:
@@ -62,7 +71,7 @@ endpoints: (builder) => ({
   getFilmById: builder.query({
     query: (filmId) => `/films/${filmId}?format=json`,
   }),
-})
+});
 ```
 
 В коде выше были добавлены два endpoint:
@@ -80,7 +89,7 @@ _Самое интересное начинается здесь._
 Финальная версия Star Wars API Slice выглядит следующим образом:
 
 ```jsx
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const starWarsApi = createApi({
   reducerPath: "starWars",
   baseQuery: fetchBaseQuery({ baseUrl: "https://swapi.dev/api" }),
@@ -92,37 +101,38 @@ export const starWarsApi = createApi({
       query: (filmId) => `/films/${filmId}?format=json`,
     }),
   }),
-})
-export const { useGetFilmsQuery, useGetFilmByIdQuery } = starWarsApi
+});
+export const { useGetFilmsQuery, useGetFilmByIdQuery } = starWarsApi;
 ```
 
 Метод createApi генерирует `reducer`, который должен быть добавлен в `store`. Также для обеспечения возможностей `RTK Query` (кэширование, инвалидация, polling и др.) необходимо добавить `middleware` как на примере ниже:
 
 ```jsx
-import { configureStore } from "@reduxjs/toolkit"
-import { setupListeners } from "@reduxjs/toolkit/query"
-import { starWarsApi } from "./services/starWarsApi"
+import { configureStore } from "@reduxjs/toolkit";
+import { setupListeners } from "@reduxjs/toolkit/query";
+import { starWarsApi } from "./services/starWarsApi";
 export const store = configureStore({
   reducer: {
     // Add the generated reducer as a specific top-level slice
     [starWarsApi.reducerPath]: starWarsApi.reducer,
   }, // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(starWarsApi.middleware),
-})
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(starWarsApi.middleware),
+});
 // optional, but required for refetchOnFocus/refetchOnReconnect behaviors
 
 // see `setupListeners` docs - takes an optional callback as the 2nd arg for customization
 
-setupListeners(store.dispatch)
+setupListeners(store.dispatch);
 ```
 
 Настройка на этом завершена. Далее рассмотрим использование сгенерированных хуков в React компонентах.
 
 ```jsx
-import { useGetFilmsQuery } from "../reduxStore/services/starWarsApi"
+import { useGetFilmsQuery } from "../reduxStore/services/starWarsApi";
 const FilmsList = () => {
-  const { data, isLoading, error } = useGetFilmsQuery()
+  const { data, isLoading, error } = useGetFilmsQuery();
   return (
     <div>
               <h3>Star Wars Movies</h3>       {" "}
@@ -135,8 +145,8 @@ const FilmsList = () => {
                      {" "}
           {data.results.map((movie) => (
             <section item key={movie.episode_id} xs={4}>
-                              <h2>{movie.title}</h2>                <p>{movie.opening_crawl}</p> 
-                         {" "}
+                              <h2>{movie.title}</h2>               {" "}
+              <p>{movie.opening_crawl}</p>             {" "}
             </section>
           ))}
                    {" "}
@@ -144,9 +154,9 @@ const FilmsList = () => {
       ) : null}
            {" "}
     </div>
-  )
-}
-export default FilmsList
+  );
+};
+export default FilmsList;
 ```
 
 Рассмотрим описанный код выше:

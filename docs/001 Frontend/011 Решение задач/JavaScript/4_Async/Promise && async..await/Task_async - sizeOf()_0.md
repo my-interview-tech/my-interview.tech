@@ -1,12 +1,21 @@
 ---
+uid: wZND5MzrXb0d95gzDrdlC
 title: Task_async - sizeOf()_0
-draft: false
 tags:
   - "#JavaScript"
   - "#taskJS"
   - "#promise"
   - "#сбербанк"
+draft: false
+technology: Решение задач
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ```js
 // Реализовать поддержку Promise для sizeOf
 // Сделать функцию asyncSizeOf возвращающую результат через Promise
@@ -42,6 +51,6 @@ const sizes: Size[] = await fileNamesToSize(fileNames)
 
 ```
 
-___
+---
 
 [[011 Решение задач JS, TS и React|Назад]]

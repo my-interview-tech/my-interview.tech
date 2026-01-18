@@ -1,6 +1,6 @@
 ---
+uid: dQ3z5dAw3onuU9RFccnRa
 title: Объясните концепцию динамической маршрутизации в Next.js
-draft: false
 tags:
   - NextJS
   - pages
@@ -9,9 +9,19 @@ tags:
   - next/link
   - Link
 info:
-  - https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes
-  - https://www.geeksforgeeks.org/next-js-routing/
+  - >-
+    https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes
+  - "https://www.geeksforgeeks.org/next-js-routing/"
+draft: false
+technology: Next.js
+specialty: Frontend
+tools: []
+order: 14
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 Динамическая маршрутизация в Next.js позволяет создавать маршруты для страниц с динамическими параметрами, что дает возможность создавать страницы, которые могут обрабатывать различные данные или контент на основе значений этих параметров. Вместо создания отдельной страницы для каждого варианта, вы можете использовать единый шаблон страницы и динамически генерировать контент на основе предоставленных параметров.
 
 Next.js использует файловую систему маршрутизации, где каждая страница в директории `pages` соответствует маршруту. Например, если вы создадите файл с именем `about.js`, он будет доступен по адресу `/about`.
@@ -40,6 +50,6 @@ export default function Post() {
 
 Динамическая маршрутизация в Next.js позволяет создавать гибкие и мощные приложения, где каждая страница может адаптироваться к различным входным данным, обеспечивая удобство и эффективность в управлении контентом.
 
-___
+---
 
 [[006 Next.js|Назад]]

@@ -1,6 +1,6 @@
 ---
+uid: wfOCbteoc5hLg7WVIhZt3
 title: CallBack функции
-draft: false
 tags:
   - "#JavaScript"
   - "#callback"
@@ -10,24 +10,36 @@ tags:
 info:
   - "[[065 Promise|Promise]]"
   - "[[Загрузка ресурсов onload и onerror]]"
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 64
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![Callback](https://www.youtube.com/watch?v=sB-KTgAhZUQ)
 
 ![Callback функции в JavaScript, синхронные и асинхронные callback, callback hell](https://www.youtube.com/watch?v=36T9wXJKfuw)
 
 ![Вебинар: Асинхронность в JavaScript. Таймеры, промисы, async/await](https://www.youtube.com/watch?v=Ih6Q7ka2eSQ)
 
-_____
+---
+
 ## Введение
 
-Многие действия в JavaScript _асинхронные_.
+Многие действия в JavaScript *асинхронные*.
 Например, рассмотрим функцию `loadScript(src)`:
-~~~javascript
-function loadScript(src) {   
-	let script = document.createElement('script');   
-	script.src = src;   
+
+```javascript
+function loadScript(src) {
+	let script = document.createElement('script');
+	script.src = src;
 	document.head.append(script); }`
-~~~
+```
+
 Эта функция загружает на страницу новый скрипт. Когда в тело документа добавится конструкция `<script src="…">`, браузер загрузит скрипт и выполнит его.
 
 Вот пример использования этой функции:
@@ -43,47 +55,57 @@ function loadScript(src) {
 Мы хотели бы использовать новый скрипт, как только он будет загружен. Скажем, он объявляет новую функцию, которую мы хотим выполнить.
 
 Но если мы просто вызовем эту функцию после `loadScript(…)`, у нас ничего не выйдет:
-~~~javascript
-loadScript('/my/script.js'); // в скрипте есть "function newFunction() {…}"
+
+```javascript
+loadScript("/my/script.js"); // в скрипте есть "function newFunction() {…}"
 newFunction(); // такой функции не существует!_`
-~~~
+```
+
 Действительно, ведь у браузера не было времени загрузить скрипт. Сейчас функция `loadScript` никак не позволяет отследить момент загрузки. Скрипт загружается, а потом выполняется. Но нам нужно точно знать, когда это произойдёт, чтобы использовать функции и переменные из этого скрипта.
 
 Давайте передадим функцию `callback` вторым аргументом в `loadScript`, чтобы вызвать её, когда скрипт загрузится:
-~~~javascript
-function loadScript(src, _callback_) {   
-	let script = document.createElement('script');   
+
+```javascript
+function loadScript(src, _callback_) {
+	let script = document.createElement('script');
 	script.src = src;   _
-	script.onload = () => callback(script);_   
+	script.onload = () => callback(script);_
 	document.head.append(script); }`
-~~~
+```
 
 Событие `onload` описано в [[Загрузка ресурсов onload и onerror]], оно в основном выполняет функцию после загрузки и выполнения скрипта.
 
 Теперь, если мы хотим вызвать функцию из скрипта, нужно делать это в колбэке:
-~~~javascript
-loadScript('/my/script.js', function() {   
-// эта функция вызовется после того, как загрузится скрипт   
+
+```javascript
+loadScript('/my/script.js', function() {
+// эта функция вызовется после того, как загрузится скрипт
 newFunction(); // теперь всё работает   ... });`
-~~~
+```
 
 Смысл такой: вторым аргументом передаётся функция (обычно анонимная), которая выполняется по завершении действия.
 
 Возьмём для примера реальный скрипт с библиотекой функций:
-~~~javascript
-function loadScript(src, callback) {   
-	let script = document.createElement('script');   
-	script.src = src;   
-	
-	script.onload = () => callback(script);   
-	document.head.append(script); } 
-	 
-	loadScript('https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js', script => {
-	alert(`Здорово, скрипт ${script.src} загрузился`);   
-	alert( _ ); // функция, объявленная в загруженном скрипте 
-	});
-~~~
-Такое написание называют асинхронным программированием с использованием колбэков. 
+
+```javascript
+function loadScript(src, callback) {
+  let script = document.createElement("script");
+  script.src = src;
+
+  script.onload = () => callback(script);
+  document.head.append(script);
+}
+
+loadScript(
+  "https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js",
+  (script) => {
+    alert(`Здорово, скрипт ${script.src} загрузился`);
+    alert(_); // функция, объявленная в загруженном скрипте
+  },
+);
+```
+
+Такое написание называют асинхронным программированием с использованием колбэков.
 В функции, которые выполняют какие-либо асинхронные операции, передаётся аргумент #callback — функция, которая будет вызвана по завершению асинхронного действия.
 
 Мы поступили похожим образом в `loadScript`, но это, конечно, распространённый подход.
@@ -93,26 +115,32 @@ function loadScript(src, callback) {
 Как нам загрузить два скрипта один за другим: сначала первый, а за ним второй?
 
 Первое, что приходит в голову, вызвать `loadScript` ещё раз уже внутри колбэка, вот так:
-~~~javascript
-loadScript('/my/script.js', function(script) {    
-	alert(`Здорово, скрипт ${script.src} загрузился, загрузим ещё один`);    _
-	loadScript('/my/script2.js', function(script) {     
-		alert(`Здорово, второй скрипт загрузился`);   
-	});
+
+```javascript
+loadScript("/my/script.js", function (script) {
+  alert(`Здорово, скрипт ${script.src} загрузился, загрузим ещё один`);
+  _;
+  loadScript("/my/script2.js", function (script) {
+    alert(`Здорово, второй скрипт загрузился`);
+  });
 });
-~~~
+```
+
 Когда внешняя функция `loadScript` выполнится, вызовется та, что внутри колбэка.
 
 А что если нам нужно загрузить ещё один скрипт?..
-~~~javascript
-loadScript('/my/script.js', function(script) {    
-	loadScript('/my/script2.js', function(script) {      _
-		loadScript('/my/script3.js', function(script) {       
-		// ...и так далее, пока все скрипты не будут загружены     
-		});
-	})  
+
+```javascript
+loadScript("/my/script.js", function (script) {
+  loadScript("/my/script2.js", function (script) {
+    _;
+    loadScript("/my/script3.js", function (script) {
+      // ...и так далее, пока все скрипты не будут загружены
+    });
+  });
 });
-~~~
+```
+
 Каждое новое действие мы вынуждены вызывать внутри колбэка. Этот вариант подойдёт, когда у нас одно-два действия, но для большего количества уже не удобно. Альтернативные подходы мы скоро разберём.
 
 ## Перехват ошибок
@@ -120,28 +148,37 @@ loadScript('/my/script.js', function(script) {
 В примерах выше мы не думали об ошибках. А что если загрузить скрипт не удалось? Колбэк должен уметь реагировать на возможные проблемы.
 
 Ниже улучшенная версия `loadScript`, которая умеет отслеживать ошибки загрузки:
-~~~javascript
-function loadScript(src, callback) {   
-	let script = document.createElement('script');   
-	script.src = src;    _
-	script.onload = () => callback(null, script);   
-	script.onerror = () => callback(new Error(`Не удалось загрузить скрипт ${src}`));_    
-	document.head.append(script); }``
-~~~
+
+```javascript
+function loadScript(src, callback) {
+  let script = document.createElement("script");
+  script.src = src;
+  _;
+  script.onload = () => callback(null, script);
+  script.onerror = () =>
+    callback(new Error(`Не удалось загрузить скрипт ${src}`));
+  _;
+  document.head.append(script);
+}
+``;
+```
 
 Мы вызываем `callback(null, script)` в случае успешной загрузки и `callback(error)`, если загрузить скрипт не удалось.
 
 Живой пример:
-~~~javascript
-loadScript('/my/script.js', function(error, script) {   
-	if (error) {     // обрабатываем ошибку   
-	} else {     // скрипт успешно загружен   
-	} 
+
+```javascript
+loadScript('/my/script.js', function(error, script) {
+	if (error) {     // обрабатываем ошибку
+	} else {     // скрипт успешно загружен
+	}
 });`
-~~~
+```
+
 Опять же, подход, который мы использовали в `loadScript`, также распространён и называется «колбэк с первым аргументом-ошибкой» («error-first callback»).
 
 Правила таковы:
+
 1.  Первый аргумент функции `callback` зарезервирован для ошибки. В этом случае вызов выглядит вот так: `callback(err)`.
 2.  Второй и последующие аргументы — для результатов выполнения. В этом случае вызов выглядит вот так: `callback(null, result1, result2…)`.
 
@@ -152,23 +189,25 @@ loadScript('/my/script.js', function(error, script) {
 На первый взгляд это рабочий способ написания асинхронного кода. Так и есть. Для одного или двух вложенных вызовов всё выглядит нормально.
 
 Но для нескольких асинхронных действий, которые нужно выполнить друг за другом, код выглядит вот так:
-~~~javascript
-loadScript('1.js', function(error, script) {    
-	if (error) {     
-		handleError(error);   
-	} else {     // ...     
-		loadScript('2.js', 
-		function(error, script) {       
-			if (error) {         
-				handleError(error);       
-			} else {         // ...         
-				loadScript('3.js', 
-				function(error, script) {           
-					if (error) {             
-						handleError(error);           
+
+```javascript
+loadScript('1.js', function(error, script) {
+	if (error) {
+		handleError(error);
+	} else {     // ...
+		loadScript('2.js',
+		function(error, script) {
+			if (error) {
+				handleError(error);
+			} else {         // ...
+				loadScript('3.js',
+				function(error, script) {
+					if (error) {
+						handleError(error);
 						} else {   // ...и так далее, пока все скрипты не будут загружены (*)
 						}         });        }     })   } });`
-~~~
+```
+
 В примере выше:
 
 1.  Мы загружаем `1.js`. Продолжаем, если нет ошибок.
@@ -184,26 +223,28 @@ loadScript('1.js', function(error, script) {
 Такой подход к написанию кода не приветствуется.
 
 Мы можем попытаться решить эту проблему, изолируя каждое действие в отдельную функцию, вот так:
-~~~javascript
-loadScript('1.js', step1);  
-function step1(error, script) {   
-	if (error) {     
-		handleError(error);   
-	} else {     // ...     
-	
-loadScript('2.js', step2);   } }  
 
-function step2(error, script) {   
-	if (error) {     
-		handleError(error);   
-		} else {     // ...     
-		loadScript('3.js', step3);   } }  
+```javascript
+loadScript('1.js', step1);
+function step1(error, script) {
+	if (error) {
+		handleError(error);
+	} else {     // ...
 
-function step3(error, script) {   
-	if (error) {     
-	handleError(error);   
+loadScript('2.js', step2);   } }
+
+function step2(error, script) {
+	if (error) {
+		handleError(error);
+		} else {     // ...
+		loadScript('3.js', step3);   } }
+
+function step3(error, script) {
+	if (error) {
+	handleError(error);
 	} else {     // ...и так далее, пока все скрипты не будут загружены (*)   } };`
-~~~
+```
+
 Заметили? Этот код делает всё то же самое, но вложенность отсутствует, потому что все действия вынесены в отдельные функции.
 
 Код абсолютно рабочий, но кажется разорванным на куски. Его трудно читать, вы наверняка заметили это. Приходится прыгать глазами между кусками кода, когда пытаешься его прочесть. Это неудобно, особенно, если читатель не знаком с кодом и не знает, что за чем следует.
@@ -212,6 +253,6 @@ function step3(error, script) {
 
 Нужно найти способ получше.
 
-К счастью, такие способы существуют. 
+К счастью, такие способы существуют.
 
 Один из лучших — использовать промисы, о которых рассказано в следующей главе [[065 Promise|Promise]]

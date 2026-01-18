@@ -1,12 +1,21 @@
 ---
+uid: 1WJxdTqxBh_GDVdhE7osX
 title: Что такое элемент `output` в HTML5?
-draft: false
 tags:
   - "#HTML"
   - "#output"
   - "#html-for"
-info:
+info: []
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 53
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704021733.png|600]]
 
 Элемент `output` в HTML5 представляет собой контейнер для вывода результатов вычислений или другой информации, которая генерируется на основе пользовательского ввода. Элемент `output` позволяет разработчикам создавать динамические веб-страницы, которые могут отображать результаты вычислений или другой информации на странице без необходимости использования скриптов или других средств программирования.
@@ -17,8 +26,8 @@ info:
 
 ```html
 <form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
-  <input type="number" id="a" value="0"> +
-  <input type="number" id="b" value="0"> =
+  <input type="number" id="a" value="0" /> +
+  <input type="number" id="b" value="0" /> =
   <output name="result" for="a b"></output>
 </form>
 ```

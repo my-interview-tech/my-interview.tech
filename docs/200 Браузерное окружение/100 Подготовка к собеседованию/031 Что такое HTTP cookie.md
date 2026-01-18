@@ -1,14 +1,23 @@
 ---
+uid: rUu8FuZSUupy4qvdoa5gv
 title: Что такое HTTP cookie?
-draft: false
 tags:
   - HTTP
   - Cookie
   - browser
 info:
-  - https://developer.mozilla.org/ru/docs/Web/HTTP/%D0%9A%D1%83%D0%BA%D0%B8
-  - https://habr.com/ru/companies/ruvds/articles/556742/
+  - "https://developer.mozilla.org/ru/docs/Web/HTTP/%D0%9A%D1%83%D0%BA%D0%B8"
+  - "https://habr.com/ru/companies/ruvds/articles/556742/"
+draft: false
+technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
+tools: []
+order: 31
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703190918.png|600]]
 
 _HTTP cookie (web cookie, `cookie` браузера)_ - это _небольшой фрагмент данных, отправляемый сервером на браузер пользователя, который тот может сохранить и отсылать обратно с новым запросом к данному серверу._ Это, в частности, позволяет узнать, с одного ли браузера пришли оба запроса (например, для аутентификации пользователя). Они запоминают информацию о состоянии для протокола HTTP, который сам по себе этого делать не умеет.

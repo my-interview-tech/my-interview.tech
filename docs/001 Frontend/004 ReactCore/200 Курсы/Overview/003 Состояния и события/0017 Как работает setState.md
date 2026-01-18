@@ -1,16 +1,26 @@
 ---
+uid: SotBu3cdJoZmGKyUUui84
 title: Как работает setState?
-draft: false
 tags:
   - "#React"
   - "#state"
   - "#setState"
 info:
   - "[[0005 Рендеринг элементов|Рендеринг элементов]]"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 17
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
-В setState () нужно передавать только изменения в State 
 
-_____
+В setState () нужно передавать только изменения в State
+
+---
+
 ## Введение
 
 На этой странице представлены понятия «состояние» ( #state ) и «жизненный цикл» ( #lifecycle ) #React-компонент. Подробный [справочник API компонентов находится по этой ссылке](https://ru.reactjs.org/docs/react-component.html).
@@ -18,8 +28,8 @@ _____
 В качестве примера рассмотрим идущие часы из [предыдущего раздела](https://ru.reactjs.org/docs/rendering-elements.html#updating-the-rendered-element). В [[0005 Рендеринг элементов]] мы научились обновлять UI только одним способом — вызовом `root.render()`:
 
 ```jsx
-const root = ReactDOM.createRoot(document.getElementById('root'));
-  
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
 function tick() {
   const element = (
     <div>
@@ -27,7 +37,8 @@ function tick() {
       <h2>Сейчас {new Date().toLocaleTimeString()}.</h2>
     </div>
   );
-  root.render(element);}
+  root.render(element);
+}
 
 setInterval(tick, 1000);
 ```
@@ -37,18 +48,20 @@ setInterval(tick, 1000);
 Для начала, извлечём компонент, показывающий время:
 
 ```jsx
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 function Clock(props) {
   return (
-    <div>      
-	    <h1>Привет, мир!</h1>      
-	    <h2>Сейчас {props.date.toLocaleTimeString()}.</h2>    
-	</div>  );
+    <div>
+      <h1>Привет, мир!</h1>
+      <h2>Сейчас {props.date.toLocaleTimeString()}.</h2>
+    </div>
+  );
 }
 
 function tick() {
-  root.render(<Clock date={new Date()} />);}
+  root.render(<Clock date={new Date()} />);
+}
 
 setInterval(tick, 1000);
 ```
@@ -102,10 +115,10 @@ class Clock extends React.Component {
 class Clock extends React.Component {
   render() {
     return (
-    <div>
+      <div>
         <h1>Привет, мир!</h1>
-        <h2>Сейчас {this.state.date.toLocaleTimeString()}.</h2>      
-    </div>
+        <h2>Сейчас {this.state.date.toLocaleTimeString()}.</h2>
+      </div>
     );
   }
 }
@@ -117,7 +130,8 @@ class Clock extends React.Component {
 class Clock extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {date: new Date()};  }
+    this.state = { date: new Date() };
+  }
 
   render() {
     return (
@@ -152,21 +166,21 @@ root.render(<Clock />);
 
 ```jsx
 class Clock extends React.Component {
-  constructor(props) {    
-	  super(props);    
-	  this.state = {date: new Date()};  
-}
+  constructor(props) {
+    super(props);
+    this.state = { date: new Date() };
+  }
   render() {
     return (
       <div>
         <h1>Привет, мир!</h1>
-        <h2>Сейчас {this.state.date.toLocaleTimeString()}.</h2>      
+        <h2>Сейчас {this.state.date.toLocaleTimeString()}.</h2>
       </div>
     );
   }
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<Clock />);
 ```
 
@@ -186,11 +200,11 @@ root.render(<Clock />);
 class Clock extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {date: new Date()};
+    this.state = { date: new Date() };
   }
 
-  componentDidMount() {  }
-  componentWillUnmount() {  }
+  componentDidMount() {}
+  componentWillUnmount() {}
   render() {
     return (
       <div>
@@ -209,7 +223,7 @@ class Clock extends React.Component {
 ```jsx
 componentDidMount() {
     this.timerID = setInterval(() => this.tick(),
-	1000 );  
+	1000 );
 }
 ```
 
@@ -232,24 +246,22 @@ componentDidMount() {
 class Clock extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {date: new Date()};
+    this.state = { date: new Date() };
   }
 
   componentDidMount() {
-    this.timerID = setInterval(
-      () => this.tick(),
-      1000
-    );
+    this.timerID = setInterval(() => this.tick(), 1000);
   }
 
   componentWillUnmount() {
     clearInterval(this.timerID);
   }
 
-  tick() {    
-	  this.setState({      
-		  date: new Date()    });  
-	}
+  tick() {
+    this.setState({
+      date: new Date(),
+    });
+  }
 
   render() {
     return (
@@ -261,7 +273,7 @@ class Clock extends React.Component {
   }
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<Clock />);
 ```
 
@@ -285,14 +297,14 @@ root.render(<Clock />);
 
 ```jsx
 // Неправильно
-this.state.comment = 'Привет';
+this.state.comment = "Привет";
 ```
 
 Вместо этого используйте `setState()`:
 
 ```jsx
 // Правильно
-this.setState({comment: 'Привет'});
+this.setState({ comment: "Привет" });
 ```
 
 Конструктор — это единственное место, где вы можете присвоить значение `this.state` напрямую.
@@ -317,7 +329,7 @@ this.setState({
 ```jsx
 // Правильно
 this.setState((state, props) => ({
-  counter: state.counter + props.increment
+  counter: state.counter + props.increment,
 }));
 ```
 
@@ -325,9 +337,9 @@ this.setState((state, props) => ({
 
 ```jsx
 // Правильно
-this.setState(function(state, props) {
+this.setState(function (state, props) {
   return {
-    counter: state.counter + props.increment
+    counter: state.counter + props.increment,
   };
 });
 ```
@@ -366,7 +378,7 @@ this.setState(function(state, props) {
 
 ## Однонаправленный поток данных
 
-В иерархии компонентов ни родительский, ни дочерние компоненты не знают, задано ли состояние другого компонента. Также не важно, как был создан определённый компонент — с помощью функции или с помощью класса.5 
+В иерархии компонентов ни родительский, ни дочерние компоненты не знают, задано ли состояние другого компонента. Также не важно, как был создан определённый компонент — с помощью функции или с помощью класса.5
 
 Состояние часто называют «локальным», «внутренним» или инкапсулированным. Оно доступно только для самого компонента и скрыто от других.
 
@@ -394,9 +406,9 @@ function FormattedDate(props) {
 function App() {
   return (
     <div>
-      <Clock />      
-      <Clock />      
-      <Clock />    
+      <Clock />
+      <Clock />
+      <Clock />
     </div>
   );
 }
@@ -406,4 +418,4 @@ function App() {
 
 В React-приложениях, имеет ли компонент состояние или нет — это внутренняя деталь реализации компонента, которая может меняться со временем. Можно использовать компоненты без состояния в компонентах с состоянием, и наоборот.
 
-___
+---

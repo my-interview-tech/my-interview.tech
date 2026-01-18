@@ -1,13 +1,22 @@
 ---
+uid: FHQrvPVBuKVZzegyirla0
 title: Разница между `innerHTML` и `outerHTML`
-draft: false
 tags:
   - "#DOM"
   - "#innerHTML"
   - "#outerHTML"
   - "#browser"
-info:
+info: []
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 24
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230701221949.png|600]]
 
 `innerHTML` и `outerHTML` - это свойства элемента в JavaScript, которые используются для доступа к HTML-содержимому элемента.
@@ -23,9 +32,9 @@ info:
 ```
 
 ```javascript
-const example = document.querySelector("#example")
-console.log(example.innerHTML) // выводит: <p>Hello, world!</p>
-example.innerHTML = "<p>Goodbye, world!</p>"
+const example = document.querySelector("#example");
+console.log(example.innerHTML); // выводит: <p>Hello, world!</p>
+example.innerHTML = "<p>Goodbye, world!</p>";
 ```
 
 В этом примере мы используем метод `querySelector()` для получения элемента с id `example`. Затем мы используем свойство `innerHTML` для получения HTML-содержимого элемента и для изменения его на новое значение `<p>Goodbye, world!</p>`.
@@ -41,10 +50,10 @@ example.innerHTML = "<p>Goodbye, world!</p>"
 ```
 
 ```javascript
-const example = document.querySelector("#example")
-console.log(example.outerHTML)
+const example = document.querySelector("#example");
+console.log(example.outerHTML);
 // выводит: <div id="example"><p>Hello, world!</p></div>
-example.outerHTML = '<div id="new-example"><p>Goodbye, world!</p></div>'
+example.outerHTML = '<div id="new-example"><p>Goodbye, world!</p></div>';
 ```
 
 В этом примере мы используем метод `querySelector()` для получения элемента с id `example`. Затем мы используем свойство `outerHTML` для получения HTML-кода элемента и для изменения его на новое значение `<div id="new-example"><p>Goodbye, world!</p></div>`.

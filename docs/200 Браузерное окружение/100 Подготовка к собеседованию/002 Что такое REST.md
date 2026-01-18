@@ -1,6 +1,6 @@
 ---
+uid: j-QYgOvni33eVTijpxGBc
 title: Что такое REST?
-draft: false
 tags:
   - rest
   - RESTful
@@ -11,7 +11,16 @@ info:
   - "[[0092 RESTful API|RESTful API]]"
   - "[[0093 Понимание REST|Понимание REST]]"
   - "[[0094 REST простыми словами|REST простыми словами]]"
+draft: false
+technology: Подготовка к собеседованию
+specialty: "Frontend,Backend"
+tools: []
+order: 2
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703185935.png|600]]
 
 _REST_ (`Representational State Transfer`) - это стандартная _архитектурная модель_ для построения распределенных систем, основанная на принципах, описанных в докладе Роя Филдинга (Roy Fielding) в 2000 году.

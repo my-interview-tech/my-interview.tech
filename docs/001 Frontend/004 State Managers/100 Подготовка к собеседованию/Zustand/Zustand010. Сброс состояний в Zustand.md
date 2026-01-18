@@ -1,6 +1,6 @@
 ---
+uid: uBGdzuhXiv3jF-xCbkbS3
 title: Сброс состояний в Zustand
-draft: false
 tags:
   - React
   - Zustand
@@ -8,52 +8,64 @@ tags:
   - State-manager
   - create
   - Set
-info:
+info: []
+draft: false
+technology: State Managers
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2026-01-18T15:03:38.095Z"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ##### **Часть 1: Основы сброса состояний**
 
 **1. Необходимость сброса состояний:**
+
 - **Проблема:** Помимо установки и хранения значений в Store, часто требуется сбрасывать состояния к изначальным значениям.
 - **Пример:** Счетчик, который должен вернуться к нулю после сброса.
 
 **2. Простой способ сброса:**
+
 - **Метод сброса:** Создание метода, который возвращает значения переменных к исходным (например, в 0).
 
 Пример:
 
 ```jsx
-    const useCounterStore = create((set) => ({
-      count: 0,
-      increment: () => set((state) => ({ count: state.count + 1 })),
-      decrement: () => set((state) => ({ count: state.count - 1 })),
-      reset: () => set({ count: 0 }),
-    }));
+const useCounterStore = create((set) => ({
+  count: 0,
+  increment: () => set((state) => ({ count: state.count + 1 })),
+  decrement: () => set((state) => ({ count: state.count - 1 })),
+  reset: () => set({ count: 0 }),
+}));
 ```
 
 **3. Кнопка сброса:**
 
 - **Добавление кнопки:** Добавление кнопки "Reset" для вызова метода сброса.
-    
+
 Пример:
 
 ```jsx
-    const CounterComponent = () => {
-      const { count, increment, decrement, reset } = useCounterStore();
-    
-      return (
-        <div>
-          <h1>{count}</h1>
-          <button onClick={increment}>+</button>
-          <button onClick={decrement}>-</button>
-          <button onClick={reset}>Reset</button>
-        </div>
-      );
-    };
+const CounterComponent = () => {
+  const { count, increment, decrement, reset } = useCounterStore();
+
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
+      <button onClick={reset}>Reset</button>
+    </div>
+  );
+};
 ```
 
 ##### **Часть 2: Сброс состояний в нескольких хранилищах**
 
 **1. Проблематика сброса в нескольких Store:**
+
 - **Проблема:** Сброс состояний в нескольких Store одновременно может быть сложным.
 - **Решение:** Необходимость кастомизации функции создания Store (Create функции) для решения этой проблемы.
 
@@ -78,7 +90,7 @@ info:
 
 ```jsx
 // Файл customCreate.js
-import { create } from 'zustand';
+import { create } from "zustand";
 
 const resetMethods = new Set();
 
@@ -100,7 +112,7 @@ const customCreate = (initializer) => {
 export default customCreate;
 
 // Применение в Store
-import customCreate from './customCreate';
+import customCreate from "./customCreate";
 
 const useCounterStore = customCreate((set) => ({
   count: 0,
@@ -133,6 +145,6 @@ const CounterComponent = () => {
 
 Кастомизация функции создания Store в Zustand позволяет эффективно управлять сбросом состояний в нескольких хранилищах, упрощая поддержку и масштабирование приложения.
 
-___
+---
 
 [[004 State Managers|Назад]]

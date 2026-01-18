@@ -1,13 +1,23 @@
 ---
+uid: RNuoG0vhiJoHewQruj4j-
 title: Учимся писать сложные Typescript типы на примере роутинга в React
-draft: false
 tags:
   - "#React"
   - "#TypeScript"
   - "#Router"
   - "#React-router"
+draft: false
+technology: TypeScript
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
-links: 
+
+links:
+
 - Роутинг библиотека react-router ([https://reactrouter.com/en/main](https://reactrouter.com/en/main))
 - Роутинг библиотека type-route ([https://type-route.zilch.dev/](https://type-route.zilch.dev/))
 - Typescript утилиты type-fest ([https://github.com/sindresorhus/type-fest](https://github.com/sindresorhus/type-fest))
@@ -17,11 +27,12 @@ links:
 - JS-like написание типов ([https://github.com/mistlog/typetype](https://github.com/mistlog/typetype))
 - Бонус: ПарсингJSON схемы с помощью infer ([https://alexharri.com/blog/build-schema-language-with-infer](https://alexharri.com/blog/build-schema-language-with-infer))
 
-_____
+---
 
 Вы используете TypeScript, но впадаете в ступор перед, когда видите типы в сторонних библиотеках? `Generics`, `generic constraint`, `infer`, `rest infer`, `conditional` и `recursive types`, `satisfies` вызывают головную боль? Мы постараемся снизить градус сложности и напишем типы для роутинга в React. Данный материал будет полезен как фронтендерам, так и бекендерам.
 
 Статья предполагает, что вы уже знакомы с TypeScript, знаете основы и используете в повседневной разработке.
+
 - Проблема
 - Инструменты
 - Извлекаем параметры из path
@@ -39,8 +50,8 @@ _____
 - `Screen` (экран) - место куда нам нужно попасть, в ui-библиотеках это компоненты.
 - `Route` (маршрут, роут) - конфигурация маршрута до экрана, может включать в себя path, правила перенаправления и др.
 - `Path` (путь) - путь, строка по которой формируется URL:
-    - Статический `/about`, `/tasks`
-    - Параметризированный `/tasks/:taskId`
+  - Статический `/about`, `/tasks`
+  - Параметризированный `/tasks/:taskId`
 - `URL` - конечный адрес сформированный согласно path `http://tutorial/tasks/1`
 
 _*Эти термины будут использоваться далее*_
@@ -48,15 +59,15 @@ _*Эти термины будут использоваться далее*_
 ```jsx
 // 1. Определяем маршрут
 // Маршрут до экрана
-<Route 
+<Route
   // правило, по которому формируется URL
   path="/tasks/:taskId"
   // экран
   component={Task}
-/>
+/>;
 // 2. Получаем URL
 // <http://tutorial/tasks/1>
-const url = generateUrl("/tasks/:taskId", { taskId: 1 })
+const url = generateUrl("/tasks/:taskId", { taskId: 1 });
 // 3. Переходим по URL
 navigate(url);
 ```
@@ -117,12 +128,13 @@ export default function Root() {
 Но path’ы не всегда встречаются полной строкой `/tasks/:taskId`, а могут собираться из разных переменных:
 
 ```jsx
-const tasksPath = 'tasks';
-const { taskId } = useParams()
-generateUrl(`${tasksPath}/:taskid, { taskId }`)
+const tasksPath = "tasks";
+const { taskId } = useParams();
+generateUrl(`${tasksPath}/:taskid, { taskId }`);
 ```
 
 Поэтому зачастую при рефакторинге можно что-то пропустить. В приложении появляются битые ссылки и пользователи негодуют.
+
 ### К чему мы хотим прийти
 
 В этом туториале мы научимся писать сложные TypeScript типы на примере централизованного роутинга.
@@ -163,12 +175,12 @@ export type ExtractParams<Path> = Path extends `${infer Segment}/${infer Rest}`
   ? ExtractParam<Segment> & ExtractParams<Rest>
   : ExtractParam<Path>
 
-// Пример 
-type Params = ExtractParams<'/tasks/:taskId/:commentId'> 
+// Пример
+type Params = ExtractParams<'/tasks/:taskId/:commentId'>
 // Params = { taskId: string; commentId: string; }
 
 export type ExtractParam<Segment> = Segment extends `:${infer Param}`
-  ? { 
+  ? {
    [Param]: string;
   }
   : unknown;
@@ -200,7 +212,7 @@ IDE-suggestions
 
 ```jsx
 export type ExtractParam<Path> = Path extends `:${infer Param}`
-  ? { 
+  ? {
    [Param]: string;
   }
   : {};
@@ -208,23 +220,23 @@ export type ExtractParam<Path> = Path extends `:${infer Param}`
 // expectTypeOf - функция из библиотеки expect-type
 // @ts-expect-error - комментарий из expect-type наподобии eslint-disable-next-line
 it('ExtractParam type ', () => {
-  // { taskId: string } 
+  // { taskId: string }
   expectTypeOf({ taskId: '' })
     .toMatchTypeOf<ExtractParam<':taskId'>>();
-  
-  // { commentId: string } 
+
+  // { commentId: string }
   expectTypeOf({ commentId: '' })
     .toMatchTypeOf<ExtractParam<':commentId'>>();
-  
+
   // {} вторая ветка conditional
   expectTypeOf({ }).toMatchTypeOf<ExtractParam<'somestring'>>();
 
-  
-  // @ts-expect-error 
-  // !== { taskId: number }  
+
+  // @ts-expect-error
+  // !== { taskId: number }
   expectTypeOf({ taskId: 1 }).toMatchTypeOf<ExtractParam<':taskId'>>();
-  
-  // @ts-expect-error 
+
+  // @ts-expect-error
   // !== { }
   expectTypeOf({ }).toEqualTypeOf<ExtractParam<':taskId'>>();
 });
@@ -232,8 +244,8 @@ it('ExtractParam type ', () => {
 
 Для облегчения понимания работы переведем тип `ExtractParam` в псевдокод на JS.
 
-_(* Я не утверждаю, что под капотом оно работает именно так)  
-(** Данный подход я позаимствовал из библиотеки_ [_type‑type_](https://github.com/mistlog/typetype)_, она позволяет писать сложные типы в JS‑like нотации)_
+*(\* Я не утверждаю, что под капотом оно работает именно так)  
+(\*\* Данный подход я позаимствовал из библиотеки* [_type‑type_](https://github.com/mistlog/typetype)_, она позволяет писать сложные типы в JS‑like нотации)_
 
 ```jsx
 export const extractParam = (path: any) => {
@@ -257,13 +269,13 @@ it('extractParam func', function () {
 
 В таблице представлены эквиваленты всем ключевым словам и концепциям:
 
-|Концепт|TS|JS|
-|---|---|---|
-|**Property mapping**|`{   [Param]: string;   }`|`{   [param]: ''   }`|
-|[**GENERICS**](https://www.typescriptlang.org/docs/handbook/2/generics.html)Обобщенные типы - обычные функции принимающие на вход параметр|`type ExtractParam<Path>`|`const extractParam = (path: any)`|
-|[**GENERICS CONSTRAINTS**](https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-constraints)Ограничения соответствуют обычным условиям, в данном случае проверка на то что входной параметр принадлежит множеству строк|`if (typeof path === "string" && path.startsWith(':'))`|`Path extends ':${infer Param}'`|
-|[**_CONDITIONAL TYPES_**](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html)Условные типы соответствуют обычному if-else блоку, либо тернарному оператору|`Path extends ':${infer Param}'   ? {   [Param]: string;   }   : {};`|`if (condition) {   }   else {   return {}   }   `|
-|[**INFER**](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#type-inference-in-conditional-types)  <br>соответствует извлечению исходного типа в данном случае остальной части после символа `:`  <br>* Может использоваться только в generic constraints  <br>_** Если TS не может вывести тип указанный после ключевого слова, то он возвращает unknown_|`Path extends ':${infer Param}'`|`const param = path.slice(1);`|
+| Концепт                                                                                                                                                                                                                                                                                                                                                                                  | TS                                                                    | JS                                                 |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | -------------------------------------------------- |
+| **Property mapping**                                                                                                                                                                                                                                                                                                                                                                     | `{   [Param]: string;   }`                                            | `{   [param]: ''   }`                              |
+| [**GENERICS**](https://www.typescriptlang.org/docs/handbook/2/generics.html)Обобщенные типы - обычные функции принимающие на вход параметр                                                                                                                                                                                                                                               | `type ExtractParam<Path>`                                             | `const extractParam = (path: any)`                 |
+| [**GENERICS CONSTRAINTS**](https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-constraints)Ограничения соответствуют обычным условиям, в данном случае проверка на то что входной параметр принадлежит множеству строк                                                                                                                                                  | `if (typeof path === "string" && path.startsWith(':'))`               | `Path extends ':${infer Param}'`                   |
+| [**_CONDITIONAL TYPES_**](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html)Условные типы соответствуют обычному if-else блоку, либо тернарному оператору                                                                                                                                                                                                            | `Path extends ':${infer Param}'   ? {   [Param]: string;   }   : {};` | `if (condition) {   }   else {   return {}   }   ` |
+| [**INFER**](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#type-inference-in-conditional-types) <br>соответствует извлечению исходного типа в данном случае остальной части после символа `:` <br>\* Может использоваться только в generic constraints <br>_\*\* Если TS не может вывести тип указанный после ключевого слова, то он возвращает unknown_ | `Path extends ':${infer Param}'`                                      | `const param = path.slice(1);`                     |
 
 #### ExtractParams
 
@@ -271,22 +283,22 @@ it('extractParam func', function () {
 
 ```jsx
 export type ExtractParams<Path> = Path extends `${infer Segment}/${infer Rest}`
-  ? ExtractParam<Segment> & ExtractParams<Rest> 
+  ? ExtractParam<Segment> & ExtractParams<Rest>
   : ExtractParam<Path>
 
 it('ExtractParams', () => {
   // { taskId: string; }
   expectTypeOf({ taskId: '' })
   .toMatchTypeOf<ExtractParams<'/:taskId'>>();
-  
- 
+
+
   // Рекурсия ( {} & { taskId: string } & { tab: string } )
   // { taskId: string; tab: string; }
   expectTypeOf({ taskId: '', tab: '' })
     .toMatchTypeOf<ExtractParams<'/tasks/:taskId/:tab'>>();
-  
+
   // Рекурсия ( {} & {} & {} )
-  // { } 
+  // { }
   expectTypeOf({ }).toEqualTypeOf<ExtractParams<'/path/without/params'>>();
   // @ts-expect-error
   // { taskId: number; }
@@ -306,7 +318,7 @@ export const extractParams = (path: string): Record<string, string> => {
   const [segment, rest] = [path.slice(0, firstSlash), path.slice(firstSlash + 1)];
   return {
     ...extractParam(segment),
-    // рекурсивный вызов 
+    // рекурсивный вызов
     ...extractParams(rest)
   }
 }
@@ -324,11 +336,11 @@ it('extractParams func', function () {
 - Условие прекращения рекурсии
 - Рекурсивный вызов
 
-|Описание|TS|JS|
-|---|---|---|
-|Объявление|`type ExtractParams<Path>`|`const extractParams`|
-|Условие прекращения рекурсии|`Path extends ‘${infer Segment}/${infer Rest}’`|`const firstSlash = path.indexOf('/');   if (firstSlash === -1) {   return extractParam(path);   }`|
-|Рекурсивный вызов|`ExtractParam<Segment> & ExtractParams<Rest>`|`{   ...extractParam(segment),   ...extractParams(rest)   }`|
+| Описание                     | TS                                              | JS                                                                                                  |
+| ---------------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| Объявление                   | `type ExtractParams<Path>`                      | `const extractParams`                                                                               |
+| Условие прекращения рекурсии | `Path extends ‘${infer Segment}/${infer Rest}’` | `const firstSlash = path.indexOf('/');   if (firstSlash === -1) {   return extractParam(path);   }` |
+| Рекурсивный вызов            | `ExtractParam<Segment> & ExtractParams<Rest>`   | `{   ...extractParam(segment),   ...extractParams(rest)   }`                                        |
 
 ### Как работает преобразование конфигурации
 
@@ -365,8 +377,8 @@ it('extractParams func', function () {
 С типами нужно проделать примерно то же самое: к исходному интерфейсу `RouteObject` из react-router добавить `fullPath` с полным путем до экрана и заменить `path` как обычную строку, на path где будет константная строка из конфигурации:
 
 ```jsx
-path: ':taskId'
-fullPath: '/tasks/:taskId'
+path: ":taskId";
+fullPath: "/tasks/:taskId";
 ```
 
 ### Satisfies, as const, type assertion
@@ -422,7 +434,7 @@ type ConstantRoute<
   fullPath: FullPath;
 };
 type ConcatPath<
-  Path extends string, 
+  Path extends string,
   CurrentPath extends string> = `${Path}/${CurrentPath}`;
 ```
 
@@ -463,20 +475,24 @@ export const ROUTES_CONFIG = {
 } as const satisfies ReadonlyDeep<RouteObject>;
 ```
 
-Для этого нужно рекурсивно пройти по этому дереву и преобразовать следующим образом  
-  
+Для этого нужно рекурсивно пройти по этому дереву и преобразовать следующим образом
+
 **Было:**
 
 ```jsx
 {
-  children: [{
-    path: 'tasks',
-    id: 'tasks',
-    children: [{ 
-        path: ':taskId', 
-        id: 'task' 
-    }]
-  }]
+  children: [
+    {
+      path: "tasks",
+      id: "tasks",
+      children: [
+        {
+          path: ":taskId",
+          id: "task",
+        },
+      ],
+    },
+  ];
 }
 ```
 
@@ -534,17 +550,16 @@ export function mergeArrayOfObjects(arr: RouteObject[], path = '') {
 }
 ```
 
-| Описание                                               | TS                           | JS                                            |                                        |
-| ------------------------------------------------------ | ---------------------------- | --------------------------------------------- | -------------------------------------- |
-| **Rest Infer **Работает он также как и оператор spread | `[infer R, ...infer Rest]`   | `const [first, ...rest] = arr`                |                                        |
-| Условие прекращения рекурсии | `T extends readonly [infer R, ...infer Rest]` | `if (first == null) {   return {}   }` |
-
+| Описание                                               | TS                                            | JS                                     |     |
+| ------------------------------------------------------ | --------------------------------------------- | -------------------------------------- | --- |
+| **Rest Infer **Работает он также как и оператор spread | `[infer R, ...infer Rest]`                    | `const [first, ...rest] = arr`         |     |
+| Условие прекращения рекурсии                           | `T extends readonly [infer R, ...infer Rest]` | `if (first == null) {   return {}   }` |
 
 Опишем шаги рекурсии:
 
 ```jsx
 const routeArr = [
-  { id: 'tasks', path: '/tasks' }, 
+  { id: 'tasks', path: '/tasks' },
   { id: 'home', path: '/home' }
 ];
 expectTypeOf(routeArr).toMatchTypeOf<MergeArrayOfObjects<typeof routeArr>>();
@@ -563,7 +578,7 @@ Rest = []
 // R != unknown === true
 MergeArrayOfObjects<Rest, Path>
 // 3 шаг
-T = [] 
+T = []
 // T extends readonly [infer R, ...infer Rest] === true
 R = null
 Rest = null
@@ -575,7 +590,7 @@ Rest = null
 
 ```jsx
 // проверям что объект содержит id и path, извлекаем исходные константы строк
-// и трансформируем 
+// и трансформируем
 // { id: 'tasks', children: [{ id: 'task' }] }
 // -> {tasks: { task: {} }}
 type RecursiveTransform<
@@ -584,7 +599,7 @@ type RecursiveTransform<
 > = RouteObject extends {
   id: infer Name extends string;
   path: infer Path extends string;
-} 
+}
   ? TransformIdToProperty<Name, RouteObject, Path, FullPath>
   : { }
 
@@ -597,9 +612,9 @@ type TransformIdToProperty<
   // вкратце const = concatPath(fullPath,path), используем параметр вместо переменной
   ConcatedPath extends string = ConcatPath<FullPath, Path>
 > = {
-  // проверяем наличие children 
+  // проверяем наличие children
   [Prop in ID]: RouteObject extends { children: infer Children }
-    // рекурсивно преобразуем 
+    // рекурсивно преобразуем
     ? MergeArrayOfObjects<Children, ConcatedPath> & ConstantRoute<ConcatedPath, Path>
     : ConstantRoute<ConcatedPath, Path>
 }
@@ -625,7 +640,7 @@ export const ROUTES_CONFIG = {
 type RoutesConfigType = typeof RecursiveTransform;
 
 const transfromRoutes = (config: RouteObject, fullPath = '') => {
-  // transform code 
+  // transform code
   return config as RecursiveTransform<RoutesConfigType>
 }
 
@@ -684,4 +699,3 @@ ROUTES = {
 Для тех, кто хочет потренироваться в написании Typescript типов:
 
 [https://github.com/type-challenges/type-challenges](https://github.com/type-challenges/type-challenges)
-

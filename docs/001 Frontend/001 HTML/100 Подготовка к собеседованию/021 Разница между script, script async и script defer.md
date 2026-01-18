@@ -1,14 +1,23 @@
 ---
-title: Разница между `script`, `script async` и `script defer`?
-draft: false
+uid: t20h7-iNsGcgLFtG2j-BT
+title: "Разница между `script`, `script async` и `script defer`?"
 tags:
   - "#HTML"
   - "#script"
   - "#script-async"
   - "#script-defer"
 info:
-  - https://habr.com/ru/articles/338840/
+  - "https://habr.com/ru/articles/338840/"
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 21
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 - **script** - отрисовка HTML блокируется, скрипт извлекается и выполняется немедленно, отрисовка HTML возобновляется после окончания выполнения скрипта.
 
 - **script async** - скрипт будет получен и обработан параллельно с отрисовкой HTML, его выполнение закончится как только это будет возможно (обычно до того, как закончилась отрисовка HTML). Используйте async тогда, когда скрипт не зависит от других скриптов на странице, например для аналитики.
@@ -26,14 +35,14 @@ info:
     <title>Page Title</title>
   </head>
   <body>
-	<!-- Block HTML reading -->
-	<script src="script1.js"></script>
-	
-	<!-- Execution with HTML reading -->
-	<script src="script2.js" async></script>
-	
-	<!-- Execution after HTML is ready -->
-	<script src="script3.js" defer></script>
+    <!-- Block HTML reading -->
+    <script src="script1.js"></script>
+
+    <!-- Execution with HTML reading -->
+    <script src="script2.js" async></script>
+
+    <!-- Execution after HTML is ready -->
+    <script src="script3.js" defer></script>
   </body>
 </html>
 ```

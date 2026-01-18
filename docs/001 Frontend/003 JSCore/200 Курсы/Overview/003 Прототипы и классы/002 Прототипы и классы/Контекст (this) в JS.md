@@ -1,12 +1,23 @@
 ---
+uid: wPdqNXOTV4IVQJfZ2uu3i
 title: Контекст (this) в JS
-draft: false
 tags:
   - "#JavaScript"
   - "#this"
 info:
-  - "[[0057 Декораторы и переадресация вызова, сall и apply|Декораторы и переадресация вызова, сall и apply]]"
+  - >-
+    [[0057 Декораторы и переадресация вызова, сall и apply|Декораторы и
+    переадресация вызова, сall и apply]]
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ## Введение
 
 Примечание: под "точкой" в тексте подразумевается вызов как метод объекта, т.е. либо `obj.fn()`, либо `obj['fn']()`
@@ -19,7 +30,7 @@ info:
 
 Является экземпляром класса, который вы создаете с помощью new, и устанавливается в момент создания этого экземпляра
 
-````javascript
+```javascript
 class Test {
   constructor(name) {
     // this = объекту, который мы создаем после объявления класса.
@@ -28,10 +39,12 @@ class Test {
   }
 }
 
-const test = new Test('Имя, которое установится в поле name созданного объекта')
+const test = new Test(
+  "Имя, которое установится в поле name созданного объекта",
+);
 // Объект, который записался в test, во время создания
 // экземпляра был в this класса Test, поэтому мы смогли установить его поле name
-````
+```
 
 ---
 
@@ -51,21 +64,21 @@ fn(); // контекст равен глобальному контексту (
 
 ```js
 const obj = {
-    fn() {
-        console.log(this)
-    },
+  fn() {
+    console.log(this);
+  },
 };
 obj.fn(); // obj
 
 const fn = obj.fn;
-fn() // глобальный контекст (undefined в strict моде и window без него)
+fn(); // глобальный контекст (undefined в strict моде и window без него)
 ```
 
 [2] Если обычную функцию, при вызове которой контекст был равен глобальному контексту, **присвоить в объект**, а затем вызвать эту функцию как метод объекта, **контекстом функции станет этот объект**, потому что слева от точки при вызове функции будет расположен этот объект
 
 ```js
 function fn() {
-    console.log(this);
+  console.log(this);
 }
 
 fn(); // глобальный контекст (undefined в strict моде и window без него)
@@ -80,25 +93,25 @@ obj.fn(); // obj
 
 ```js
 const someFn = (callback) => {
- callback(); // любая функция/метод, переданная сюда, будет вызвана без точки слева,
- // т.е. не от имени объекта. Это означает, что её контекст будет утерян
+  callback(); // любая функция/метод, переданная сюда, будет вызвана без точки слева,
+  // т.е. не от имени объекта. Это означает, что её контекст будет утерян
 };
 
 const obj = {
- method: function() {
-  console.log(this);
- },
+  method: function () {
+    console.log(this);
+  },
 };
 
-someFn(obj.method) // this будет равен undefined при use strict и window без него
+someFn(obj.method); // this будет равен undefined при use strict и window без него
 ```
 
 Тем не менее мы можем **избежать** такого поведения, **обернув вызов** нашего метода в обычную или стрелочную функцию:
 
 ```js
 const someFn = (callback) => {
- callback();
- /*
+  callback();
+  /*
   Контекст все равно будет утерян, но утерян он будет у переданной функции,
   т.е. у нашей функции-обертки
 
@@ -110,13 +123,15 @@ const someFn = (callback) => {
 };
 
 const obj = {
-    method: function() {
-        console.log(this);
-    },
+  method: function () {
+    console.log(this);
+  },
 };
 
 someFn(() => obj.method()); // this в методе будет равен obj
-someFn(function() { obj.method() }); // this в методе будет равен obj
+someFn(function () {
+  obj.method();
+}); // this в методе будет равен obj
 ```
 
 ### 3. this в стрелочных функциях
@@ -127,7 +142,7 @@ someFn(function() { obj.method() }); // this в методе будет раве
 const fn = () => console.log(this); // this должен быть глобальным контекстом
 // (undefined в strict моде и window без него)
 fn.call({
-  name: 'новый контекст',
+  name: "новый контекст",
 }); /* Вызов через call должен принудительно привязать
  новый контекст к функции, но тем не менее this все равно равен глобальному контексту
  (undefined в strict моде и window без него) */

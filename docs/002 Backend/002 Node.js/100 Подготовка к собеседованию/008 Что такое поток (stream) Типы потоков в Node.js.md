@@ -1,10 +1,19 @@
 ---
+uid: kHIXVWM3b_ISO0guPrl2T
 title: Что такое поток (stream)? Типы потоков в Node.js?
-draft: false
 tags:
   - "#NodeJS"
   - "#stream"
+draft: false
+technology: Node.js
+specialty: Backend
+tools: []
+order: 8
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704134927.png|600]]
 
 _Поток (stream) в Node.js_ - это концепция, которая используется для работы с данными в виде последовательности, которую можно обрабатывать по частям, вместо того, чтобы загружать их целиком в память.

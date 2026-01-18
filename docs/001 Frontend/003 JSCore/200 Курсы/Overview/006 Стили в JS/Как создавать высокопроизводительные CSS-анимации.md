@@ -1,20 +1,28 @@
 ---
+uid: RdPdIgAy-oi80Ax2RbMu6
 title: Как создавать высокопроизводительные CSS-анимации
+tags: []
 draft: false
-tags:
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 0
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
 
 В этом руководстве вы узнаете, как создавать высокопроизводительные CSS-анимации.
 
-Смотрите, [почему некоторые анимации медленные?](https://web.dev/animations-overview/)изучить теорию, лежащую в основе этих рекомендаций.  [[Почему некоторые анимации медленные]]
+Смотрите, [почему некоторые анимации медленные?](https://web.dev/animations-overview/)изучить теорию, лежащую в основе этих рекомендаций. [[Почему некоторые анимации медленные]]
 
 ## Совместимость с браузером [#](https://web.dev/animations-guide/#browser-compatibility)
 
 Все свойства CSS, рекомендуемые в этом руководстве, имеют хорошую кроссбраузерную поддержку.
 
--   [`transform`](https://developer.mozilla.org/docs/Web/CSS/transform#Browser_compatibility)
--   [`opacity`](https://developer.mozilla.org/docs/Web/CSS/opacity#Browser_compatibility)
--   [`will-change`](https://developer.mozilla.org/docs/Web/CSS/will-change#Browser_compatibility)
+- [`transform`](https://developer.mozilla.org/docs/Web/CSS/transform#Browser_compatibility)
+- [`opacity`](https://developer.mozilla.org/docs/Web/CSS/opacity#Browser_compatibility)
+- [`will-change`](https://developer.mozilla.org/docs/Web/CSS/will-change#Browser_compatibility)
 
 ## Переместить элемент [#](https://web.dev/animations-guide/#move)
 
@@ -23,13 +31,33 @@ tags:
 Например, чтобы переместить элемент в поле зрения, используйте `translate`.
 
 ```css
-.animate {  animation: slide-in 0.7s both;}@keyframes slide-in {  0% {    transform: translateY(-1000px);  }  100% {    transform: translateY(0);  }}
+.animate {
+  animation: slide-in 0.7s both;
+}
+@keyframes slide-in {
+  0% {
+    transform: translateY(-1000px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 ```
 
 Элементы также можно поворачивать, в примере ниже на 360 градусов.
 
 ```css
-.animate {  animation: rotate 0.7s ease-in-out both;}@keyframes rotate {  0% {    transform: rotate(0);  }  100% {    transform: rotate(360deg);  }}
+.animate {
+  animation: rotate 0.7s ease-in-out both;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 ```
 
 ## Изменение размера элемента [#](https://web.dev/animations-guide/#resize)
@@ -37,7 +65,17 @@ tags:
 Чтобы изменить размер элемента, используйте `scale` ключевое слово value [`transform`](https://developer.mozilla.org/docs/Web/CSS/transform)свойства.
 
 ```css
-.animate {  animation: scale 1.5s both;}@keyframes scale {  50% {    transform: scale(0.5);  }  100% {    transform: scale(1);  }}
+.animate {
+  animation: scale 1.5s both;
+}
+@keyframes scale {
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 ```
 
 ## Изменение видимости элемента [#](https://web.dev/animations-guide/#visibility)
@@ -45,7 +83,20 @@ tags:
 Чтобы показать или скрыть элемент, используйте [`opacity`](https://developer.mozilla.org/docs/Web/CSS/opacity).
 
 ```css
-.animate {  animation: opacity 2.5s both;}@keyframes opacity {  0% {    opacity: 1;  }  50% {    opacity: 0;  }  100% {    opacity: 1;  }}
+.animate {
+  animation: opacity 2.5s both;
+}
+@keyframes opacity {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 ```
 
 Найдите примеры копирования и вставки различных анимаций в [Animista](https://animista.net/).
@@ -71,7 +122,9 @@ tags:
 В CSS это свойство может быть применено к любому селектору:
 
 ```css
-body > .sidebar {  will-change: transform;}
+body > .sidebar {
+  will-change: transform;
+}
 ```
 
 Однако [спецификация](https://drafts.csswg.org/css-will-change/) предполагает, что этот подход следует применять только к элементам, которые всегда могут измениться. Если бы приведенный выше пример представлял собой боковую панель, в которую пользователь мог бы входить и выходить, это могло бы иметь место. Некоторые элементы на вашей странице могут меняться нечасто, и поэтому было бы лучше применить `will-change`использование JavaScript в тот момент, когда становится вероятным, что изменение произойдет. Вам нужно будет убедиться, что у браузера достаточно времени для выполнения необходимых оптимизаций, а затем удалить свойство, как только изменение прекратится.
@@ -91,19 +144,40 @@ body > .sidebar {  will-change: transform;}
 Не
 
 ```css
-.box {  position: absolute;  top: 10px;  left: 10px;  animation: move 3s ease infinite;}@keyframes move {  50% {     top: calc(90vh - 160px);     left: calc(90vw - 200px);  }}
+.box {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  animation: move 3s ease infinite;
+}
+@keyframes move {
+  50% {
+    top: calc(90vh - 160px);
+    left: calc(90vw - 200px);
+  }
+}
 ```
 
 Делать
 
 ```css
-.box {  position: absolute;  top: 10px;  left: 10px;  animation: move 3s ease infinite;}@keyframes move {  50% {     transform: translate(calc(90vw - 200px), calc(90vh - 160px));  }}
+.box {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  animation: move 3s ease infinite;
+}
+@keyframes move {
+  50% {
+    transform: translate(calc(90vw - 200px), calc(90vh - 160px));
+  }
+}
 ```
 
 Вы можете проверить это в следующих двух примерах сбоев и изучить производительность с помощью DevTools.
 
--   [Перед](https://glitch.com/~animation-with-top-left).
--   [После](https://glitch.com/~animation-with-transform).
+- [Перед](https://glitch.com/~animation-with-top-left).
+- [После](https://glitch.com/~animation-with-transform).
 
 #### Chrome DevTools [#](https://web.dev/animations-guide/#layout-chrome)
 

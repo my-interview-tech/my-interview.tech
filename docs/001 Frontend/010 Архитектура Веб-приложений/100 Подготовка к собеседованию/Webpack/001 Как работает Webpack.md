@@ -1,13 +1,22 @@
 ---
+uid: Ybpn0p6xgd8ULh-Zk3yov
 title: Как работает Webpack?
-draft: false
 tags:
   - "#webpack"
   - "#bundle"
   - "#production-bundle"
 info:
-  - https://webpack.js.org/
+  - "https://webpack.js.org/"
+draft: false
+technology: Архитектура Веб-приложений
+specialty: Frontend
+tools: []
+order: 1
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704145504.png|600]]
 
 _Webpack_ - это инструмент для сборки проектов. _Он позволяет объединить различные модули и файлы в один или несколько бандлов, которые можно использовать в веб-приложениях._

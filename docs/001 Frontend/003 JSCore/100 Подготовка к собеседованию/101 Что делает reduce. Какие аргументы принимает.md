@@ -1,13 +1,22 @@
 ---
+uid: MT_e1oSaIs2UYCKo4HHUx
 title: Что делает reduce? Какие аргументы принимает?
-draft: false
 tags:
   - "#JavaScript"
   - "#high-order-function"
   - "#reduce"
   - "#array"
-info:
+info: []
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 101
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 *Метод `reduce()`* в JavaScript используется для свертки (агрегации) элементов массива в одно значение. Он применяет функцию обратного вызова к каждому элементу массива, последовательно, слева направо, и возвращает одно итоговое значение.
 
 Синтаксис метода `reduce()` выглядит следующим образом:
@@ -15,7 +24,7 @@ info:
 ```javascript
 array.reduce(function (accumulator, currentValue, index, array) {
   // функция обратного вызова
-}, initialValue)
+}, initialValue);
 ```
 
 Здесь `array` - массив, `accumulator` - аккумулятор, `currentValue` - текущее значение из массива, `index` - индекс текущего элемента, `array` - исходный массив. Функция обратного вызова должна возвращать новое значение для аккумулятора на каждой итерации. `initialValue` - начальное значение аккумулятора, которое может быть опущено. Если начальное значение не указано, то первый элемент массива будет использован в качестве начального значения аккумулятора, а перебор элементов начнется со второго.
@@ -23,13 +32,13 @@ array.reduce(function (accumulator, currentValue, index, array) {
 Пример использования метода `reduce()`:
 
 ```javascript
-const numbers = [1, 2, 3, 4, 5]
+const numbers = [1, 2, 3, 4, 5];
 
 const sum = numbers.reduce(function (accumulator, currentValue) {
-  return accumulator + currentValue
-})
+  return accumulator + currentValue;
+});
 
-console.log(sum) // 15
+console.log(sum); // 15
 ```
 
 В этом примере мы находим сумму элементов массива `numbers` с помощью метода `reduce()`. Начальное значение аккумулятора не указано, поэтому в качестве начального значения используется первый элемент массива. На каждой итерации функция обратного вызова складывает текущий элемент массива с аккумулятором и возвращает новое значение для аккумулятора.

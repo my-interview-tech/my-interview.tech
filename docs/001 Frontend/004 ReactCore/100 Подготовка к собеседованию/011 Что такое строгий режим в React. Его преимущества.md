@@ -1,27 +1,36 @@
 ---
+uid: NQtIQn1WYqiW8jXp745Rt
 title: Что такое строгий режим в React? Его преимущества?
-draft: false
 tags:
   - "#React"
   - "#strict-mode"
 info:
-  - https://dev.to/codeofrelevancy/what-is-strict-mode-in-react-3p5b
+  - "https://dev.to/codeofrelevancy/what-is-strict-mode-in-react-3p5b"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 11
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 _Строгий режим (`Strict Mode`) в React_ - это инструмент, который позволяет _выявлять потенциальные проблемы и уведомлять о них в ранней стадии разработки приложения._
 
 Для включения строгого режима в приложении React, достаточно обернуть корневой компонент приложения в тег `<React.StrictMode>`. Например:
 
 ```jsx
-import React from "react"
-import ReactDOM from "react-dom"
-import App from "./App"
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
   document.getElementById("root"),
-)
+);
 ```
 
 Для отладки событий аналитики, которые вы отправляете, вы можете развернуть свое приложение в среде staging (которая работает в режиме `production`) или _временно отказаться от [Strict Mode](https://reactdev.ru/reference/StrictMode/) и его проверок ремонтирования только для разработки._ Вы также можете отправлять аналитику из обработчиков событий изменения маршрута вместо `Effects`. Для более точной аналитики, [наблюдатели пересечений](https://developer.mozilla.org/docs/Web/API/Intersection_Observer_API) могут помочь отследить, какие компоненты находятся в области просмотра и как долго они остаются видимыми.

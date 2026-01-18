@@ -1,13 +1,22 @@
 ---
+uid: 6MCyitWzVDrYQnTIb_1JK
 title: Почему результат сравнения 2х объектов это `false`?
-draft: false
 tags:
   - "#JavaScript"
   - "#object"
   - "#keys"
   - "#values"
-info:
+info: []
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 154
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703102113.png|600]]
 
 Результат сравнения двух объектов, даже если они имеют одинаковое содержимое, всегда будет `false`, потому что в JavaScript сравнение объектов происходит по ссылке, а не по значению.
@@ -17,10 +26,10 @@ info:
 Например, рассмотрим следующий код:
 
 ```javascript
-const obj1 = { name: "John", age: 30 }
-const obj2 = { name: "John", age: 30 }
+const obj1 = { name: "John", age: 30 };
+const obj2 = { name: "John", age: 30 };
 
-console.log(obj1 === obj2) // false
+console.log(obj1 === obj2); // false
 ```
 
 В этом примере мы создаем два объекта `obj1` и `obj2`, которые содержат одинаковые свойства и значения. Однако, результат сравнения `obj1 === obj2` будет `false`, потому что `obj1` и `obj2` ссылаются на разные объекты в памяти.

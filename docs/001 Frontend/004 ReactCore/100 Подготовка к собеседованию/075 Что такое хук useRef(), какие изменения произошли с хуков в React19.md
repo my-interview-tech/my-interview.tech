@@ -1,15 +1,24 @@
 ---
+uid: HwkBwYkENLTokNjdssn5x
 title: Что такое хук useRef() ?
-draft: false
 tags:
   - React
   - Hooks
   - useRef
 info:
-  - https://react.dev/reference/react/useRef
-  - https://dev.to/nibble/what-is-useref-hook-and-how-do-you-use-it-5emo
+  - "https://react.dev/reference/react/useRef"
+  - "https://dev.to/nibble/what-is-useref-hook-and-how-do-you-use-it-5emo"
+draft: false
+technology: ReactCore
+specialty: Frontend
+tools: []
+order: 75
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
- `useRef()` - это хук в React, предназначенный для создания изменяемого значения, которое сохраняется между рендерами компонента. В отличие от `useState`, изменение значения `useRef` не вызывает повторного рендеринга компонента.
+
+`useRef()` - это хук в React, предназначенный для создания изменяемого значения, которое сохраняется между рендерами компонента. В отличие от `useState`, изменение значения `useRef` не вызывает повторного рендеринга компонента.
 
 Основные характеристики `useRef`:
 
@@ -18,7 +27,7 @@ info:
 3. **Изменяемость**: Вы можете изменять значение `useRef` напрямую, не вызывая повторного рендеринга. Это делается через свойство `current`.
 
 ```jsx
-import React, { useRef } from 'react';
+import React, { useRef } from "react";
 
 function MyComponent() {
   const inputRef = useRef(null);
@@ -36,6 +45,6 @@ function MyComponent() {
 }
 ```
 
-___
+---
 
 [[004 ReactCore|Назад]]

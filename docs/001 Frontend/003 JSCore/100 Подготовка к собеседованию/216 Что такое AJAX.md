@@ -1,13 +1,22 @@
 ---
+uid: Rw6G9V9dAvDSp0BMTW-rV
 title: Что такое AJAX?
-draft: false
 tags:
   - "#JavaScript"
   - "#AJAX"
   - "#XMLHttpRequest"
 info:
-  - https://habr.com/ru/articles/14246/
+  - "https://habr.com/ru/articles/14246/"
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 216
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703140857.png|600]]
 
 _AJAX (`Asynchronous JavaScript and XML`)_ - это технология, которая позволяет обмениваться данными между клиентской и серверной частями web-приложения без перезагрузки страницы. _Она позволяет осуществлять асинхронный запрос к серверу и получать ответ в формате XML, HTML, JSON и других форматах данных._

@@ -1,12 +1,21 @@
 ---
+uid: EAovByfyKgjgGgU6QFien
 title: Разница между `Object` и `Map`
-draft: false
 tags:
   - "#JavaScript"
   - map
   - object
 info: []
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 164
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230720162612.png|600]]
 
 `Object` и `Map` являются двумя разными типами данных, которые используются для хранения и управления коллекциями данных.

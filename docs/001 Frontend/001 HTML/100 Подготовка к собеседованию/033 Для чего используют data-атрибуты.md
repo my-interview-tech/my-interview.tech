@@ -1,13 +1,22 @@
 ---
+uid: 4BNZ3bzmOLnsUrqmWoymN
 title: Для чего используют `data-`атрибуты?
-draft: false
 tags:
   - "#HTML"
   - "#data-"
   - "#DOM"
 info:
-  - https://developer.mozilla.org/ru/docs/Web/Guide/HTML/Using_data_attributes
+  - "https://developer.mozilla.org/ru/docs/Web/Guide/HTML/Using_data_attributes"
+draft: false
+technology: HTML
+specialty: Frontend
+tools: []
+order: 33
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230704020353.png|600]]
 
 До того, как JavaScript-фреймворки стали популярны, фронтенд-разработчики использовали `data-` атрибуты чтобы хранить дополнительные данные прямо в DOM без хаков вроде нестандартных атрибутов или дополнительных свойств в DOM. Атрибуты этого семейства предназначены для хранения частных данных пользователя, для которых не существует более подходящих атрибутов или элементов на странице или в приложении.

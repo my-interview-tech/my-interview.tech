@@ -1,13 +1,22 @@
 ---
+uid: gxbZb-3anLtLAp51ikQxQ
 title: Что такое callback функция? Почему возникает callback hell?
-draft: false
 tags:
   - "#JavaScript"
   - "#callback"
   - "#CallbackHell"
 info:
   - "[[064 CallBack функции|CallBack функции]]"
+draft: false
+technology: JSCore
+specialty: Frontend
+tools: []
+order: 204
+access: free
+created_at: "2025-01-08T02:12:05+05:00"
+updated_at: "2026-01-18T15:03:38.095Z"
 ---
+
 ![[Pasted image 20230703131041.png|600]]
 
 _Callback функция_ - это функция, которая передается в качестве аргумента другой функции и вызывается после завершения выполнения этой функции. Callback функции могут быть использованы для обработки результатов выполнения асинхронных операций, таких как загрузка данных из сети или обработка пользовательского ввода.
@@ -20,10 +29,10 @@ _Callback hell (адское дерево колбэков)_ - это ситуа
 loadDataFromServer(function (data) {
   processData(data, function (result) {
     saveResult(result, function () {
-      console.log("All done!")
-    })
-  })
-})
+      console.log("All done!");
+    });
+  });
+});
 ```
 
 В этом примере функция `loadDataFromServer` получает данные с сервера, которые затем обрабатываются функцией `processData`, а результат обработки сохраняется функцией `saveResult`. Каждая из этих функций принимает колбэк функцию, которая вызывается после завершения выполнения функции. Это может привести к сильной вложенности и усложнению кода.
