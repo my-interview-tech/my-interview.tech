@@ -12,7 +12,9 @@
     "url": "https://github.com/kalushko26/my-interview.tech.git"
   },
   "scripts": {
-    "docs": "npx quartz build --serve -d docs",
+    "build": "node ./quartz/bootstrap-cli.mjs build -d docs",
+    "start": "node ./quartz/bootstrap-cli.mjs build --serve -d docs",
+    "docs": "npm run start",
     "check": "tsc --noEmit && npx prettier . --check",
     "format": "npx prettier . --write",
     "test": "tsx ./quartz/util/path.test.ts",

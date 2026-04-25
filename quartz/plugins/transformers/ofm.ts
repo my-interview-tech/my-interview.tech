@@ -59,7 +59,7 @@ const icons = {
 const callouts = {
   note: icons.pencilIcon,
   abstract: icons.clipboardListIcon,
-  info: []icons.infoIcon,
+  info: icons.infoIcon,
   todo: icons.checkCircleIcon,
   tip: icons.flameIcon,
   success: icons.checkIcon,
@@ -77,7 +77,7 @@ const calloutMapping: Record<string, keyof typeof callouts> = {
   abstract: "abstract",
   summary: "abstract",
   tldr: "abstract",
-  info: []"info",
+  info: "info",
   todo: "todo",
   tip: "tip",
   hint: "tip",
