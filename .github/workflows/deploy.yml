@@ -1,45 +1,46 @@
-name: Deploy Quartz site to GitHub Pages
- 
+name: Deploy
+
 on:
   push:
     branches:
-      - v4
- 
+      - master
+  workflow_dispatch:
+
 permissions:
   contents: read
-  pages: write
-  id-token: write
- 
+
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
- 
+  group: deploy-ssh
+  cancel-in-progress: true
+
 jobs:
-  build:
-    runs-on: ubuntu-22.04
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # Fetch all history for git info
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Install Dependencies
-        run: npm ci
-      - name: Build Quartz
-        run: npx quartz build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: public
- 
   deploy:
-    needs: build
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Deploy over SSH (git pull + docker compose)
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_HOST: ${{ vars.SSH_HOST }}
+          SSH_USER: ${{ vars.SSH_USER }}
+          SSH_DEPLOY_PATH: ${{ vars.SSH_DEPLOY_PATH }}
+        run: |
+          set -euo pipefail
+          test -n "${SSH_PRIVATE_KEY:-}" && test -n "${SSH_HOST:-}" && test -n "${SSH_USER:-}" && test -n "${SSH_DEPLOY_PATH:-}" \
+            || { echo "Missing SSH_PRIVATE_KEY (secret) or SSH_HOST / SSH_USER / SSH_DEPLOY_PATH (variables)"; exit 1; }
+
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
+          ssh-keyscan -p 22 -H "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
+
+          REMOTE_CMD="$(printf 'set -euo pipefail; cd %q && git fetch origin master && git checkout master && git pull --ff-only origin master && docker compose up -d --build' "$SSH_DEPLOY_PATH")"
+
+          ssh -i ~/.ssh/deploy_key \
+            -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=accept-new \
+            -p 22 \
+            "$SSH_USER@$SSH_HOST" \
+            "$REMOTE_CMD"

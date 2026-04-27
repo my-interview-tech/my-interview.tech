@@ -20,7 +20,12 @@
     "test": "tsx ./quartz/util/path.test.ts",
     "profile": "0x -D prof ./quartz/bootstrap-cli.mjs build --concurrency=1",
     "prepare": "husky install",
-    "frontmatter": "tsx scripts/frontmatter/cli/index.ts"
+    "frontmatter": "tsx scripts/frontmatter/cli/index.ts",
+    "docker:build": "docker compose build",
+    "docker:up": "docker compose up -d --build",
+    "docker:up:prod": "HTTP_PORT=80 docker compose up -d --build",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f site"
   },
   "engines": {
     "npm": ">=9.3.1",
