@@ -1,0 +1,7 @@
+node_modules
+public
+.git
+.github
+.cursor
+*.log
+.DS_Store
