@@ -39,11 +39,13 @@ jobs:
 
           ssh-keyscan -p 22 -H "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
 
-          REMOTE_CMD="$(printf 'set -euo pipefail; cd %q && git fetch origin %q && git checkout %q && git pull --ff-only origin %q && docker compose up -d --build' "$SSH_DEPLOY_PATH" "$DEPLOY_BRANCH" "$DEPLOY_BRANCH" "$DEPLOY_BRANCH")"
+          REMOTE_CMD="$(printf 'set -euo pipefail; cd %q && git fetch origin %q && git checkout %q && git pull --ff-only origin %q && nice -n 15 docker compose up -d --build' "$SSH_DEPLOY_PATH" "$DEPLOY_BRANCH" "$DEPLOY_BRANCH" "$DEPLOY_BRANCH")"
 
           ssh -i ~/.ssh/deploy_key \
             -o IdentitiesOnly=yes \
             -o StrictHostKeyChecking=accept-new \
+            -o ServerAliveInterval=60 \
+            -o ServerAliveCountMax=180 \
             -p 22 \
             "$SSH_USER@$SSH_HOST" \
             "$REMOTE_CMD"

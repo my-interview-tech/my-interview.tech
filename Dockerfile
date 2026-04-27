@@ -7,7 +7,8 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci --ignore-scripts
 COPY . .
-RUN npm run build
+
+RUN npm run build -- --concurrency=1
 
 FROM public.ecr.aws/docker/library/nginx:1.27-alpine
 COPY deploy/docker/nginx/default.conf /etc/nginx/conf.d/default.conf
