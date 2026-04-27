@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
 
 permissions:
@@ -24,10 +24,13 @@ jobs:
           SSH_HOST: ${{ vars.SSH_HOST }}
           SSH_USER: ${{ vars.SSH_USER }}
           SSH_DEPLOY_PATH: ${{ vars.SSH_DEPLOY_PATH }}
+          SSH_DEPLOY_BRANCH: ${{ vars.SSH_DEPLOY_BRANCH }}
         run: |
           set -euo pipefail
           test -n "${SSH_PRIVATE_KEY:-}" && test -n "${SSH_HOST:-}" && test -n "${SSH_USER:-}" && test -n "${SSH_DEPLOY_PATH:-}" \
             || { echo "Missing SSH_PRIVATE_KEY (secret) or SSH_HOST / SSH_USER / SSH_DEPLOY_PATH (variables)"; exit 1; }
+
+          DEPLOY_BRANCH="${SSH_DEPLOY_BRANCH:-main}"
 
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
@@ -36,7 +39,7 @@ jobs:
 
           ssh-keyscan -p 22 -H "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
 
-          REMOTE_CMD="$(printf 'set -euo pipefail; cd %q && git fetch origin master && git checkout master && git pull --ff-only origin master && docker compose up -d --build' "$SSH_DEPLOY_PATH")"
+          REMOTE_CMD="$(printf 'set -euo pipefail; cd %q && git fetch origin %q && git checkout %q && git pull --ff-only origin %q && docker compose up -d --build' "$SSH_DEPLOY_PATH" "$DEPLOY_BRANCH" "$DEPLOY_BRANCH" "$DEPLOY_BRANCH")"
 
           ssh -i ~/.ssh/deploy_key \
             -o IdentitiesOnly=yes \
